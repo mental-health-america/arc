@@ -1,0 +1,18 @@
+uuid: 8de27fbf-ea3b-4365-94b1-b8b7e09a97cd
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'DIY Tool - Profile'
+type: diy_tool
+description: 'Add a DIY Tool to the DIY Tool database.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

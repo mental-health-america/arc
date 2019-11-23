@@ -1,0 +1,31 @@
+uuid: 0669eef7-5b5b-44ce-804c-85a77bc2c20f
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:c92a2273-126b-4e87-ac10-7f7caa55fd28'
+  module:
+    - block_content
+    - system
+  theme:
+    - s2s
+id: frontcopy
+theme: s2s
+region: content
+weight: -58
+provider: null
+plugin: 'block_content:c92a2273-126b-4e87-ac10-7f7caa55fd28'
+settings:
+  id: 'block_content:c92a2273-126b-4e87-ac10-7f7caa55fd28'
+  label: 'Front Copy'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

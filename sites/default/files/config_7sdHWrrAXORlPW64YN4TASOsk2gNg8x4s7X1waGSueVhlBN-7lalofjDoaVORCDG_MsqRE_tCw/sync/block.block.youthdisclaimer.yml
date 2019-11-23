@@ -1,0 +1,31 @@
+uuid: 59c9659f-a25e-4be9-84c8-74afea1ce114
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:2647d78e-93a9-4e31-a553-7ddf3ab3f8d7'
+  module:
+    - block_content
+    - system
+  theme:
+    - s2s
+id: youthdisclaimer
+theme: s2s
+region: content_full_width
+weight: -25
+provider: null
+plugin: 'block_content:2647d78e-93a9-4e31-a553-7ddf3ab3f8d7'
+settings:
+  id: 'block_content:2647d78e-93a9-4e31-a553-7ddf3ab3f8d7'
+  label: 'Youth Disclaimer'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /screening-tools/youth
+    negate: false
+    context_mapping: {  }

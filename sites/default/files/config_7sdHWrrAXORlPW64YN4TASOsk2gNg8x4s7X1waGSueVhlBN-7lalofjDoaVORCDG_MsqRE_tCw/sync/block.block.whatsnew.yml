@@ -1,0 +1,31 @@
+uuid: c6c25456-ebde-459c-9238-23d7ee49e12d
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:ad8fb18d-eac7-4468-ba1b-4aa5958ad73c'
+  module:
+    - block_content
+    - system
+  theme:
+    - s2s
+id: whatsnew
+theme: s2s
+region: content
+weight: -56
+provider: null
+plugin: 'block_content:ad8fb18d-eac7-4468-ba1b-4aa5958ad73c'
+settings:
+  id: 'block_content:ad8fb18d-eac7-4468-ba1b-4aa5958ad73c'
+  label: 'What''s New?'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

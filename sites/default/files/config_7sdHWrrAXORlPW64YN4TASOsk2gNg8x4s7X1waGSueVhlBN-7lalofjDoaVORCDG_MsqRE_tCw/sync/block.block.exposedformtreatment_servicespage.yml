@@ -1,0 +1,29 @@
+uuid: 0b553fea-7902-48f2-8db2-607f3efe3717
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.treatment_services
+  module:
+    - system
+    - views
+  theme:
+    - s2s
+id: exposedformtreatment_servicespage
+theme: s2s
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:treatment_services-page'
+settings:
+  id: 'views_exposed_filter_block:treatment_services-page'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: '/treatment/*'
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,9 @@
+uuid: abe6d7b7-26a7-45b9-b04b-7963000b96bf
+langcode: en
+status: true
+dependencies: {  }
+name: Cities
+vid: cities
+description: 'U.S. Cities'
+hierarchy: 0
+weight: 0

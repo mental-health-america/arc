@@ -1,0 +1,14 @@
+uuid: ba20d96e-ee44-4dff-84b0-1fe405ed2a1c
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: condition_tags
+label: 'condition tags'
+type: 'canonical_entities:taxonomy_term'
+pattern: 'tags/[term:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: -5
+relationships: {  }

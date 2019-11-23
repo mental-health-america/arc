@@ -1,0 +1,31 @@
+uuid: e6ff5847-0c8c-4e46-91aa-969fa4e899bb
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:1617be2e-3235-462a-b04a-f17f92a2d112'
+  module:
+    - block_content
+    - system
+  theme:
+    - s2s
+id: screeningresultsanxietyrightcolumn
+theme: s2s
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'block_content:1617be2e-3235-462a-b04a-f17f92a2d112'
+settings:
+  id: 'block_content:1617be2e-3235-462a-b04a-f17f92a2d112'
+  label: 'Screening Results - Anxiety - right column'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /screening-tools/anxiety/confirmation
+    negate: false
+    context_mapping: {  }

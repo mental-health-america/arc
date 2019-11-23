@@ -1,0 +1,31 @@
+uuid: 570554af-25fe-4bd4-b288-33bf9654e14b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:d726bdc1-d724-44d0-bab8-9775f518efd7'
+  module:
+    - block_content
+    - system
+  theme:
+    - s2s
+id: smokingandmentalhealthsurvey
+theme: s2s
+region: content
+weight: -51
+provider: null
+plugin: 'block_content:d726bdc1-d724-44d0-bab8-9775f518efd7'
+settings:
+  id: 'block_content:d726bdc1-d724-44d0-bab8-9775f518efd7'
+  label: 'Smoking and Mental Health Survey'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /node/15
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,207 @@
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+weight: 0
+uid: 1
+template: false
+archive: false
+id: work_health_survey
+title: 'Work Health Survey 2017'
+description: ''
+category: ''
+elements: "page1:\n  '#type': webform_wizard_page\n  '#title': page1\n  '#next_button_label': NEXT\n  intro1:\n    '#type': webform_markup\n    '#markup': '<h2>Please rate your work environment based on the following questions:</h2>'\n  supervisory_and_communication_style:\n    '#type': processed_text\n    '#display_on': both\n    '#text': \"<h3>Questions to measure Supervisory and Communication Style</h3>\\n\"\n    '#format': full_html\n  q1:\n    '#type': webform_buttons\n    '#title': 'My company appropriately deals with co-workers who are not doing his or her job'\n    '#title_display': before\n    '#options':\n      1: Never\n      2: Rarely\n      3: Sometimes\n      4: Often\n      5: Always\n  q2:\n    '#type': webform_buttons\n    '#title': 'My supervisor works as hard as everyone else in the company'\n    '#title_display': before\n    '#options':\n      1: Never\n      2: Rarely\n      3: Sometimes\n      4: Often\n      5: Always\n  q3:\n    '#type': webform_buttons\n    '#title': 'All people are held accountable for their work, regardless of their position in the company'\n    '#title_display': before\n    '#options':\n      1: Never\n      2: Rarely\n      3: Sometimes\n      4: Often\n      5: Always\n  q4:\n    '#type': webform_buttons\n    '#title': 'People in my company are paid what they deserve'\n    '#title_display': before\n    '#options':\n      1: Never\n      2: Rarely\n      3: Sometimes\n      4: Often\n      5: Always\n  q5:\n    '#type': webform_buttons\n    '#title': 'People are being unfairly recognized while others with better experience or skills don’t get recognized'\n    '#description': '(e.g. praise, promotion)'\n    '#title_display': before\n    '#options':\n      1: Never\n      2: Rarely\n      3: Sometimes\n      4: Often\n      5: Always\n  q6:\n    '#type': webform_buttons\n    '#title': 'I feel like my company might fire me or let me go at any time'\n    '#description': '(e.g. praise, promotion)'\n    '#title_display': before\n    '#options':\n      1: Never\n      2: Rarely\n      3: Sometimes\n      4: Often\n      5: Always\n  q7:\n    '#type': webform_buttons\n    '#title': 'My work environment is overly focused on trivial activities'\n    '#description': '(e.g. Feeling micromanaged or having overly bureaucratic company policies)'\n    '#title_display': before\n    '#options':\n      1: Never\n      2: Rarely\n      3: Sometimes\n      4: Often\n      5: Always\n  q8:\n    '#type': webform_buttons\n    '#title': 'I’m afraid to go on vacation because I might lose my job or things will fall apart'\n    '#title_display': before\n    '#options':\n      1: Never\n      2: Rarely\n      3: Sometimes\n      4: Often\n      5: Always\n  q9:\n    '#type': webform_buttons\n    '#title': 'My employer promotes safe working conditions'\n    '#description': 'Including expectations about coming to work in unsafe situations like driving through bad weather or when someone is sick.'\n    '#title_display': before\n    '#options':\n      1: Never\n      2: Rarely\n      3: Sometimes\n      4: Often\n      5: Always\n  q10:\n    '#type': webform_buttons\n    '#title': 'The stress from my job affects my relationships with my friends or family'\n    '#title_display': before\n    '#options':\n      1: Never\n      2: Rarely\n      3: Sometimes\n      4: Often\n      5: Always\n  q11:\n    '#type': webform_buttons\n    '#title': 'I trust my team or coworkers to support my work activities'\n    '#title_display': before\n    '#options':\n      1: Never\n      2: Rarely\n      3: Sometimes\n      4: Often\n      5: Always\n  q12:\n    '#type': webform_buttons\n    '#title': 'I tend to work alone because my workplace is unhelpful or hostile'\n    '#title_display': before\n    '#options':\n      1: Never\n      2: Rarely\n      3: Sometimes\n      4: Often\n      5: Always\n  q13:\n    '#type': webform_buttons\n    '#title': 'My company has realistic expectations about my workload'\n    '#title_display': before\n    '#options':\n      1: Never\n      2: Rarely\n      3: Sometimes\n      4: Often\n      5: Always\n  q14:\n    '#type': webform_buttons\n    '#title': 'If things get hard, my supervisor will support me'\n    '#title_display': before\n    '#options':\n      1: Never\n      2: Rarely\n      3: Sometimes\n      4: Often\n      5: Always\n  q15:\n    '#type': webform_buttons\n    '#title': 'I speak poorly about my company (including boss or coworkers) to others (like family and friends)'\n    '#title_display': before\n    '#options':\n      1: Never\n      2: Rarely\n      3: Sometimes\n      4: Often\n      5: Always\n  q16:\n    '#type': webform_buttons\n    '#title': 'How often are you distracted or find it difficult to concentrate because of your work environment?'\n    '#title_display': before\n    '#options':\n      1: Never\n      2: Rarely\n      3: Sometimes\n      4: Often\n      5: Always\n  q16_1:\n    '#type': textfield\n    '#title': 'How many hours per week?'\n  q17:\n    '#type': webform_buttons\n    '#title': 'I spend time thinking about or actively looking for another job'\n    '#title_display': before\n    '#options':\n      1: Never\n      2: Rarely\n      3: Sometimes\n      4: Often\n      5: Always\n  q17_1:\n    '#type': textfield\n    '#title': 'How many hours per week?'\n  q18:\n    '#type': webform_buttons\n    '#title': 'I miss work because of work related stress'\n    '#title_display': before\n    '#options':\n      1: Never\n      2: Rarely\n      3: Sometimes\n      4: Often\n      5: Always\n  q18_1:\n    '#type': textfield\n    '#title': 'How many days per month?'\n  q19:\n    '#type': webform_buttons\n    '#title': 'I get emotional support from at least one other person in my office'\n    '#title_display': before\n    '#options':\n      1: Never\n      2: Rarely\n      3: Sometimes\n      4: Often\n      5: Always\n  q20:\n    '#type': webform_buttons\n    '#title': 'The frustration or stress from my job causes me to engage in unhealthy behaviors, such as drinking or crying regularly'\n    '#title_display': before\n    '#options':\n      1: Never\n      2: Rarely\n      3: Sometimes\n      4: Often\n      5: Always\npage2:\n  '#type': webform_wizard_page\n  '#title': page2\n  '#next_button_label': SUBMIT\n  intro2:\n    '#type': webform_markup\n    '#markup': 'Before you get to your results, please take a moment to answer the following optional questions. If you aren&rsquo;t comfortable sharing any or all of the information, you can click &ldquo;submit&rdquo; right away. Otherwise, your answers will help us better understand how we can achieve our mission. Don&rsquo;t worry; we won&rsquo;t be able to identify you based on this information.'\n  score:\n    '#type': webform_computed_twig\n    '#title': Score\n    '#title_display': before\n    '#display_on': view\n    '#value': \"{% set score = data.q1 + data.q2 + data.q3 + data.q4 + data.q5 + data.q6 + data.q7 + data.q8 + data.q9 + data.q10 + data.q11 + data.q12 + data.q13 + data.q14 + data.q15 + data.q16 + data.q17 + data.q18 + data.q19 + data.q20 %}\\n{{score}}\\n\"\n    '#store': true\n  result:\n    '#type': webform_computed_twig\n    '#title': Result\n    '#title_display': before\n    '#display_on': view\n    '#value': \"{% set score = data.q1 + data.q2 + data.q3 + data.q4 + data.q5 + data.q6 + data.q7 + data.q8 + data.q9 + data.q10 + data.q11 + data.q12 + data.q13 + data.q14 + data.q15 + data.q16 + data.q17 + data.q18 + data.q19 + data.q20 %}\\n{% if score < 47  %}\\n{% set result = \\\"Healthy Work Environment\\\" %}\\n{% elseif score < 74 %}\\n{% set result = \\\"Somewhat healthy or unhealthy\\\" %}\\n{% else %}\\n{% set result = \\\"Unhealthy Work Environment\\\" %}\\n{% endif %}\\n{{result}}\\n\"\n    '#store': true\n  condition:\n    '#type': webform_computed_twig\n    '#title': condition\n    '#title_display': before\n    '#display_on': view\n    '#value': \"{% set score = data.q1 + data.q2 + data.q3 + data.q4 + data.q5 + data.q6 + data.q7 + data.q8 + data.q9 + data.q10 + data.q11 + data.q12 + data.q13 + data.q14 + data.q15 + data.q16 + data.q17 + data.q18 + data.q19 + data.q20 %}\\n{% if score < 47  %}\\n{% set result = \\\"Work_Healthy\\\" %}\\n{% else %}\\n{% set result = \\\"Work_Unhealthy\\\" %}\\n{% endif %}\\n{{result}}\\n\"\n    '#store': true\n  message:\n    '#type': webform_computed_twig\n    '#title': message\n    '#title_display': before\n    '#display_on': none\n    '#value': \"{% set score = data.q1 + data.q2 + data.q3 + data.q4 + data.q5 + data.q6 + data.q7 + data.q8 + data.q9 + data.q10 + data.q11 + data.q12 + data.q13 + data.q14 + data.q15 + data.q16 + data.q17 + data.q18 + data.q19 + data.q20 %}\\n{% if score < 47  %}\\nYour results indicate that you have a relatively healthy work environment.  You might even love your job or feel excited to get to work.{% elseif score < 74 %}\\nYour results indicate that you have a work environment that is not evidently healthy nor unhealthy.{% else %}\\nYour results indicate that you have a relatively unhealthy work environment.  You might even hate your job or feel dread at the thought of going to work.{% endif %}\\n\"\n    '#store': true\n  message2:\n    '#type': webform_computed_twig\n    '#title': message2\n    '#title_display': before\n    '#display_on': none\n    '#value': \"{% set score = data.q1 + data.q2 + data.q3 + data.q4 + data.q5 + data.q6 + data.q7 + data.q8 + data.q9 + data.q10 + data.q11 + data.q12 + data.q13 + data.q14 + data.q15 + data.q16 + data.q17 + data.q18 + data.q19 + data.q20 %}\\n{% if score < 47  %}\\n<p>In an analysis of our results of over 7,000 surveys, 18.1% of screeners score 46 and below.</p>\\n\\n<p>Given your work environment, you may be mostly satisfied by your work load and feel that you have adequate support at work. Your office seems like a fair place and your employers take into consideration your needs in managing the health of the organization.</p>\\n\\n<p>When people feel stressed at work, a company can take steps to improve the work environment and ensure that all employees are healthy and productive. These benefits might include flexibility in schedule, extra sick time, mental health benefits, and especially creating a supportive work environment.&nbsp; It may be the case that your employer already provides some of these benefits.</p>\\n\\n<p>Reviewing your answers you might find areas for improvement.&nbsp; These are things to consider if you have an upcoming employee evaluation or if you are thinking about a new job.</p>\\n\\n<p>Sometimes a change in staff or management can change how you feel about your job. If this is the case, come back and take another survey.&nbsp;</p>\\n\\n<p>If you feel like mental health concerns might be contributing to your workplace satisfaction, consider taking a&nbsp;<a href=\\\"http://www.mentalhealthamerica.net/mental-health-screening-tools\\\" target=\\\"_blank\\\">mental health screening</a>.</p>\\n\\n<p>You can also visit&nbsp;<a href=\\\"http://www.mentalhealthamerica.net/work-life-balance\\\" target=\\\"_blank\\\">Work/Life Balance</a>&nbsp;to learn more about workplace wellness.</p>\\n{% elseif score < 74 %}\\n<p>Higher scores indicate more unhealthy elements at work.</p>\\n\\n<p>In an analysis of our results of over 7,000 surveys:</p>\\n\\n<ul>\\n\\t<li>32% of screeners score between 47 and 60,</li>\\n\\t<li>36% of screeners score between 61 and 73.</li>\\n\\t<li>The average score is 59, and most frequently recieved score is 64.</li>\\n</ul>\\n\\n<p>Reviewing your results might give insight about what factors are important for you in overall workplace satisfaction. These benefits or changes may be considered in an upcoming employee evaluation or if you are thinking about a new job.&nbsp;</p>\\n\\n<p>When people feel stressed at work, a company can take steps to improve the work environment and ensure that all employees are healthy and productive. These benefits might include flexibility in schedule, extra sick time, mental health benefits, and especially creating a supportive work environment.&nbsp; It may be the case that your employer already provides some of these benefits. If there is an opportunity to provide employee feedback to improve your work environment, you might use the results to think about what would make your work environment better.</p>\\n\\n<p>Sometimes a change in staff or management can change how you feel about your job. If this is the case, come back and take another survey.&nbsp;</p>\\n\\n<p>If you feel like mental health concerns might be contributing to your workplace satisfaction, consider taking a&nbsp;<a href=\\\"http://www.mentalhealthamerica.net/mental-health-screening-tools\\\" target=\\\"_blank\\\">mental health screening</a>.</p>\\n\\n<p>You can also visit&nbsp;<a href=\\\"http://www.mentalhealthamerica.net/work-life-balance\\\" target=\\\"_blank\\\">Work/Life Balance</a>&nbsp;to learn more about workplace wellness.</p>\\n{% else %}\\n<p>In an analysis of our results of over 7,000 surveys, 14% of screeners score 74 and above.</p>\\n\\n<p>Given your work environment, you may be mostly unsatisfied by your work load and feel that you don&rsquo;t have adequate support at work. Your office may feel unfair, insecure, or even hostile.&nbsp; Your employers don&rsquo;t seem to take into consideration your needs in managing the health of the organization.</p>\\n\\n<p>When people feel stressed at work, a company can take steps to improve the work environment and ensure that all employees are healthy and productive. These benefits might include flexibility in schedule, extra sick time, mental health benefits, and especially creating a supportive work environment.&nbsp; It&rsquo;s unclear that your employer provides some of these benefits. If there is an opportunity to provide employee feedback to improve your work environment, you might use the results to think about what would make your work environment better.</p>\\n\\n<p>You are likely thinking about a new job. Reviewing your answers you give insight about what areas are most important to you when thinking about a new job.</p>\\n\\n<p>Sometimes a change in staff or management can change how you feel about your job. If this is the case, come back and take another survey.&nbsp;</p>\\n\\n<p>If you feel like mental health concerns might be contributing to your workplace satisfaction, consider taking a&nbsp;<a href=\\\"http://www.mentalhealthamerica.net/mental-health-screening-tools\\\" target=\\\"_blank\\\">mental health screening</a>.</p>\\n\\n<p>You can also visit&nbsp;<a href=\\\"http://www.mentalhealthamerica.net/work-life-balance\\\" target=\\\"_blank\\\">Work/Life Balance</a>&nbsp;to learn more about workplace wellness.</p>\\n{% endif %}\\n\"\n    '#store': true\n  how_many_people_work_for_your_organization_:\n    '#type': select\n    '#title': 'How many people work for your organization?'\n    '#title_display': before\n    '#options':\n      '1 - 10': '1 - 10'\n      '11 - 50': '11 - 50'\n      '51 - 250': '51 - 250'\n      '251 - 1,000': '251 - 1,000'\n      'Over 1,000': 'Over 1,000'\n  do_you_work_part_time_or_full_time_:\n    '#type': select\n    '#title': 'Do you work part-time or full-time?'\n    '#title_display': before\n    '#options':\n      Part-time: Part-time\n      Full-time: Full-time\n  which_of_the_following_also_best_describes_your_position_:\n    '#type': select\n    '#title': 'Which of the following also best describes your position?'\n    '#title_display': before\n    '#options':\n      1: 'Someone supervises me, I supervise no one.'\n      2: 'Someone supervises me, I supervise one or more people.'\n      3: 'I supervise one or more people, no one supervises me.'\n  what_industry_do_you_work_in_:\n    '#type': webform_select_other\n    '#title': 'What Industry do you work in?'\n    '#multiple': true\n    '#title_display': before\n    '#options':\n      Academia/Science: Academia/Science\n      'Aerospace & Defense': 'Aerospace & Defense'\n      Agriculture: Agriculture\n      Automotive: Automotive\n      Construction: Construction\n      Energy: Energy\n      'Financial services': 'Financial services'\n      'Food and Beverage': 'Food and Beverage'\n      Government: Government\n      'Health Care': 'Health Care'\n      'Housing and Real Estate': 'Housing and Real Estate'\n      Manufacturing: Manufacturing\n      Non-Profit: Non-Profit\n      'Pharmaceuticals & Biotechnology': 'Pharmaceuticals & Biotechnology'\n      'Printing & Publishing': 'Printing & Publishing'\n      Retail: Retail\n      'Telecommunications & Media': 'Telecommunications & Media'\n      'Transportation & Logistics': 'Transportation & Logistics'\n  my_employer_provides_offers_the_following_benefits:\n    '#type': checkboxes\n    '#title': 'My employer provides/offers the following benefits'\n    '#options':\n      'Tools needed to do my job (adequate work space, a working computer, other supplies)': 'Tools needed to do my job (adequate work space, a working computer, other supplies)'\n      'Extra time off (vacation, sick, PTO)': 'Extra time off (vacation, sick, PTO)'\n      'Great insurance benefits': 'Great insurance benefits'\n      'Other financial perks (401k, short or long term disability)': 'Other financial perks (401k, short or long term disability)'\n      'Flexible work arrangements (Teleworking)': 'Flexible work arrangements (Teleworking)'\n      'Light amenities (Food/snacks)': 'Light amenities (Food/snacks)'\n      'Flexibility in time off during the work day (breaks, time to go to the gym, relax, take a nap or long lunch)': 'Flexibility in time off during the work day (breaks, time to go to the gym, relax, take a nap or long lunch)'\n      'Competitive wages/salary': 'Competitive wages/salary'\n      'Open door and relaxed worked environment': 'Open door and relaxed worked environment'\n      'Opportunities for professional growth': 'Opportunities for professional growth'\n  email:\n    '#type': email\n    '#title': Email\n    '#description': '<p>Enter your email to receive a copy of the screen result</p>'\n    '#access_create_roles': {  }\nref:\n  '#type': hidden\n  '#title': Referrer\nipiden:\n  '#type': hidden\n  '#title': 'IP Identifier'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': SUBMIT\n  '#wizard_prev_hide': true\n"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  page: true
+  page_submit_path: /screening-tools/work-health-survey-2017
+  page_confirm_path: /screening-tools/work-health-survey-2017/confirmation
+  form_title: both
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_convert_anonymous: true
+  form_prepopulate: true
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: true
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns:
+    - created
+    - element__condition
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: false
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: page
+  confirmation_title: 'RESULTS AND NEXT STEPS'
+  confirmation_message: "<h1>RESULT: [webform_submission:values:result]</h1>\r\n\r\n<p>[webform_submission:values:message]</p>\r\n\r\n<p>[webform_submission:values:message2:raw:html]</p>\r\n\r\n<h2>Your total score was: [webform_submission:values:score]</h2>\r\n\r\n<div class=\"container-fluid\"><a class=\"btn btn-warning\" data-toggle=\"collapse\" href=\"#demo\">Your Answers</a>\r\n<div class=\"collapse\" id=\"demo\">\r\n<table class=\"table table-striped\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>My company appropriately deals with co-workers who are not doing his or her job:</td>\r\n\t\t\t<td>[webform_submission:values:q1]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>My supervisor works as hard as everyone else in the company:</td>\r\n\t\t\t<td>[webform_submission:values:q2]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>All people are held accountable for their work, regardless of their position in the company:</td>\r\n\t\t\t<td>[webform_submission:values:q3]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>People in my company are paid what they deserve:</td>\r\n\t\t\t<td>[webform_submission:values:q4]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>People are being unfairly recognized while others with better experience or skills don&rsquo;t get recognized:</td>\r\n\t\t\t<td>[webform_submission:values:q5]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>I feel like my company might fire me or let me go at any time:</td>\r\n\t\t\t<td>[webform_submission:values:q6]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>My work environment is overly focused on trivial activities:</td>\r\n\t\t\t<td>[webform_submission:values:q7]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>I&rsquo;m afraid to go on vacation because I might lose my job or things will fall apart:</td>\r\n\t\t\t<td>[webform_submission:values:q8]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>My employer promotes safe working conditions:</td>\r\n\t\t\t<td>[webform_submission:values:q9]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>The stress from my job affects my relationships with my friends or family:</td>\r\n\t\t\t<td>[webform_submission:values:q10]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>I trust my team or coworkers to support my work activities:</td>\r\n\t\t\t<td>[webform_submission:values:q11]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>I tend to work alone because my workplace is unhelpful or hostile:</td>\r\n\t\t\t<td>[webform_submission:values:q12]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>My company has realistic expectations about my workload:</td>\r\n\t\t\t<td>[webform_submission:values:q13]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>If things get hard, my supervisor will support me:</td>\r\n\t\t\t<td>[webform_submission:values:q14]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>I speak poorly about my company (including boss or coworkers) to others (like family and friends):</td>\r\n\t\t\t<td>[webform_submission:values:q15]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>I get emotional support from at least one other person in my office:</td>\r\n\t\t\t<td>[webform_submission:values:q16]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>How often are you distracted or find it difficult to concentrate because of your work environment?:</td>\r\n\t\t\t<td>[webform_submission:values:q17]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>I spend time thinking about or actively looking for another job:</td>\r\n\t\t\t<td>[webform_submission:values:q18]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>I miss work because of work related stress:</td>\r\n\t\t\t<td>[webform_submission:values:q19]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>The frustration or stress from my job causes me to engage in unhealthy behaviors, such as drinking or crying regularly:</td>\r\n\t\t\t<td>[webform_submission:values:q20]</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n</div>\r\n</div>\r\n\r\n<hr />\r\n<div class=\"container-fluid\"><a class=\"btn btn-warning\" data-toggle=\"collapse\" href=\"#demo2\">Interpretation of Score</a>\r\n<div class=\"collapse\" id=\"demo2\">\r\n<h3>Scoring</h3>\r\n\r\n<p>Items are scored from 1-5 pts each, with some questions using reverse scoring, to calculate a percentage value.</p>\r\n\r\n<ul>\r\n\t<li><strong>20-46 points</strong><br />\r\n\tHealthy work environment</li>\r\n\t<li><strong>47-73 points</strong><br />\r\n\tSomewhat healthy or unhealthy</li>\r\n\t<li><strong>74-100 points</strong><br />\r\n\tUnhealthy work environment</li>\r\n</ul>\r\n</div>\r\n</div>"
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: false
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+  form_submit_once_disabled: true
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  email:
+    id: email
+    label: Email
+    handler_id: email
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email:raw]'
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      subject: 'Screening Results: Work Health Survey'
+      body: "<p><strong>Submitted on:</strong> [webform_submission:created]</p>\n\n<p><strong>Submitted by:</strong> [webform_submission:user]</p>\n\n<p><strong>Submitted values are:</strong></p>\n[webform_submission:values]\n\n<hr />\n<h3>[webform_submission:values:message]</h3>\n\n<hr />\n<h2>Scoring</h2>\n\n<p>Items are scored from 1-5 pts each, with some questions using reverse scoring, to calculate a percentage value.</p>\n\n<ul>\n\t<li><strong>20-46 points</strong><br />\n\tHealthy work environment</li>\n\t<li><strong>47-73 points</strong><br />\n\tSomewhat healthy or unhealthy</li>\n\t<li><strong>74-100 points</strong><br />\n\tUnhealthy work environment</li>\n</ul>"
+      excluded_elements:
+        condition: condition
+        message: message
+        message2: message2
+        email: email
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
+uuid: f4d6e85e-79a9-4f95-adf0-4b938445acff

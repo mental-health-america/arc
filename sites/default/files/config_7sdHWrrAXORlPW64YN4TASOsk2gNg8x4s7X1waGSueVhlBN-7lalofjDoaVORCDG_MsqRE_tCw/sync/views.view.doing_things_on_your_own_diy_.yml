@@ -1,0 +1,919 @@
+uuid: f9f4b717-afc7-43a1-a7ae-3446e6f18544
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - field.storage.node.field_diy_tool_friendly_descript
+    - field.storage.node.field_image
+    - node.type.diy_tool
+    - system.menu.main
+    - taxonomy.vocabulary.diy_issue
+    - taxonomy.vocabulary.diy_type
+  content:
+    - 'taxonomy_term:diy_issue:00b2d91a-2b0d-4497-a194-c50626658608'
+    - 'taxonomy_term:diy_issue:0e45e750-0ec2-444b-be26-4aab00d07e86'
+    - 'taxonomy_term:diy_issue:22b51ab0-64ec-44a9-8cda-3954bb54dffb'
+    - 'taxonomy_term:diy_issue:37a13b9d-9705-49f4-8ea1-79b98a907bd5'
+    - 'taxonomy_term:diy_issue:7f9a0e0e-d1b2-4709-a0e2-3d8808f7cba3'
+    - 'taxonomy_term:diy_issue:8ca5e6b6-285a-4ed4-aae0-ac9756bbd1bb'
+    - 'taxonomy_term:diy_issue:b919f466-7fd1-4e29-836f-84bba7056201'
+    - 'taxonomy_term:diy_issue:bd8a2dc9-ec44-49d3-8331-0c5ff404c7e6'
+    - 'taxonomy_term:diy_issue:cbf0704d-74c8-4dea-9ac8-cfbb2655b6c1'
+    - 'taxonomy_term:diy_type:3aab8044-2d67-409a-bba8-850ca3850d55'
+    - 'taxonomy_term:diy_type:3fa67b21-0a96-4e70-94ef-e11bcc7ebd6b'
+    - 'taxonomy_term:diy_type:98eb0015-9d21-48a5-b22c-2f2090ab3729'
+    - 'taxonomy_term:diy_type:f23725ac-81a9-4426-9bc6-fd3e2a5c92c1'
+    - 'taxonomy_term:diy_type:f5b65eda-dd16-415a-a38d-2da3725f6f3e'
+  module:
+    - better_exposed_filters
+    - image
+    - node
+    - search
+    - taxonomy
+    - text
+    - user
+id: doing_things_on_your_own_diy_
+label: 'Doing Things On Your Own (DIY)'
+module: views
+description: 'Show all articles of all conditions.'
+tag: ''
+base_table: node_field_data
+base_field: nid
+core: 8.x
+display:
+  default:
+    display_plugin: default
+    id: default
+    display_title: Master
+    position: 0
+    display_options:
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      cache:
+        type: tag
+        options: {  }
+      query:
+        type: views_query
+        options:
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_comment: ''
+          query_tags: {  }
+      exposed_form:
+        type: bef
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: false
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+          input_required: false
+          text_input_required: 'Select any filter and click on Apply to see results'
+          bef:
+            general:
+              allow_secondary: false
+              secondary_label: 'Advanced options'
+              autosubmit: true
+              autosubmit_hide: true
+            keys:
+              bef_format: default
+              more_options:
+                is_secondary: false
+                rewrite:
+                  filter_rewrite_values: ''
+            field_diy_type_target_id:
+              bef_format: bef
+              more_options:
+                bef_select_all_none: false
+                bef_collapsible: false
+                is_secondary: false
+                rewrite:
+                  filter_rewrite_values: ''
+            field_issue_target_id:
+              bef_format: bef
+              more_options:
+                bef_select_all_none: false
+                bef_collapsible: false
+                is_secondary: false
+                rewrite:
+                  filter_rewrite_values: ''
+          text_input_required_format: full_html
+      pager:
+        type: mini
+        options:
+          items_per_page: 0
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: center-image
+          default_row_class: false
+      row:
+        type: fields
+        options:
+          default_field_elements: false
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      fields:
+        field_image:
+          id: field_image
+          table: node__field_image
+          field: field_image
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: true
+            path: '{{ title }} '
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: 'image-center black-white'
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image
+          settings:
+            image_style: ''
+            image_link: content
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+        body:
+          id: body
+          table: node__body
+          field: body
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 50
+            word_boundary: false
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: true
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_diy_tool_friendly_descript:
+          id: field_diy_tool_friendly_descript
+          table: node__field_diy_tool_friendly_descript
+          field: field_diy_tool_friendly_descript
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        nothing:
+          id: nothing
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: 'REWRITE RULES'
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: "<div class=\"col-sm-6 col-md-4 min-height\">\n<div class=\"col-wrapper\">\n{{ field_image }}\n<div class=\"diy-title\">\n<h4>{{ title }}</h4>\n</div>\n<div class=\"diy-body\">\n<p>{{ field_connect_tool_friendly_desc }}</p>\n</div>\n</div>\n</div>\n\n\n"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: custom
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            min: ''
+            max: ''
+            value: ''
+            diy_tool: diy_tool
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        field_diy_type_target_id:
+          id: field_diy_type_target_id
+          table: node__field_diy_type
+          field: field_diy_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            37: 37
+            38: 38
+            39: 39
+            40: 40
+            41: 41
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_diy_type_target_id_op
+            label: Type
+            description: ''
+            use_operator: false
+            operator: field_diy_type_target_id_op
+            identifier: field_diy_type_target_id
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              anonymous: anonymous
+              authenticated: authenticated
+              superadmin: superadmin
+              administrator: administrator
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: 'DIY Type (field_diy_type)'
+            description: ''
+            identifier: field_diy_type_target_id
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Website
+                operator: or
+                value:
+                  37: '37'
+              2:
+                title: 'Mobile App'
+                operator: or
+                value:
+                  38: '38'
+              3:
+                title: Video
+                operator: or
+                value:
+                  39: '39'
+              4:
+                title: Book
+                operator: or
+                value:
+                  40: '40'
+          reduce_duplicates: true
+          type: select
+          limit: true
+          vid: diy_type
+          hierarchy: false
+          error_message: false
+          plugin_id: taxonomy_index_tid
+      sorts:
+        sticky:
+          id: sticky
+          table: node_field_data
+          field: sticky
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          entity_type: node
+          entity_field: sticky
+          plugin_id: standard
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: Newest
+          granularity: second
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+      title: 'Doing Things On Your Own (DIY)'
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'Select the topics below to filter tools by the problem they help to solve.'
+            format: full_html
+          plugin_id: text
+      footer: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: '<h3>No content available!</h3>'
+            format: full_html
+          plugin_id: text
+      relationships: {  }
+      arguments: {  }
+      display_extenders: {  }
+      use_ajax: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      group_by: false
+      css_class: ''
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_diy_tool_friendly_descript'
+        - 'config:field.storage.node.field_image'
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: Page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: diy
+      menu:
+        type: normal
+        title: 'DIY Tools'
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 5
+        context: '0'
+        menu_name: main
+      exposed_block: true
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            min: ''
+            max: ''
+            value: ''
+            diy_tool: diy_tool
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        keys:
+          id: keys
+          table: node_search_index
+          field: keys
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: optional
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: keys_op
+            label: ''
+            description: 'Search by keyword or title'
+            use_operator: false
+            operator: keys_op
+            identifier: keys
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              superadmin: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: search_keywords
+        field_diy_type_target_id:
+          id: field_diy_type_target_id
+          table: node__field_diy_type
+          field: field_diy_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            37: 37
+            38: 38
+            39: 39
+            40: 40
+            41: 41
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_diy_type_target_id_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: field_diy_type_target_id_op
+            identifier: field_diy_type_target_id
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              anonymous: anonymous
+              authenticated: authenticated
+              superadmin: superadmin
+              administrator: administrator
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: 'DIY Type (field_diy_type)'
+            description: ''
+            identifier: field_diy_type_target_id
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Website
+                operator: or
+                value:
+                  37: '37'
+              2:
+                title: 'Mobile App'
+                operator: or
+                value:
+                  38: '38'
+              3:
+                title: Video
+                operator: or
+                value:
+                  39: '39'
+              4:
+                title: Book
+                operator: or
+                value:
+                  40: '40'
+          reduce_duplicates: true
+          type: select
+          limit: true
+          vid: diy_type
+          hierarchy: false
+          error_message: false
+          plugin_id: taxonomy_index_tid
+        field_issue_target_id:
+          id: field_issue_target_id
+          table: node__field_issue
+          field: field_issue_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            30: 30
+            34: 34
+            32: 32
+            29: 29
+            36: 36
+            28: 28
+            31: 31
+            33: 33
+            35: 35
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_issue_target_id_op
+            label: Issue
+            description: ''
+            use_operator: false
+            operator: field_issue_target_id_op
+            identifier: field_issue_target_id
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              superadmin: '0'
+              administrator: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          type: select
+          limit: true
+          vid: diy_issue
+          hierarchy: false
+          error_message: false
+          plugin_id: taxonomy_index_tid
+      defaults:
+        filters: false
+        filter_groups: false
+        query: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      query:
+        type: views_query
+        options:
+          disable_sql_rewrite: false
+          distinct: true
+          replica: false
+          query_comment: ''
+          query_tags: null
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_diy_tool_friendly_descript'
+        - 'config:field.storage.node.field_image'

@@ -1,0 +1,23 @@
+uuid: 20394785-812c-4b7e-bf43-6f22def3bcf5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link1
+    - node.type.homepage_slide
+  module:
+    - link
+id: node.homepage_slide.field_link1
+field_name: field_link1
+entity_type: node
+bundle: homepage_slide
+label: Link1
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

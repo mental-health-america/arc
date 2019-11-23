@@ -1,0 +1,29 @@
+uuid: fe7bcb61-48e2-412f-b4e6-4e14230a9ba6
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.treatment
+  module:
+    - system
+    - views
+  theme:
+    - s2s
+id: exposedformtreatmentpage_1
+theme: s2s
+region: sidebar_first
+weight: -14
+provider: null
+plugin: 'views_exposed_filter_block:treatment-page_1'
+settings:
+  id: 'views_exposed_filter_block:treatment-page_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /treatment
+    negate: false
+    context_mapping: {  }

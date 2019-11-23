@@ -1,0 +1,29 @@
+uuid: 567c62b2-6fe4-4ce5-91be-d1151e6f6f35
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Authenticated user'
+weight: -9
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access news feeds'
+  - 'access shortcuts'
+  - 'access site-wide contact form'
+  - 'bypass honeypot protection'
+  - 'create diy_tool_application content'
+  - 'edit own diy_tool_application content'
+  - 'flag bookmark'
+  - 'post comments'
+  - 'search content'
+  - 'skip comment approval'
+  - 'use text format basic_html'
+  - 'use text format full_html'
+  - 'view media'
+  - 'view own profile'
+  - 'view own webform submission'
+  - 'view webform submissions own node'

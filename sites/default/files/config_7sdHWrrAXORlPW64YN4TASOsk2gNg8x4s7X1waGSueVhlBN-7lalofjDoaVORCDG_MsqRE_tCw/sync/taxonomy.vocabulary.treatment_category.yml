@@ -1,0 +1,9 @@
+uuid: 76dd9945-74a0-453f-a412-0d021c430483
+langcode: en
+status: true
+dependencies: {  }
+name: 'Treatment Category'
+vid: treatment_category
+description: 'Treatment Category'
+hierarchy: 0
+weight: 0

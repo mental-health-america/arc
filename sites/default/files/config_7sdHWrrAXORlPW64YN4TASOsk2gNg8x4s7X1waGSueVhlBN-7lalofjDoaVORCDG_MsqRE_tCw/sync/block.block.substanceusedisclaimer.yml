@@ -1,0 +1,31 @@
+uuid: 14385cae-3bd2-40b5-ab7e-0ddf4fcf468f
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:d052e582-d447-4664-979e-eb20ae5a5c94'
+  module:
+    - block_content
+    - system
+  theme:
+    - s2s
+id: substanceusedisclaimer
+theme: s2s
+region: content_full_width
+weight: -24
+provider: null
+plugin: 'block_content:d052e582-d447-4664-979e-eb20ae5a5c94'
+settings:
+  id: 'block_content:d052e582-d447-4664-979e-eb20ae5a5c94'
+  label: 'Substance Use Disclaimer'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /screening-tools/alcohol-substance-abuse
+    negate: false
+    context_mapping: {  }

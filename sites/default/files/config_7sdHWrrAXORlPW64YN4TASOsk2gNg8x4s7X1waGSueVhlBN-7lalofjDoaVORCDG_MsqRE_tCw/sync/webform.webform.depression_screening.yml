@@ -1,0 +1,213 @@
+uuid: 5fc3c119-d39e-4fae-a160-5ba6b2fdf6a3
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+weight: 0
+uid: 1
+template: false
+archive: false
+id: depression_screening
+title: 'Depression Test'
+description: ''
+category: ''
+elements: "page1:\n  '#type': webform_wizard_page\n  '#title': page1\n  '#next_button_label': NEXT\n  intro1:\n    '#type': webform_markup\n    '#markup': |\n      <p>Over the last 2 weeks, how often have you been bothered by any of the following problems?</p>\n      \n      <p>Please note, all fields are required.</p>\n      \n  q1:\n    '#type': webform_buttons\n    '#title': '1. Little interest or pleasure in doing things'\n    '#title_display': before\n    '#options':\n      - 'Not at all'\n      - 'Several days'\n      - 'More than half the days'\n      - 'Nearly every day'\n    '#required': true\n  q2:\n    '#type': webform_buttons\n    '#title': '2. Feeling down, depressed, or hopeless'\n    '#title_display': before\n    '#options':\n      - 'Not at all'\n      - ' Several days'\n      - 'More than half the days'\n      - 'Nearly every day'\n    '#required': true\n  q3:\n    '#type': webform_buttons\n    '#title': '3. Trouble falling or staying asleep, or sleeping too much'\n    '#title_display': before\n    '#options':\n      - 'Not at all'\n      - ' Several days'\n      - 'More than half the days'\n      - 'Nearly every day'\n    '#required': true\n  q4:\n    '#type': webform_buttons\n    '#title': '4. Feeling tired or having little energy'\n    '#title_display': before\n    '#options':\n      - 'Not at all'\n      - 'Several days'\n      - 'More than half the days'\n      - 'Nearly every day'\n    '#required': true\n  q5:\n    '#type': webform_buttons\n    '#title': '5. Poor appetite or overeating'\n    '#title_display': before\n    '#options':\n      - 'Not at all'\n      - 'Several days'\n      - 'More than half the days'\n      - 'Nearly every day'\n    '#required': true\n  q6:\n    '#type': webform_buttons\n    '#title': '6. Feeling bad about yourself - or that you are a failure or have let yourself or your family down'\n    '#title_display': before\n    '#options':\n      - 'Not at all'\n      - 'Several days'\n      - 'More than half the days'\n      - 'Nearly every day'\n    '#required': true\n  q7:\n    '#type': webform_buttons\n    '#title': '7. Trouble concentrating on things, such as reading the newspaper or watching television'\n    '#title_display': before\n    '#options':\n      - 'Not at all'\n      - 'Several days'\n      - 'More than half the days'\n      - 'Nearly every day'\n    '#required': true\n  q8:\n    '#type': webform_buttons\n    '#title': '8. Moving or speaking so slowly that other people could have noticed'\n    '#description': 'Or the opposite - being so fidgety or restless that you have been moving around a lot more than usual'\n    '#title_display': before\n    '#description_display': after\n    '#options':\n      - 'Not at all'\n      - 'Several days'\n      - 'More than half the days'\n      - 'Nearly every day'\n    '#required': true\n  q9:\n    '#type': webform_buttons\n    '#title': '9. Thoughts that you would be better off dead, or of hurting yourself'\n    '#title_display': before\n    '#options':\n      - 'Not at all'\n      - 'Several days'\n      - 'More than half the days'\n      - 'Nearly every day'\n    '#required': true\n  q1_1:\n    '#type': webform_markup\n    '#states':\n      visible:\n        - ':input[name=\"q9\"]':\n            value: '1'\n        - or\n        - ':input[name=\"q9\"]':\n            value: '2'\n        - or\n        - ':input[name=\"q9\"]':\n            value: '3'\n    '#markup': 'Your response to this question indicates you may be at risk for harming yourself or someone else. Are you in crisis? Please call&nbsp;<a href=\"tel:911\">911</a>&nbsp;or the National Suicide Prevention Hotline at&nbsp;<a href=\"tel:1-800-273-8255\">1-800-273-TALK</a>&nbsp;or go immediately to the nearest emergency room.'\n  q10:\n    '#type': webform_buttons\n    '#title': '10. If you checked off any problems, how difficult have these problems made it for you at work, home, or with other people?'\n    '#title_display': before\n    '#options':\n      - 'Not difficult at all'\n      - 'Somewhat difficult'\n      - 'Very difficult'\n      - 'Extremely difficult'\n    '#required': true\npage2:\n  '#type': webform_wizard_page\n  '#title': page2\n  '#next_button_label': SUBMIT\n  intro2:\n    '#type': webform_markup\n    '#markup': '<p>Before you get to your results, please take a moment to answer the following <strong>optional</strong> questions. If you aren&rsquo;t comfortable sharing any or all of the information, you can click &ldquo;submit&rdquo; right away. Otherwise, your answers will help us better understand how we can achieve our mission. Don&rsquo;t worry; we won&rsquo;t be able to identify you based on this information.</p>'\n  state:\n    '#type': select\n    '#title': State\n    '#title_display': before\n    '#options': state_codes\n    '#select2': true\n  zip_postal_code:\n    '#type': textfield\n    '#title': 'Zip/Postal Code'\n    '#title_display': before\n    '#input_mask': '*****'\n  sex:\n    '#type': webform_select_other\n    '#title': Gender\n    '#options':\n      1: Female\n      2: Male\n    '#select2': true\n    '#other__option_label': 'Another Gender'\n    '#other__placeholder': 'Enter Gender....'\n  race:\n    '#type': select\n    '#title': Race/Ethnicity\n    '#title_display': before\n    '#options':\n      1: 'Asian or Pacific Islander'\n      2: 'Black or African American (non-Hispanic)'\n      3: 'Hispanic or Latino'\n      4: 'Native American or American Indian'\n      5: 'White (non-Hispanic)'\n      6: 'More than one of the above'\n      7: Other\n    '#select2': true\n  age:\n    '#type': select\n    '#title': Age\n    '#title_display': before\n    '#options':\n      1: '\"11-17\"'\n      2: '\"18-24\"'\n      3: '\"25-34\"'\n      4: '\"35-44\"'\n      5: '\"45-54\"'\n      6: '\"55-64\"'\n      7: '\"65+\"'\n    '#select2': true\n  mental:\n    '#type': select\n    '#title': 'Are you currently, or have you ever been, diagnosed with a mental health condition by a professional?'\n    '#title_display': before\n    '#options': yes_no\n    '#access_create_roles': {  }\n  which_of_the_following_populations_describe_you_:\n    '#type': checkboxes\n    '#title': 'Which of the following populations describes you?'\n    '#title_display': before\n    '#options':\n      1: 'Veteran or active duty military'\n      2: 'Caregiver of someone living with emotional or physical illness'\n      3: LGBTQ\n      4: ' Student'\n      5: 'Trauma survivor'\n      6: 'New or expecting mother'\n  who_are_you_caring_for_:\n    '#type': webform_select_other\n    '#title': 'Who are you caring for?'\n    '#options':\n      1: 'My spouse or partner'\n      2: 'My parent'\n      3: 'My child'\n      4: 'Another relative'\n    '#select2': true\n    '#other__placeholder': 'Please specify...'\n    '#states':\n      visible-slide:\n        ':input[name=\"which_of_the_following_populations_describe_you_[2]\"]':\n          checked: true\n  how_can_mha_help_you_:\n    '#type': webform_select_other\n    '#title': 'How can MHA help you?'\n    '#options':\n      1: 'The person I’m helping is getting treatment but is getting worse (meds or therapy stopped working)'\n      2: 'The person I’m helping is getting treatment but also needs something else (side effects cause other problems, not sure what else to do)'\n      3: 'The person I’m helping is doesn’t want treatment and I want to figure out how to help them'\n      4: 'I need help because the stress of caretaking is hard'\n    '#select2': true\n    '#states':\n      visible-slide:\n        ':input[name=\"which_of_the_following_populations_describe_you_[2]\"]':\n          checked: true\n  which_of_the_following_best_describes_your_sexual_orientation_:\n    '#type': webform_select_other\n    '#title': 'Which of the following best describes your sexual orientation/gender?'\n    '#options':\n      1: 'Lesbian or Gay'\n      2: Bisexual\n      3: Transgender\n      4: Queer\n      5: Pansexual\n      6: Asexual\n    '#select2': true\n    '#other__placeholder': 'Please specify...'\n    '#states':\n      visible-slide:\n        ':input[name=\"which_of_the_following_populations_describe_you_[3]\"]':\n          checked: true\n  income:\n    '#type': select\n    '#title': 'Household Income'\n    '#title_display': before\n    '#options':\n      1: 'Less than $20,000'\n      2: '$20,000 - $39,999'\n      3: '$40,000 - $59,999'\n      4: '$60,000 - $79,999'\n      5: '$80,000 - $99,999'\n      6: '$100,000 - $149,999'\n      7: '$150,000+'\n    '#select2': true\n  how_can_mental_health_america_help_you_:\n    '#type': webform_checkboxes_other\n    '#title': 'How can Mental Health America help you?'\n    '#options':\n      1: 'A phone number to get immediate support or guidance'\n      2: 'Additional information about mental health'\n      3: 'Referrals to local MHA affiliates or other organizations that can help'\n      4: 'Worksheets or coping skills to use at home'\n      5: 'An online or mobile program or app that can help you track or manage your symptoms'\n    '#other__option_label': Other\n    '#other__title': 'If ''Other'' please specify (for how MHA can help you)'\n    '#access_create_roles': {  }\n  have_you_ever_received_treatment_support_for_a_mental_health_pro:\n    '#type': radios\n    '#title': 'Have you ever received treatment/support for a mental health problem?'\n    '#options': yes_no\n    '#options_display': side_by_side\n  are_you_receiving_treatment_support_now:\n    '#type': radios\n    '#title': 'Are you receiving treatment/support now?'\n    '#options': yes_no\n    '#options_display': side_by_side\n    '#states':\n      visible-slide:\n        ':input[name=\"have_you_ever_received_treatment_support_for_a_mental_health_pro\"]':\n          value: 'Yes'\n  how_can_mha_help_you_why_did_you_take_a_screen_today_:\n    '#type': webform_select_other\n    '#title': 'How can MHA help you? Why did you take a screen today?'\n    '#options':\n      1: 'My treatment doesn’t work anymore and my mental health got worse'\n      2: 'My treatment works, but something else is going on'\n      3: 'I’m still not able to get the help I need'\n    '#select2': true\n    '#states':\n      visible-slide:\n        ':input[name=\"are_you_receiving_treatment_support_now\"]':\n          value: 'Yes'\n  do_you_currently_have_health_insurance:\n    '#type': radios\n    '#title': 'Do you currently have health insurance?'\n    '#options': yes_no\n    '#options_display': side_by_side\n  do_you_have_any_of_the_following_general_health_conditions_:\n    '#type': webform_checkboxes_other\n    '#title': 'Do you have any of the following general health conditions?'\n    '#options':\n      1: ' Heart disease'\n      2: Diabetes\n      3: Cancer\n      4: ' Arthritis or other chronic pain'\n      5: 'COPD or other lung conditions'\n      6: 'Movement Disorders (involuntary tics, tardive dyskinesia)'\n    '#other__option_label': Other\n    '#other__title': 'If ''Other'' please specify (for general health conditions)'\n    '#other__placeholder': 'Please specify...'\n  which_of_the_following_applies_to_you:\n    '#type': checkboxes\n    '#title': 'Which of the following applies to you? Check all that apply'\n    '#options':\n      1: 'I smoke or chew tobacco'\n      2: 'I exercise regularly'\n      3: 'I consider myself overweight'\n      4: 'I attend church regularly'\n      5: 'I take at least one vacation (either at home or travelling) every year'\n      6: 'I follow politics closely'\n      7: 'I am a sports fan'\n    '#access_create_roles': {  }\n    '#access_update_roles': {  }\n    '#access_view_roles': {  }\n  what_next_steps_do_you_plan_to_take_after_screening_:\n    '#type': select\n    '#title': 'What next steps do you plan to take after screening?'\n    '#title_display': before\n    '#options':\n      1: 'Discuss the results with a family member, a friend or a professional'\n      2: 'Find additional information online'\n      3: 'Find treatment'\n      4: 'Monitor my health by taking screens regularly'\n      5: 'None at this time'\n    '#access_create_roles': {  }\n  score:\n    '#type': webform_computed_twig\n    '#title': Score\n    '#title_display': before\n    '#display_on': view\n    '#value': |\n      {% set score = data.q1 + data.q2 + data.q3 + data.q4 + data.q5 + data.q6 + data.q7 + data.q8 + data.q9 %}\n      {{score}}\n      \n    '#store': true\n  result:\n    '#type': webform_computed_twig\n    '#title': Result\n    '#title_display': before\n    '#display_on': view\n    '#value': |\n      {% set score = data.q1 + data.q2 + data.q3 + data.q4 + data.q5 + data.q6 + data.q7 + data.q8 + data.q9 + data.q10 %}\n      {% if score < 5  %}\n      {% set result = \"Minimal Depression\" %}\n      {% elseif score < 10 %}\n      {% set result = \"Mild Depression\" %}\n      {% elseif score < 15 %}\n      {% set result = \"Moderate Depression\" %}\n      {% elseif score < 20 %}\n      {% set result = \"Moderately Severe Depression\" %}\n      {% else %}\n      {% set result = \"Severe Depression\" %}\n      {% endif %}\n      {{result}}\n      \n    '#store': true\n  message:\n    '#type': webform_computed_twig\n    '#title': message\n    '#title_display': before\n    '#display_on': none\n    '#value': \"{% set score = data.q1 + data.q2 + data.q3 + data.q4 + data.q5 + data.q6 + data.q7 + data.q8 + data.q9 + data.q10 %}\\r\\n{% if score < 5  %}\\r\\nYour results indicate that you have none, or very few symptoms of depression.{% elseif score < 10 %}\\r\\nYour results indicate that you may be experiencing some symptoms of mild depression. While your symptoms are not likely having a major impact on your life, it is important to monitor them.{% elseif score < 15 %}\\r\\nYour results indicate that you may be experiencing symptoms of moderate depression.  Based on your answers, living with these symptoms could be causing difficulty managing relationships and even the tasks of everyday life.{% elseif score < 20 %}\\r\\nYour results indicate that you may be experiencing symptoms of moderately severe depression.   Based on your answers, living with these symptoms is causing difficulty managing relationships and even the tasks of everyday life.{% else %}\\r\\nYour responses indicate you may be at risk for harming yourself or someone else. Are you in crisis? Please call 911 or the National Suicide Prevention Hotline at 1-800-273-TALK or go immediately to the nearest emergency room. Your results indicate that you may be experiencing symptoms of severe depression. Based on your answers, these symptoms seem to be greatly interfering with your relationships and the tasks of everyday life.{% endif %}\\r\\n\"\n    '#store': true\n  message2:\n    '#type': webform_computed_twig\n    '#title': message2\n    '#description': |\n      <p>These results do not mean that you have depression, but it may be time to start a conversation with your doctor. Finding the right treatment plan and working with your doctor, healthcare provider or a support person can help you feel more like you again.</p>\n      \n      <p>The depression symptoms you are experiencing may also indicate a different type of mental health problem related to bipolar disorder. We recommend you also take the screen for bipolar disorder to find out if your symptoms may be more similar to those experienced by people with bipolar disorder.&nbsp; People who struggle with bipolar disorder experience mood swings from extreme elation, energy, or agitation to low depressive symptoms.</p>\n      \n      <p>This screen is not meant to be a diagnosis. Diagnosis and care of mental health conditions can be difficult. Having symptoms of depression is different than having depression. In addition, symptoms of depression can be caused by other mental health conditions, such as bipolar disorder, or other health problems, like a thyroid disorder. Only a trained professional, such as a doctor or a mental health provider, can make this determination. However, by printing the results and bringing it to your doctor, you can open up the conversation.</p>\n      \n    '#title_display': before\n    '#display_on': none\n    '#value': |\n      {% set score = data.q1 + data.q2 + data.q3 + data.q4 + data.q5 + data.q6 + data.q7 + data.q8 + data.q9 + data.q10 %}\n      {% if score < 5  %}\n      <p>If you notice that your symptoms aren&#39;t improving, you may want to bring them up with someone you trust.</p>\n      \n      <p>This screen is not meant to be a diagnosis, or the elimination of a diagnosis.&nbsp; A trained medical or mental health professional can help clarify issues and diagnose depression.</p>\n      \n      <p>If you feel like your feelings, thoughts, or behaviors get worse, screen again.&nbsp;</p>\n      \n      <p><strong> If you are interested in learning more, check out the information and DIY supports on this page.</strong></p>\n      \n      {% elseif score < 10 %}\n      <p>These results do not mean that you have depression, but it may be time to start a conversation with someone you trust. <strong>If you are interested in learning more, check out the information and DIY supports on this page.</strong></p>\n      \n      <p>This screen is not meant to be a diagnosis. Diagnosis and care of mental health conditions can be difficult. Having symptoms of depression is different than having depression. In addition, symptoms of depression can be caused by other mental health conditions, such as bipolar disorder, or other health problems, like a thyroid disorder. A trained professional, such as a doctor or a mental health provider, can make this determination and finding the right support can help you feel more like you again.</p>\n      \n      <p>The depression symptoms you are experiencing may also indicate a different type of mental health problem related to bipolar disorder. We recommend you also take the screen for bipolar disorder to find out if your symptoms may be more similar to those experienced by people with bipolar disorder.&nbsp; People who struggle with bipolar disorder experience mood swings from extreme elation, energy, or agitation to low depressive symptoms.</p>\n      \n      {% elseif score < 15 %}\n      <p>These results do not mean that you have depression, but it may be time to start a conversation with someone you trust. <strong>If you are interested in learning more, check out the information and DIY supports on this page.</strong></p>\n      \n      <p>This screen is not meant to be a diagnosis. Diagnosis and care of mental health conditions can be difficult. Having symptoms of depression is different than having depression. In addition, symptoms of depression can be caused by other mental health conditions, such as bipolar disorder, or other health problems, like a thyroid disorder. A trained professional, such as a doctor or a mental health provider, can make this determination and finding the right support can help you feel more like you again.</p>\n      \n      <p>The depression symptoms you are experiencing may also indicate a different type of mental health problem related to bipolar disorder. We recommend you also take the screen for bipolar disorder to find out if your symptoms may be more similar to those experienced by people with bipolar disorder.&nbsp; People who struggle with bipolar disorder experience mood swings from extreme elation, energy, or agitation to low depressive symptoms.</p>\n      \n      \n      {% elseif score < 20 %}\n      <p>These results do not mean that you have depression, but it may be time to start a conversation with someone you trust. <strong>If you are interested in learning more, check out the information and DIY supports on this page.</strong></p>\n      \n      <p>This screen is not meant to be a diagnosis. Diagnosis and care of mental health conditions can be difficult. Having symptoms of depression is different than having depression. In addition, symptoms of depression can be caused by other mental health conditions, such as bipolar disorder, or other health problems, like a thyroid disorder. A trained professional, such as a doctor or a mental health provider, can make this determination and finding the right support can help you feel more like you again.</p>\n      \n      <p>The depression symptoms you are experiencing may also indicate a different type of mental health problem related to bipolar disorder. We recommend you also take the screen for bipolar disorder to find out if your symptoms may be more similar to those experienced by people with bipolar disorder.&nbsp; People who struggle with bipolar disorder experience mood swings from extreme elation, energy, or agitation to low depressive symptoms.</p>\n      \n      {% else %}\n      <p>These results do not mean that you have depression, but it may be time to start a conversation with someone you trust. <strong>If you are interested in learning more, check out the information and DIY supports on this page.</strong></p>\n      \n      <p>This screen is not meant to be a diagnosis. Diagnosis and care of mental health conditions can be difficult. Having symptoms of depression is different than having depression. In addition, symptoms of depression can be caused by other mental health conditions, such as bipolar disorder, or other health problems, like a thyroid disorder. A trained professional, such as a doctor or a mental health provider, can make this determination and finding the right support can help you feel more like you again.</p>\n      \n      <p>The depression symptoms you are experiencing may also indicate a different type of mental health problem related to bipolar disorder. We recommend you also take the screen for bipolar disorder to find out if your symptoms may be more similar to those experienced by people with bipolar disorder.&nbsp; People who struggle with bipolar disorder experience mood swings from extreme elation, energy, or agitation to low depressive symptoms.</p>\n      \n      {% endif %}\n      \n    '#store': true\n  condition:\n    '#type': webform_computed_twig\n    '#title': condition\n    '#title_display': before\n    '#display_on': view\n    '#value': |\n      {% set score = data.q1 + data.q2 + data.q3 + data.q4 + data.q5 + data.q6 + data.q7 + data.q8 + data.q9 + data.q10 %}\n      {% if score < 10 %}\n      {% set result = \"Depression_Unlikely\" %}\n      {% else %}\n      {% set result = \"Depression_Likely\" %}\n      {% endif %}\n      {{result}}\n      \n    '#store': true\n  email:\n    '#type': email\n    '#title': Email\n    '#description': '<p>Enter your email to receive a copy of the screen result</p>'\n    '#access_create_roles': {  }\n  msg:\n    '#type': webform_computed_twig\n    '#title': msg\n    '#display_on': none\n    '#value': '{{ data.message2|raw}}'\nref:\n  '#type': hidden\n  '#title': Referrer\nipiden:\n  '#type': hidden\n  '#title': 'IP Identifier'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': SUBMIT\n  '#wizard_prev_hide': true"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  page: true
+  page_submit_path: /screening-tools/depression
+  page_confirm_path: /screening-tools/depression/confirmation
+  form_title: both
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_convert_anonymous: true
+  form_prepopulate: true
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: true
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns:
+    - created
+    - element__condition
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: false
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: page
+  confirmation_title: 'RESULTS AND NEXT STEPS'
+  confirmation_message: "<h1>RESULT: [webform_submission:values:result]</h1>\r\n\r\n<p>[webform_submission:values:message]</p>\r\n\r\n<p>[webform_submission:values:msg]</p>\r\n\r\n<h2>Your total score was: [webform_submission:values:score]</h2>\r\n\r\n<div class=\"container-fluid\"><a class=\"btn btn-warning\" data-toggle=\"collapse\" href=\"#demo\">Your Answers</a>\r\n\r\n<div class=\"collapse\" id=\"demo\">\r\n<table class=\"table table-striped\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>1. Little interest or pleasure in doing things</td>\r\n\t\t\t<td>[webform_submission:values:q1]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>2. Feeling down, depressed, or hopeless</td>\r\n\t\t\t<td>[webform_submission:values:q2]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>3. Trouble falling or staying asleep, or sleeping too much</td>\r\n\t\t\t<td>[webform_submission:values:q3]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>4. Feeling tired or having little energy</td>\r\n\t\t\t<td>[webform_submission:values:q4]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>5. Poor appetite or overeating</td>\r\n\t\t\t<td>[webform_submission:values:q5]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>6. Feeling bad about yourself - or that you are a failure or have let yourself or your family down</td>\r\n\t\t\t<td>[webform_submission:values:q6]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>7. Trouble concentrating on things, such as reading the newspaper or watching television/td&gt;</td>\r\n\t\t\t<td>[webform_submission:values:q7]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>8. Moving or speaking so slowly that other people could have noticed</td>\r\n\t\t\t<td>[webform_submission:values:q8]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>9. Thoughts that you would be better off dead, or of hurting yourself</td>\r\n\t\t\t<td>[webform_submission:values:q9]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>10. If you checked off any problems, how difficult have these problems made it for you at work, home, or with other people?</td>\r\n\t\t\t<td>[webform_submission:values:q10]</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n</div>\r\n</div>\r\n\r\n<hr />\r\n<div class=\"container-fluid\"><a class=\"btn btn-warning\" data-toggle=\"collapse\" href=\"#demo2\">Interpretation of Score</a>\r\n\r\n<div class=\"collapse\" id=\"demo2\">\r\n<h4>Scoring</h4>\r\n\r\n<p>Add up all checked boxes on PHQ-9. For every ✓ Not at all = 0; Several days = 1; More than half the days = 2; Nearly every day = 3</p>\r\n\r\n<h4>Interpretation of Total Score</h4>\r\n\r\n<ul>\r\n\t<li><strong>1-4</strong>&nbsp;Minimal depression</li>\r\n\t<li><strong>5-9</strong>&nbsp;Mild depression</li>\r\n\t<li><strong>10-14</strong>&nbsp;Moderate depression</li>\r\n\t<li><strong>15-19</strong>&nbsp;Moderately severe depression</li>\r\n\t<li><strong>20-27</strong>&nbsp;Severe depression</li>\r\n</ul>\r\n\r\n<p><strong>If you&rsquo;d like to monitor how severe your depression is over time, complete the following:</strong></p>\r\n\r\n<ol>\r\n\t<li>Print or email your initial depression screening (your baseline).</li>\r\n\t<li>Continue to screen at regular intervals (e.g. every 2 weeks).</li>\r\n\t<li>Note any changes in your Total Score (above).</li>\r\n\t<li>Print or email results and bring them to someone who is helping you in your recovery.</li>\r\n</ol>\r\n\r\n<h4>Source</h4>\r\n\r\n<p>PHQ9 Copyright &copy; Pfizer Inc. All rights reserved. Reproduced with permission. PRIME-MD &reg; is a trademark of Pfizer Inc.</p>\r\n</div>\r\n</div>\r\n\r\n<hr />\r\n<p><a data-entity-type=\"\" data-entity-uuid=\"\" href=\"https://mha.neurolex.ai/?id=[webform_submission:sid]\" target=\"_blank\"><img alt=\"Neurolex\" data-entity-type=\"\" data-entity-uuid=\"\" src=\"/sites/default/files/Neurolex%20white%20440.png\" width=\"320\" /></a></p>\r\n\r\n<hr />\r\n<p>&nbsp;</p>\r\n\r\n<div class=\"clearfix\">\r\n<div class=\"col-md-3 btn-salmon sm\"><a href=\"../../content/what-depression\">What is depression?</a></div>\r\n\r\n<div class=\"col-md-3 btn-salmon sm\"><a href=\"../../content/how-do-you-treat-depression\">How do you treat depression?</a></div>\r\n\r\n<div class=\"col-md-3 btn-salmon sm\"><a href=\"../../content/happy\">Talk to a listener now</a></div>\r\n\r\n<div class=\"col-md-3 btn-salmon sm\"><a href=\"../../content/condition-forever-will-i-always-feel-way\">Is this condition forever?</a></div>\r\n\r\n<div class=\"col-md-3 btn-salmon sm\"><a href=\"../../content/antidepressants-selective-serotonin-reuptake-inhibitors-ssris\">Antidepressants</a></div>\r\n\r\n<div class=\"col-md-3 btn-salmon sm\"><a href=\"../../content/stopping-stupid-thoughts\">Stopping Stupid Thoughts</a></div>\r\n\r\n<div class=\"col-md-3 btn-salmon sm\"><a href=\"../../content/where-can-i-find-people-me\">Where do I find people like me?</a></div>\r\n</div>"
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: false
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: completed
+  purge_days: 60
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+  form_submit_once_disabled: true
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  email:
+    id: email
+    label: Email
+    handler_id: email
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email:raw]'
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      subject: 'Screening Results: Depression'
+      body: "<p><strong>Submitted on:</strong> [webform_submission:created]</p>\n\n<p><strong>Submitted by:</strong> [webform_submission:user]</p>\n\n<p><strong>Submitted values are:</strong></p>\n[webform_submission:values]\n\n<hr />\n<h3>[webform_submission:values:message]</h3>\n\n<hr />\n<h2>Scoring</h2>\n\n<p>Add up all checked boxes on PHQ-9. For every ✓ Not at all = 0; Several days = 1; More than half the days = 2; Nearly every day = 3</p>\n\n<h2>Interpretation of Total Score</h2>\n\n<ul>\n\t<li><strong>1-4</strong>&nbsp;Minimal depression</li>\n\t<li><strong>5-9</strong>&nbsp;Mild depression</li>\n\t<li><strong>10-14</strong>&nbsp;Moderate depression</li>\n\t<li><strong>15-19</strong>&nbsp;Moderately severe depression</li>\n\t<li><strong>20-27</strong>&nbsp;Severe depression</li>\n</ul>\n\n<h2>If you&rsquo;d like to monitor how severe your depression is over time, complete the following:</h2>\n\n<ol>\n\t<li>Print (this email) your initial depression screening (your baseline).</li>\n\t<li>Continue to screen at regular intervals (e.g. every 2 weeks).</li>\n\t<li>Note any changes in your Total Score (above).</li>\n\t<li>Print or email results and bring them to someone who is helping you in your recovery.</li>\n</ol>\n\n<h2>Source</h2>\n\n<p>PHQ9 Copyright &copy; Pfizer Inc. All rights reserved. Reproduced with permission. PRIME-MD &reg; is a trademark of Pfizer Inc.</p>"
+      excluded_elements:
+        sex: sex
+        race: race
+        age: age
+        income: income
+        zip_postal_code: zip_postal_code
+        state: state
+        message: message
+        message2: message2
+        condition: condition
+        email: email
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''

@@ -1,0 +1,22 @@
+uuid: def1ed2d-cbca-4f18-9808-1ee68e74d66b
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - s2s
+_core:
+  default_config_hash: MhtNdV__HKRTab0ZPjkPNfYL4Ng4UPBucDLoC7Rg5Eo
+id: s2s_help
+theme: s2s
+region: help
+weight: -9
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

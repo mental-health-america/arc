@@ -1,0 +1,19 @@
+uuid: 55110f88-99a1-4e3b-a834-386aebfb3c0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_connect_tool_friendly_desc
+    - node.type.connect_tool
+id: node.connect_tool.field_connect_tool_friendly_desc
+field_name: field_connect_tool_friendly_desc
+entity_type: node
+bundle: connect_tool
+label: 'Connect Tool Friendly Description'
+description: 'Describe your tool in 50 characters or less'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

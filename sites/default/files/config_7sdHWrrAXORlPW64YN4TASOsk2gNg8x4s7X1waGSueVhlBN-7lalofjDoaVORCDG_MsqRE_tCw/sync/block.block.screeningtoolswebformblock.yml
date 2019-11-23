@@ -1,0 +1,26 @@
+uuid: a746e089-9705-4dfb-8482-ca4b062ae60b
+langcode: en
+status: true
+dependencies:
+  module:
+    - screening_blocks
+    - system
+  theme:
+    - s2s
+id: screeningtoolswebformblock
+theme: s2s
+region: content
+weight: 11
+provider: null
+plugin: screening_webform_block
+settings:
+  id: screening_webform_block
+  label: 'Screening Tools Webform Block'
+  provider: screening_blocks
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: true
+    context_mapping: {  }

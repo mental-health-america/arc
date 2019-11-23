@@ -1,0 +1,31 @@
+uuid: 25983e66-3e16-48f4-9393-14433ee2d9ab
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:de6bb5f1-6f0e-4500-a01a-dcb29997e59c'
+  module:
+    - block_content
+    - system
+  theme:
+    - s2s
+id: forntpagecolumns
+theme: s2s
+region: content
+weight: -57
+provider: null
+plugin: 'block_content:de6bb5f1-6f0e-4500-a01a-dcb29997e59c'
+settings:
+  id: 'block_content:de6bb5f1-6f0e-4500-a01a-dcb29997e59c'
+  label: 'Front Page Columns'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

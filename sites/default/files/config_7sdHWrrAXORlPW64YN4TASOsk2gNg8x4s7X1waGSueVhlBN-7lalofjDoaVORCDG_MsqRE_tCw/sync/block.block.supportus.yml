@@ -1,0 +1,24 @@
+uuid: ad6c0acd-ad61-4e12-978e-27e663a661f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.support-us
+  module:
+    - system
+  theme:
+    - s2s
+id: supportus
+theme: s2s
+region: superfooter_6
+weight: 0
+provider: null
+plugin: 'system_menu_block:support-us'
+settings:
+  id: 'system_menu_block:support-us'
+  label: 'Support Us'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility: {  }

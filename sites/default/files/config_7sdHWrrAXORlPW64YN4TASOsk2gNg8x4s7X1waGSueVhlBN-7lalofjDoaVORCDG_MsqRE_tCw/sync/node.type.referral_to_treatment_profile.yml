@@ -1,0 +1,18 @@
+uuid: f952e507-6710-422e-a2cc-aeb1581448f7
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Referral to Treatment Service - Profile'
+type: referral_to_treatment_profile
+description: 'Add a Referral to treatment Local/National Resource to the Local Resource database.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

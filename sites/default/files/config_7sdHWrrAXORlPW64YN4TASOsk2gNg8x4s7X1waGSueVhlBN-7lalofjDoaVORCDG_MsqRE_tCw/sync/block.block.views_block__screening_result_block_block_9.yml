@@ -1,0 +1,36 @@
+uuid: de03a2d0-883a-41ad-9378-8a6a008efe96
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.screening_result_block
+  module:
+    - php
+    - system
+    - views
+  theme:
+    - s2s
+id: views_block__screening_result_block_block_9
+theme: s2s
+region: content
+weight: 6
+provider: null
+plugin: 'views_block:screening_result_block-block_9'
+settings:
+  id: 'views_block:screening_result_block-block_9'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /screening-tools/youth/confirmation
+    negate: false
+    context_mapping: {  }
+  php:
+    id: php
+    php: "<?php $token = \\Drupal::request()->query->get('token'); \r\nif($token){\r\n                $current_path = \\Drupal::service('path.current')->getPath();\t\t\r\n\t\t$path = explode('/',$current_path);\r\n                $storage = \\Drupal::entityTypeManager()->getStorage('webform_submission');\r\n\t\t$webform_submission = $storage->loadByProperties([\r\n\t\t  'token' => $token,\r\n\t\t]);\r\n\t\t$submission_data = array();\r\n\t\tforeach ($webform_submission as $submission) {\r\n\t\t  $submission_data[] = $submission->getData();\r\n\t\t}\r\n                $opts = \\Drupal::entityTypeManager()->getStorage('webform')->load($path[2])->getElement('age')['#options'];\r\n\t\t\r\n\t\t$submitted_age_group = '';\r\n\t\t$opt = str_replace('\"', '', $opts[$submission_data[0]['age']]);\r\n\t\tswitch($opt){\r\n\t\t\tcase 'Under 11':\r\n\t\t\t\t$submitted_age_group = 1;\r\n\t\t\t\tbreak;\r\n\t\t\tcase '11-17':\r\n\t\t\t\t$submitted_age_group = 2;\r\n\t\t\t\tbreak;\r\n\t\t\tcase '18-24':\r\n\t\t\t\t$submitted_age_group = 3;\r\n\t\t\t\tbreak;\r\n\t\t\tcase '25-34':\r\n\t\t\t\t$submitted_age_group = 4;\r\n\t\t\t\tbreak;\r\n\t\t\tcase '35-44':\r\n\t\t\t\t$submitted_age_group = 4;\r\n\t\t\t\tbreak;\r\n\t\t\tcase '45-54':\r\n\t\t\t\t$submitted_age_group = 5;\r\n\t\t\t\tbreak;\r\n\t\t\tcase '55-64':\r\n\t\t\t\t$submitted_age_group = 5;\r\n\t\t\t\tbreak;\r\n\t\t\tcase '4-5':\r\n\t\t\t\t$submitted_age_group = 1;\r\n\t\t\t\tbreak;\r\n\t\t\tcase '6-8':\r\n\t\t\t\t$submitted_age_group = 1;\r\n\t\t\t\tbreak;\r\n\t\t\tcase '9-10':\r\n\t\t\t\t$submitted_age_group = 1;\r\n\t\t\t\tbreak;\r\n\t\t\tcase '11-13':\r\n\t\t\t\t$submitted_age_group = 2;\r\n\t\t\t\tbreak;\r\n\t\t\tcase '14-17':\r\n\t\t\t\t$submitted_age_group = 2;\r\n\t\t\t\tbreak;\r\n\t\t\tcase '18+':\r\n\t\t\t\t$submitted_age_group = 3;\r\n\t\t\t\tbreak;\r\n\t\t\tcase '<18':\r\n\t\t\t\t$submitted_age_group = 1;\r\n\t\t\t\tbreak;\r\n\t\t} \r\n}\r\nif($submitted_age_group == 1)\r\n    return TRUE;\r\nelse\r\n   return false;\r\n\r\n ?>"
+    negate: false
+    context_mapping: {  }

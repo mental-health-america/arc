@@ -1,0 +1,36 @@
+uuid: ecdd5235-4c7a-459f-8962-ad848efe73b5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_age
+field_name: field_age
+entity_type: node
+type: list_integer
+settings:
+  allowed_values:
+    -
+      value: 1
+      label: 'Under 11'
+    -
+      value: 2
+      label: 11-17
+    -
+      value: 3
+      label: 18-24
+    -
+      value: 4
+      label: 25-44
+    -
+      value: 5
+      label: 'Over 45'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

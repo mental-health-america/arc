@@ -1,0 +1,216 @@
+uuid: b2a26890-0c98-40b5-a0b6-d8eec9fd3d32
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+weight: 0
+uid: 1
+template: false
+archive: false
+id: youth_screening
+title: 'Youth Test'
+description: ''
+category: ''
+elements: "page1:\n  '#type': webform_wizard_page\n  '#title': page1\n  '#next_button_label': NEXT\n  intro1:\n    '#type': webform_markup\n    '#markup': |\n      <p>Pediatric Symptom Checklist - Youth Report</p>\n      \n      <p>Please mark under the heading that best fits you.</p>\n      \n  q1:\n    '#type': webform_buttons\n    '#title': 'Complain of aches or pains'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q2:\n    '#type': webform_buttons\n    '#title': 'Spend more time alone'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q3:\n    '#type': webform_buttons\n    '#title': 'Tire easily, little energy'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q4:\n    '#type': webform_buttons\n    '#title': 'Fidgety, unable to sit still'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q5:\n    '#type': webform_buttons\n    '#title': 'Have trouble with teacher'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q6:\n    '#type': webform_buttons\n    '#title': 'Less interested in school'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q7:\n    '#type': webform_buttons\n    '#title': 'Act as if driven by motor'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q8:\n    '#type': webform_buttons\n    '#title': 'Daydream too much'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q9:\n    '#type': webform_buttons\n    '#title': 'Distract easily'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q10:\n    '#type': webform_buttons\n    '#title': 'Are afraid of new situations'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q11:\n    '#type': webform_buttons\n    '#title': 'Feel sad, unhappy'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q12:\n    '#type': webform_buttons\n    '#title': 'Are irritable, angry'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q13:\n    '#type': webform_buttons\n    '#title': 'Feel hopeless'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q14:\n    '#type': webform_buttons\n    '#title': 'Have trouble concentrating'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q15:\n    '#type': webform_buttons\n    '#title': 'Less interested in friends'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q16:\n    '#type': webform_buttons\n    '#title': 'Fight with other children'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q17:\n    '#type': webform_buttons\n    '#title': 'Absent from school'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q18:\n    '#type': webform_buttons\n    '#title': 'School grades dropping'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q19:\n    '#type': webform_buttons\n    '#title': 'Down on yourself'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q20:\n    '#type': webform_buttons\n    '#title': 'Visit doctor with doctor finding nothing wrong'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q21:\n    '#type': webform_buttons\n    '#title': 'Have trouble sleeping'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q22:\n    '#type': webform_buttons\n    '#title': 'Worry a lot'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q23:\n    '#type': webform_buttons\n    '#title': 'Want to be with parent more than before'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q24:\n    '#type': webform_buttons\n    '#title': 'Feel that you are bad'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q25:\n    '#type': webform_buttons\n    '#title': 'Take unnecessary risks'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q26:\n    '#type': webform_buttons\n    '#title': 'Get hurt frequently'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q27:\n    '#type': webform_buttons\n    '#title': 'Seem to be having less fun'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q28:\n    '#type': webform_buttons\n    '#title': 'Act younger than children your age'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q29:\n    '#type': webform_buttons\n    '#title': 'Do not listen to rules'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q30:\n    '#type': webform_buttons\n    '#title': 'Do not show feelings'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q31:\n    '#type': webform_buttons\n    '#title': 'Do not understand other people''s feelings'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q32:\n    '#type': webform_buttons\n    '#title': 'Tease others'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q33:\n    '#type': webform_buttons\n    '#title': 'Blame others for your troubles'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q34:\n    '#type': webform_buttons\n    '#title': 'Take things that do not belong to you'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q35:\n    '#type': webform_buttons\n    '#title': 'Refuse to share'\n    '#title_display': before\n    '#options':\n      - Never\n      - Sometimes\n      - Often\n  q36:\n    '#type': webform_buttons\n    '#title': 'Do you have any emotional or behavioral problems for which you need help?'\n    '#title_display': before\n    '#options':\n      - 'No'\n      - 'Yes'\npage2:\n  '#type': webform_wizard_page\n  '#title': page2\n  '#next_button_label': SUBMIT\n  intro2:\n    '#type': webform_markup\n    '#markup': '<p>Before you get to your results, please take a moment to answer the following <strong>optional</strong> questions. If you aren&rsquo;t comfortable sharing any or all of the information, you can click &ldquo;submit&rdquo; right away. Otherwise, your answers will help us better understand how we can achieve our mission. Don&rsquo;t worry; we won&rsquo;t be able to identify you based on this information.</p>'\n  state:\n    '#type': select\n    '#title': State\n    '#title_display': before\n    '#options': state_codes\n    '#select2': true\n  zip_postal_code:\n    '#type': textfield\n    '#title': 'Zip/Postal Code'\n    '#title_display': before\n    '#input_mask': '*****'\n  sex:\n    '#type': webform_select_other\n    '#title': Gender\n    '#options':\n      1: Female\n      2: Male\n    '#select2': true\n    '#other__option_label': 'Another Gender'\n    '#other__placeholder': 'Enter Gender....'\n  race:\n    '#type': select\n    '#title': Race/Ethnicity\n    '#title_display': before\n    '#options':\n      1: 'Asian or Pacific Islander'\n      2: 'Black or African American (non-Hispanic)'\n      3: 'Hispanic or Latino'\n      4: 'Native American or American Indian'\n      5: 'White (non-Hispanic)'\n      6: 'More than one of the above'\n      7: Other\n    '#select2': true\n  age:\n    '#type': select\n    '#title': Age\n    '#title_display': before\n    '#options':\n      1: '\"4-5\"'\n      2: '\"6-8\"'\n      3: '\"9-10\"'\n      4: '\"11-13\"'\n      5: '\"14-17\"'\n      6: '\"18+\"'\n    '#select2': true\n  mental:\n    '#type': select\n    '#title': 'Are you currently, or have you ever been, diagnosed with a mental health condition by a professional?'\n    '#title_display': before\n    '#options': yes_no\n    '#select2': true\n    '#access_create_roles': {  }\n  which_of_the_following_populations_describe_you_:\n    '#type': checkboxes\n    '#title': 'Which of the following populations describes you?'\n    '#options':\n      1: 'Veteran or active duty military'\n      2: 'Caregiver of someone living with emotional or physical illness'\n      3: LGBTQ\n      4: ' Student'\n      5: 'Trauma survivor'\n      6: 'New or expecting mother'\n  who_are_you_caring_for_:\n    '#type': webform_select_other\n    '#title': 'Who are you caring for?'\n    '#options':\n      1: 'My spouse or partner'\n      2: 'My parent'\n      3: 'My child'\n      4: 'Another relative'\n    '#select2': true\n    '#other__placeholder': 'Please specify...'\n    '#states':\n      visible-slide:\n        ':input[name=\"which_of_the_following_populations_describe_you_[2]\"]':\n          checked: true\n  how_can_mha_help_you_:\n    '#type': webform_select_other\n    '#title': 'How can MHA help you?'\n    '#options':\n      1: 'The person I’m helping is getting treatment but is getting worse (meds or therapy stopped working)'\n      2: 'The person I’m helping is getting treatment but also needs something else (side effects cause other problems, not sure what else to do)'\n      3: 'The person I’m helping is doesn’t want treatment and I want to figure out how to help them'\n      4: 'I need help because the stress of caretaking is hard'\n    '#select2': true\n    '#states':\n      visible-slide:\n        ':input[name=\"which_of_the_following_populations_describe_you_[2]\"]':\n          checked: true\n  which_of_the_following_best_describes_your_sexual_orientation_:\n    '#type': webform_select_other\n    '#title': 'Which of the following best describes your sexual orientation/gender?'\n    '#options':\n      1: 'Lesbian or Gay'\n      2: Bisexual\n      3: Transgender\n      4: Queer\n      5: Pansexual\n      6: Asexual\n    '#select2': true\n    '#other__placeholder': 'Please specify...'\n    '#states':\n      visible-slide:\n        ':input[name=\"which_of_the_following_populations_describe_you_[3]\"]':\n          checked: true\n  income:\n    '#type': select\n    '#title': 'Household Income'\n    '#title_display': before\n    '#options':\n      1: 'Less than $20,000'\n      2: '$20,000 - $39,999'\n      3: '$40,000 - $59,999'\n      4: '$60,000 - $79,999'\n      5: '$80,000 - $99,999'\n      6: '$100,000 - $149,999'\n      7: '$150,000+'\n    '#select2': true\n  how_can_mental_health_america_help_you_:\n    '#type': webform_checkboxes_other\n    '#title': 'How can Mental Health America help you?'\n    '#options':\n      1: 'A phone number to get immediate support or guidance'\n      2: 'Additional information about mental health'\n      3: 'Referrals to local MHA affiliates or other organizations that can help'\n      4: 'Worksheets or coping skills to use at home'\n      5: 'An online or mobile program or app that can help you track or manage your symptoms'\n    '#other__option_label': Other\n    '#other__title': 'If ''Other'' please specify (for how MHA can help you)'\n    '#other__placeholder': 'Please specify...'\n    '#access_create_roles': {  }\n  have_you_ever_received_treatment_support_for_a_mental_health_pro:\n    '#type': radios\n    '#title': 'Have you ever received treatment/support for a mental health problem?'\n    '#options': yes_no\n    '#options_display': side_by_side\n  are_you_receiving_treatment_support_now:\n    '#type': radios\n    '#title': 'Are you receiving treatment/support now?'\n    '#options': yes_no\n    '#options_display': side_by_side\n    '#states':\n      visible-slide:\n        ':input[name=\"have_you_ever_received_treatment_support_for_a_mental_health_pro\"]':\n          value: 'Yes'\n  how_can_mha_help_you_why_did_you_take_a_screen_today_:\n    '#type': webform_select_other\n    '#title': 'How can MHA help you? Why did you take a screen today?'\n    '#options':\n      1: 'My treatment doesn’t work anymore and my mental health got worse'\n      2: 'My treatment works, but something else is going on'\n      3: 'I’m still not able to get the help I need'\n    '#select2': true\n    '#states':\n      visible-slide:\n        ':input[name=\"are_you_receiving_treatment_support_now\"]':\n          value: 'Yes'\n  do_you_currently_have_health_insurance:\n    '#type': radios\n    '#title': 'Do you currently have health insurance?'\n    '#options': yes_no\n    '#options_display': side_by_side\n  do_you_have_any_of_the_following_general_health_conditions_:\n    '#type': webform_checkboxes_other\n    '#title': 'Do you have any of the following general health conditions?'\n    '#options':\n      1: ' Heart disease'\n      2: Diabetes\n      3: Cancer\n      4: ' Arthritis or other chronic pain'\n      5: 'COPD or other lung conditions'\n      6: 'Movement Disorders (involuntary tics, tardive dyskinesia)'\n    '#other__option_label': Other\n    '#other__title': 'If ''Other'' please specify (for general health conditions)'\n    '#other__placeholder': 'Please specify...'\n  which_of_the_following_applies_to_you:\n    '#type': checkboxes\n    '#title': 'Which of the following applies to you? Check all that apply'\n    '#options':\n      1: 'I smoke or chew tobacco'\n      2: 'I exercise regularly'\n      3: 'I consider myself overweight'\n      4: 'I attend church regularly'\n      5: 'I take at least one vacation (either at home or travelling) every year'\n      6: 'I follow politics closely'\n      7: 'I am a sports fan'\n    '#access_create_roles': {  }\n  what_next_steps_do_you_plan_to_take_after_screening_:\n    '#type': select\n    '#title': 'What next steps do you plan to take after screening?'\n    '#title_display': before\n    '#options':\n      1: 'Discuss the results with a family member, a friend or a professional'\n      2: 'Find additional information online'\n      3: 'Find treatment'\n      4: 'Monitor my health by taking screens regularly'\n      5: 'None at this time'\n    '#access_create_roles': {  }\n  score:\n    '#type': webform_computed_twig\n    '#title': Score\n    '#title_display': before\n    '#display_on': view\n    '#value': |\n      {% set score = data.q1 + data.q2 + data.q3 + data.q4 + data.q5 + data.q6 + data.q7 + data.q8 + data.q9 + data.q10 + data.q11 + data.q12 + data.q13 + data.q14 + data.q15 + data.q16 + data.q17 + data.q18 + data.q19 + data.q20 + data.q21 + data.q22 + data.q23 + data.q24 + data.q25 + data.q26 + data.q27 + data.q28 + data.q29 + data.q30 + data.q31 + data.q32 + data.q33 + data.q34 + data.q35 %}\n      {{score}}\n      \n    '#store': true\n  result:\n    '#type': webform_computed_twig\n    '#title': Result\n    '#title_display': before\n    '#display_on': view\n    '#value': |\n      {% set score = data.q1 + data.q2 + data.q3 + data.q4 + data.q5 + data.q6 + data.q7 + data.q8 + data.q9 + data.q10 + data.q11 + data.q12 + data.q13 + data.q14 + data.q15 + data.q16 + data.q17 + data.q18 + data.q19 + data.q20 + data.q21 + data.q22 + data.q23 + data.q24 + data.q25 + data.q26 + data.q27 + data.q28 + data.q29 + data.q30 + data.q31 + data.q32 + data.q33 + data.q34 + data.q35 %}\n      {% if score < 30  %}\n      {% set result = \"Low Risk for Emotional, Attentional, or Behavioral Difficulties\" %}\n      {% else %}\n      {% set result = \"At Risk for Emotional, Attentional, or Behavioral Difficulties\" %}\n      {% endif %}\n      {{result}}\n      \n    '#store': true\n  condition:\n    '#type': webform_computed_twig\n    '#title': condition\n    '#title_display': before\n    '#display_on': view\n    '#value': |\n      {% set score = data.q1 + data.q2 + data.q3 + data.q4 + data.q5 + data.q6 + data.q7 + data.q8 + data.q9 + data.q10 + data.q11 + data.q12 + data.q13 + data.q14 + data.q15 + data.q16 + data.q17 + data.q18 + data.q19 + data.q20 + data.q21 + data.q22 + data.q23 + data.q24 + data.q25 + data.q26 + data.q27 + data.q28 + data.q29 + data.q30 + data.q31 + data.q32 + data.q33 + data.q34 + data.q35 %}\n      {% if score < 30  %}\n      {% set result = \"Youth_LowRisk\" %}\n      {% else %}\n      {% set result = \"Youth_AtRisk\" %}\n      {% endif %}\n      {{result}}\n      \n    '#store': true\n  message:\n    '#type': webform_computed_twig\n    '#title': message\n    '#title_display': before\n    '#display_on': none\n    '#value': \"{% set score = data.q1 + data.q2 + data.q3 + data.q4 + data.q5 + data.q6 + data.q7 + data.q8 + data.q9 + data.q10 + data.q11 + data.q12 + data.q13 + data.q14 + data.q15 + data.q16 + data.q17 + data.q18 + data.q19 + data.q20 + data.q21 + data.q22 + data.q23 + data.q24 + data.q25 + data.q26 + data.q27 + data.q28 + data.q29 + data.q30 + data.q31 + data.q32 + data.q33 + data.q34 + data.q35 %}\\r\\n{% if score < 30  %}\\r\\nYour results indicate that you have none, or very few signs of emotional, attentional or behavioral difficulties.  Most youth scoring in this range are functioning well and do not have serious problems.{% else %}\\r\\nYour results indicate that you are experiencing a large number of emotional, attentional, or behavioral difficulties. Based on your answers, living with these feelings and stressors is causing difficulty in school, with relationships, in your family, and/or with everyday activities.{% endif %}\\r\\n\"\n    '#store': true\n  message2:\n    '#type': webform_computed_twig\n    '#title': message2\n    '#title_display': before\n    '#display_on': none\n    '#value': |\n      {% set score = data.q1 + data.q2 + data.q3 + data.q4 + data.q5 + data.q6 + data.q7 + data.q8 + data.q9 + data.q10 + data.q11 + data.q12 + data.q13 + data.q14 + data.q15 + data.q16 + data.q17 + data.q18 + data.q19 + data.q20 + data.q21 + data.q22 + data.q23 + data.q24 + data.q25 + data.q26 + data.q27 + data.q28 + data.q29 + data.q30 + data.q31 + data.q32 + data.q33 + data.q34 + data.q35 %}\n      {% if score < 30  %}\n      <p>If you notice that your feelings or behaviors get worse or do not improve, you may want to screen again and start a conversation with someone you trust.</p>\n      \n      <p>These results do not mean that you do or do not have a mental health problem.&nbsp; Only a trained medical professional can help you and your family figure that out.</p>\n      \n      <p>Visit&nbsp;<a href=\"http://www.mentalhealthamerica.net/back-school\" target=\"_blank\">Back to School</a>&nbsp;and&nbsp;<a href=\"http://www.mentalhealthamerica.net/b4stage4\" target=\"_blank\">B4Stage4</a>&nbsp;to learn more about mental health and ways to stay mentally healthy.</p>\n      \n      <p>If you think you need more support you can also learn more at:&nbsp;<a href=\"http://www.mentalhealthamerica.net/b4stage4-get-help\" target=\"_blank\">Get Help</a>,&nbsp;<a href=\"http://www.mentalhealthamerica.net/finding-therapy\" target=\"_blank\">Finding Therapy</a>,&nbsp;<a href=\"https://findtreatment.samhsa.gov/\" target=\"_blank\">SAMHSA Treatment Locator</a>, or contact a local&nbsp;<a href=\"http://www.mentalhealthamerica.net/find-affiliate\" target=\"_blank\">MHA affliliate</a>.</p>\n      {% else %}\n      <p>These results do not mean that you have a mental illness.&nbsp; But, if you haven&rsquo;t already done so, now is great time to start a conversation with your parents, a mentor, or someone you trust about how you are doing. &nbsp;Finding the right help and working with people who can support you can help you feel and do better again.</p>\n      \n      <p>This screen is not meant to be a diagnosis. &nbsp;Having emotional, attentional, or behavioral problems is different than having a diagnosable mental illness. &nbsp;In addition, emotional, attentional, or behavioral problems can be caused by other factors, like recent life changes, trauma, a recent loss in the family, or health problems, changes in hormones, or a head injury. &nbsp;Only a trained professional, such as a doctor or a mental health provider, can help you and your family figure that out. Printing or emailing the results of this screening and showing them to someone you trust can help start the conversation.</p>\n      \n      <p>Our&nbsp;<a href=\"http://www.mentalhealthamerica.net/back-school\" target=\"_blank\">Back to School</a>&nbsp;and&nbsp;<a href=\"http://www.mentalhealthamerica.net/b4stage4\" target=\"_blank\">B4Stage4</a>&nbsp;program may help you learn more and find ways to take the next steps.</p>\n      \n      <p>You can also find more resources about supports at:&nbsp;<a href=\"http://www.mentalhealthamerica.net/b4stage4-get-help\" target=\"_blank\">Get Help</a>,&nbsp;<a href=\"http://www.mentalhealthamerica.net/finding-therapy\" target=\"_blank\">Finding Therapy</a>,&nbsp;<a href=\"https://findtreatment.samhsa.gov/\" target=\"_blank\">SAMHSA Treatment Locator</a>, or contact a local&nbsp;<a href=\"http://www.mentalhealthamerica.net/find-affiliate\" target=\"_blank\">MHA affliliate</a>.</p>\n      \n      <p>Want to share more? MHA is hoping to create a space where people can share and learn more about how it feels to have a mental health problem. Go to&nbsp;<a href=\"http://www.mentalhealthamerica.net/feelslike\" target=\"_blank\">#mentalillnessfeelslike</a>&nbsp;to share your thoughts.</p>\n      {% endif %}\n      \n    '#store': true\n  score1:\n    '#type': webform_computed_twig\n    '#title': Score1\n    '#title_display': before\n    '#display_on': view\n    '#value': |\n      {% set score = data.q11 + data.q13 + data.q19 + data.q22 + data.q27  %}\n      {{score}}\n      \n    '#store': true\n  score2:\n    '#type': webform_computed_twig\n    '#title': Score2\n    '#title_display': before\n    '#display_on': view\n    '#value': |\n      {% set score1 = data.q11 + data.q13 + data.q19 + data.q22 + data.q27  %}\n      {% set score = data.q4 + data.q8 + data.q9 + data.q14 + data.q7 %}\n      {{score}}\n      \n    '#store': true\n  score3:\n    '#type': webform_computed_twig\n    '#title': Score3\n    '#title_display': before\n    '#display_on': view\n    '#value': |\n      {% set score1 = data.q11 + data.q13 + data.q19 + data.q22 + data.q27  %}\n      {% set score2 = data.q4 + data.q8 + data.q9 + data.q14 + data.q7 %}\n      {% set score = data.q16 + data.q29 + data.q31 + data.q32 + data.q33 + data.q34 + data.q35 %}\n      {{score}}\n      \n    '#store': true\n  email:\n    '#type': email\n    '#title': Email\n    '#description': '<p>Enter your email to receive a copy of the screen result</p>'\n    '#access_create_roles': {  }\n  msg:\n    '#type': webform_computed_twig\n    '#title': msg\n    '#display_on': none\n    '#value': '{{ data.message2|raw}}'\nref:\n  '#type': hidden\n  '#title': Referrer\nipiden:\n  '#type': hidden\n  '#title': 'IP Identifier'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': SUBMIT\n  '#wizard_prev_hide': true"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  page: true
+  page_submit_path: /screening-tools/youth
+  page_confirm_path: /screening-tools/youth/confirmation
+  form_title: both
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_convert_anonymous: true
+  form_prepopulate: true
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: true
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns:
+    - created
+    - element__condition
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: false
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: page
+  confirmation_title: 'RESULTS AND NEXT STEPS'
+  confirmation_message: "<h1>RESULT: [webform_submission:values:result]</h1>\r\n\r\n<p>[webform_submission:values:message]</p>\r\n\r\n<p>[webform_submission:values:msg]</p>\r\n\r\n<h2>Overall stress score:&nbsp;[webform_submission:values:score]<br />\r\nAnxiety/Depression Score:&nbsp;[webform_submission:values:score1]<br />\r\nAttention Problem Score:&nbsp;[webform_submission:values:score2]<br />\r\nConduct Problem Score:&nbsp;[webform_submission:values:score3]</h2>\r\n\r\n<div class=\"container-fluid\"><a class=\"btn btn-warning\" data-toggle=\"collapse\" href=\"#demo\">Your Answers</a>\r\n\r\n<div class=\"collapse\" id=\"demo\">\r\n<table class=\"table table-striped\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Complain of aches or pains :</td>\r\n\t\t\t<td>[webform_submission:values:q1]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Spend more time alone:</td>\r\n\t\t\t<td>[webform_submission:values:q2]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Tire easily, little energy:</td>\r\n\t\t\t<td>[webform_submission:values:q3]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Fidgety, unable to sit still :</td>\r\n\t\t\t<td>[webform_submission:values:q4]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Have trouble with teacher :</td>\r\n\t\t\t<td>[webform_submission:values:q5]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Less interested in school:</td>\r\n\t\t\t<td>[webform_submission:values:q6]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Act as if driven by motor:</td>\r\n\t\t\t<td>[webform_submission:values:q7]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Daydream too much :</td>\r\n\t\t\t<td>[webform_submission:values:q8]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Distract easily :</td>\r\n\t\t\t<td>[webform_submission:values:q9]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Are afraid of new situations :</td>\r\n\t\t\t<td>[webform_submission:values:q10]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Feel sad, unhappy :</td>\r\n\t\t\t<td>[webform_submission:values:q11]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Are irritable, angry :</td>\r\n\t\t\t<td>[webform_submission:values:q12]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Feel hopeless :</td>\r\n\t\t\t<td>[webform_submission:values:q13]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Have trouble concentrating :</td>\r\n\t\t\t<td>[webform_submission:values:q14]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Less interested in friends :</td>\r\n\t\t\t<td>[webform_submission:values:q15]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Fight with other children :</td>\r\n\t\t\t<td>[webform_submission:values:q16]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Absent from school :</td>\r\n\t\t\t<td>[webform_submission:values:q17]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>School grades dropping :</td>\r\n\t\t\t<td>[webform_submission:values:q18]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Down on yourself :</td>\r\n\t\t\t<td>[webform_submission:values:q19]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Visit doctor with doctor finding nothing wrong :</td>\r\n\t\t\t<td>[webform_submission:values:q20]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Have trouble sleeping :</td>\r\n\t\t\t<td>[webform_submission:values:q21]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Worry a lot :</td>\r\n\t\t\t<td>[webform_submission:values:q22]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Want to be with parent more than before :</td>\r\n\t\t\t<td>[webform_submission:values:q23]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Feel that you are bad :</td>\r\n\t\t\t<td>[webform_submission:values:q24]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Take unnecessary risks :</td>\r\n\t\t\t<td>[webform_submission:values:q25]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Get hurt frequently :</td>\r\n\t\t\t<td>[webform_submission:values:q26]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Seem to be having less fun :</td>\r\n\t\t\t<td>[webform_submission:values:q27]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Act younger than children your age :</td>\r\n\t\t\t<td>[webform_submission:values:q28]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Do not listen to rules:</td>\r\n\t\t\t<td>[webform_submission:values:q29]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Do not show feelings :</td>\r\n\t\t\t<td>[webform_submission:values:q30]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Tease others :</td>\r\n\t\t\t<td>[webform_submission:values:q31]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Do not understand other people&#39;s feelings :</td>\r\n\t\t\t<td>[webform_submission:values:q32]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Blame others for your troubles :</td>\r\n\t\t\t<td>[webform_submission:values:q33]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Take things that do not belong to you :</td>\r\n\t\t\t<td>[webform_submission:values:q34]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Refuse to share :</td>\r\n\t\t\t<td>[webform_submission:values:q35]</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n</div>\r\n</div>\r\n\r\n<hr />\r\n<div class=\"container-fluid\"><a class=\"btn btn-warning\" data-toggle=\"collapse\" href=\"#demo2\">Interpretation of Score</a>\r\n\r\n<div class=\"collapse\" id=\"demo2\">\r\n<h3>How is this calculated?</h3>\r\n\r\n<p>The screening consists of 35-items that are rated as &quot;never&quot;, &quot;sometimes&quot;, or &quot;often&quot; present and scored 0, 1, and 2, respectively. Item scores are summed, with a possible range of scores from 0-70.</p>\r\n\r\n<p>Cutoff for interpreting your score:&nbsp;&nbsp;&nbsp;</p>\r\n\r\n<ul>\r\n\t<li><strong>Total Score:</strong><br />\r\n\tChildren/teens with scores of 30 or higher usually have significant difficulties in overall psychosocial functioning.</li>\r\n\t<li><strong>Anxiety/Depression Score:</strong><br />\r\n\tChildren/teens with scores of 5 or higher on this subscale usually have significant difficulty with anxiety and/or depression.&nbsp;&nbsp;&nbsp;</li>\r\n\t<li><strong>Attention Problem Score:</strong>&nbsp;&nbsp;<br />\r\n\tChildren/teens with scores of 7 or higher on this subscale usually have significant difficulty with attention.&nbsp;&nbsp;&nbsp;</li>\r\n\t<li><strong>Conduct Problem Score:</strong>&nbsp;&nbsp;<br />\r\n\tChildren/teens with scores of 7 or higher on this subscale usually have significant difficulty with conduct.</li>\r\n</ul>\r\n\r\n<h3>Source</h3>\r\n\r\n<p><strong>Pediatric Symptom Checklist (PSC):&nbsp;</strong>1988, M. Jellinek &amp; J.M. Murphy, Massachusetts General Hospital and Bright Futures in Practice: Mental Health, 2002. For more information visit&nbsp;<a href=\"http://www.massgeneral.org/psychiatry/services/psc_home.aspx\" target=\"_blank\">http://www.massgeneral.org/psychiatry/services/psc_home.aspx</a></p>\r\n</div>\r\n</div>\r\n\r\n<hr />\r\n<p>&nbsp;</p>\r\n\r\n<div class=\"clearfix\">\r\n<div class=\"col-md-3 btn-salmon sm\"><a href=\"../../content/what-mental-illness\">What is mental illness?</a></div>\r\n\r\n<div class=\"col-md-3 btn-salmon sm\"><a href=\"../../content/mental-illness-physical-or-mental\">Is mental illness physical or mental?</a></div>\r\n\r\n<div class=\"col-md-3 btn-salmon sm\"><a href=\"../../content/no-one-believes-me-when-i-ask-help-or-say-im-struggling\">No one believes me when I ask for help or say I&#39;m struggling</a></div>\r\n\r\n<div class=\"col-md-3 btn-salmon sm\"><a href=\"../../content/condition-forever-will-i-always-feel-way\">Is this condition forever?</a></div>\r\n\r\n<div class=\"col-md-3 btn-salmon sm\"><a href=\"../../content/stopping-stupid-thoughts\">Stopping Stupid Thoughts</a></div>\r\n</div>"
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: false
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: completed
+  purge_days: 60
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+  form_submit_once_disabled: true
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  email:
+    id: email
+    label: Email
+    handler_id: email
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email:raw]'
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      subject: 'Screening Results: Youth Screening'
+      body: "<p><strong>Submitted on:</strong> [webform_submission:created]</p>\n\n<p><strong>Submitted by:</strong> [webform_submission:user]</p>\n\n<p><strong>Submitted values are:</strong></p>\n[webform_submission:values]\n\n<p><strong>Anxiety/Depression Score:</strong>&nbsp;[webform_submission:values:score1]</p>\n\n<p><strong>Attention Problem Score:</strong>&nbsp;[webform_submission:values:score2]</p>\n\n<p><strong>Conduct Problem Score:</strong>&nbsp;[webform_submission:values:score3]</p>\n\n<hr />\n<h3>[webform_submission:values:message]</h3>\n\n<hr />\n<h2>How is this calculated?</h2>\n\n<p>The screening consists of 35-items that are rated as &quot;never&quot;, &quot;sometimes&quot;, or &quot;often&quot; present and scored 0, 1, and 2, respectively. Item scores are summed, with a possible range of scores from 0-70.</p>\n\n<p>Cutoff for interpreting your score:&nbsp;&nbsp;&nbsp;</p>\n\n<ul>\n\t<li><strong>Total Score:</strong><br />\n\tChildren/teens with scores of 30 or higher usually have significant difficulties in overall psychosocial functioning.</li>\n\t<li><strong>Anxiety/Depression Score:</strong><br />\n\tChildren/teens with scores of 5 or higher on this subscale usually have significant difficulty with anxiety and/or depression.&nbsp;&nbsp;&nbsp;</li>\n\t<li><strong>Attention Problem Score:</strong>&nbsp;&nbsp;<br />\n\tChildren/teens with scores of 7 or higher on this subscale usually have significant difficulty with attention.&nbsp;&nbsp;&nbsp;</li>\n\t<li><strong>Conduct Problem Score:</strong>&nbsp;&nbsp;<br />\n\tChildren/teens with scores of 7 or higher on this subscale usually have significant difficulty with conduct.</li>\n</ul>\n\n<h2>Source</h2>\n\n<p><strong>Pediatric Symptom Checklist (PSC):&nbsp;</strong>1988, M. Jellinek &amp; J.M. Murphy, Massachusetts General Hospital and Bright Futures in Practice: Mental Health, 2002. For more information visit&nbsp;<a href=\"http://www.massgeneral.org/psychiatry/services/psc_home.aspx\" target=\"_blank\">http://www.massgeneral.org/psychiatry/services/psc_home.aspx</a></p>"
+      excluded_elements:
+        sex: sex
+        race: race
+        age: age
+        income: income
+        zip_postal_code: zip_postal_code
+        state: state
+        condition: condition
+        message: message
+        message2: message2
+        score1: score1
+        score2: score2
+        score3: score3
+        email: email
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''

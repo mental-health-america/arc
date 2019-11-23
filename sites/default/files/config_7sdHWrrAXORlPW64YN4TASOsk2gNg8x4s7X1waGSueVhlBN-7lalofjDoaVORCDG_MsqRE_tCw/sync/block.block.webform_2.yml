@@ -1,0 +1,31 @@
+uuid: 4084db78-0c89-4450-a39c-ebaf22cf624e
+langcode: en
+status: true
+dependencies:
+  config:
+    - webform.webform.do_you_have_unanswered_questions
+  module:
+    - system
+    - webform
+  theme:
+    - s2s
+id: webform_2
+theme: s2s
+region: content_full_width_total
+weight: -31
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: 'Tell Us What You Think. '
+  provider: webform
+  label_display: visible
+  webform_id: do_you_have_unanswered_questions
+  default_data: ''
+  redirect: false
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/depression\r\n/anxiety\r\n/bipolar\r\n/psychosis\r\n/self-harm\r\n/learn\r\n/treatment\r\n/connect"
+    negate: false
+    context_mapping: {  }

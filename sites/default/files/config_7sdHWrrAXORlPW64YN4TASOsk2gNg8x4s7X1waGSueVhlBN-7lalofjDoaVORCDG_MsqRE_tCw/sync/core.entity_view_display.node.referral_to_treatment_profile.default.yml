@@ -1,0 +1,101 @@
+uuid: 193374bf-d20f-4f1c-8152-b80b6ba00d21
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.referral_to_treatment_profile.body
+    - field.field.node.referral_to_treatment_profile.field_area_served
+    - field.field.node.referral_to_treatment_profile.field_condition_severity
+    - field.field.node.referral_to_treatment_profile.field_image
+    - field.field.node.referral_to_treatment_profile.field_referral_tool_friendly_des
+    - field.field.node.referral_to_treatment_profile.field_service_location
+    - field.field.node.referral_to_treatment_profile.field_service_type
+    - field.field.node.referral_to_treatment_profile.field_tags
+    - node.type.referral_to_treatment_profile
+  module:
+    - geolocation
+    - image
+    - text
+    - user
+id: node.referral_to_treatment_profile.default
+targetEntityType: node
+bundle: referral_to_treatment_profile
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_area_served:
+    weight: 3
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_service_location:
+    weight: 5
+    label: above
+    settings:
+      set_marker: '1'
+      title: ''
+      info_text: '[geolocation_current_item:data:?]'
+      google_map_settings:
+        height: 400px
+        width: 100%
+        type: ROADMAP
+        zoom: '10'
+        maxZoom: 18
+        minZoom: 0
+        mapTypeControl: 1
+        streetViewControl: 1
+        zoomControl: 1
+        scrollwheel: 1
+        gestureHandling: auto
+        draggable: 1
+        style: ''
+        info_auto_display: 1
+        marker_icon_path: ''
+        disableAutoPan: 1
+        rotateControl: 0
+        fullscreenControl: 0
+        preferScrollingToZooming: 0
+        disableDoubleClickZoom: 0
+      use_overridden_map_settings: 1
+      common_map: ''
+    third_party_settings: {  }
+    type: geolocation_map
+    region: content
+  field_service_type:
+    weight: 2
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_condition_severity: true
+  field_referral_tool_friendly_des: true
+  field_tags: true

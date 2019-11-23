@@ -1,0 +1,22 @@
+uuid: d4cffd81-7211-4010-bf9d-d93c36958b85
+langcode: en
+status: true
+dependencies: {  }
+name: 220x110
+label: 220x110
+effects:
+  6ac1b08a-0e3d-4b27-aaa1-03bdca75b8f6:
+    uuid: 6ac1b08a-0e3d-4b27-aaa1-03bdca75b8f6
+    id: image_scale
+    weight: -10
+    data:
+      width: 220
+      height: 110
+      upscale: false
+  f7abdd25-ab99-4064-9abf-9436feffd8af:
+    uuid: f7abdd25-ab99-4064-9abf-9436feffd8af
+    id: image_resize
+    weight: 2
+    data:
+      width: 220
+      height: 110

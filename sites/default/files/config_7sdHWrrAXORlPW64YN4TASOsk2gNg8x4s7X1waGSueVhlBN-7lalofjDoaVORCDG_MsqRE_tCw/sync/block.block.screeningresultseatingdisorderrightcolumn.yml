@@ -1,0 +1,31 @@
+uuid: ecbf7536-5875-4013-8ab3-c01f420e4e94
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:ed46a96d-87c8-4a37-b838-05e797d28a62'
+  module:
+    - block_content
+    - system
+  theme:
+    - s2s
+id: screeningresultseatingdisorderrightcolumn
+theme: s2s
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'block_content:ed46a96d-87c8-4a37-b838-05e797d28a62'
+settings:
+  id: 'block_content:ed46a96d-87c8-4a37-b838-05e797d28a62'
+  label: 'Screening Results - Eating Disorder - right column'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /screening-tools/eating-disorder/confirmation
+    negate: false
+    context_mapping: {  }

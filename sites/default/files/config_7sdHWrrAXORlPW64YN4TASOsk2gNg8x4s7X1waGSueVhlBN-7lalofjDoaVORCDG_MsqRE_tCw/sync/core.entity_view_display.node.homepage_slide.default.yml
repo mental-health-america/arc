@@ -1,0 +1,69 @@
+uuid: 46ed3280-9795-4cae-9d2d-8c5d5b1702d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.homepage_slide.body
+    - field.field.node.homepage_slide.field_link1
+    - field.field.node.homepage_slide.field_link2
+    - field.field.node.homepage_slide.field_slide_image
+    - node.type.homepage_slide
+  module:
+    - image
+    - link
+    - text
+    - user
+id: node.homepage_slide.default
+targetEntityType: node
+bundle: homepage_slide
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_link1:
+    weight: 103
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_link2:
+    weight: 104
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_slide_image:
+    weight: 102
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

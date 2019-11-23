@@ -1,0 +1,14 @@
+uuid: 3198b122-2a13-451f-8ef2-4d9a1293f568
+langcode: en
+status: true
+dependencies: {  }
+name: 440_x_220
+label: '440 x 220'
+effects:
+  b0730ea7-e849-489f-9c93-4a1424437a83:
+    uuid: b0730ea7-e849-489f-9c93-4a1424437a83
+    id: image_resize
+    weight: 1
+    data:
+      width: 440
+      height: 220

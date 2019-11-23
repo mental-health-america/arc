@@ -1,0 +1,14 @@
+uuid: 54d3ca9c-1339-4e94-af40-aafaae566f9f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 1noCXlegCr5HFehQRF1ViXy1jhU1jZ_sNN99a8Sj5jo
+id: front
+label: 'Front page'
+tags:
+  shortlink: '[site:url]'
+  title: 'Mental Health Screening 2 Supports'
+  description: 'Mental Health America is a leader in mental health support, recovery and advocacy.'
+  canonical_url: '[site:url]'
+  generator: 'Drupal 8 (https://www.drupal.org)'

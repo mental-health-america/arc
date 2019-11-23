@@ -1,0 +1,20 @@
+uuid: 9135ea4b-3502-4f6b-8f94-63575ac41236
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - geolocation_demo
+_core:
+  default_config_hash: XC9oYjnqsDALFnkBFgm8Y_KblTvTQDQ2Zr2NdpJqKpQ
+name: geolocation_demo_marker_icon_size
+label: 'Geolocation Demo - Marker Icon Size'
+effects:
+  773f1765-63da-4d5e-a59b-cd5e3a35062d:
+    uuid: 773f1765-63da-4d5e-a59b-cd5e3a35062d
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 25
+      height: 25
+      anchor: center-center

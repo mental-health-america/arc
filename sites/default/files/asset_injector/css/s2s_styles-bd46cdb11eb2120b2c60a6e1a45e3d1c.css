@@ -1,0 +1,1739 @@
+/* written in vanilla CSS */
+/* uses Bootstrap 3.4.1   */
+
+/* @import url("https://use.typekit.net/gnr2sio.css"); */
+
+#download-here {
+	background-image: url('/sites/default/files/images/download_here_button.png');
+	
+}
+#access-here {
+	background-image: url('/sites/default/files/images/access_here_button.png');
+}
+/* combined for convenience */
+#download-here, #access-here {
+	background-repeat: no-repeat;
+	background-size: 160px;
+	display: block;
+	text-indent:-9999px;
+  	width: 180px;
+  	margin: 0 auto;
+	height: 42px;
+
+	/* no underline, since this is styled as a button */
+	border: none;
+}
+.field.field--name-body li {
+	/* responsible for weird sizing/weight in lists */
+	/* font-size: 1.03em; */
+	/* font-weight: 500; */
+
+	/* unnecessary? */
+	line-height: inherit;
+	
+    margin: .25em 1em;
+}
+
+.field.field--name-body ul {
+	/* doesn't seem to do anything */
+	padding-left: 1.5em;
+
+	/* don't want this extra space */
+	/* margin: 1em 0 3em; */
+
+	/* this is what causes the weird space after a list */
+	/* margin: 1em 0 3em; */
+
+	/* same as body, p; */
+	/* not sure why this doesn't inherit from body */
+	font-size: 1.25em;
+    font-weight: 300;
+}
+
+.field.field--name-body ol {
+	/* caused weird sizing */
+	/* font-size: inherit; */
+	
+	/* redundant? */
+    font-weight: inherit;
+}
+
+/* tried for bolded numbers... */
+/* why doesn't this work? */
+/* .field.field--name-body ol li::before {
+	font-weight: 600;
+} */
+
+@media (max-width: 767px) {
+  .more-link.form-group a {
+    margin: 0 0 0 .3em;
+  }
+  .region.region-sidebar-second .field--item a:link,
+  .region.region-sidebar-second .field--item a:visited,
+  .region.region-sidebar-second .field-content a:link,
+  .region.region-sidebar-second .field-content a:visited {
+    float: left !important;
+  }
+  .region.region-sidebar-second {
+    border-top: 1px solid #eee;
+    margin: 0 0 0 1em;
+  }
+  .more-link.form-group a {
+    margin: 0 0 0 1.3em !important;
+  }
+  .region.region-sidebar-second .field--item a:link,
+  .region.region-sidebar-second .field--item a:visited,
+  .region.region-sidebar-second .field-content a:link,
+  .region.region-sidebar-second .field-content a:visited {
+    margin: 0 4px 15px 7px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .more-link.form-group a {
+    width: 340px !important;
+  }
+  .region.region-sidebar-second .field--item a:link,
+  .region.region-sidebar-second .field--item a:visited,
+  .region.region-sidebar-second .field-content a:link,
+  .region.region-sidebar-second .field-content a:visited {
+    height: 150px !important;
+    width: 96% !important;
+  }
+  .more-link.form-group a {
+    margin: 0 0 0 1.1em!important;
+    width: 93% !important;
+  }
+}
+/* --------------------------------- */
+
+/*           General Top Level       */
+
+/* --------------------------------- */
+
+
+
+#block-views-block-screening-tools-list-block-1 {
+  max-width: 1170px !important;
+  margin: 0 auto;
+  padding-bottom: 4em;
+}
+
+.region.region-sidebar-second .field--item a:link,
+.region.region-sidebar-second .field--item a:visited,
+.region.region-sidebar-second .field-content a:link,
+.region.region-sidebar-second .field-content a:visited {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid #000;
+  display: block;
+  float: left;
+  font-family: 'Montserrat', sans-serif;
+  height: 100px;
+  margin: 0 4px 15px;
+  overflow: hidden;
+  padding: .75em;
+  width: 200px;
+  color: #000;
+  font-size: 1.25em;
+  font-weight: 400;
+  line-height: inherit;
+  text-align: center;
+  word-wrap: break-word;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-transition: background 100ms linear;
+  -moz-transition: background 100ms linear;
+  -ms-transition: background 100ms linear;
+  -o-transition: background 100ms linear;
+  transition: background 100ms linear;
+}
+.region.region-sidebar-second .field--item a:hover,
+.region.region-sidebar-second .field-content a:hover {
+  background: #ed6963 !important;
+  border: 1px solid #ed6963 !important;
+  color: #fff !important;
+}
+/* ---------- */
+
+h4 a:link {
+	color: #00b4bc;
+  }
+  h4 a:visited {
+	/* better color contrast */
+	color: #1b8798;
+  }
+.more-link.form-group a {
+    margin: 0 0 0 1.3em;
+}
+
+@media only screen and (min-width: 994px) and (max-width: 1199px)  {
+  .btn-salmon.sm a, .more-link.sm a {
+   padding: .75em;
+   font-size: 1em;
+   line-height: 1.1;
+   width: 160px;
+   }
+   .more-link.form-group a {
+    font-size: 1em;
+    line-height: 1.1;
+    margin: 0 0 0 1.6em;
+    width: 160px;
+   }
+}
+
+@media (max-width: 767px) {
+  .more-link.form-group a {
+   margin: 0 0 0 .3em;
+   }
+   #block-screeningresultsdepressionrightcolumn .field--item a:link, 
+   #block-screeningresultsdepressionrightcolumn .field--item a:visited, 
+   #block-screeningresultsdepressionrightcolumn .field-content a:link, 
+   #block-screeningresultsdepressionrightcolumn .field-content a:visited {
+    float: left !important;
+   }
+   #block-screeningresultsdepressionrightcolumn {
+   border-top: 1px solid #eee;   
+   margin: 0 0 0 1em;
+   }
+   .more-link.form-group a {
+    margin: 0 0 0 1.3em !important;
+   }
+   #block-screeningresultsdepressionrightcolumn .field--item a:link, 
+   #block-screeningresultsdepressionrightcolumn .field--item a:visited, 
+   #block-screeningresultsdepressionrightcolumn .field-content a:link, 
+   #block-screeningresultsdepressionrightcolumn .field-content a:visited {
+    margin: 0 4px 15px 7px !important;
+   }
+}
+
+@media (max-width: 480px) {
+  .more-link.form-group a {
+    width: 340px !important;
+  }
+  #block-screeningresultsdepressionrightcolumn .field--item a:link, 
+  #block-screeningresultsdepressionrightcolumn .field--item a:visited, 
+  #block-screeningresultsdepressionrightcolumn .field-content a:link, 
+  #block-screeningresultsdepressionrightcolumn .field-content a:visited {
+    height: 150px !important;
+    width: 96% !important;
+  }
+  .more-link.form-group a {
+    margin: 0 0 0 1.1em!important;
+    width: 93% !important;
+   }
+}
+/* --------------------------------- */
+
+/*           General Top Level       */
+
+/* --------------------------------- */
+
+body, p {
+	color: #333333;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.25em;
+	font-weight: 300;
+	line-height: 1.5;
+}
+a:link {
+	color: #00b4bc;
+	font-family: 'Montserrat', sans-serif;
+	font-size: inherit;
+	font-weight: 400;
+	line-height: inherit;
+}
+a:visited {
+	/* better color contrast */
+	color: #1b8798;
+}
+/* I tried this but it didn't work -KR */
+/* a:hover {
+	border: none;
+} */
+/* (already commented out in live version 7/18) */
+/*a:link, a:visited {
+	color: #0370c6;
+	font-family: 'Montserrat', sans-serif;
+	font-size: inherit;
+	font-weight: 400;
+	line-height: inherit;
+}*/
+a:hover {
+	color: #ed6963;
+	text-decoration: underline !important;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: 'Montserrat', sans-serif;
+	line-height: 1.2;
+	color: inherit;
+}
+h1, .h1 {
+	font-size: 2.25em;
+	font-weight: 400;
+}
+h2, .h2 {
+	font-size: 2em;
+	font-weight: 400;
+}
+h3, .h3 {
+	font-size: 1.75em;
+	font-weight: 400;
+}
+h4, .h4 {
+	font-size: 1.5em;
+	font-weight: 400;
+}
+h5, .h5 {
+	font-size: 1.25em;
+	font-weight: 300;
+}
+h6, .h6 {
+	font-size: 1em;
+	font-weight: 400;
+}
+hr {
+	border-top: 2px solid #eee;
+}
+strong {
+	font-weight: 600;
+}
+/* check this */
+body>ul>li,
+body>ol>li {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.25em;
+	font-weight: 300;
+	line-height: 1.5;
+}
+/* --------------------------- */
+
+/* --------------------------- */
+
+.bef-exposed-form .form--inline>.form-item {
+	float: none !important;
+}
+#block-forntpagecolumns p {
+	clear: both;
+}
+#block-forntpagecolumns img {
+	margin: 0 auto;
+	clear: both;
+}
+#block-forntpagecolumns h3 {
+	font-weight: 400;
+}
+#block-views-block-slideshow-block-1 td, th {
+	padding: 0;
+	width: auto;
+}
+#block-whichscreentotake .col-md-2 {
+	width: 20% !important;
+}
+#block-forntpagecolumns a:link, #block-forntpagecolumns a:visited {
+	color: #ffffff;
+	font-weight: 500;
+	line-height: 1;
+}
+#block-views-block-treatment-block-1 img, #block-whatsnew img, #block-whatsnew-2 img {
+	margin: 0 auto;
+	width: 100%;
+}
+#block-views-block-treatment-block-1 a:link, #block-views-block-treatment-block-1 a:visited, #block-forntpagecolumns a:link, #block-forntpagecolumns a:visited, #block-whatsnew a:link, #block-whatsnew a:visited, #block-whatsnew-2 a:link, #block-whatsnew-2 a:visited {
+	color: #000000;
+	font-weight: 500;
+	line-height: 1;
+}
+.btn-primary {
+	font-family: 'Montserrat', sans-serif;
+	color: #fff;
+	background-color: #154b5e !important;
+	border-color: #fff !important;
+	padding: .75em 1.5em;
+	border-radius: 15px;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-box-shadow: 7px 9px 13px -9px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 7px 9px 13px -9px rgba(0, 0, 0, 0.75);
+	box-shadow: 7px 9px 13px -9px rgba(0, 0, 0, 0.75);
+}
+
+#block-webform-3 {
+	background: url(/sites/default/files/black-map.png) no-repeat;
+	background-size: contain;
+	min-height: 440px;
+	margin: inherit;
+}
+
+form#webform-submission-search-for-local-service-add-form {
+	background: url(/sites/default/files/black-map.png) no-repeat;
+	background-size: cover;
+	margin: inherit;
+	padding: 5px 10px;
+	width: auto;
+}
+
+form#webform-submission-search-for-local-service-add-form p {
+	color: #fff;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+/*.field.field--name-body img {
+    max-width: 300px;
+    height: auto;
+}*/
+
+#block-findbyzipcode {
+	background: url(/sites/default/files/black-map.png) no-repeat;
+	background-size: cover;
+	margin: inherit;
+	min-height: 440px;
+}
+#block-footerlogo {
+	margin: 0 2em 3em 0;
+}
+#block-footerlogo p {
+	margin: 0;
+}
+#block-aboutmentalhealthamerica {
+	background: url(/sites/default/files/bell.png) no-repeat;
+	background-size: 350px 100%;
+	margin: 0 15px;
+}
+#block-aboutmentalhealthamerica p {
+	font-size: 1.1em;
+	line-height: 1.2;
+	margin: 0 auto;
+	max-width: 800px;
+	padding-bottom: 2em;
+	text-align: center;
+}
+#block-aboutmentalhealthamerica h2.block-title {
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+}
+#block-aboutmentalhealthamerica .field--item a:link, #block-aboutmentalhealthamerica .field--item a:visited {
+	font-size: 1em;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	padding: .75em 2em;
+	margin: 0 2em;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+#block-aboutmentalhealthamerica .field--type-text-with-summary a:link, #block-aboutmentalhealthamerica .field--type-text-with-summary a:visited {
+	font-size: 1em !important;
+	font-weight: 700 !important;
+	font-family: 'Montserrat', sans-serif;
+	padding: .75em 1.5em !important;
+	border: none;
+	background: transparent !important;
+}
+#block-aboutmentalhealthamerica .field--type-text-with-summary a:hover {
+	color: #fff !important;
+	background: #777 !important;
+}
+#block-views-block-screening-tools-list-block-1 {
+	max-width: 1170px !important;
+	margin: 0 auto;
+	padding-bottom: 4em;
+}
+#block-whichscreentotake h2.block-title {
+	text-align: center;
+	max-width: 1170px !important;
+	margin: 0 auto !important;
+}
+#block-aboutmentalhealthamerica .field--type-text-with-summary .social-media-links a:link, #block-aboutmentalhealthamerica .field--type-text-with-summary .social-media-links a:visited {
+	font-size: 1em !important;
+	font-weight: 700 !important;
+	font-family: 'Montserrat', sans-serif;
+	padding: 0 .25em !important;
+}
+#block-aboutmentalhealthamerica .field--type-text-with-summary .social-media-links a:hover {
+	background: transparent !important;
+}
+#block-screeningresultsdepressionrightcolumn .field--item a:link, #block-screeningresultsdepressionrightcolumn .field--item a:visited, #block-screeningresultsdepressionrightcolumn .field-content a:link, #block-screeningresultsdepressionrightcolumn .field-content a:visited {
+	background-color: rgb(255, 255, 255);
+	border: 2px solid #000;
+	display: block;
+	float: left;
+	font-family: 'Montserrat', sans-serif;
+	height: 100px;
+	margin: 0 4px 15px;
+	overflow: hidden;
+	padding: .75em;
+	width: 200px;
+	color: #000;
+	font-size: 1.25em;
+	font-weight: 400;
+	line-height: inherit;
+	text-align: center;
+	word-wrap: break-word;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-transition: background 100ms linear;
+	-moz-transition: background 100ms linear;
+	-ms-transition: background 100ms linear;
+	-o-transition: background 100ms linear;
+	transition: background 100ms linear;
+}
+#block-screeningresultsdepressionrightcolumn .field--item a:hover, #block-screeningresultsdepressionrightcolumn .field-content a:hover {
+	background: #ed6963 !important;
+	border: 1px solid #ed6963 !important;
+	color: #fff !important;
+}
+.btn-default {
+	font-family: 'Montserrat', sans-serif;
+	background-color: #0e3953;
+	color: #fff;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	padding: .75em 3em;
+}
+.btn-primary {
+	font-family: 'Montserrat', sans-serif;
+	color: #fff;
+	background-color: #0a5794;
+	border-color: #0a5794;
+}
+.btn-white a {
+	color: #262626 !important;
+	font-family: 'Montserrat', sans-serif;
+}
+.btn-salmon, .more-link {
+	font-family: 'Montserrat', sans-serif;
+	position: relative;
+	bottom: 1em;
+}
+.btn-salmon a, .more-link a {
+	font-family: 'Montserrat', sans-serif;
+	background: #fff;
+	background-color: rgb(255, 255, 255);
+	border: 2px solid #000;
+	display: block;
+	float: left;
+	height: 100px;
+	margin: 0 4px 15px;
+	overflow: hidden;
+	padding: .75em;
+	width: 200px;
+	color: #000;
+	font-size: 1.25em;
+	font-weight: 400;
+	line-height: inherit;
+	text-align: center;
+	word-wrap: break-word;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-transition: background 100ms linear;
+	-moz-transition: background 100ms linear;
+	-ms-transition: background 100ms linear;
+	-o-transition: background 100ms linear;
+	transition: background 100ms linear;
+}
+.btn-salmon a:hover, .more-link a:hover {
+	border: 2px solid #ed6963;
+	background-color: #ed6963;
+	color: #fff;
+	text-decoration: none;
+}
+.btn-blue {
+	position: relative;
+	bottom: 1em;
+	text-transform: uppercase;
+}
+.btn-blue a {
+	background: #1db4bb;
+	border: 0;
+	display: block;
+	float: left;
+	font-family: 'Montserrat', sans-serif;
+	height: 165px;
+	width: 100%;
+	margin: .5em;
+	overflow: hidden;
+	padding: 1.25em .75em;
+	color: #FFFFFF;
+	font-size: 1.75em;
+	font-weight: 400;
+	line-height: inherit;
+	text-align: center;
+	word-wrap: break-word;
+	text-transform: uppercase;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-transition: background 100ms linear;
+	-moz-transition: background 100ms linear;
+	-ms-transition: background 100ms linear;
+	-o-transition: background 100ms linear;
+	transition: background 100ms linear;
+}
+.btn-blue a:hover {
+	background: #154b5e;
+	text-decoration: none;
+}
+.btn-info {
+	color: #fff;
+	background-color: #0a5794;
+	border-color: #0a5794;
+}
+.btn-info:hover {
+	color: #fff;
+	background-color: #ed6963;
+	;
+	border-color: #ed6963;
+}
+#block-webform {
+	clear: both;
+	font-family: 'Montserrat', sans-serif;
+}
+.block-webform h2.block-title {
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+}
+#block-webform-2 a:link, #block-webform-2 a:link {
+	color: #000;
+	font-weight: 500;
+}
+#block-webform-2 {
+	font-family: 'Montserrat', sans-serif;
+	background: #1db4bb;
+	margin: 0 -15px;
+}
+.col-wrapper img {
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+}
+ 
+.col-wrapper img:hover {
+  -webkit-filter: grayscale(100%);
+}
+/* no special class just for the hero images... */
+.img-responsive,
+.center-image {
+    margin: 0 auto;
+}
+.col-wrapper {
+  margin: 0 0 2em 0;
+}
+.col-wrapper img{
+  width: 100%;
+}
+.container-fluid {
+	padding-right: -15px;
+	padding-left: -15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.condition a:link, .connect-tool a:link,
+.diy-tool a:link, .referral-to-treatment-profile a:link,
+.treatment-info a:link
+{
+	/* inherited/redundant? */
+	color: #00b4bc;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.25;
+	text-decoration: none;
+
+	/* changed from 500; should be inherited anyway */
+	font-weight: 400;
+
+	/* this is what's causing the inconsistent line spacing */
+	/* line-height: 1.75; */
+
+	/* replaces underline */
+	border-bottom: 1px solid #00b4bc;
+	padding-bottom: 1px;
+}
+.condition a:visited, .connect-tool a:visited,
+.diy-tool a:visited, .referral-to-treatment-profile a:visited,
+.treatment-info a:visited
+{
+	/* inherited/redundant? */
+	color: #1b8798;
+
+	border-color: #1b8798;
+}
+/* visual feedback on hover */
+/* better for mobile-first than the default */
+.condition a:hover, .connect-tool a:hover,
+.diy-tool a:hover, .referral-to-treatment-profile a:hover,
+.treatment-info a:hover
+{
+	border: none;
+}
+
+/* why would these be styled differently? */
+/* I can't find a single example of this in use... but it does screw up references on these pages, so I'm commenting it out. */
+/* .diy-tool ul a:link {
+	font-family: 'Montserrat', sans-serif;
+	color: #1b8798;
+	background-color: #fff;
+	border: 1px solid #0a5794;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	padding: .5em 1em;
+}
+.diy-tool ul a:visited {
+	color: #1b8798;
+}
+.diy-tool ul a:hover, li.node-readmore a:hover {
+	color: #ed6963 !important;
+	border-color: #ed6963 !important;
+
+	/* was "none" in staging */
+	/* not sure which is desired with the new underline style */
+/* text-decoration: underline;
+} */
+.diy-tool, .connect-tool, .condition, .referral-to-treatment-profile, .treatment-info {
+	padding: 0 2em 2em 2em;
+	max-width: 1170px;
+	margin: 0 auto;
+	margin-bottom: 3em;
+}
+.diy-wrapper {
+	float: left;
+	padding: 1em;
+	width: 30%;
+	margin: 1em;
+	min-height: 20em;
+}
+.diy-image {
+	margin: 0 0 .75em;
+}
+.diy-title {
+	font-size: .9em;
+	margin: 0 auto;
+	text-align: center;
+}
+.diy-body {
+	margin: 0 auto;
+	word-wrap: break-word;
+	width: 100%;
+}
+.diy-body p {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1em;
+	line-height: 1.1;
+	text-align: center;
+}
+#edit-find-support-zip-code-text p {
+	color: #fff !important;
+	font-size: 2em !important;
+	font-weight: 600;
+}
+#edit-field-diy-type-target-id .form-checkboxes {
+	display: none;
+}
+.fa {
+	font-size: 2.5em !important;
+	padding: .5em .5em !important;
+}
+.fa-twitter, .fa-instagram, .fa-youtube, .fa-pinterest, .fa-facebook {
+	/* better color contrast */
+	color: #1b8798 !important;
+}
+.field--label, .file {
+	font-weight: 600;
+	font-size: 1.2em;
+	color: #0a5794 !important;
+	text-transform: uppercase;
+	letter-spacing: .05em;
+}
+.field--name-field-author {
+	font-size: 1.25em;
+	font-weight: 400;
+	font-style: italic;
+	margin-top: .75em;
+	text-align: center;
+}
+.field--name-body, .field--name-field-treatment-category, .field--name-field-condition-severity, .field--name-field-tags, .field--type-entity-reference, .field--name-field-referral-tool-friendly-des {
+	font-family: 'Montserrat', sans-serif;
+	clear: both;
+	display: block;
+	margin: 1em 0;
+	padding: 1em 0;
+}
+.field--item a:link, .field--item a:visited, .field-content a:link, .field-content a:visited {
+	font-family: 'Montserrat', sans-serif;
+	background-color: none !important;
+	/* border: none; */
+	color: none !important;
+	float: none !important;
+	font-size: none !important;
+	font-weight: none !important;
+	line-height: none !important;
+	padding: none !important;
+	margin: none !important;
+	border-radius: none !important;
+	text-decoration: none !important;
+}
+.field--type-entity-reference {
+	font-family: 'Montserrat', sans-serif;
+	background: #fff !important;
+	padding: .5em 1em;
+	margin: .5em .75em .5em 0;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.field--name-field-issue, .field--name-field-tags, .field--name-field-diy-type {
+	font-family: 'Montserrat', sans-serif;
+	clear: both;
+}
+.field--type-entity-reference .field--item a:hover {
+	background: #ed6963 !important;
+	border: 1px solid #ed6963 !important;
+	color: #fff !important;
+}
+.form--inline.form-inline {
+	border-bottom: 1px solid #eee;
+	padding: .75em;
+	border-radius: 0;
+	margin: 0 0 3em 0;
+}
+.form-inline .form-control {
+	font-weight: 500;
+	font-size: 1.25em;
+	display: inline-block;
+	width: auto;
+	vertical-align: middle;
+	border-radius: 0;
+	margin-top: 0;
+	background-color: #f5f5f5;
+	border: 1px solid #95989a;
+}
+.form-inline .checkbox input[type="checkbox"] {
+	margin-right: .5em;
+}
+.form-inline .checkbox label {
+	padding: 0;
+	margin: 0;
+	border-radius: 0;
+	width: 200px;
+}
+.form-control {
+	font-family: 'Montserrat', sans-serif;
+	color: #666;
+	background-color: #f5f5f5;
+	border: 1px solid #95989a;
+	border-radius: 0;
+	box-shadow: none;
+	font-weight: 300 !important;
+}
+/*.form-required:after {
+	display: none;
+}*/
+.full-width-wrapper {
+	max-width: 1170px;
+}
+.footer {
+	font-family: 'Montserrat', sans-serif;
+	background: #154b5e;
+	margin-top: 45px;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	width: 100%;
+}
+.footer .center-block {
+	margin-bottom: 0.2em;
+}
+.footer p, .google-search {
+	color: #ffffff;
+	font-size: .9em;
+	font-weight: 300;
+	margin: 0;
+}
+.footer h2 {
+	color: rgba(255, 255, 255, 0.7);
+	font-size: 1em;
+	font-weight: 200;
+	text-transform: uppercase;
+}
+.footer .nav>li>a:link, .footer .nav>li>a:visited {
+	font-family: 'Montserrat', sans-serif;
+	color: rgba(255, 255, 255, 0.7);
+	font-size: .95em;
+	font-weight: 200;
+}
+.footer .nav>li>a:hover {
+	background: transparent;
+	text-decoration: underline;
+}
+.footer .nav>li>a {
+	margin: 0 0 .25em 0;
+	padding: 0;
+}
+.inline-link, .inline-link a:link {
+	padding: 0;
+	margin: 0;
+}
+.region-superfooter-1 img {
+	float: left;
+}
+.region-sidebar-first #views-exposed-form-doing-things-on-your-own-diy--page-1 .form-type-checkbox {
+	background: none !important;
+	background-position: none;
+}
+.region-sidebar-first #views-exposed-form-doing-things-on-your-own-diy--page-1 .form-inline .checkbox input[type="checkbox"] {
+	left: -5px !important;
+	margin: .75em;
+}
+.region-sidebar-first #views-exposed-form-doing-things-on-your-own-diy--page-1 #edit-field-diy-type-target-id .form-checkboxes {
+	background: #ffffff;
+	padding: 0 0 .4em;
+	margin: 2em -15px;
+	text-align: center;
+	visibility: visible;
+}
+.region-sidebar-first #views-exposed-form-doing-things-on-your-own-diy--page-1 .fieldset-wrapper {
+	background: #ffffff;
+	padding: 0 0 .4em;
+	margin: 2em -15px;
+	text-align: center;
+}
+.region-sidebar-first #views-exposed-form-doing-things-on-your-own-diy--page-1 .fieldset-legend {
+	visibility: visible;
+	font-weight: 500;
+	border-bottom: 1px solid #f5f5f5;
+}
+.region-sidebar-first #views-exposed-form-doing-things-on-your-own-diy--page-1 .form--inline.form-inline, .region-sidebar-first #views-exposed-form-doing-things-on-your-own-diy--page-1 legend {
+	border: none;
+}
+.region-sidebar-first #views-exposed-form-doing-things-on-your-own-diy--page-1 legend {
+	visibility: visible;
+}
+.region-sidebar-first #views-exposed-form-doing-things-on-your-own-diy--page-1 .form-control {
+	visibility: visible;
+}
+.region-sidebar-first #views-exposed-form-doing-things-on-your-own-diy--page-1 .control-label {
+	font-size: 1.2em;
+	font-weight: 400;
+}
+.region-sidebar-first #views-exposed-form-doing-things-on-your-own-diy--page-1 .form-inline .checkbox label {
+	margin: 0 2em;
+	width: 250px !important;
+	text-align: left;
+}
+.region-sidebar-first #views-exposed-form-doing-things-on-your-own-diy--page-1 legend {
+	visibility: visible;
+}
+.small-container {
+	padding-bottom: 0,
+}
+
+/* this should deprecated; was used for an outdated version of the "which screen to take" block. check to make sure it isn't used anywhere else. */
+.screening-tool-cont p {
+	margin: 0 0 1em;
+}
+
+.seven-cols .field--name-body {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+.slider-table {
+	font-family: 'Montserrat', sans-serif;
+	width: 100%;
+}
+.slider-link-nav {
+	width: 50%;
+	margin: 0 auto;
+}
+.slider-link-nav ul {
+	padding-left: 0 !important;
+}
+.slider-wrapper {
+	margin: 0 auto;
+	width: 100%;
+	padding-right: -15px !important;
+	padding-left: -15px !important;
+}
+.slider-wrapper img {
+	margin: 0 auto;
+	width: 100%;
+}
+.slider-image {
+	position: relative;
+}
+.slider-copy-wrapper-center {
+	position: absolute !important;
+	top: 0 !important;
+	width: 100% !important;
+	margin: 0 auto !important;
+	background: transparent !important;
+	padding: 2em !important;
+	text-shadow: none !important;
+	box-shadow: none !important;
+}
+.slider-title {
+	font-size: 4em;
+	font-weight: 400;
+	color: #000;
+	text-shadow: none !important;
+	text-align: center !important;
+	width: 100% !important;
+	margin: 0 auto !important;
+}
+.slider-body p {
+	font-size: 2em;
+	font-weight: 400;
+	color: #000;
+	line-height: 1.2;
+	text-align: center !important;
+	text-shadow: none;
+	padding-bottom: 1em;
+	width: 100% !important;
+	margin: 0 auto !important;
+}
+.slider-link-nav {
+	width: 50%;
+	margin: 0 auto;
+	color: #fff !important;
+}
+.slider-link-nav ul {
+	padding-left: 0 !important;
+	color: #fff !important;
+}
+.slider-link-1 a:link, .slider-link-1 a:visited {
+	color: #fff !important;
+}
+.slider-link-1 {
+	background-color: #154b5e !important;
+	border: 1px solid #fff !important;
+	color: #ffffff !important;
+	display: block;
+	float: none !important;
+	font-size: 1.2em !important;
+	font-weight: 600 !important;
+	line-height: inherit !important;
+	list-style: none;
+	text-align: center !important;
+	padding: .75em 1.25em !important;
+	max-width: 300px;
+	margin: 0 0 0 4em !important;
+	border-radius: 20px !important;
+	-moz-border-radius: 20px !important;
+	-webkit-border-radius: 20px !important;
+	-webkit-box-shadow: 7px 9px 13px -9px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 7px 9px 13px -9px rgba(0, 0, 0, 0.75);
+	box-shadow: 7px 9px 13px -9px rgba(0, 0, 0, 0.75);
+}
+.slider-link-2 a:link, .slider-link-2 a:visited {
+	color: #000 !important;
+}
+.slider-link-2 a:hover {
+	color: #ed6963 !important;
+}
+.slider-link-2 {
+	background-color: transparent !important;
+	border: none !important;
+	color: #000000 !important;
+	font-size: 1.2em !important;
+	font-weight: 600 !important;
+	padding: .75em 1.25em !important;
+	max-width: 300px;
+	text-align: center !important;
+	list-style: none;
+	margin: 0 auto !important;
+}
+.social-media-icons p {
+	margin: 0 1em !important;
+	text-align: center !important;
+}
+.social-media-links {
+	text-align: center;
+	margin: 0 auto;
+}
+#toolbar-administration a:link, #toolbar-administration a:visited, .toolbar-menu-administration a:link, .toolbar-menu-administration a:visited {
+	font-size: 1em !important;
+	font-weight: 400 !important;
+	line-height: 1 !important;
+	color: #000;
+}
+.treatment-wrapper p {
+	margin-bottom: 2em;
+}
+.logo img {
+	max-height: 6em;
+}
+legend {
+	margin-top: 1em;
+}
+li.node-readmore a:link, li.node-readmore a:visited, .feed-icons a:link, .feed-icons a:visited {
+	font-family: 'Montserrat', sans-serif;
+	color: #0a5794;
+	background-color: #fff !important;
+	border: 1px solid #0a5794 !important;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	padding: .5em 1em !important;
+	text-decoration: none;
+}
+.page-header {
+	max-width: 1170px;
+	margin: 0 auto;
+	margin-bottom: .75em;
+	text-align: center;
+	text-transform: uppercase;
+	border-bottom: none;
+}
+.page-node-15 .main-container, .path-webform .main-container {
+	max-width: 1170px !important;
+	margin: 0 auto;
+}
+.padding-xs {
+	padding: .75em;
+}
+.padding-sm {
+	padding: 1em;
+}
+time {
+	color: #0a5794;
+	font-size: 1.5em;
+	font-weight: 600;
+}
+.treatment-wrapper {
+	margin: 1em 2em 1em 0;
+	float: left;
+}
+.treatment-wrapper p {
+	margin-bottom: 2em;
+	line-height: 1.5;
+	font-size: 1.1em;
+}
+.treatment-image {
+	margin: 0 1em 0;
+	float: left;
+}
+.treatment-title {
+	font-size: 1.5em;
+}
+.treatment-body {
+	font-size: 1.1em;
+}
+.min-height {
+    min-height: 22em !important;
+}
+.mha-footer-tx {
+	color: #000 !important;
+	margin: 0 4em;
+}
+.mha-footer-tx:after {
+	content: '\f054';
+	font-family: FontAwesome;
+	display: inline-block;
+	color: inherit;
+	font-size: inherit;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+	margin: 0 0 0 .5em;
+}
+.navbar .logo {
+	margin-top: 0;
+}
+.navbar-default {
+	font-family: 'Montserrat', sans-serif;
+	background-color: transparent;
+	border-color: transparent;
+}
+.navbar-default .navbar-brand {
+	display: none;
+}
+.navbar-default .navbar-nav>li>a {
+	color: #262626 !important;
+	font-size: 1.25em;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	letter-spacing: .05em;
+	text-transform: uppercase;
+}
+.navbar-nav>li>a:hover {
+	color: #0a5794 !important;
+}
+.navbar-nav {
+	font-family: 'Montserrat', sans-serif;
+	margin: 1em 0 0 -2.4em;
+}
+.navbar.container {
+	max-width: 1170px;
+}
+.navbar-default .container {
+	padding-left: 0;
+}
+#navbar-mobile {
+	width: 64%;
+	float: right;
+}
+.nav-pills>li>a {
+	color: #262626;
+	font-size: 1em;
+	font-weight: 300;
+	font-family: 'Montserrat', sans-serif;
+}
+.navbar-default .navbar-toggle {
+	border-color: #262626;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+	border-color: #ffffff;
+}
+#navbar #top-nav .nav {
+	float: right;
+	text-transform: uppercase;
+}
+#navbar #top-nav li {
+	float: left;
+}
+#navbar #top-nav .nav>li>a {
+	color: #262626;
+	padding: .75em 1em;
+	font-size: .9em;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	margin: 0 0 0 1em;
+}
+#navbar #top-nav .btn-danger {
+	background: #ffffff;
+	border: 1px solid #ed6963;
+	color: #ed6963 !important;
+	transition: all 0.5s ease 0s;
+}
+#navbar #top-nav .nav-pills>li>a.btn-danger {
+	color: #ed6963 !important;
+	font-size: 1em;
+	margin: 0 .75em 0;
+}
+#navbar #top-nav .nav>li>a:hover, #navbar #top-nav .nav>li>a:focus {
+	background: #ed6963;
+	border: 1px solid #ed6963;
+	color: #ffffff !important;
+}
+#navbar #top-nav .nav>li>a.btn-white:hover, #navbar #top-nav .nav>li>a:focus {
+	background: transparent;
+	border: none;
+	color: #0370c6 !important;
+}
+.navbar-default .navbar-nav>.active>a {
+	color: #ed6963;
+	background-color: transparent;
+	font-family: 'Montserrat', sans-serif;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+	background-color: transparent;
+}
+ol {
+	/* we don't want these margins */
+	/* margin-top: 1em; */
+	/* margin-bottom: 2em; */
+
+	font-size: 1.25em;
+
+	/* wrong font weight */
+	/* font-weight: 400; */
+}
+.path-depression .views-exposed-form, .path-depression .views-row, .path-anxiety .views-exposed-form, .path-anxiety .views-row, .path-bipolar .views-exposed-form, .path-bipolar .views-row, .path-psychosis .views-exposed-form, .path-psychosis .views-row, .path-self-harm .views-exposed-form, .path-self-harm .views-row, .path-screening-tools .views-exposed-form, .path-screening-tools .views-row, .page-node-15 .views-exposed-form, .page-node-15 .views-row, .path-learn .views-exposed-form, .path-learn .views-row {
+	max-width: 1170px !important;
+	margin: 0 auto;
+}
+.path-depression .row, .path-anxiety .row, .path-bipolar .row, .path-psychosis .row, .path-self-harm .row {
+	max-width: 100% !important;
+	margin: 0 auto;
+}
+.path-diy .main-container, .path-treatment .main-container, .path-connect .main-container, .page-node-15 .row, .path-contact .main-container, .page-contact .row {
+	max-width: 1170px !important;
+	margin: 0 auto;
+}
+.panel-body {
+	padding: 0 15px;
+}
+.panel-title {
+	font-weight: 400;
+}
+.panel-heading {
+	padding: 10px 0 0 15px;
+}
+.panel-default {
+	border-color: transparent;
+}
+.panel-default>.panel-heading {
+	background-color: transparent;
+	border-color: transparent;
+}
+.region-superfooter-1 img {
+	max-width: 150px;
+	margin-top: 2.2em;
+}
+#top-nav input[type=text] {
+	box-sizing: border-box;
+	border: 0;
+	outline: none;
+	font-size: 14px;
+	background-color: transparent;
+	background-image: url('/sites/default/files/inline-images/search.png');
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	background-size: 20px;
+	width: 40px;
+	height: 40px;
+	padding: 12px 20px 12px 40px;
+	margin: .75em 1em 0 2em;
+	-webkit-transition: width 0.4s ease-in-out;
+	transition: width 0.4s ease-in-out;
+	float: right;
+}
+#top-nav input[type=text]:focus {
+	width: 300px;
+	border-top: 0;
+	border-right: 0;
+	border-left: 0;
+	border-bottom: 1px solid #dddddd;
+}
+.view-header {
+	font-size: 1.5em !important;
+	font-weight: 500 !important;
+	text-align: center;
+	margin: 0 0 1em !important;
+}
+.view-header h4 {
+	margin: 0 0 2em;
+}
+#views-exposed-form-doing-things-on-your-own-diy--page-1 .form-type-checkbox {
+	background: url(/sites/default/files/plus-sign.png) no-repeat;
+	background-position: 20px 8px;
+}
+#views-exposed-form-doing-things-on-your-own-diy--page-1 .form-inline .checkbox input[type="checkbox"] {
+	left: -9999px !important;
+	margin: 1em;
+}
+#views-exposed-form-doing-things-on-your-own-diy--page-1 #edit-field-diy-type-target-id .form-checkboxes {
+	background: #f5f5f5;
+	padding: 0 0 .4em;
+	margin: 2em -15px;
+	text-align: center;
+	visibility: hidden;
+}
+#views-exposed-form-doing-things-on-your-own-diy--page-1 .fieldset-wrapper {
+	background: #f5f5f5;
+	padding: 0 0 .4em;
+	margin-left: -15px;
+	margin-right: -15px;
+	text-align: center;
+}
+#views-exposed-form-doing-things-on-your-own-diy--page-1 .fieldset-legend {
+	visibility: hidden
+}
+#views-exposed-form-doing-things-on-your-own-diy--page-1 .form--inline.form-inline, #views-exposed-form-doing-things-on-your-own-diy--page-1 .legend {
+	border: none;
+}
+#views-exposed-form-doing-things-on-your-own-diy--page-1 .form-control {
+	visibility: hidden;
+}
+#views-exposed-form-doing-things-on-your-own-diy--page-1 .control-label {
+	font-size: 1em;
+	font-weight: 400;
+}
+#views-exposed-form-doing-things-on-your-own-diy--page-1 .form-inline .checkbox label {
+	margin: 0 2em;
+	width: auto;
+}
+#views-exposed-form-doing-things-on-your-own-diy--page-1 legend {
+	visibility: hidden;
+	display: none;
+}
+.views-element-container h2, .views-element-container .h2 {
+	font-size: 2em;
+	font-weight: 400;
+	padding: 0 0 1em;
+	text-align: center;
+}
+.webform-submission-add-form {
+	margin: 0 auto;
+	padding: 3em 0;
+}
+.webform-submission-form {
+	width: 95%;
+	margin: 0 auto;
+}
+.webform-submission-form .radio label {
+	/* redundant with general label */
+	/* display: inline-block; */
+
+	/* padding: 8px 30px; */
+	margin: 0 1.5em 0 0;
+
+	/* ugly brown background */
+	/* background: #f2eee7; */
+
+	/* inconsistent with visually similar ui elements */
+	/* color: #810262; */
+
+	/* redundant with .radio label */
+	/* cursor: pointer; */
+
+	/* redundant with .radio label */
+	/* font-weight: 400; */
+
+	/* also redundant */
+	/* font-size: 1em; */
+	/* font-family: 'Montserrat', sans-serif; */
+}
+
+/* fixes for ugly webform buttons */
+.ui-widget {
+	font-family: inherit;
+}
+.webform-buttons {
+	margin-bottom: 1.5em;
+}
+.ui-button, .ui-button:hover {
+	font-weight: 600;
+	color: #810262;
+	margin: .75em .5em .25em .5em;
+	padding: .5em 1.25em;
+}
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
+	border: 1px solid #810262;
+	background: #810262;
+	font-weight: 600;
+	color: #ffffff !important;
+}
+
+/* fixes ugly buttons on confirmation pages */
+.btn-warning {
+	color: white !important;
+}
+
+/* --------------------------------- */
+
+/*      RESPONSIVE      HEADER       */
+
+/* --------------------------------- */
+
+/* Large desktop */
+
+@media (min-width: 1200px) {
+	.seven-cols .col-md-1, .seven-cols .col-sm-1, .seven-cols .col-lg-1 {
+		width: 14.285714285714285714285714285714%;
+	}
+}
+@media (min-width: 992px) {
+	.seven-cols .col-md-1, .seven-cols .col-sm-1, .seven-cols .col-lg-1 {
+		width: 14.285714285714285714285714285714%;
+	}
+}
+/* Landscape phone to portrait tablet */
+
+@media (max-width: 767px) {
+	/* Add */
+	.footer h2 {
+		margin: 2em 0 1em 0;
+	}
+	.region-superfooter-1 img {
+		max-width: 150px;
+		margin-top: 2.2em;
+	}
+	#navbar #top-nav .nav>li>a:hover, #navbar #top-nav .nav>li>a:focus {
+		background: none;
+		border: none;
+		color: #0370c6 !important;
+	}
+	#navbar #top-nav .nav-pills>li>a.btn-danger {
+		color: #262626;
+		margin-top: .2em !important;
+	}
+	#navbar #top-nav .btn-danger {
+		background: #ffffff;
+		border: none;
+	}
+	#navbar-mobile {
+		width: 100%;
+		float: none;
+	}
+	#navbar-mobile .navbar-collapse {
+		border-bottom: 1px solid #dddddd;
+		padding: .25em 0;
+		margin: .25em 0 .5em 0;
+	}
+	#navbar #top-nav .nav-pills>li>a.btn-danger {
+		margin: 0;
+	}
+	.navbar-nav {
+		margin: 1em 0 2em -1.2em;
+	}
+	.logo img {
+		margin: .75em 0 0 0;
+		max-height: 4em;
+	}
+}
+@media (max-width: 767px) {
+	.slider-copy-wrapper-center {
+		position: relative!important;
+	}
+	.col-sm-6.slider-link-nav {
+		width: 100% !important;
+	}
+	.slider-link-nav {
+		width: 100%;
+	}
+	.slider-link-1, .slider-link-2 {
+		background-color: #ffffff !important;
+		border: none !important;
+		text-align: left !important;
+		padding: .5em !important;
+		max-width: auto !important;
+		margin: 1em!important;
+		padding: 0 !important;
+		border-radius: none !important;
+		box-shadow: none;
+		line-height: 2 !important;
+	}
+	.slider-link-1 a:link, .slider-link-1 a:visited {
+		color: #ed6963 !important;
+		padding: .75em 1.25em !important;
+	}
+	.slider-link-2 a:link, .slider-link-2 a:visited {
+		padding: 1.2em;
+	}
+	.radio, .checkbox {
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	#views-exposed-form-doing-things-on-your-own-diy--page-1 .form-type-checkbox {
+		background-position: 35% 3px;
+		background-size: 17px;
+	}
+	#views-exposed-form-doing-things-on-your-own-diy--page-1 .fieldset-wrapper {
+		background: #f5f5f5;
+		padding: 1em;
+		margin: 0 -15px;
+		text-align: center;
+	}
+	#block-aboutmentalhealthamerica .field--type-text-with-summary a:link, #block-aboutmentalhealthamerica .field--type-text-with-summary a:visited {
+		padding: .5em 1em !important;
+		width: inherit !important;
+		float: left !important;
+		margin: 1em;
+	}
+	.col-wrapper img {
+   width: 50%;
+  }
+  	.region-sidebar-first #views-exposed-form-doing-things-on-your-own-diy--page-1 .form-inline .checkbox label {
+    width: 90% !important;
+  }
+}
+@media (max-width: 480px) {
+  .col-wrapper img {
+   width: 100%;
+  }
+	#navbar #top-nav .nav>li>a:hover, #navbar #top-nav .nav>li>a:focus {
+		background: none;
+		border: none;
+		color: #0370c6 !important;
+	}
+	#navbar #top-nav .nav-pills>li>a.btn-danger {
+		color: #262626;
+		margin-top: .2em !important;
+	}
+	#navbar #top-nav .btn-danger {
+		background: #ffffff;
+		border: none;
+	}
+	#navbar-mobile {
+		width: 100%;
+		float: none;
+	}
+	#navbar-mobile .navbar-collapse {
+		border-bottom: 1px solid #dddddd;
+		padding: .25em 0;
+		margin: .25em 0 .5em 0;
+	}
+	#navbar #top-nav .nav-pills>li>a.btn-danger {
+		margin: 0;
+	}
+	.navbar-nav {
+		margin: 1em 0 2em -1.2em;
+	}
+	.logo img {
+		margin: .75em 0 0 0;
+		max-height: 4em;
+	}
+	#navbar #top-nav .btn-danger {
+		color: #262626 !important;
+	}
+	#navbar #top-nav .nav>li>a {
+		margin: .85em 0 0 0;
+		line-height: 0;
+	}
+	#navbar #top-nav .btn {
+		line-height: 0;
+	}
+	#top-nav input[type="text"] {
+		float: left !important;
+	}
+	#top-nav input[type=text]:focus {
+		border-bottom: 1px solid #ffffff !important;
+	}
+	.webform-submission-add-form {
+		max-width: 480px;
+	}
+	#block-aboutmentalhealthamerica p {
+		text-align: left;
+		margin: 0 15px;
+	}
+	.slider-copy-wrapper-center {
+		position: relative!important;
+	}
+	.col-sm-6.slider-link-nav {
+		width: 100% !important;
+	}
+	.slider-link-1, .slider-link-2 {
+		background-color: #ffffff !important;
+		border: none !important;
+		text-align: left !important;
+		padding: 0!important;
+		max-width: auto !important;
+		margin: 1em!important;
+		padding: .2em !important;
+		border-radius: none !important;
+		box-shadow: none;
+		line-height: 2 !important;
+	}
+	.slider-link-1 a:link, .slider-link-1 a:visited {
+		color: #ed6963 !important;
+		padding: 0 !important;
+	}
+	.slider-link-2 a:link, .slider-link-2 a:visited {
+		padding: 0;
+	}
+	.btn-salmon a, .more-link a {
+		width: 100%;
+		height: 150px;
+		margin: 0 0 15px;
+		padding: 2em;
+	}
+	.slider-link-nav {
+		width: 100%;
+	}
+	.slider-title {
+		font-size: 3em;
+		line-height: 1;
+	}
+	.slider-link-1, .slider-link-2 {
+		padding: 0 !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		line-height: 2 !important;
+	}
+	.radio, .checkbox {
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	#views-exposed-form-doing-things-on-your-own-diy--page-1 .fieldset-wrapper {
+		background: #f5f5f5;
+		padding: 1em;
+		margin: 0 -15px;
+		text-align: center;
+	}
+	#views-exposed-form-doing-things-on-your-own-diy--page-1 .form-type-checkbox {
+		background-position: 25% 3px;
+		background-size: 17px;
+	}
+	.form-inline .form-control {
+		width: 100%;
+	}
+	.region-sidebar-first #views-exposed-form-doing-things-on-your-own-diy--page-1 .form--inline.form-inline, 
+	.region-sidebar-first #views-exposed-form-doing-things-on-your-own-diy--page-1 legend {
+		padding: 3em;
+	}
+	.diy-wrapper {
+		width: 90%;
+		min-height: auto;
+	}
+	.diy-wrapper img {
+		margin: 0 auto;
+	}
+	h5, .h5 {
+		text-align: center;
+	}
+	#wwwblock-exposedformtreatmentpage-1 {
+		margin: 0 3em;
+	}
+	.views-exposed-form {
+		margin: 0 3em;
+	}
+	.btn-blue a {
+		height: auto;
+		width: 95%;
+	}
+	.btn-blue a {
+		font-size: 1.1em;
+	}
+	#block-aboutmentalhealthamerica .field--type-text-with-summary a:link, #block-aboutmentalhealthamerica .field--type-text-with-summary a:visited {
+		padding: 0 !important;
+		width: inherit !important;
+		margin: .25em;
+	}
+	#block-aboutmentalhealthamerica {
+		background-size: 100%;
+	}
+	.region-sidebar-first #views-exposed-form-doing-things-on-your-own-diy--page-1 .form-inline .checkbox label {
+    width: 90% !important;
+  }
+}
+
+
+/* ---------------------------------------------------- */
+
+/*      SWITCHING INTRO LANGUAGEFOR WIDESCREEN/MOBILE       */
+
+/* ---------------------------------------------------- */
+@media screen and (max-width: 600px) {
+	#edit-intro1,
+	#edit-intro2 {
+	  display: none;
+	}
+  }
+  
+  @media screen and (max-width: 600px) {
+	#edit-intro3 {
+	  margin-bottom: 15px;
+	}
+  }
+  @media screen and (min-width: 600px) {
+	#edit-intro3 {
+	  display: none;
+	}
+  }
+  
+	.depression-crisis-box {
+	  font-size: 1em;
+	  line-height: 1.4em;
+	  background: #C24348;
+	  color: #FFFFFF;
+	  padding: 10px 20px;
+	  width: 85%;
+	}
+	.depression-crisis-box a {
+	  color: #FFFFFF;
+	  font-weight: bold;
+	  text-decoration: underline;
+	}
+	.rate-undo-vote {
+	  display: none;
+	}

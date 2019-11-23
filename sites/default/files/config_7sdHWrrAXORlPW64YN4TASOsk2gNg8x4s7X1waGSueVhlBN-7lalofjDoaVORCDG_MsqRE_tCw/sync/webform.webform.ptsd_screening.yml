@@ -1,0 +1,213 @@
+uuid: 048ca2a6-6e95-4bd2-bdea-d4e2e708be8c
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+weight: 0
+uid: 1
+template: false
+archive: false
+id: ptsd_screening
+title: 'PTSD Test'
+description: ''
+category: ''
+elements: "page1:\n  '#type': webform_wizard_page\n  '#title': page1\n  '#next_button_label': NEXT\n  intro1:\n    '#type': webform_markup\n    '#markup': |\n      <p>In your life, have you ever had any experience that was so frightening, horrible, or upsetting that, in the past month, you...</p>\n      \n      <p>Please note, all fields are required.</p>\n      \n  q1:\n    '#type': webform_buttons\n    '#title': '1. Have had nightmares about it or thought about it when you did not want to?'\n    '#title_display': before\n    '#options':\n      - 'No'\n      - 'Yes'\n    '#required': true\n  q2:\n    '#type': webform_buttons\n    '#title': '2. Tried hard not to think about it or went out of your way to avoid situations that reminded you of it?'\n    '#title_display': before\n    '#options':\n      - 'No'\n      - 'Yes'\n    '#required': true\n  q3:\n    '#type': webform_buttons\n    '#title': '3. Were constantly on guard, watchful, or easily startled?'\n    '#title_display': before\n    '#options':\n      - 'No'\n      - 'Yes'\n    '#required': true\n  q4:\n    '#type': webform_buttons\n    '#title': '4. Felt numb or detached from others, activities, or your surroundings?'\n    '#title_display': before\n    '#options':\n      - 'No'\n      - 'Yes'\n    '#required': true\npage2:\n  '#type': webform_wizard_page\n  '#title': page2\n  '#next_button_label': SUBMIT\n  intro2:\n    '#type': webform_markup\n    '#markup': '<p>Before you get to your results, please take a moment to answer the following <strong>optional</strong> questions. If you aren&rsquo;t comfortable sharing any or all of the information, you can click &ldquo;submit&rdquo; right away. Otherwise, your answers will help us better understand how we can achieve our mission. Don&rsquo;t worry; we won&rsquo;t be able to identify you based on this information.</p>'\n  state:\n    '#type': select\n    '#title': State\n    '#title_display': before\n    '#options': state_codes\n    '#select2': true\n  zip_postal_code:\n    '#type': textfield\n    '#title': 'Zip/Postal Code'\n    '#title_display': before\n    '#input_mask': '*****'\n  sex:\n    '#type': webform_select_other\n    '#title': Gender\n    '#options':\n      1: Female\n      2: Male\n    '#select2': true\n    '#other__option_label': 'Another Gender'\n    '#other__placeholder': 'Enter Gender....'\n  race:\n    '#type': select\n    '#title': Race/Ethnicity\n    '#title_display': before\n    '#options':\n      1: 'Asian or Pacific Islander'\n      2: 'Black or African American (non-Hispanic)'\n      3: 'Hispanic or Latino'\n      4: 'Native American or American Indian'\n      5: 'White (non-Hispanic)'\n      6: 'More than one of the above'\n      7: Other\n    '#select2': true\n  age:\n    '#type': select\n    '#title': Age\n    '#title_display': before\n    '#options':\n      1: '\"11-17\"'\n      2: '\"18-24\"'\n      3: '\"25-34\"'\n      4: '\"35-44\"'\n      5: '\"45-54\"'\n      6: '\"55-64\"'\n      7: '\"65+\"'\n    '#select2': true\n  mental:\n    '#type': select\n    '#title': 'Are you currently, or have you ever been, diagnosed with a mental health condition by a professional?'\n    '#title_display': before\n    '#options': yes_no\n    '#select2': true\n    '#access_create_roles': {  }\n  which_of_the_following_populations_describe_you_:\n    '#type': checkboxes\n    '#title': 'Which of the following populations describes you?'\n    '#options':\n      1: 'Veteran or active duty military'\n      2: 'Caregiver of someone living with emotional or physical illness'\n      3: LGBTQ\n      4: ' Student'\n      5: 'Trauma survivor'\n      6: 'New or expecting mother'\n  who_are_you_caring_for_:\n    '#type': webform_select_other\n    '#title': 'Who are you caring for?'\n    '#options':\n      1: 'My spouse or partner'\n      2: 'My parent'\n      3: 'My child'\n      4: 'Another relative'\n    '#select2': true\n    '#other__placeholder': 'Please specify...'\n    '#states':\n      visible-slide:\n        ':input[name=\"which_of_the_following_populations_describe_you_[2]\"]':\n          checked: true\n  how_can_mha_help_you_:\n    '#type': webform_select_other\n    '#title': 'How can MHA help you?'\n    '#options':\n      1: 'The person I’m helping is getting treatment but is getting worse (meds or therapy stopped working)'\n      2: 'The person I’m helping is getting treatment but also needs something else (side effects cause other problems, not sure what else to do)'\n      3: 'The person I’m helping is doesn’t want treatment and I want to figure out how to help them'\n      4: 'I need help because the stress of caretaking is hard'\n    '#select2': true\n    '#states':\n      visible-slide:\n        ':input[name=\"which_of_the_following_populations_describe_you_[2]\"]':\n          checked: true\n  which_of_the_following_best_describes_your_sexual_orientation_:\n    '#type': webform_select_other\n    '#title': 'Which of the following best describes your sexual orientation/gender?'\n    '#options':\n      1: 'Lesbian or Gay'\n      2: Bisexual\n      3: Transgender\n      4: Queer\n      5: Pansexual\n      6: Asexual\n    '#select2': true\n    '#other__placeholder': 'Please specify...'\n    '#states':\n      visible-slide:\n        ':input[name=\"which_of_the_following_populations_describe_you_[3]\"]':\n          checked: true\n  income:\n    '#type': select\n    '#title': 'Household Income'\n    '#title_display': before\n    '#options':\n      1: 'Less than $20,000'\n      2: '$20,000 - $39,999'\n      3: '$40,000 - $59,999'\n      4: '$60,000 - $79,999'\n      5: '$80,000 - $99,999'\n      6: '$100,000 - $149,999'\n      7: '$150,000+'\n    '#select2': true\n  how_can_mental_health_america_help_you_:\n    '#type': webform_checkboxes_other\n    '#title': 'How can Mental Health America help you?'\n    '#options':\n      1: 'A phone number to get immediate support or guidance'\n      2: 'Additional information about mental health'\n      3: 'Referrals to local MHA affiliates or other organizations that can help'\n      4: 'Worksheets or coping skills to use at home'\n      5: 'An online or mobile program or app that can help you track or manage your symptoms'\n    '#other__option_label': Other\n    '#other__title': 'If ''Other'' please specify (for how MHA can help you)'\n    '#other__placeholder': 'Please specify...'\n    '#access_create_roles': {  }\n  have_you_ever_received_treatment_support_for_a_mental_health_pro:\n    '#type': radios\n    '#title': 'Have you ever received treatment/support for a mental health problem?'\n    '#options': yes_no\n    '#options_display': side_by_side\n  are_you_receiving_treatment_support_now:\n    '#type': radios\n    '#title': 'Are you receiving treatment/support now?'\n    '#options': yes_no\n    '#options_display': side_by_side\n    '#states':\n      visible-slide:\n        ':input[name=\"have_you_ever_received_treatment_support_for_a_mental_health_pro\"]':\n          value: 'Yes'\n  how_can_mha_help_you_why_did_you_take_a_screen_today_:\n    '#type': webform_select_other\n    '#title': 'How can MHA help you? Why did you take a screen today?'\n    '#options':\n      1: 'My treatment doesn’t work anymore and my mental health got worse'\n      2: 'My treatment works, but something else is going on'\n      3: 'I’m still not able to get the help I need'\n    '#select2': true\n    '#states':\n      visible-slide:\n        ':input[name=\"are_you_receiving_treatment_support_now\"]':\n          value: 'Yes'\n  do_you_currently_have_health_insurance:\n    '#type': radios\n    '#title': 'Do you currently have health insurance?'\n    '#options': yes_no\n    '#options_display': side_by_side\n  do_you_have_any_of_the_following_general_health_conditions_:\n    '#type': webform_checkboxes_other\n    '#title': 'Do you have any of the following general health conditions?'\n    '#options':\n      1: ' Heart disease'\n      2: Diabetes\n      3: Cancer\n      4: ' Arthritis or other chronic pain'\n      5: 'COPD or other lung conditions'\n      6: 'Movement Disorders (involuntary tics, tardive dyskinesia)'\n    '#other__option_label': Other\n    '#other__title': 'If ''Other'' please specify (for general health conditions)'\n    '#other__placeholder': 'Please specify...'\n  which_of_the_following_applies_to_you:\n    '#type': checkboxes\n    '#title': 'Which of the following applies to you? Check all that apply'\n    '#options':\n      1: 'I smoke or chew tobacco'\n      2: 'I exercise regularly'\n      3: 'I consider myself overweight'\n      4: 'I attend church regularly'\n      5: 'I take at least one vacation (either at home or travelling) every year'\n      6: 'I follow politics closely'\n      7: 'I am a sports fan'\n    '#access_create_roles': {  }\n    '#access_update_roles': {  }\n    '#access_view_roles': {  }\n  what_next_steps_do_you_plan_to_take_after_screening_:\n    '#type': select\n    '#title': 'What next steps do you plan to take after screening?'\n    '#title_display': before\n    '#options':\n      1: 'Discuss the results with a family member, a friend or a professional'\n      2: 'Find additional information online'\n      3: 'Find treatment'\n      4: 'Monitor my health by taking screens regularly'\n      5: 'None at this time'\n    '#access_create_roles': {  }\n  score:\n    '#type': webform_computed_twig\n    '#title': Score\n    '#title_display': before\n    '#display_on': view\n    '#value': |\n      {% set score = data.q1 + data.q2 + data.q3 + data.q4 %}\n      {{score}}\n      \n    '#store': true\n  result:\n    '#type': webform_computed_twig\n    '#title': Result\n    '#title_display': before\n    '#display_on': view\n    '#value': |\n      {% set score = data.q1 + data.q2 + data.q3 + data.q4 %}\n      {% if score < 3  %}\n      {% set result = \"PTSD Negative\" %}\n      {% else %}\n      {% set result = \"PTSD Positive\" %}\n      {% endif %}\n      {{result}}\n      \n    '#store': true\n  condition:\n    '#type': webform_computed_twig\n    '#title': condition\n    '#title_display': before\n    '#display_on': view\n    '#value': |\n      {% set score = data.q1 + data.q2 + data.q3 + data.q4 %}\n      {% if score < 3  %}\n      {% set result = \"PTSD_Unlikely\" %}\n      {% else %}\n      {% set result = \"PTSD_Likely\" %}\n      {% endif %}\n      {{result}}\n      \n    '#store': true\n  message:\n    '#type': webform_computed_twig\n    '#title': message\n    '#title_display': before\n    '#display_on': none\n    '#value': \"{% set score = data.q1 + data.q2 + data.q3 + data.q4 %}\\r\\n{% if score < 3  %}\\r\\nBased on your answers, you have little or no symptoms of Post Traumatic Stress Disorder.{% else %}\\r\\nBased on your responses, you may be experiencing symptoms of Post Traumatic Stress Disorder.  Living with these symptoms could be causing difficulty managing relationships and even the tasks of everyday life.{% endif %}\\r\\n\"\n    '#store': true\n  message2:\n    '#type': webform_computed_twig\n    '#title': message2\n    '#description': |\n      <p>These results do not mean that you have Post Traumatic Stress Disorder, but it may be time to start a conversation with your doctor. Finding the right treatment plan and working with your doctor or healthcare provider can help you feel more like you again.</p>\n      \n      <p>Post Traumatic Stress symptoms are often accompanied by symptoms of anxiety and depression. We recommend you also take the screens for anxiety and depression.</p>\n      \n      <p>This screen is not meant to be a diagnosis. Diagnosis and care of mental health conditions can be difficult. Having symptoms of Post Traumatic Stress Disorder is different than having Post Traumatic Stress Disorder.&nbsp; In addition, symptoms of Post Traumatic Stress Disorder can be caused by other mental health conditions, or other health problems. Only a trained professional, such as a doctor or a mental health provider, can make this determination. However, by printing the results and bringing it to your doctor, you can open up the conversation.</p>\n      \n      <p>Our resources on&nbsp;<a href=\"http://www.mentalhealthamerica.net/conditions/post-traumatic-stress-disorder\" target=\"_blank\">Post Traumatic Stress Disorder</a>&nbsp;or&nbsp;<a href=\"http://www.mentalhealthamerica.net/working-provider\" target=\"_blank\">working with providers</a>&nbsp;may help you take your next steps.</p>\n      \n      <p>You can also find more resources about supports at:&nbsp;<a href=\"http://www.mentalhealthamerica.net/b4stage4-get-help\" target=\"_blank\">Get Help</a>,&nbsp;<a href=\"http://www.mentalhealthamerica.net/finding-therapy\" target=\"_blank\">Finding Therapy</a>,&nbsp;<a href=\"https://findtreatment.samhsa.gov/\" target=\"_blank\">SAMHSA Treatment Locator</a>, or contact a local&nbsp;<a href=\"http://www.mentalhealthamerica.net/find-affiliate\" target=\"_blank\">MHA affliliate</a>.</p>\n      \n      <p>Want to share more? MHA is hoping to create a space where people can share and learn more about how it feels to have a mental health problem. Go to&nbsp;<a href=\"http://www.mentalhealthamerica.net/feelslike\" target=\"_blank\">#mentalillnessfeelslike</a>&nbsp;to share your thoughts.</p>\n      \n    '#title_display': before\n    '#display_on': none\n    '#value': |\n      {% set score = data.q1 + data.q2 + data.q3 + data.q4 %}\n      {% if score < 3  %}\n      <p>If you notice that your symptoms aren&#39;t improving or get worse, you may want to bring them up with your doctor or rescreen.</p>\n      \n      <p>This screen is not meant to be a diagnosis, or the elimination of a diagnosis.&nbsp; Only a trained medical professional can diagnose Post Traumatic Stress Disorder.</p>\n      \n      <p>Our&nbsp;<a href=\"http://www.mentalhealthamerica.net/live-your-life-well\" target=\"_blank\">Live Your Life Well</a>&nbsp;program can help you stay mentally healthy.</p>\n      \n      <p>If you feel like you need assistance, visit&nbsp;<a href=\"http://www.mentalhealthamerica.net/b4stage4-get-help\" target=\"_blank\">Get Help</a>,&nbsp;<a href=\"http://www.mentalhealthamerica.net/finding-therapy\" target=\"_blank\">Finding Therapy</a>,&nbsp;<a href=\"https://findtreatment.samhsa.gov/\" target=\"_blank\">SAMHSA Treatment Locator</a>, or contact a local&nbsp;<a href=\"http://www.mentalhealthamerica.net/find-affiliate\" target=\"_blank\">MHA affliliate</a>.</p>\n      \n      {% else %}\n      <p>These results do not mean that you have Post Traumatic Stress Disorder, but it may be time to start a conversation with your doctor. Finding the right treatment plan and working with your doctor or healthcare provider can help you feel more like you again.</p>\n      \n      <p>Post Traumatic Stress symptoms are often accompanied by symptoms of anxiety and depression. We recommend you also take the screens for anxiety and depression.</p>\n      \n      <p>This screen is not meant to be a diagnosis. Diagnosis and care of mental health conditions can be difficult. Having symptoms of Post Traumatic Stress Disorder is different than having Post Traumatic Stress Disorder.&nbsp; In addition, symptoms of Post Traumatic Stress Disorder can be caused by other mental health conditions, or other health problems. Only a trained professional, such as a doctor or a mental health provider, can make this determination. However, by printing the results and bringing it to your doctor, you can open up the conversation.</p>\n      \n      <p>Our resources on&nbsp;<a href=\"http://www.mentalhealthamerica.net/conditions/post-traumatic-stress-disorder\" target=\"_blank\">Post Traumatic Stress Disorder</a>&nbsp;or&nbsp;<a href=\"http://www.mentalhealthamerica.net/working-provider\" target=\"_blank\">working with providers</a>&nbsp;may help you take your next steps.</p>\n      \n      <p>You can also find more resources about supports at:&nbsp;<a href=\"http://www.mentalhealthamerica.net/b4stage4-get-help\" target=\"_blank\">Get Help</a>,&nbsp;<a href=\"http://www.mentalhealthamerica.net/finding-therapy\" target=\"_blank\">Finding Therapy</a>,&nbsp;<a href=\"https://findtreatment.samhsa.gov/\" target=\"_blank\">SAMHSA Treatment Locator</a>, or contact a local&nbsp;<a href=\"http://www.mentalhealthamerica.net/find-affiliate\" target=\"_blank\">MHA affliliate</a>.</p>\n      \n      <p>Want to share more? MHA is hoping to create a space where people can share and learn more about how it feels to have a mental health problem. Go to&nbsp;<a href=\"http://www.mentalhealthamerica.net/feelslike\" target=\"_blank\">#mentalillnessfeelslike</a>&nbsp;to share your thoughts.</p>\n      {% endif %}\n      \n    '#store': true\n  email:\n    '#type': email\n    '#title': Email\n    '#description': '<p>Enter your email to receive a copy of the screen result</p>'\n    '#access_create_roles': {  }\n  msg:\n    '#type': webform_computed_twig\n    '#title': msg\n    '#display_on': none\n    '#value': '{{ data.message2|raw}}'\nref:\n  '#type': hidden\n  '#title': Referrer\nipiden:\n  '#type': hidden\n  '#title': 'IP Identifier'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': SUBMIT\n  '#wizard_prev_hide': true"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  page: true
+  page_submit_path: /screening-tools/ptsd
+  page_confirm_path: /screening-tools/ptsd/confirmation
+  form_title: both
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_convert_anonymous: true
+  form_prepopulate: true
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: true
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns:
+    - created
+    - element__condition
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: false
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: page
+  confirmation_title: 'RESULTS AND NEXT STEPS'
+  confirmation_message: "<h1>RESULT: [webform_submission:values:result]</h1>\r\n\r\n<p>[webform_submission:values:message]</p>\r\n\r\n<p>[webform_submission:values:msg]</p>\r\n\r\n<h2>Your total score was: [webform_submission:values:score]</h2>\r\n\r\n<div class=\"container-fluid\"><a class=\"btn btn-warning\" data-toggle=\"collapse\" href=\"#demo\">Your Answers</a>\r\n\r\n<div class=\"collapse\" id=\"demo\">\r\n<table class=\"table table-striped\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>1. Have had nightmares about it or thought about it when you did not want to?:</td>\r\n\t\t\t<td>[webform_submission:values:q1]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>2. Tried hard not to think about it or went out of your way to avoid situations that reminded you of it?:</td>\r\n\t\t\t<td>[webform_submission:values:q2]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>3. Were constantly on guard, watchful, or easily startled?:</td>\r\n\t\t\t<td>[webform_submission:values:q3]</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>4. Felt numb or detached from others, activities, or your surroundings?:</td>\r\n\t\t\t<td>[webform_submission:values:q4]</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n</div>\r\n</div>\r\n\r\n<hr />\r\n<div class=\"container-fluid\"><a class=\"btn btn-warning\" data-toggle=\"collapse\" href=\"#demo2\">Interpretation of Score</a>\r\n\r\n<div class=\"collapse\" id=\"demo2\">\r\n<h3>How is this Calculated?</h3>\r\n\r\n<p>Current research suggests that the results of the PC-PTSD should be considered &quot;positive&quot; if a patient answers &quot;yes&quot; to any three items.</p>\r\n\r\n<h3>Description</h3>\r\n\r\n<p>The PC-PTSD is a 4-item screen that was designed for use in primary care and other medical settings and is currently used to screen for PTSD in veterans at the VA. The screen includes an introductory sentence to cue respondents to traumatic events. The authors suggest that in most circumstances the results of the PC-PTSD should be considered &quot;positive&quot; if a patient answers &quot;yes&quot; to any 3 items. Those screening positive should then be assessed with a structured interview for PTSD. The screen does not include a list of potentially traumatic events.</p>\r\n\r\n<h3>Source</h3>\r\n\r\n<p>Prins, A., Ouimette, P., Kimerling, R., Cameron, R. P., Hugelshofer, D.S., Shaw-Hegwer, J., . . . Sheikh, J. I. (2004). The primary care PTSD screen (PC-PTSD): Corrigendum.&nbsp;<em>Primary Care Psychiatry</em>, 9, 151. PC-PTSSD is in the Public Domain and available at&nbsp;<a href=\"http://www.ptsd.va.gov/\" target=\"_blank\">www.ptsd.va.gov</a>.</p>\r\n</div>\r\n</div>\r\n\r\n<hr />\r\n<p>&nbsp;</p>\r\n\r\n<div class=\"clearfix\">\r\n<div class=\"col-md-3 btn-salmon sm\"><a href=\"../../content/what-ptsd\">What is PTSD?</a></div>\r\n\r\n<div class=\"col-md-3 btn-salmon sm\"><a href=\"../../content/happy\">Talk to a compassionate listener now</a></div>\r\n\r\n<div class=\"col-md-3 btn-salmon sm\"><a href=\"../../content/are-there-types-anxiety\">Are there types of anxiety?</a></div>\r\n\r\n<div class=\"col-md-3 btn-salmon sm\"><a href=\"../../content/how-do-you-treat-anxiety\">How do you treat anxiety?</a></div>\r\n\r\n<div class=\"col-md-3 btn-salmon sm\"><a href=\"../../content/how-fast-do-anxiety-drugs-work\">How fast do anxiety drugs work?</a></div>\r\n\r\n<div class=\"col-md-3 btn-salmon sm\"><a href=\"../../content/condition-forever-will-i-always-feel-way\">Is this condition forever?</a></div>\r\n\r\n<div class=\"col-md-3 btn-salmon sm\"><a href=\"../../content/stopping-stupid-thoughts\">Stopping Stupid Thoughts</a></div>\r\n\r\n<div class=\"col-md-3 btn-salmon sm\"><a href=\"../../content/where-can-i-find-people-me\">Where do I find people like me?</a></div>\r\n</div>"
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: false
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: completed
+  purge_days: 60
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+  form_submit_once_disabled: true
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  email:
+    id: email
+    label: Email
+    handler_id: email
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email:raw]'
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      subject: 'Screening Results: PTSD'
+      body: "<p><strong>Submitted on:</strong> [webform_submission:created]</p>\n\n<p><strong>Submitted by:</strong> [webform_submission:user]</p>\n\n<p><strong>Submitted values are:</strong></p>\n[webform_submission:values]\n\n<hr />\n<h3>[webform_submission:values:message]</h3>\n\n<hr />\n<h2>How is this Calculated?</h2>\n\n<p>Current research suggests that the results of the PC-PTSD should be considered &quot;positive&quot; if a patient answers &quot;yes&quot; to any three items.</p>\n\n<h2>Description</h2>\n\n<p>The PC-PTSD is a 4-item screen that was designed for use in primary care and other medical settings and is currently used to screen for PTSD in veterans at the VA. The screen includes an introductory sentence to cue respondents to traumatic events. The authors suggest that in most circumstances the results of the PC-PTSD should be considered &quot;positive&quot; if a patient answers &quot;yes&quot; to any 3 items. Those screening positive should then be assessed with a structured interview for PTSD. The screen does not include a list of potentially traumatic events.</p>\n\n<h2>Source</h2>\n\n<p>Prins, A., Ouimette, P., Kimerling, R., Cameron, R. P., Hugelshofer, D.S., Shaw-Hegwer, J., . . . Sheikh, J. I. (2004). The primary care PTSD screen (PC-PTSD): Corrigendum.&nbsp;<em>Primary Care Psychiatry</em>, 9, 151. PC-PTSSD is in the Public Domain and available at&nbsp;<a href=\"http://www.ptsd.va.gov/\" target=\"_blank\">www.ptsd.va.gov</a>.</p>"
+      excluded_elements:
+        sex: sex
+        race: race
+        age: age
+        income: income
+        zip_postal_code: zip_postal_code
+        state: state
+        condition: condition
+        message: message
+        message2: message2
+        email: email
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''

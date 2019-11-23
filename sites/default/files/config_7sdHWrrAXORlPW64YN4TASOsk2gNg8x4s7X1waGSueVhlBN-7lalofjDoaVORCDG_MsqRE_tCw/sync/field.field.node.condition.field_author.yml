@@ -1,0 +1,19 @@
+uuid: 888f65e2-db53-4bad-978b-9711b2e8aa1e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_author
+    - node.type.condition
+id: node.condition.field_author
+field_name: field_author
+entity_type: node
+bundle: condition
+label: Author
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

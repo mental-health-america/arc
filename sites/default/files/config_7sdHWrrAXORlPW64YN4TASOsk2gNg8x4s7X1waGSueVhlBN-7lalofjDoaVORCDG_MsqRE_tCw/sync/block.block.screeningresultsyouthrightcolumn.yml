@@ -1,0 +1,31 @@
+uuid: 57196b9c-f99a-4828-ad4e-83ae9f90a7cb
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:ef0b77a1-ee08-4807-ad08-6edbfb63cc66'
+  module:
+    - block_content
+    - system
+  theme:
+    - s2s
+id: screeningresultsyouthrightcolumn
+theme: s2s
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'block_content:ef0b77a1-ee08-4807-ad08-6edbfb63cc66'
+settings:
+  id: 'block_content:ef0b77a1-ee08-4807-ad08-6edbfb63cc66'
+  label: 'Screening Results - Youth - right column'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /screening-tools/youth/confirmation
+    negate: false
+    context_mapping: {  }

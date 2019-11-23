@@ -1,0 +1,32 @@
+uuid: afa08e35-6c21-455a-adbb-75e63086d8c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_area_served
+    - node.type.referral_to_treatment_profile
+    - taxonomy.vocabulary.area_served
+  content:
+    - 'taxonomy_term:area_served:5e68ec8f-7ade-4710-9072-ad62bfdb8d6f'
+id: node.referral_to_treatment_profile.field_area_served
+field_name: field_area_served
+entity_type: node
+bundle: referral_to_treatment_profile
+label: 'Area Served'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 5e68ec8f-7ade-4710-9072-ad62bfdb8d6f
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      area_served: area_served
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

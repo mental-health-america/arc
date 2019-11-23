@@ -1,0 +1,207 @@
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+weight: 0
+uid: 1
+template: false
+archive: false
+id: workplace_health_survey
+title: 'Work Health Survey'
+description: ''
+category: ''
+elements: "page1:\n  '#type': webform_wizard_page\n  '#title': page1\n  '#next_button_label': NEXT\n  q2:\n    '#type': webform_buttons\n    '#title': '1. I am comfortable sharing new ideas with my supervisor'\n    '#title_display': before\n    '#options':\n      1: 'Strongly Disagree'\n      2: Disagree\n      3: 'Somewhat Disagree'\n      4: 'Somewhat Agree'\n      5: Agree\n      6: 'Strongly Agree'\n    '#required': true\n  q1:\n    '#type': webform_buttons\n    '#title': '2. My supervisor values all feedback on improving workplace culture'\n    '#title_display': before\n    '#options':\n      1: 'Strongly Disagree'\n      2: Disagree\n      3: 'Somewhat Disagree'\n      4: 'Somewhat Agree'\n      5: Agree\n      6: 'Strongly Agree'\n    '#required': true\n  q3:\n    '#type': webform_buttons\n    '#title': '3. In my company, it is safer to remain silent about things that need improvement'\n    '#title_display': before\n    '#options':\n      1: 'Strongly Disagree'\n      2: Disagree\n      3: 'Somewhat Disagree'\n      4: 'Somewhat Agree'\n      5: Agree\n      6: 'Strongly Agree'\n    '#required': true\n  q6:\n    '#type': webform_buttons\n    '#title': '4. My supervisor remains objective when dealing with workplace conflict (e.g. considers all parties'' concerns in decision making)'\n    '#title_display': before\n    '#options':\n      1: 'Strongly Disagree'\n      2: Disagree\n      3: 'Somewhat Disagree'\n      4: 'Somewhat Agree'\n      5: Agree\n      6: 'Strongly Agree'\n    '#required': true\n  q13:\n    '#type': webform_buttons\n    '#title': '5. I am comfortable reporting dishonest or unfair practices to human resources/management'\n    '#title_display': before\n    '#options':\n      1: 'Strongly Disagree'\n      2: Disagree\n      3: 'Somewhat Disagree'\n      4: 'Somewhat Agree'\n      5: Agree\n      6: 'Strongly Agree'\n    '#required': true\n  q15:\n    '#type': webform_buttons\n    '#title': '6. I feel comfortable recommending my workplace to others'\n    '#title_display': before\n    '#options':\n      1: 'Strongly Disagree'\n      2: Disagree\n      3: 'Somewhat Disagree'\n      4: 'Somewhat Agree'\n      5: Agree\n      6: 'Strongly Agree'\n    '#required': true\n  q12:\n    '#type': webform_buttons\n    '#title': '7. Supervisors regularly check on my workplace needs'\n    '#title_display': before\n    '#options':\n      1: 'Strongly Disagree'\n      2: Disagree\n      3: 'Somewhat Disagree'\n      4: 'Somewhat Agree'\n      5: Agree\n      6: 'Strongly Agree'\n    '#required': true\n  q7:\n    '#type': webform_buttons\n    '#title': '8. I receive enough guidance to perform my job well'\n    '#title_display': before\n    '#options':\n      1: 'Strongly Disagree'\n      2: Disagree\n      3: 'Somewhat Disagree'\n      4: 'Somewhat Agree'\n      5: Agree\n      6: 'Strongly Agree'\n    '#required': true\n  q8:\n    '#type': webform_buttons\n    '#title': '9. I feel motivated at work'\n    '#title_display': before\n    '#options':\n      1: 'Strongly Disagree'\n      2: Disagree\n      3: 'Somewhat Disagree'\n      4: 'Somewhat Agree'\n      5: Agree\n      6: 'Strongly Agree'\n    '#required': true\n  q4:\n    '#type': webform_buttons\n    '#title': '10. Workplace issues negatively affect my sleep'\n    '#title_display': before\n    '#options':\n      1: 'Strongly Disagree'\n      2: Disagree\n      3: 'Somewhat Disagree'\n      4: 'Somewhat Agree'\n      5: Agree\n      6: 'Strongly Agree'\n    '#required': true\n  q14:\n    '#type': webform_buttons\n    '#title': '11. In my company, it is safer to remain silent about my workplace stress'\n    '#title_display': before\n    '#options':\n      1: 'Strongly Disagree'\n      2: Disagree\n      3: 'Somewhat Disagree'\n      4: 'Somewhat Agree'\n      5: Agree\n      6: 'Strongly Agree'\n    '#required': true\n  q9:\n    '#type': webform_buttons\n    '#title': '12. To cope with workplace stress, I do unhealthy things (e.g. drinking, drug use, lashing out at others)'\n    '#title_display': before\n    '#options':\n      1: 'Strongly Disagree'\n      2: Disagree\n      3: 'Somewhat Disagree'\n      4: 'Somewhat Agree'\n      5: Agree\n      6: 'Strongly Agree'\n    '#required': true\n  q10:\n    '#type': webform_buttons\n    '#title': '13. I am afraid of getting punished for taking a day off to attend to my mental health'\n    '#title_display': before\n    '#options':\n      1: 'Strongly Disagree'\n      2: Disagree\n      3: 'Somewhat Disagree'\n      4: 'Somewhat Agree'\n      5: Agree\n      6: 'Strongly Agree'\n    '#required': true\n  q11:\n    '#type': webform_buttons\n    '#title': '14. My workplace culture makes me feel less confident about my performance'\n    '#title_display': before\n    '#options':\n      1: 'Strongly Disagree'\n      2: Disagree\n      3: 'Somewhat Disagree'\n      4: 'Somewhat Agree'\n      5: Agree\n      6: 'Strongly Agree'\n    '#required': true\n  q5:\n    '#type': webform_buttons\n    '#title': '15. I spend time looking for a new position while at work or outside of work'\n    '#title_display': before\n    '#options':\n      1: 'Strongly Disagree'\n      2: Disagree\n      3: 'Somewhat Disagree'\n      4: 'Somewhat Agree'\n      5: Agree\n      6: 'Strongly Agree'\n    '#required': true\n  q5_1:\n    '#type': webform_buttons\n    '#title': 'If so, how often?'\n    '#options':\n      1: 'Several times a day'\n      2: 'Once a day'\n      3: 'Several times a week'\n      4: 'Once a week'\n      5: 'Less than once a week'\n    '#states':\n      visible:\n        ':input[name=\"q5\"]':\n          value:\n            greater: '2'\n    '#required': true\npage2:\n  '#type': webform_wizard_page\n  '#title': page2\n  '#next_button_label': SUBMIT\n  result:\n    '#type': webform_computed_twig\n    '#title': Result\n    '#title_display': before\n    '#display_on': view\n    '#value': |\n      {% set score = data.q1 + data.q2 + data.q3 + data.q4 + data.q5 + data.q6 + data.q7 + data.q8 + data.q9 + data.q10 + data.q11 + data.q12 + data.q13 + data.q14 + data.q15 + data.q16 + data.q17 + data.q18 + data.q19 + data.q20 %}\n      {% if score < 47  %}\n      {% set result = \"Healthy Work Environment\" %}\n      {% elseif score < 74 %}\n      {% set result = \"Somewhat healthy or unhealthy\" %}\n      {% else %}\n      {% set result = \"Unhealthy Work Environment\" %}\n      {% endif %}\n      {{result}}\n      \n    '#store': true\n  condition:\n    '#type': webform_computed_twig\n    '#title': condition\n    '#title_display': before\n    '#display_on': view\n    '#value': |\n      {% set score = data.q1 + data.q2 + data.q3 + data.q4 + data.q5 + data.q6 + data.q7 + data.q8 + data.q9 + data.q10 + data.q11 + data.q12 + data.q13 + data.q14 + data.q15 + data.q16 + data.q17 + data.q18 + data.q19 + data.q20 %}\n      {% if score < 47  %}\n      {% set result = \"Work_Healthy\" %}\n      {% else %}\n      {% set result = \"Work_Unhealthy\" %}\n      {% endif %}\n      {{result}}\n      \n    '#store': true\n  message:\n    '#type': webform_computed_twig\n    '#title': message\n    '#title_display': before\n    '#display_on': none\n    '#value': |\n      {% set score = data.q1 + data.q2 + data.q3 + data.q4 + data.q5 + data.q6 + data.q7 + data.q8 + data.q9 + data.q10 + data.q11 + data.q12 + data.q13 + data.q14 + data.q15 + data.q16 + data.q17 + data.q18 + data.q19 + data.q20 %}\n      \n      \n    '#store': true\n  intro2:\n    '#type': webform_markup\n    '#markup': '<p>Please take a moment to answer the following optional questions. If you aren&rsquo;t comfortable sharing any or all of the information, you can click &ldquo;submit&rdquo; right away. Otherwise, your answers will help us better understand how we can achieve our mission. Don&rsquo;t worry; we won&rsquo;t be able to identify you based on this information.</p>'\n  sex:\n    '#type': checkboxes\n    '#title': 'Gender '\n    '#options':\n      Female: Female\n      Male: Male\n  age:\n    '#type': checkboxes\n    '#title': Age\n    '#options':\n      '\"<18\"': '\"<18\"'\n      '\"18-24\"': '\"18-24\"'\n      '\"25-34\"': '\"25-34\"'\n      '\"35-44\"': '\"35-44\"'\n      '\"45-54\"': '\"45-54\"'\n      '\"55-64\"': '\"55-64\"'\n      '\"65+\"': '\"65+\"'\n  employment_status:\n    '#type': checkboxes\n    '#title': 'Employment Status (Check all the apply)'\n    '#options':\n      Full-time: Full-time\n      Part-time: Part-time\n      'Independent Contractor/Consultant': 'Independent Contractor/Consultant'\n  what_industry_do_you_work_in_:\n    '#type': webform_checkboxes_other\n    '#title': 'What Industry do you work in? (Check all that apply)'\n    '#title_display': before\n    '#options':\n      Academia/Science: 'Academic (Professors, TAs, Researchers)'\n      Education: '(Primary, Secondary, Childcare)'\n      'Social Services': 'Social Services'\n      Automotive: Automotive\n      Construction: Construction\n      Energy: Energy\n      'Financial services': 'Financial services'\n      'Food and Beverage': 'Food and Beverage'\n      Healtcare: Healtcare\n      'Legal Services': 'Legal Services'\n      Manufacturing: Manufacturing\n      'Telecommunications & Media': 'Telecommunications & Media'\n      Non-Profit: Non-Profit\n      'Public Sector': 'Public Sector (Govt)'\n      'Research and Development': 'Research and Development'\n      'Marketing and Sales': 'Marketing and Sales'\n    '#other__title': Other\n  how_many_people_work_for_your_organization_:\n    '#type': checkboxes\n    '#title': 'How many people work for your organization? (Check all that apply)'\n    '#options':\n      1-10: 1-10\n      11-50: 11-50\n      51-250: 51-250\n      251-1000: 251-1000\n      'Over 1000': 'Over 1000'\n  which_of_the_following_would_help_workplace_stress_mental_health:\n    '#type': webform_checkboxes_other\n    '#title': 'Which of the following would help workplace stress/mental health? (Check all that apply)'\n    '#options':\n      'In-trainings for Supervisors and Employees': 'In-person training for Supervisors and Employees -- e.g. stress management, mental health, personal development'\n      'Mental Health Awareness Campaign': 'Mental Health Awareness Campaign'\n      'Workplace wellness programs that tackle mental health issues': 'Workplace wellness programs that tackle mental health issues'\n      'Informational sessions on organizational resources': 'Informational sessions on organizational resources -- Employee Assistance Programs, mental health insurance benefits and coverage, etc.'\n  of_the_above_selections_which_does_your_company_currently_provid:\n    '#type': webform_checkboxes_other\n    '#title': 'Of the above selections, which does your company currently provide? (Check all that apply)'\n    '#options':\n      'In-trainings for Supervisors and Employees': 'In-person training for Supervisors and Employees -- e.g. stress management, mental health, personal development'\n      'Mental Health Awareness Campaign': 'Mental Health Awareness Campaign'\n      'Workplace wellness programs that tackle mental health issues': 'Workplace wellness programs that tackle mental health issues'\n      'Informational sessions on organizational resources': 'Informational sessions on organizational resources -- Employee Assistance Programs, mental health insurance benefits and coverage, etc.'\n      'None of the above': 'None of the above'\n  email:\n    '#type': email\n    '#title': Email\n    '#description': '<p>Enter your email to receive a copy of the screen result</p>'\n    '#access_create_roles': {  }\nref:\n  '#type': hidden\n  '#title': Referrer\nipiden:\n  '#type': hidden\n  '#title': 'IP Identifier'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': SUBMIT\n  '#wizard_prev_hide': true"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  page: true
+  page_submit_path: /screening-tools/Workplace-health-survey
+  page_confirm_path: /screening-tools/Workplace-health-survey/confirmation
+  form_title: both
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_convert_anonymous: true
+  form_prepopulate: true
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: true
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns:
+    - created
+    - element__condition
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: false
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: page
+  confirmation_title: 'RESULTS AND NEXT STEPS'
+  confirmation_message: "<p><strong>Thank you for submitting your response.</strong></p>\r\n\r\n<p>In 2017, over 17,000 people responded to our Workplace Health Survey.</p>\r\n\r\n<p>Through our results we found that staff recognition and praise mattered more to people than compensation. Employees who reported feeling alone had the highest levels of workplace stress and job dissatisfaction.</p>\r\n\r\n<p>These findings were published in our Mind the Workplace report, increasing public awareness on the impact of workplace culture on engagement.&nbsp;</p>\r\n\r\n<p>This year the survey will examine the role of leadership on emotional well-being. MHA will use the results to further discussion on, and advocate for, leadership commitment to reshaping the culture around mental health in the workplace.</p>\r\n\r\n<p>If you feel like mental health concerns might be contributing to your workplace satisfaction, consider taking a <a href=\"https://screening.mentalhealthamerica.net/screening-tools\">mental health screening</a>.</p>"
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: false
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: completed
+  purge_days: 60
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+  form_submit_once_disabled: true
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  email:
+    id: email
+    label: Email
+    handler_id: email
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:values:email:raw]'
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      subject: 'Screening Results: Work Health Survey'
+      body: "<p><strong>Submitted on:</strong> [webform_submission:created]</p>\n\n<p><strong>Submitted by:</strong> [webform_submission:user]</p>\n\n<p><strong>Submitted values are:</strong></p>\n[webform_submission:values]\n\n<hr />\n<h3>[webform_submission:values:message]</h3>\n\n<hr />\n<h2>Scoring</h2>\n\n<p>Items are scored from 1-5 pts each, with some questions using reverse scoring, to calculate a percentage value.</p>\n\n<ul>\n\t<li><strong>20-46 points</strong><br />\n\tHealthy work environment</li>\n\t<li><strong>47-73 points</strong><br />\n\tSomewhat healthy or unhealthy</li>\n\t<li><strong>74-100 points</strong><br />\n\tUnhealthy work environment</li>\n</ul>"
+      excluded_elements:
+        condition: condition
+        message: message
+        message2: message2
+        email: email
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
+uuid: 5076a175-d1a0-4b80-bdca-afab57f1b733

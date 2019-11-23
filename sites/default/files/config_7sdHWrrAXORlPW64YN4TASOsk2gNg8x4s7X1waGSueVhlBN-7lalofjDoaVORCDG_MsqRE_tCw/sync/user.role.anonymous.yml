@@ -1,0 +1,23 @@
+uuid: 375da7cd-1f09-4e96-a15f-255fd230f831
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+id: anonymous
+label: 'Anonymous user'
+weight: -10
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access news feeds'
+  - 'access site-wide contact form'
+  - 'create diy_tool_application content'
+  - 'flag bookmark'
+  - 'search content'
+  - 'use text format basic_html'
+  - 'view media'
+  - 'view own profile'
+  - 'view own webform submission'
+  - 'view webform submissions own node'

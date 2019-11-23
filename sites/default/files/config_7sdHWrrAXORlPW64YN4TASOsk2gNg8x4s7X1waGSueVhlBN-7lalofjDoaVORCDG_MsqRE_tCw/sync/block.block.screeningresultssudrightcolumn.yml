@@ -1,0 +1,31 @@
+uuid: f45e35a1-6a43-4196-abcd-256d19af7212
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:b3771a65-2c95-405f-b085-3f705c14b64b'
+  module:
+    - block_content
+    - system
+  theme:
+    - s2s
+id: screeningresultssudrightcolumn
+theme: s2s
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'block_content:b3771a65-2c95-405f-b085-3f705c14b64b'
+settings:
+  id: 'block_content:b3771a65-2c95-405f-b085-3f705c14b64b'
+  label: 'Screening Results - SUD - right column'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /screening-tools/alcohol-substance-abuse/confirmation
+    negate: false
+    context_mapping: {  }

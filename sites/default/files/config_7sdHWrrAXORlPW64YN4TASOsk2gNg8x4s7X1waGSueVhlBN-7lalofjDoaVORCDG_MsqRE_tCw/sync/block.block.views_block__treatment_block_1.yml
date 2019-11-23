@@ -1,0 +1,30 @@
+uuid: 0e114e16-6511-4b37-af12-8ca6ba505efe
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.treatment
+  module:
+    - system
+    - views
+  theme:
+    - s2s
+id: views_block__treatment_block_1
+theme: s2s
+region: content
+weight: -53
+provider: null
+plugin: 'views_block:treatment-block_1'
+settings:
+  id: 'views_block:treatment-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/treatment/*\r\n/content/*\r\n/contact"
+    negate: false
+    context_mapping: {  }

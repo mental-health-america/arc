@@ -1,0 +1,27 @@
+uuid: 931cc2c0-24bb-4ed5-89ee-72c647ab2613
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: content
+label: content
+type: 'canonical_entities:node'
+pattern: 'content/[node:title]'
+selection_criteria:
+  27b9004f-29bb-4389-b3b2-c0a8d90a448b:
+    id: node_type
+    bundles:
+      condition: condition
+      connect_tool: connect_tool
+      diy_tool: diy_tool
+      page: page
+      referral_to_treatment_profile: referral_to_treatment_profile
+      treatment_info: treatment_info
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 27b9004f-29bb-4389-b3b2-c0a8d90a448b
+selection_logic: and
+weight: -5
+relationships: {  }

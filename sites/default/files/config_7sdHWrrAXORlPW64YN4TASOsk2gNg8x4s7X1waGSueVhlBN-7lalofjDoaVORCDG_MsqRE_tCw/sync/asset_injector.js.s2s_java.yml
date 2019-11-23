@@ -1,0 +1,15 @@
+uuid: 1b4d6d2a-4d7b-4d2b-99c1-c4ca62fe577c
+langcode: en
+status: true
+dependencies: {  }
+id: s2s_java
+label: s2s.java
+code: "jQuery(‘.form-radio’).on(‘click’, function() {\r\n  jQuery(‘.form-radio:checked’).each(function() {\r\n    jQuery(this).addClass(‘active-radio’);\r\n  });\r\n  jQuery(‘.form-radio:not(:checked)’).each(function() {\r\n    jQuery(this).removeClass(‘active-radio’);\r\n  })\r\n});"
+nodeType: ''
+themes:
+  s2s: s2s
+jquery: false
+header: false
+preprocess: true
+visibility: false
+pages: ''

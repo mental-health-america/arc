@@ -1,0 +1,17 @@
+uuid: c8da88b1-2362-4f62-9982-50b03944cfb9
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Condition - Article'
+type: condition
+description: 'Add a condition to the Conditions database.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,22 @@
+uuid: 90a8a93b-8b08-4a4c-a7cd-c0a88db479c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.referral_to_treatment_profile
+  module:
+    - text
+id: node.referral_to_treatment_profile.body
+field_name: body
+entity_type: node
+bundle: referral_to_treatment_profile
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

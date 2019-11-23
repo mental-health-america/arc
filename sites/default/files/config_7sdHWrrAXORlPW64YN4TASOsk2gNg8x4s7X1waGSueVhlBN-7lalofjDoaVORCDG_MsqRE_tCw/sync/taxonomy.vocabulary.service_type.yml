@@ -1,0 +1,9 @@
+uuid: f206ffbd-ab0f-458b-879b-860243404eba
+langcode: en
+status: true
+dependencies: {  }
+name: 'Service Type'
+vid: service_type
+description: 'Local Resource''s Service Type'
+hierarchy: 0
+weight: 0

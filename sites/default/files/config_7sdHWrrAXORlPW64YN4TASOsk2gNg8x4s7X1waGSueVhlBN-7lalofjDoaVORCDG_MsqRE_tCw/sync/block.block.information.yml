@@ -1,0 +1,24 @@
+uuid: 8965144b-ee6b-4603-872b-c8d77066906c
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-two
+  module:
+    - system
+  theme:
+    - s2s
+id: information
+theme: s2s
+region: superfooter_2
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer-two'
+settings:
+  id: 'system_menu_block:footer-two'
+  label: Information
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility: {  }

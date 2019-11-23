@@ -1,0 +1,25 @@
+uuid: 2d01ea61-97c0-42c8-af86-394b5d291895
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - s2s
+_core:
+  default_config_hash: Cy3vkpYrD1O5JG-BeEnokF0bByHYDEa8CBfWivB4_SQ
+id: s2s_branding
+theme: s2s
+region: navigation
+weight: -17
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

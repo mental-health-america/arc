@@ -1,0 +1,31 @@
+uuid: 837a6d12-e656-49b3-af5c-76bac752f0ec
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:23a05334-9494-4bc1-8a36-2149b7185feb'
+  module:
+    - block_content
+    - system
+  theme:
+    - s2s
+id: screeningresultsbipolarrightcolumn
+theme: s2s
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'block_content:23a05334-9494-4bc1-8a36-2149b7185feb'
+settings:
+  id: 'block_content:23a05334-9494-4bc1-8a36-2149b7185feb'
+  label: 'Screening Results - Bipolar - right column'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /screening-tools/bipolar/confirmation
+    negate: false
+    context_mapping: {  }

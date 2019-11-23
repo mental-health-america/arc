@@ -1,0 +1,9 @@
+uuid: e4327693-6923-4d84-bf10-9a4843305eeb
+langcode: en
+status: true
+dependencies: {  }
+name: 'DIY Issue'
+vid: diy_issue
+description: 'DIY Issue'
+hierarchy: 0
+weight: 0

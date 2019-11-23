@@ -1,0 +1,22 @@
+uuid: 38648e2e-4d9a-46a6-941c-5af39762c49f
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - s2s
+_core:
+  default_config_hash: fNNLN48MSGSLiqwIFywCuxH2Dk_IxDbaP0kYhg_IPrg
+id: s2s_content
+theme: s2s
+region: content
+weight: -55
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

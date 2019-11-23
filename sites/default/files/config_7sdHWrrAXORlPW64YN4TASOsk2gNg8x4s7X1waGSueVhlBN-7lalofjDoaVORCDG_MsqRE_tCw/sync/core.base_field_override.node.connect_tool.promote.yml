@@ -1,0 +1,22 @@
+uuid: 7ebdb0e9-9f14-4fcc-8c93-9a31c1428f00
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.connect_tool
+id: node.connect_tool.promote
+field_name: promote
+entity_type: node
+bundle: connect_tool
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

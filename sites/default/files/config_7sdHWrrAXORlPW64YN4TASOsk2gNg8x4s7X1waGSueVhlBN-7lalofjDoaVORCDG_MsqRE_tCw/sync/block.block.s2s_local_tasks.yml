@@ -1,0 +1,22 @@
+uuid: ad785692-ad82-4f77-a17d-55f3b7b92f00
+langcode: en
+status: true
+dependencies:
+  theme:
+    - s2s
+_core:
+  default_config_hash: qHdtze2DZ2mFfaJadxjZz6epm92_SN9SAFY4yJGl8Fo
+id: s2s_local_tasks
+theme: s2s
+region: header
+weight: -9
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

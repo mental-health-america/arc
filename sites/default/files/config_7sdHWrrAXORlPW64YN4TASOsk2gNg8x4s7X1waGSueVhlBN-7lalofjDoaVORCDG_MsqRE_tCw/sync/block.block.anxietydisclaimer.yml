@@ -1,0 +1,31 @@
+uuid: c7174d45-bca6-4b75-9063-0b52985fef5a
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:1e973575-0942-492d-924b-fdd1af62494d'
+  module:
+    - block_content
+    - system
+  theme:
+    - s2s
+id: anxietydisclaimer
+theme: s2s
+region: content_full_width
+weight: -29
+provider: null
+plugin: 'block_content:1e973575-0942-492d-924b-fdd1af62494d'
+settings:
+  id: 'block_content:1e973575-0942-492d-924b-fdd1af62494d'
+  label: 'Anxiety Disclaimer'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /screening-tools/anxiety
+    negate: false
+    context_mapping: {  }

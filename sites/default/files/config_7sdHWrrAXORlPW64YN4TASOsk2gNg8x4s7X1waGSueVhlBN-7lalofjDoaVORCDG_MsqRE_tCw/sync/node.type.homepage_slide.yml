@@ -1,0 +1,17 @@
+uuid: 6a1fc951-fd7a-4971-9a11-2bac3275a53d
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Homepage Slide'
+type: homepage_slide
+description: 'Add a new slide to the homepage slideshow.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

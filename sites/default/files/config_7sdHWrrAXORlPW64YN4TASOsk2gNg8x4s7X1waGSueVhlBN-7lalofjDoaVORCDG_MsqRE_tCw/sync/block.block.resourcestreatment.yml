@@ -1,0 +1,24 @@
+uuid: 853b0668-1896-4efc-8789-f883dfaf2221
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.resources-treatment
+  module:
+    - system
+  theme:
+    - s2s
+id: resourcestreatment
+theme: s2s
+region: superfooter_4
+weight: 0
+provider: null
+plugin: 'system_menu_block:resources-treatment'
+settings:
+  id: 'system_menu_block:resources-treatment'
+  label: 'Resources & Treatment'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility: {  }

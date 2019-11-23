@@ -1,0 +1,22 @@
+uuid: ada791bf-59d8-467d-9a04-05acf5d1aeb3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.diy_tool
+  module:
+    - text
+id: node.diy_tool.body
+field_name: body
+entity_type: node
+bundle: diy_tool
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

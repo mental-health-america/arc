@@ -1,0 +1,9 @@
+uuid: 10c950ca-f2c2-4b8f-8e13-c1d6150f66a6
+langcode: en
+status: true
+dependencies: {  }
+name: 'Area Served'
+vid: area_served
+description: 'Local Resource''s Area Served'
+hierarchy: 0
+weight: 0

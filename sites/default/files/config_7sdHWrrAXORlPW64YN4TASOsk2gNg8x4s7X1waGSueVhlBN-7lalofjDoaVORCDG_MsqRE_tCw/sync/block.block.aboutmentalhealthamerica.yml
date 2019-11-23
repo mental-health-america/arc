@@ -1,0 +1,31 @@
+uuid: 6c044263-85ac-484e-af64-99b18a330072
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:7d2d277e-2690-4410-a312-169b3a1d8233'
+  module:
+    - block_content
+    - system
+  theme:
+    - s2s
+id: aboutmentalhealthamerica
+theme: s2s
+region: content_full_width
+weight: -21
+provider: null
+plugin: 'block_content:7d2d277e-2690-4410-a312-169b3a1d8233'
+settings:
+  id: 'block_content:7d2d277e-2690-4410-a312-169b3a1d8233'
+  label: 'About Mental Health America'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /node/15
+    negate: true
+    context_mapping: {  }

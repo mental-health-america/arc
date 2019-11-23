@@ -1,0 +1,29 @@
+uuid: d36872d7-46fc-489f-a8b1-0c5102359ee9
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: profile1
+label: Profile1
+description: ''
+matchers:
+  0fd32e2d-e68a-47f7-b775-cf9362c618bc:
+    uuid: 0fd32e2d-e68a-47f7-b775-cf9362c618bc
+    id: 'entity:node'
+    weight: 0
+    settings:
+      bundles:
+        article: article
+        condition: condition
+        connect_tool: connect_tool
+        diy_tool: diy_tool
+        homepage_slide: homepage_slide
+        page: page
+        referral_to_treatment_profile: referral_to_treatment_profile
+        treatment_info: treatment_info
+        webform: webform
+      group_by_bundle: false
+      include_unpublished: true
+      substitution_type: canonical
+      metadata: ''
