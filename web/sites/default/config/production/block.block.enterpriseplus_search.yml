@@ -1,0 +1,28 @@
+uuid: fdc2062e-ccba-46e1-ba93-323726c2fd4d
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+    - system
+  theme:
+    - enterpriseplus
+_core:
+  default_config_hash: za-39d5WDUg6XvbyqSnuVYEeq6QM4qKJxW8MnoAha5A
+id: enterpriseplus_search
+theme: enterpriseplus
+region: search_area
+weight: -29
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Search
+  provider: search
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /node/53
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,31 @@
+uuid: 074048aa-cf5e-41de-8196-7bbad1e67282
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:8ab31d99-575f-4229-8ec8-989daa3f2dfb'
+  module:
+    - block_content
+    - system
+  theme:
+    - enterpriseplus
+id: enterpriseplus_contactdetails
+theme: enterpriseplus
+region: sidebar_first
+weight: -33
+provider: null
+plugin: 'block_content:8ab31d99-575f-4229-8ec8-989daa3f2dfb'
+settings:
+  id: 'block_content:8ab31d99-575f-4229-8ec8-989daa3f2dfb'
+  label: 'Contact Details'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /contact/alternative
+    negate: false
+    context_mapping: {  }

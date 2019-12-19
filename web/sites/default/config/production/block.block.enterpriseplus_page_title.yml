@@ -1,0 +1,27 @@
+uuid: c72ca64b-4eb3-4227-9c92-0a3fa2b5d396
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - enterpriseplus
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: enterpriseplus_page_title
+theme: enterpriseplus
+region: content
+weight: -53
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: "/node/35\r\n/node/16\r\n/node/17\r\n/node/40\r\n/node/53\r\n/node/54\r\n/node/55\r\n/products-3-col/*\r\n/contact/alternative\r\n/showcases-4-col-style-2\r\n/pricing-tables\r\n/about-us\r\n/investors\r\n/user/*"
+    negate: true
+    context_mapping: {  }

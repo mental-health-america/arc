@@ -1,0 +1,33 @@
+uuid: d4a99fae-d863-49a9-a9ab-db5784eb1e4d
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+  theme:
+    - enterpriseplus
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: enterpriseplus_local_tasks
+theme: enterpriseplus
+region: content
+weight: -47
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      anonymous: anonymous
+      administrator: administrator
+      mha_admin: mha_admin
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

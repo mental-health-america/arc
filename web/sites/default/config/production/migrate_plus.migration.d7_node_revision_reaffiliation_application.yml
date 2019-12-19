@@ -1,0 +1,491 @@
+uuid: 27064faf-0acb-47c8-ba7a-d6d9598fa45b
+langcode: en
+status: true
+dependencies: {  }
+id: d7_node_revision_reaffiliation_application
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: 'Node revisions (Reaffiliation Application)'
+source:
+  plugin: d7_node_revision
+  node_type: reaffiliation_application
+process:
+  nid: nid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_reaffiliation_application/0/status: comment
+  field_date_of_application:
+    plugin: sub_process
+    source: field_date_of_application
+    process:
+      value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: 'Y-m-d\TH:i:s'
+        source: value
+  field_model_type:
+    plugin: get
+    source: field_model_type
+  field_affiliate_name_:
+    plugin: get
+    source: field_affiliate_name_
+  field_ein_number:
+    plugin: get
+    source: field_ein_number
+  field_mailing_address_mha:
+    plugin: addressfield
+    source: field_mailing_address_mha
+  field_website_address:
+    plugin: get
+    source: field_website_address
+  field_exec_ceo_name:
+    plugin: get
+    source: field_exec_ceo_name
+  field_emaill_address:
+    plugin: get
+    source: field_emaill_address
+  field_phone_number:
+    plugin: get
+    source: field_phone_number
+  field_board_chair_s_name:
+    plugin: get
+    source: field_board_chair_s_name
+  field_board_chair_s_address:
+    plugin: addressfield
+    source: field_board_chair_s_address
+  field_board_chair_s_email_addres:
+    plugin: get
+    source: field_board_chair_s_email_addres
+  field_board_chair_s_phone_number:
+    plugin: get
+    source: field_board_chair_s_phone_number
+  field_person_to_contact_for_reaf:
+    plugin: get
+    source: field_person_to_contact_for_reaf
+  field_email_of_contact_for_reaff:
+    plugin: get
+    source: field_email_of_contact_for_reaff
+  field_annual_report:
+    plugin: sub_process
+    source: field_annual_report
+    process:
+      target_id: fid
+      display: display
+      description: description
+  field_board_roster:
+    plugin: sub_process
+    source: field_board_roster
+    process:
+      target_id: fid
+      display: display
+      description: description
+  field_strategic_plan_:
+    plugin: sub_process
+    source: field_strategic_plan_
+    process:
+      target_id: fid
+      display: display
+      description: description
+  field_audited_financial_statemen:
+    plugin: sub_process
+    source: field_audited_financial_statemen
+    process:
+      target_id: fid
+      display: display
+      description: description
+  field_management_letter:
+    plugin: sub_process
+    source: field_management_letter
+    process:
+      target_id: fid
+      display: display
+      description: description
+  field_irs_form_990_990_ez_or_990:
+    plugin: sub_process
+    source: field_irs_form_990_990_ez_or_990
+    process:
+      target_id: fid
+      display: display
+      description: description
+  field_501c3_letter_from_irs:
+    plugin: sub_process
+    source: field_501c3_letter_from_irs
+    process:
+      target_id: fid
+      display: display
+      description: description
+  field_cultural_competency_statem:
+    plugin: sub_process
+    source: field_cultural_competency_statem
+    process:
+      target_id: fid
+      display: display
+      description: description
+  field_roster_of_affiliates_optio:
+    plugin: sub_process
+    source: field_roster_of_affiliates_optio
+    process:
+      target_id: fid
+      display: display
+      description: description
+  field_sample_of_re_evaluation_to:
+    plugin: sub_process
+    source: field_sample_of_re_evaluation_to
+    process:
+      target_id: fid
+      display: display
+      description: description
+  field_what_population_serve:
+    plugin: get
+    source: field_what_population_serve
+  field_describe_the_population:
+    plugin: get
+    source: field_describe_the_population
+  field_required_audit:
+    plugin: get
+    source: field_required_audit
+  field_city_county:
+    plugin: get
+    source: field_city_county
+  field_multi_county:
+    plugin: get
+    source: field_multi_county
+  field_major_metro_area_:
+    plugin: get
+    source: field_major_metro_area_
+  field_state_us:
+    plugin: get
+    source: field_state_us
+  field_region:
+    plugin: get
+    source: field_region
+  field_white_:
+    plugin: get
+    source: field_white_
+  field_asian:
+    plugin: get
+    source: field_asian
+  field_black:
+    plugin: get
+    source: field_black
+  field_american_indian:
+    plugin: get
+    source: field_american_indian
+  field_pacific_islander:
+    plugin: get
+    source: field_pacific_islander
+  field_hispanic_latino:
+    plugin: get
+    source: field_hispanic_latino
+  field_multiracial_other:
+    plugin: get
+    source: field_multiracial_other
+  field_frontier_area_:
+    plugin: get
+    source: field_frontier_area_
+  field_rural:
+    plugin: get
+    source: field_rural
+  field_urban:
+    plugin: get
+    source: field_urban
+  field_suburban:
+    plugin: get
+    source: field_suburban
+  field__of_full_time_employees:
+    plugin: get
+    source: field__of_full_time_employees
+  field_part_time_employees:
+    plugin: get
+    source: field_part_time_employees
+  field__of_volunteers:
+    plugin: get
+    source: field__of_volunteers
+  field_annual_biannual_review:
+    plugin: get
+    source: field_annual_biannual_review
+  field_average_employment:
+    plugin: get
+    source: field_average_employment
+  field_fee_for_service_percent_:
+    plugin: get
+    source: field_fee_for_service_percent_
+  field_individual_donors:
+    plugin: get
+    source: field_individual_donors
+  field_special_events:
+    plugin: get
+    source: field_special_events
+  field_corporate_funding:
+    plugin: get
+    source: field_corporate_funding
+  field_united_way_funding_cfc:
+    plugin: get
+    source: field_united_way_funding_cfc
+  field_government_contracts:
+    plugin: get
+    source: field_government_contracts
+  field_government_grants:
+    plugin: get
+    source: field_government_grants
+  field_private_foundations:
+    plugin: get
+    source: field_private_foundations
+  field_other:
+    plugin: get
+    source: field_other
+  field__of_members:
+    plugin: get
+    source: field__of_members
+  field__of_donors:
+    plugin: get
+    source: field__of_donors
+  field_trusts_and_bequests:
+    plugin: get
+    source: field_trusts_and_bequests
+  field_mos_recent_fiscal_year_exp:
+    plugin: get
+    source: field_mos_recent_fiscal_year_exp
+  field_increase_or_decrease_over_:
+    plugin: get
+    source: field_increase_or_decrease_over_
+  field_percentage_change_from_pri:
+    plugin: get
+    source: field_percentage_change_from_pri
+  field_most_recent_revenue_report:
+    plugin: get
+    source: field_most_recent_revenue_report
+  field_describe_the_most_dramatic:
+    plugin: get
+    source: field_describe_the_most_dramatic
+  field_number_of_board_members:
+    plugin: get
+    source: field_number_of_board_members
+  field_number_of_male_board_membe:
+    plugin: get
+    source: field_number_of_male_board_membe
+  field_number_of_female_board_mem:
+    plugin: get
+    source: field_number_of_female_board_mem
+  field_consumers_of_mental_health:
+    plugin: get
+    source: field_consumers_of_mental_health
+  field_family_members:
+    plugin: get
+    source: field_family_members
+  field_medical_mental_health_prov:
+    plugin: get
+    source: field_medical_mental_health_prov
+  field_non_medical_mental_health_:
+    plugin: get
+    source: field_non_medical_mental_health_
+  field_business_community_leaders:
+    plugin: get
+    source: field_business_community_leaders
+  field_marketing_communications_p:
+    plugin: get
+    source: field_marketing_communications_p
+  field_financial_fundraising_prof:
+    plugin: get
+    source: field_financial_fundraising_prof
+  field_legal_professionals:
+    plugin: get
+    source: field_legal_professionals
+  field_lgbt_community_members:
+    plugin: get
+    source: field_lgbt_community_members
+  field_how_often_does_board_meet:
+    plugin: get
+    source: field_how_often_does_board_meet
+  field_chartered_affiliates:
+    plugin: get
+    source: field_chartered_affiliates
+  field_organization_pay_dues:
+    plugin: get
+    source: field_organization_pay_dues
+  field_internal_revenue_code:
+    plugin: get
+    source: field_internal_revenue_code
+  field_activities_engaged:
+    plugin: get
+    source: field_activities_engaged
+  field_assessment_last_review:
+    plugin: get
+    source: field_assessment_last_review
+  field_public_education_efforts:
+    plugin: get
+    source: field_public_education_efforts
+  field_since_review_completion:
+    plugin: get
+    source: field_since_review_completion
+  field_outreach_vehicles2:
+    plugin: get
+    source: field_outreach_vehicles2
+  field_endorse_cultural_competenc:
+    plugin: get
+    source: field_endorse_cultural_competenc
+  field_org_diversity:
+    plugin: get
+    source: field_org_diversity
+  field_which_groups_represent:
+    plugin: get
+    source: field_which_groups_represent
+  field_less_than_three_categories:
+    plugin: get
+    source: field_less_than_three_categories
+  field_since_the_last_review:
+    plugin: get
+    source: field_since_the_last_review
+  field_marketing:
+    plugin: get
+    source: field_marketing
+  field_ensure_materials:
+    plugin: get
+    source: field_ensure_materials
+  field_rebranding:
+    plugin: get
+    source: field_rebranding
+  field_why_or_why_not_:
+    plugin: get
+    source: field_why_or_why_not_
+  field_does_your_organization:
+    plugin: get
+    source: field_does_your_organization
+  field_handbook_policies:
+    plugin: get
+    source: field_handbook_policies
+  field_if_not_please_explain:
+    plugin: get
+    source: field_if_not_please_explain
+  field_succession_plan1:
+    plugin: get
+    source: field_succession_plan1
+  field_annual_reporting:
+    plugin: get
+    source: field_annual_reporting
+  field_annual_reporting_1:
+    plugin: get
+    source: field_annual_reporting_1
+  field_organization_effective:
+    plugin: get
+    source: field_organization_effective
+  field_effective_operations:
+    plugin: get
+    source: field_effective_operations
+  field_written_plan_3_yrs:
+    plugin: get
+    source: field_written_plan_3_yrs
+  field_emergency_plan_3_yrs:
+    plugin: get
+    source: field_emergency_plan_3_yrs
+  field_does_your_org:
+    plugin: get
+    source: field_does_your_org
+  field_section5_member_donors:
+    plugin: get
+    source: field_section5_member_donors
+  field_incorporated:
+    plugin: get
+    source: field_incorporated
+  field_mha_mission_policies:
+    plugin: get
+    source: field_mha_mission_policies
+  field_end_of_current_fiscal_year:
+    plugin: sub_process
+    source: field_end_of_current_fiscal_year
+    process:
+      value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: 'Y-m-d\TH:i:s'
+        source: value
+  field_what_activities_from_natio:
+    plugin: get
+    source: field_what_activities_from_natio
+  field_if_applicable_how_does_you:
+    plugin: get
+    source: field_if_applicable_how_does_you
+  field_what_policy_issuse_are_mos:
+    plugin: get
+    source: field_what_policy_issuse_are_mos
+  field_list_advocacy_partnerships:
+    plugin: get
+    source: field_list_advocacy_partnerships
+  field_with_regard_to_advocacy_wh:
+    plugin: get
+    source: field_with_regard_to_advocacy_wh
+  field_what_kind_of_programs_serv:
+    plugin: get
+    source: field_what_kind_of_programs_serv
+  field_describe_your_signature_pr:
+    plugin: get
+    source: field_describe_your_signature_pr
+  field_what_evidence_based_or_pro:
+    plugin: get
+    source: field_what_evidence_based_or_pro
+  field_what_is_your_best_accompli:
+    plugin: get
+    source: field_what_is_your_best_accompli
+  field_please_list_audiences_you_:
+    plugin: get
+    source: field_please_list_audiences_you_
+  field_physical_address:
+    plugin: addressfield
+    source: field_physical_address
+  field_mission_statement:
+    plugin: get
+    source: field_mission_statement
+  field_other_membership_list:
+    plugin: get
+    source: field_other_membership_list
+  field_cc_email:
+    plugin: sub_process
+    source: field_cc_email
+    process:
+      value: email
+  field_submit_for_review:
+    plugin: get
+    source: field_submit_for_review
+  field_section_1: field_section_1
+destination:
+  plugin: 'entity_revision:node'
+  default_bundle: reaffiliation_application
+migration_dependencies:
+  required:
+    83: d7_node_audience
+    84: d7_node_blog_post
+    85: d7_node_condition
+    86: d7_node_event
+    87: d7_node_forum
+    88: d7_node_homepage_slide
+    89: d7_node_mental_health_issue
+    90: d7_node_news
+    91: d7_node_page
+    92: d7_node_photo_gallery
+    93: d7_node_policy_issue
+    94: d7_node_reaffiliation_application
+    95: d7_node_screening_results
+    96: d7_node_simplenews
+    97: d7_node_staff_member
+    98: d7_node_the_bell
+    99: d7_node_webform
+    100: d7_node_webform_report
+  optional: {  }

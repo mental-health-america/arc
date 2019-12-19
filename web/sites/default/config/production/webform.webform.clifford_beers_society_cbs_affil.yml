@@ -1,0 +1,222 @@
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+weight: 0
+uid: 1
+template: false
+archive: false
+id: clifford_beers_society_cbs_affil
+title: 'Clifford Beers Society (CBS) Affiliate Membership Application'
+description: ''
+category: Affiliation
+elements: "cbs_header_text:\n  '#type': webform_markup\n  '#display_on': both\n  '#markup': \"<p>Thank you for your interest in the Clifford Beers Society (CBS) Affiliate Membership. Please complete the application below. Once the application is completed and submitted, MHA will contact you regarding next steps of the application process.</p>\\n\\n<p>Questions: Contact MHA&rsquo;s Valerie Sterns at (703) 797- 2594 or at vsterns@mentalhealthamerica.net.</p>\"\naffiliate_name:\n  '#type': textfield\n  '#title': 'Affiliate Name'\n  '#prepopulate': true\n  '#required': true\n  '#required_error': 'Affiliate Name is Required'\n  '#default_value': '[current-user:field_affiliate_name]'\n  '#access_create_roles':\n    - authenticated\n  '#access_update_roles':\n    - authenticated\n  '#access_view_roles':\n    - authenticated\nprimary_contact_name:\n  '#type': textfield\n  '#title': 'Primary Contact Name'\n  '#required': true\n  '#required_error': 'Primary Contact Name is required.'\nmailing_address:\n  '#type': fieldset\n  '#title': 'Mailing Address'\n  address_line_1:\n    '#type': textfield\n    '#title': 'Address Line 1'\n    '#default_value': '[current-user:field_affiliate_address:address_line1]'\n    '#required': true\n  address_line_2:\n    '#type': textfield\n    '#title': 'Address Line 2'\n    '#default_value': '[current-user:field_affiliate_address:address_line2]'\n  city:\n    '#type': textfield\n    '#title': City\n    '#default_value': '[current-user:field_affiliate_address:locality]'\n    '#required': true\n  state:\n    '#type': textfield\n    '#title': State\n    '#default_value': '[current-user:field_affiliate_address:administrative_area]'\n    '#required': true\n  zip_code:\n    '#type': textfield\n    '#title': 'Zip Code'\n    '#default_value': '[current-user:field_affiliate_address:postal_code]'\n    '#required': true\nbusiness_phone:\n  '#type': tel\n  '#title': 'Business Phone'\n  '#required': true\n  '#required_error': 'Business Phone is required.'\n  '#default_value': '[current-user:field_phone]'\nbusiness_email:\n  '#type': email\n  '#title': 'Business Email'\n  '#required': true\n  '#required_error': 'Business Email is required.'\n  '#default_value': '[current-user:field_affiliate_email]'\nwebsite:\n  '#type': textfield\n  '#title': Website\n  '#default_value': '[current-user:field_website:uri]'\nmembership_level:\n  '#type': radios\n  '#title': 'Membership Level'\n  '#description': '<span style=\"font-size:12pt\"><span style=\"font-family:Calibri,sans-serif\">Please select the appropriate membership level:</span></span>'\n  '#title_display': before\n  '#description_display': before\n  '#options':\n    Bronze: 'Bronze Level $2500'\n    Silver: 'Silver Level $5000'\n    Gold: 'Gold Level $7500'\n    Platinum: 'Platinum Level $12500'\n    Diamond: 'Diamond Level $25000'\n  '#required': true\n  '#required_error': 'Membership Level is required.'\n"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  page: false
+  page_submit_path: ''
+  page_confirm_path: ''
+  form_title: both
+  form_submit_once: true
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_remote_addr: true
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: page
+  confirmation_title: ''
+  confirmation_message: 'Thank you for submitting the&nbsp;Clifford Beers Society (CBS) Affiliate Membership Application. Someone will reach out to you shortly.'
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: false
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: 1
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+  form_login: true
+  form_login_message: 'Please log in to access the&nbsp;Clifford Beers Society (CBS) Affiliate Membership Application.'
+  submission_login: true
+  submission_login_message: ''
+access:
+  create:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles:
+      - administrator
+      - mha_admin
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles:
+      - administrator
+      - mha_admin
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles:
+      - administrator
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles:
+      - administrator
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles:
+      - administrator
+      - mha_admin
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles:
+      - administrator
+      - mha_admin
+    users: {  }
+    permissions: {  }
+  administer:
+    roles:
+      - administrator
+      - mha_admin
+    users: {  }
+    permissions: {  }
+  test:
+    roles:
+      - administrator
+      - mha_admin
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  submission_data_email:
+    id: email
+    label: 'Submission Data Email'
+    handler_id: submission_data_email
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+        - updated
+      to_mail: vsterns@mentalhealthamerica.net
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: true
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
+uuid: ea2d3b4e-92f1-459a-b6ea-3a628a12ad04

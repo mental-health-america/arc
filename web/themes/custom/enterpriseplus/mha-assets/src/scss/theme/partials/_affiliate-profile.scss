@@ -1,0 +1,183 @@
+//==========================================================================
+// Affiliate pages
+//==========================================================================
+
+.views-field-field-affiliate-name{
+  
+  a{
+    font-size: 17px;
+    font-weight: bold;
+    vertical-align: middle;
+    
+    &:link,
+    &:visited{
+      text-decoration: underline;
+    }
+    
+    &:hover,
+    &:active{
+      text-decoration: none;
+    }
+  }
+}
+
+//the CBS membership icon
+.cbs{
+  font-size: 14px !important;
+  display: block;
+  margin: 0;
+  
+  &:before{
+    content: '';
+    display: inline-block;
+    background: url(../../images/membership-icons.png) no-repeat 0 0;
+    margin: 0 .25em 0 0;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+  }
+  
+  &.bronze{
+    color: #f25116;
+    
+    &:before{
+      background-position: 0 0;
+    }
+  }
+  
+  &.silver{
+    color: #8eaaa9;
+    
+    &:before{
+      background-position: -21px 0;
+    }
+  }
+  
+  &.gold{
+    color: #ffa028;
+    
+    &:before{
+      background-position: -42px 0;
+    }
+  }
+  
+  &.platinum{
+    color: #63b6b3;
+    
+    &:before{
+      background-position: -63px 0;
+    }
+  }
+  
+  &.diamond{
+    color: #38afd3;
+    
+    &:before{
+      background-position: -84px 0;
+      width: 22px;
+    }
+  }
+  span{
+    vertical-align: middle;
+  }
+}
+
+
+.bpsp{
+  font-size: 14px !important;
+  display: block;
+  margin: 0;
+  color: #009900;
+  margin-top: .25em;
+  
+  &:before{
+    content: '';
+    display: inline-block;
+    background: url(../../images/bpsp-check.png) no-repeat 0 0;
+    margin: 0 .25em 0 0;
+    vertical-align: top;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+//When Affiliates edit their profile:
+//==========================================================================
+
+//Some basic formatting of forms
+.user-logged-in{ 
+
+  fieldset legend{
+    border: none;
+    color: #707070;
+    text-transform: none;
+  }
+
+  .description{
+    padding-top: .5em;
+
+    .item-list ul li{
+      margin-bottom: 0;
+    }
+  }
+}
+
+//Code so that the "Other" checkbox is part of the taxonomy list
+.field--name-field-affiliate-programs.js-form-wrapper > .form-item{
+  margin-bottom: 0;
+}
+
+.field--name-field-other > .form-item{
+  margin-top: 1.5em;
+  
+  label{
+    font-weight: bold;
+  }
+}
+
+//Parent/Child formatting for Programs/Services (class added via JS)
+.term-parent{
+  margin-top: 1.5em !important;
+  
+  label{
+    font-weight: bold;
+  }
+}
+.term-child{
+  padding-left: 1em;
+}
+
+
+
+//The Individual Affiliate listing
+//==========================================================================
+.profile{
+  
+  .field--name-field-affiliate-geocode{
+    margin-bottom: 2em;
+  }
+  
+  .field--name-field-about-this-affiliate{
+    margin-bottom: 1em;
+  }
+
+  .field--name-field-affiliate-programs{
+    margin-top: 1em;
+  }
+}
+
+
+
+//Affiliate Programs
+//==========================================================================
+
+//The page that lists all terms
+.view-programs-and-services .view-content li{
+  margin-bottom: 0;
+}
+
+//On the term page
+.view-programs-and-services .views-table caption{
+  font-size: 26px;
+  color: $dark-blue;
+}

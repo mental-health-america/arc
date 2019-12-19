@@ -1,0 +1,8 @@
+//==========================================================================
+// Affiliate Programs listing
+//==========================================================================
+
+//Couldn't figure out a way to remove parent terms from the view, so hiding them w/ CSS
+.view-programs-and-services.view-display-id-block_1 .view-content .item-list:nth-child(1){
+  display: none;
+}

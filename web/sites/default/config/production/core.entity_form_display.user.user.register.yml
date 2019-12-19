@@ -1,0 +1,68 @@
+uuid: 1af1f410-3178-4d4d-8ff4-7d8fc2ad1f5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.user.register
+    - field.field.user.user.field_about_this_affiliate
+    - field.field.user.user.field_affiliate_address
+    - field.field.user.user.field_affiliate_geocode
+    - field.field.user.user.field_affiliate_name
+    - field.field.user.user.field_affiliate_programs
+    - field.field.user.user.field_application_type
+    - field.field.user.user.field_bpsp
+    - field.field.user.user.field_cbs_affiliate
+    - field.field.user.user.field_cbs_membership_level
+    - field.field.user.user.field_mha_affiliate
+    - field.field.user.user.field_model_type
+    - field.field.user.user.field_old_affiliation_nid
+    - field.field.user.user.field_other
+    - field.field.user.user.field_phone
+    - field.field.user.user.field_please_list_any_other_prog
+    - field.field.user.user.field_website
+    - field.field.user.user.user_picture
+  module:
+    - user
+_core:
+  default_config_hash: LLAieeozVsoZDb-2PbFxRJpQqnKmpR7-4OoRJnduz-U
+id: user.user.register
+targetEntityType: user
+bundle: user
+mode: register
+content:
+  account:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  google_analytics:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  timezone:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  contact: true
+  field_about_this_affiliate: true
+  field_affiliate_address: true
+  field_affiliate_geocode: true
+  field_affiliate_name: true
+  field_affiliate_programs: true
+  field_application_type: true
+  field_bpsp: true
+  field_cbs_affiliate: true
+  field_cbs_membership_level: true
+  field_mha_affiliate: true
+  field_model_type: true
+  field_old_affiliation_nid: true
+  field_other: true
+  field_phone: true
+  field_please_list_any_other_prog: true
+  field_website: true
+  language: true
+  path: true
+  user_picture: true

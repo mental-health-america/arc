@@ -1,0 +1,221 @@
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+weight: 0
+uid: 1
+template: false
+archive: false
+id: affiliate_best_promising_practic
+title: 'Affiliate Best/Promising Practices'
+description: '<span style="font-size:12pt"><span style="font-family:&quot;Calibri&quot;,sans-serif"><strong><span style="font-size:11.0pt">Affiliate Best/Promising Practices</span></strong></span></span>'
+category: ''
+elements: "name_of_program:\n  '#type': textfield\n  '#title': 'Name of Program'\ncategory:\n  '#type': radios\n  '#title': Category\n  '#options':\n    'Affiliate Best/Promising Practice': \"Affiliate Best/Promising Practice -- Best Practice and Promising Practices Programs are affiliate programs or services which are of demonstrable size, scope and duration\\r\\n         which deliver measurable outcomes . Promising Practice Programs and Services have been evaluated at the affiliate or local level and are not on the SAMHSA Best Practice Registry\"\n    'Evidenced Based Program': \"Evidenced Based Program -- Evidence Based Programs or services are services which have been professionally researched, this research was published, \\r\\n       and the program is listed in the SAMHSA Evidence Based Practice Registry.\"\n    'Affiliate Signature Program': \"Affiliate Signature Program -- Signature Programs or services are notable programs or services for which the affiliate is best known. Signature Programs and Services are programs of size, duration and scope which provide essential            \\r\\n           services to the affiliate’s region. The affiliate maintains or collects data about the program and the clients served.\"\nprogram_was_created_by:\n  '#type': textfield\n  '#title': 'Program was created by'\nready_for_replication:\n  '#type': checkboxes\n  '#title': 'Ready for Replication'\n  '#options':\n    'long-term program': 'Demonstrates long-term program effectiveness, quantitatively and qualitatively'\n    'identifies skill sets': 'Identifies administrative skill sets needed'\n    'curriculum developed': 'Curriculum has been developed'\n    'stable funding': 'Has stable funding streams'\n    'positive outcomes': 'Demonstrates consistent positive outcomes'\n    'program evaluated': 'Program has been evaluated'\n    'program implemented': 'Program has been implemented'\n    'program outcome objectives determined': 'Program outcome objectives have been determined'\naffiliate_name:\n  '#type': textfield\n  '#title': 'Affiliate Name'\n  '#default_value': '[current-user:field_affiliate_name]'\nexecutive_director_president_and_ceo_name_:\n  '#type': textfield\n  '#title': 'Executive Director/President and CEO Name'\na_brief_description_of_the_program_to_be_shared_with_the_affilia:\n  '#type': textarea\n  '#title': 'A brief description of the program to be shared with the affiliate network'\na_website_address_and_or_contact_information_to_access_more_prog:\n  '#type': textfield\n  '#title': 'A website address and/or contact information to access more program information'"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  page: true
+  page_submit_path: affiliate-best-practices
+  page_confirm_path: ''
+  form_title: both
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_remote_addr: true
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: url_message
+  confirmation_title: ''
+  confirmation_message: 'Thank you for submitting your Affilaite Best / Promising Practices.'
+  confirmation_url: manage-your-affiliate-best-promising-practices
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: true
+  confirmation_exclude_token: true
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+  form_login: false
+  form_login_message: ''
+  submission_login: true
+  submission_login_message: ''
+access:
+  create:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles:
+      - administrator
+      - mha_admin
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles:
+      - administrator
+      - mha_admin
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles:
+      - administrator
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles:
+      - administrator
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles:
+      - administrator
+      - mha_admin
+    users: {  }
+    permissions: {  }
+  administer:
+    roles:
+      - administrator
+      - mha_admin
+    users: {  }
+    permissions: {  }
+  test:
+    roles:
+      - administrator
+      - mha_admin
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  email:
+    id: email
+    label: 'Submission Email'
+    handler_id: email
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+        - updated
+      to_mail: vsterns@mentalhealthamerica.net
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
+uuid: e78266e0-252b-45a0-93b7-899cc578ab32

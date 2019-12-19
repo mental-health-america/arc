@@ -1,0 +1,23 @@
+//==========================================================================
+// Affiliate Form
+//==========================================================================
+
+#webform-submission-affiliation-application-add-form{
+  
+  //Fields with a % sign (suffix)
+  .webform-has-field-suffix input{
+    width: 5em;
+  }
+  
+  //field with a $ sign (prefix)
+  .webform-has-field-prefix input{
+    width: calc(100% - 2em);
+  }
+  
+  .field-prefix{
+    display: inline-block;
+    width: 1.5em;
+    text-align: center;
+  }
+  
+}

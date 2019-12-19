@@ -1,0 +1,84 @@
+uuid: 967fcb6f-8c2f-4f03-814c-ee0a1e291592
+langcode: en
+status: true
+dependencies: {  }
+id: d7_user
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: 'User accounts1'
+source:
+  plugin: d7_user
+process:
+  uid: uid
+  name: name
+  pass: pass
+  mail: mail
+  created: created
+  access: access
+  login: login
+  status: status
+  timezone: timezone
+  langcode:
+    plugin: user_langcode
+    source: language
+    fallback_to_site_default: false
+  preferred_langcode:
+    plugin: user_langcode
+    source: language
+    fallback_to_site_default: true
+  preferred_admin_langcode:
+    plugin: user_langcode
+    source: language
+    fallback_to_site_default: true
+  init: init
+  roles:
+    plugin: migration_lookup
+    migration: d7_user_role
+    source: roles
+  user_picture:
+    -
+      plugin: default_value
+      source: picture
+      default_value: null
+    -
+      plugin: migration_lookup
+      migration: d7_file
+  field_affiliate_address:
+    plugin: sub_process
+    source: field_affl_address
+    process:
+      postal_code: postal_code
+      locality: locality
+      country_code: country
+      address_line1: thoroughfare
+      administrative_area: administrative_area
+  field_affiliate_geocode: field_affl_geocode
+  field_website:
+    plugin: sub_process
+    source: field_web_site
+    process:
+      uri: url
+  field_mha_affiliate: field_mha_affiliate
+  field_phone: field_phone
+  field_affiliate_name: field_affiliate_name
+  field_model_type:
+    plugin: default_value
+    default_value: Direct
+  field_application_type:
+    plugin: default_value
+    default_value: Re-Affiliation
+destination:
+  plugin: 'entity:user'
+migration_dependencies:
+  optional:
+    - d7_field_instance
+    - d7_file
+    - user_picture_field_instance
+    - user_picture_entity_display
+    - user_picture_entity_form_display
+    - d7_user_role

@@ -1,0 +1,31 @@
+uuid: 80c78427-3f91-4ebd-a0cd-ff16441a85d7
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:bf813f9f-c73e-4d44-a9ff-c771b0c704f3'
+  module:
+    - block_content
+    - system
+  theme:
+    - enterpriseplus
+id: enterpriseplus_creditcards
+theme: enterpriseplus
+region: footer_bottom
+weight: -31
+provider: null
+plugin: 'block_content:bf813f9f-c73e-4d44-a9ff-c771b0c704f3'
+settings:
+  id: 'block_content:bf813f9f-c73e-4d44-a9ff-c771b0c704f3'
+  label: 'Credit Cards'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /blocks
+    negate: false
+    context_mapping: {  }

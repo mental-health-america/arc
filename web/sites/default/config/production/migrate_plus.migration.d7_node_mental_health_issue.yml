@@ -1,0 +1,47 @@
+uuid: 0dfb7698-84e7-4c06-a4ec-b895b401034e
+langcode: en
+status: true
+dependencies: {  }
+id: d7_node_mental_health_issue
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: 'Nodes (Mental Health Issue)'
+source:
+  plugin: d7_node
+  node_type: mental_health_issue
+process:
+  nid: tnid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_mental_health_issue/0/status: comment
+  body:
+    plugin: get
+    source: body
+destination:
+  plugin: 'entity:node'
+  default_bundle: mental_health_issue
+migration_dependencies:
+  required:
+    - d7_user
+    - d7_node_type
+  optional:
+    - d7_field_instance
+    - d7_comment_field_instance

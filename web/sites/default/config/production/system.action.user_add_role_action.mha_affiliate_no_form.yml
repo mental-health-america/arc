@@ -1,0 +1,14 @@
+uuid: ded8f028-382c-4f5f-b9c8-fb3632913663
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.mha_affiliate_no_form
+  module:
+    - user
+id: user_add_role_action.mha_affiliate_no_form
+label: 'Add the MHA Affiliate (No Affiliation Form) role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: mha_affiliate_no_form

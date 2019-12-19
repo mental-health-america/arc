@@ -1,0 +1,8 @@
+uuid: 806cfc1f-34c4-47ce-bd23-7db1dec3c554
+langcode: en
+status: true
+dependencies: {  }
+id: b3035fad-348d-4d05-96f0-5aa94b0ce7ed
+label: 'Menu token link configuration'
+linkid: 'internal:/user/[user:uid]/edit'
+configurationSerialized: 'a:4:{s:18:"menu_token_enabled";i:1;s:36:"remove_if_replacement_is_not_present";i:0;s:4:"node";a:2:{i:0;s:4:"none";i:1;i:0;}s:4:"user";a:2:{i:0;s:7:"context";i:1;i:0;}}'

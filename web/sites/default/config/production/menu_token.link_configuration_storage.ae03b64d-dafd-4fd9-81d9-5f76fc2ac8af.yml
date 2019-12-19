@@ -1,0 +1,8 @@
+uuid: d8dd9c42-d9c1-4868-b13f-ba31aa53cfb8
+langcode: en
+status: true
+dependencies: {  }
+id: ae03b64d-dafd-4fd9-81d9-5f76fc2ac8af
+label: 'Menu token link configuration'
+linkid: 'internal:/affiliation-application?application_type=[current-user:field_application_type:value]&model_type=[current-user:field_model_type:value]&token=[webform_submission:token]'
+configurationSerialized: 'a:5:{s:18:"menu_token_enabled";i:1;s:36:"remove_if_replacement_is_not_present";i:1;s:4:"node";a:2:{i:0;s:4:"none";i:1;i:0;}s:4:"user";a:2:{i:0;s:7:"context";i:1;i:0;}s:18:"webform_submission";a:2:{i:0;s:7:"context";i:1;i:0;}}'

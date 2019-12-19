@@ -1,0 +1,25 @@
+uuid: 2ac096ff-179e-4025-9202-8db5ba473333
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - enterpriseplus
+id: poweredbydrupal
+theme: enterpriseplus
+region: slideout
+weight: -36
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,81 @@
+uuid: e5d27cf0-f332-451b-9de0-bd7141da6a06
+langcode: en
+status: true
+dependencies: {  }
+id: d7_menu_links
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: 'Menu links'
+source:
+  plugin: menu_link
+  constants:
+    bundle: menu_link_content
+process:
+  id: mlid
+  bundle: constants/bundle
+  title: link_title
+  description: description
+  menu_name:
+    -
+      plugin: migration_lookup
+      migration: d7_menu
+      source: menu_name
+    -
+      plugin: skip_on_empty
+      method: row
+  link/uri:
+    plugin: link_uri
+    source:
+      - link_path
+  link/options: options
+  route:
+    plugin: route
+    source:
+      - link_path
+      - options
+  route_name: '@route/route_name'
+  route_parameters: '@route/route_parameters'
+  url: '@route/url'
+  options: '@route/options'
+  external: external
+  weight: weight
+  expanded: expanded
+  enabled: enabled
+  parent:
+    plugin: menu_link_parent
+    source:
+      - plid
+      - '@menu_name'
+      - parent_link_path
+  changed: updated
+destination:
+  plugin: 'entity:menu_link_content'
+  no_stub: true
+migration_dependencies:
+  required:
+    - d7_menu
+  optional:
+    - d7_node_audience
+    - d7_node_blog_post
+    - d7_node_condition
+    - d7_node_event
+    - d7_node_forum
+    - d7_node_homepage_slide
+    - d7_node_mental_health_issue
+    - d7_node_news
+    - d7_node_page
+    - d7_node_photo_gallery
+    - d7_node_policy_issue
+    - d7_node_reaffiliation_application
+    - d7_node_screening_results
+    - d7_node_simplenews
+    - d7_node_staff_member
+    - d7_node_the_bell
+    - d7_node_webform
+    - d7_node_webform_report
+    - d7_menu

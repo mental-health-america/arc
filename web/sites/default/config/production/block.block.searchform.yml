@@ -1,0 +1,26 @@
+uuid: 88ede234-cec6-4180-a74b-28524402c758
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+    - system
+  theme:
+    - enterpriseplus
+id: searchform
+theme: enterpriseplus
+region: header_top_highlighted_second
+weight: 0
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form'
+  provider: search
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: "/node/54\r\n/node/53\r\n/node/40\r\n/node/17"
+    negate: true
+    context_mapping: {  }

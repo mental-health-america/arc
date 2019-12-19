@@ -1,0 +1,228 @@
+uuid: f2f93cd9-d470-4aab-a957-5fa501d97dbd
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+weight: 0
+uid: 1
+template: false
+archive: false
+id: affiliation_application
+title: 'Affiliation / Re-Affiliation Application'
+description: ''
+category: Affiliation
+elements: "welcome_section:\n  '#type': details\n  '#title': Welcome\n  '#open': true\n  welcome_text:\n    '#type': processed_text\n    '#display_on': both\n    '#text': \"<p>Becoming an MHA Affiliate means becoming part of a legacy of over one hundred years of positive change for people with mental health conditions.&nbsp;</p>\\r\\n\\r\\n<p>Once an organization becomes an MHA Affiliate, it participates in a periodic re-affiliation process to ensure its continued adherence to the standards of affiliation.&nbsp;</p>\\r\\n\\r\\n<p>The re-affiliation process consists of:</p>\\r\\n\\r\\n<ul>\\r\\n\\t<li>a thorough self-evaluation completed by the affiliate;</li>\\r\\n\\t<li>review of that evaluation by members of Mental Health America’s Affiliate Relations Committee; and</li>\\r\\n\\t<li>a vote by Mental Health America’s Board of Directors to determine the health-rating of the organization and period for which the re-affiliation will be effective.</li>\\r\\n</ul>\\r\\n\\r\\n<p>Sample documents for ease of use:</p>\\r\\n\\r\\n<ul>\\r\\n\\t<li><a href=\\\"/sites/default/files/Financial%20Contingency%20Plan.pdf\\\">Financial Contingency Plan</a>\\r\\n\\r\\n\\t<ul>\\r\\n\\t\\t<li><a href=\\\"/sites/default/files/Sample%20Financial%20Contingency%20Plan.pdf\\\">Sample Financial Contingency Plan</a></li>\\r\\n\\t\\t<li><a href=\\\"/sites/default/files/Sample%20SWOT%20Template.xlsx\\\">SWOT Analysis Template</a>&nbsp;</li>\\r\\n\\t</ul>\\r\\n\\t</li>\\r\\n\\t<li><a href=\\\"/sites/default/files/A%20Blueprint%20for%20Emergency%20Preparedness%20by%20Nonprofits.pdf\\\">Sample Emergency Preparedness Plan Blueprint</a>&nbsp;\\r\\n\\t<ul>\\r\\n\\t\\t<li><a href=\\\"/sites/default/files/Business-Continuity-and-Disaster-Recovery-Plan-Free-PDF-Template.pdf\\\">Sample Business Continuity and Disaster Recovery Plan</a></li>\\r\\n\\t</ul>\\r\\n\\t</li>\\r\\n\\t<li><a href=\\\"/sites/default/files/Sample%20Cultural%20Competency%20_Plan_Statement.pdf\\\">Sample Cultural Competency Plan and Statement</a></li>\\r\\n</ul>\\r\\n\"\n    '#format': basic_html\n  notification_e_mail:\n    '#type': email\n    '#title': 'Notification E-mail'\n    '#required_error': 'Notification Email is required.'\n    '#required': true\n  submit_for_review:\n    '#type': checkbox\n    '#title': 'Submit For Review'\n    '#required': true\n    '#required_error': 'Submit For Review is a required field.'\n  application_type:\n    '#type': hidden\n    '#title': 'Application Type'\n    '#default_value': '[current-user:field_application_type:value]'\n    '#prepopulate': true\n  model_type:\n    '#type': hidden\n    '#title': 'Model Type'\n    '#default_value': '[current-user:field_model_type:value]'\n    '#prepopulate': true\naffiliate_info_section:\n  '#type': details\n  '#title': 'Section 1: Affiliate Info Section'\n  affiliate_name:\n    '#type': textfield\n    '#title': 'Affiliate Name'\n    '#required': true\n    '#required_error': 'Affiliate Name is Required'\n    '#default_value': '[current-user:field_affiliate_name:value]'\n  ein_number:\n    '#type': number\n    '#title': 'EIN Number'\n    '#description': 'Please enter numbers only in the following format XXXXXXXXX'\n    '#description_display': after\n    '#maxlength': '10'\n    '#required': true\n  physical_address_fieldset:\n    '#type': fieldset\n    '#title': 'Physical Address'\n    physical_address:\n      '#type': webform_address\n      '#title': 'Physical Address'\n      '#address__required': true\n      '#address_2__title': 'Suite / Apartment #'\n      '#city__title': City\n      '#city__required': true\n      '#state_province__required': true\n      '#postal_code__required': true\n      '#required': true\n  mailing_address_fieldset:\n    '#type': fieldset\n    '#title': 'Mailing Address'\n    mailing_address:\n      '#type': webform_address\n      '#title': 'Mailing Address'\n      '#address__required': true\n      '#address_2__title': 'Suite / Apartment #'\n      '#city__title': City\n      '#city__required': true\n      '#state_province__required': true\n      '#postal_code__title': 'Zip Code'\n  website_address:\n    '#type': webform_link\n    '#title': 'Website Address'\n    '#format': custom\n    '#format_text': '{{ element.url }}'\n    '#title__access': false\n    '#url__title': 'Website Address'\n    '#url__help': 'Please ensure you add http:// or https:// at the beginning of the URL'\n  exec_ceo_name:\n    '#type': textfield\n    '#title': 'Exec / CEO Name'\n  email_address:\n    '#type': email\n    '#title': 'Email Address'\n  phone_number:\n    '#type': tel\n    '#title': 'Phone Number'\n  board_chairs_information_fieldset:\n    '#type': fieldset\n    '#title': 'Board Chair''s Information'\n    board_chair_s_name:\n      '#type': textfield\n      '#title': 'Board Chair''s Name'\n    board_chairs_email_address:\n      '#type': email\n      '#title': 'Board Chair''s Email Address'\n    board_chairs_phone_number:\n      '#type': tel\n      '#title': 'Board Chair''s Phone Number'\n  contact_for_reaffiliation:\n    '#type': textfield\n    '#title': 'Person to Contact for Affiliation'\n  email__contact_for_reaffiliation:\n    '#type': email\n    '#title': 'Email of Contact for Affiliation'\nsupporting_documents_section:\n  '#type': details\n  '#title': 'Section 2: Supporting Documents'\n  annual_report:\n    '#type': webform_document_file\n    '#title': 'Annual Report'\n    '#format': url\n    '#file_extensions': 'txt pdf doc docx ppt pptx xls xlsx'\n    '#sanitize': true\n  board_roster:\n    '#type': webform_document_file\n    '#title': 'Board Roster'\n    '#format': url\n    '#file_extensions': 'txt pdf doc docx ppt pptx xls xlsx'\n    '#sanitize': true\n  strategic_plan:\n    '#type': webform_document_file\n    '#title': 'Strategic Plan'\n    '#format': url\n    '#file_extensions': 'txt pdf doc docx ppt pptx xls xlsx'\n    '#sanitize': true\n  audited_financial_statements:\n    '#type': webform_document_file\n    '#title': 'Audited Financial Statements'\n    '#format': url\n    '#file_extensions': 'txt pdf doc docx ppt pptx xls xlsx'\n    '#sanitize': true\n  management_letter:\n    '#type': webform_document_file\n    '#title': 'Management Letter'\n    '#format': url\n    '#file_extensions': 'txt pdf doc docx ppt pptx xls xlsx'\n    '#sanitize': true\n  irs_form_990_990_ez_or_990_n:\n    '#type': webform_document_file\n    '#title': 'IRS Form 990, 990-EZ, or 990-N'\n    '#format': url\n    '#file_extensions': 'txt pdf doc docx ppt pptx xls xlsx'\n    '#sanitize': true\n  501c3_letter_from_irs:\n    '#type': webform_document_file\n    '#title': '501c3 Letter from IRS'\n    '#format': url\n    '#file_extensions': 'txt pdf doc docx ppt pptx xls xlsx'\n    '#sanitize': true\n  cultural_competency_statement:\n    '#type': webform_document_file\n    '#title': 'Cultural Competency Statement'\n    '#format': url\n    '#file_extensions': 'txt pdf doc docx ppt pptx xls xlsx'\n    '#sanitize': true\n  roster_of_affiliates:\n    '#type': webform_document_file\n    '#title': 'Roster of Affiliates (Optional)'\n    '#format': url\n    '#file_extensions': 'txt pdf doc docx ppt pptx xls xlsx'\n    '#sanitize': true\n  sample_of_reevaluation_tool:\n    '#type': webform_document_file\n    '#title': 'Sample of re-evaluation tool (Optional)'\n    '#format': url\n    '#file_extensions': 'txt pdf doc docx ppt pptx xls xlsx'\n    '#sanitize': true\n  organization_required_to_have_audit:\n    '#type': select\n    '#title': 'Organization required to have an audit?'\n    '#options':\n      'Yes': 'Yes'\n      'No': 'No'\npopulation_area_section:\n  '#type': details\n  '#title': 'Section 3: Population Area'\n  population_area_your_organization_serve:\n    '#type': checkboxes\n    '#title': 'What population area does your organization serve?'\n    '#options':\n      'Single County / City': 'Single County / City'\n      'Multiple Counties / Cities': 'Multiple Counties / Cities'\n      'Major Metropolitan Area': 'Major Metropolitan Area'\n      State: State\n      Region: Region\n  describe_population_area:\n    '#type': textfield\n    '#title': 'Describe the Population Area '\n    '#description': 'i.e. Arlington County, the state of Virginia'\n    '#description_display': after\n  population_of_areas_you_serve:\n    '#type': details\n    '#title': 'What is the population of the areas you serve? You can find on the census.'\n    '#open': true\n    city_county_population:\n      '#type': textfield\n      '#title': 'City / County'\n      '#maxlength': '10'\n    multi_county_population:\n      '#type': textfield\n      '#title': Multi-County\n      '#maxlength': '10'\n    major_metro_area_population:\n      '#type': textfield\n      '#title': 'Major Metro Area'\n      '#maxlength': '10'\n    state_population:\n      '#type': textfield\n      '#title': State\n    region_population:\n      '#type': textfield\n      '#title': Region\n      '#maxlength': '10'\n  percentages_of_your_population:\n    '#type': details\n    '#title': 'Please provide the following percentages of your population'\n    '#description': '<strong>Please use only whole numbers (76 as opposed to 75.65).</strong>'\n    '#open': true\n    white_population_percentage:\n      '#type': textfield\n      '#title': White\n      '#field_suffix': '%'\n      '#maxlength': '3'\n      '#format': raw\n    black_population_percentage:\n      '#type': textfield\n      '#title': Black\n      '#field_suffix': '%'\n      '#maxlength': '4'\n      '#format': raw\n    asian_population_percentage:\n      '#type': textfield\n      '#title': Asian\n      '#field_suffix': '%'\n      '#maxlength': '4'\n      '#format': raw\n    american_indian_population_percentage:\n      '#type': textfield\n      '#title': 'American Indian'\n      '#field_suffix': '%'\n      '#maxlength': '4'\n      '#format': raw\n    pacific_islander_population_percentage:\n      '#type': textfield\n      '#title': 'Pacific Islander'\n      '#field_suffix': '%'\n      '#maxlength': '4'\n      '#format': raw\n    hispanic_latino_population_percentage:\n      '#type': textfield\n      '#title': 'Hispanic / Latino'\n      '#field_suffix': '%'\n      '#maxlength': '4'\n      '#format': raw\n    multiracial_other_population_percentage:\n      '#type': textfield\n      '#title': 'Multiracial / Other'\n      '#field_suffix': '%'\n      '#maxlength': '4'\n      '#format': raw\n    frontier_area_population_percentage:\n      '#type': textfield\n      '#title': 'Frontier Area'\n      '#field_suffix': '%'\n      '#maxlength': '4'\n      '#format': raw\n    rural_population_percentage:\n      '#type': textfield\n      '#title': Rural\n      '#field_suffix': '%'\n      '#maxlength': '4'\n      '#format': raw\n    urban_population_percentage:\n      '#type': textfield\n      '#title': Urban\n      '#field_suffix': '%'\n      '#maxlength': '4'\n      '#format': raw\n    suburban_population_percentage:\n      '#type': textfield\n      '#title': Suburban\n      '#field_suffix': '%'\n      '#maxlength': '4'\n      '#format': raw\nstaff_and_volunteers_section:\n  '#type': details\n  '#title': 'Section 4: Staff and Volunteers'\n  number_full_time_employees:\n    '#type': number\n    '#title': 'Number of Full Time Employees'\n  number_part_time_employees:\n    '#type': number\n    '#title': 'Number of Part Time Employees'\n  number_volunteers:\n    '#type': number\n    '#title': 'Number of Volunteers'\n  review_process__annual_biannual:\n    '#type': webform_select_other\n    '#title': 'Does your MHA implement an annual or biannual review process?'\n    '#options':\n      Annual: Annual\n      Biannual: Biannual\n  average_length_of_employment_of_staff:\n    '#type': number\n    '#title': 'In years, what is the average length of employment of staff?'\n    '#description': 'Please answer with whole numbers only (example 2 or 3).'\n    '#maxlength': '4'\n  current_employee_personnel_policies:\n    '#type': select\n    '#title': 'Does your affiliate have a current employee handbook or collection of personnel policies?'\n    '#options':\n      'Yes': 'Yes'\n      'No': 'No'\n  no_current_employee_personnel_policies_reason:\n    '#type': textarea\n    '#title': 'If not, please explain'\n    '#rows': '2'\n    '#states':\n      visible:\n        ':input[name=\"current_employee_personnel_policies\"]':\n          value: 'No'\n  succession_plan:\n    '#type': select\n    '#title': 'Does MHA have a succession plan?'\n    '#options':\n      'Yes': 'Yes'\n      'No': 'No'\nfinance_and_funding_areas_section:\n  '#type': details\n  '#title': 'Section 5: Finance and Funding Areas'\n  provide_percentage_of_funding:\n    '#type': details\n    '#title': 'Provide Percentage of Funding'\n    '#open': true\n    fee_for_service_percentage_funding:\n      '#type': textfield\n      '#title': 'Fee for Service'\n      '#field_suffix': '%'\n      '#maxlength': '3'\n      '#format': raw\n    individual_donors_percentage_funding:\n      '#type': textfield\n      '#title': 'Individual Donors'\n      '#field_suffix': '%'\n      '#maxlength': '3'\n      '#format': raw\n    trusts_and_bequests_percentage_funding:\n      '#type': textfield\n      '#title': 'Trusts and Bequests'\n      '#field_suffix': '%'\n      '#maxlength': '3'\n      '#format': raw\n    special_events_percentage_funding:\n      '#type': textfield\n      '#title': 'Special Events'\n      '#field_suffix': '%'\n      '#maxlength': '3'\n      '#format': raw\n    corporate_funding_percentage_funding:\n      '#type': textfield\n      '#title': 'Corporate Funding'\n      '#field_suffix': '%'\n      '#maxlength': '3'\n      '#format': raw\n    united_way_finding_cfc_percentage_funding:\n      '#type': textfield\n      '#title': 'United Way Finding / CFC'\n      '#field_suffix': '%'\n      '#maxlength': '3'\n      '#format': raw\n    government_contracts_percentage_funding:\n      '#type': textfield\n      '#title': 'Government Contracts'\n      '#field_suffix': '%'\n      '#maxlength': '3'\n      '#format': raw\n    government_grants_percentage_funding:\n      '#type': textfield\n      '#title': 'Government Grants'\n      '#field_suffix': '%'\n      '#maxlength': '3'\n      '#format': raw\n    private_funding_percentage_funding:\n      '#type': textfield\n      '#title': 'Private Funding'\n      '#field_suffix': '%'\n      '#maxlength': '3'\n      '#format': raw\n    other_percentage_funding:\n      '#type': textfield\n      '#title': Other\n      '#field_suffix': '%'\n      '#maxlength': '3'\n      '#format': raw\n  number_of_members:\n    '#type': number\n    '#title': 'Number of Members'\n  number_of_donors:\n    '#type': number\n    '#title': 'Number of Donors'\n  your_donors_considered_members:\n    '#type': select\n    '#title': 'Are your donors considered members?'\n    '#options':\n      'Yes': 'Yes'\n      'No': 'No'\n  end_of_current_fiscal_year:\n    '#type': date\n    '#title': 'End of Current Fiscal Year?'\n    '#datepicker': true\n    '#date_date_min': '-3 years'\n    '#date_date_max': '+3 years'\n  current_fiscal_year_expense_budget:\n    '#type': textfield\n    '#title': 'Current fiscal year expense budget?'\n    '#field_prefix': $\n  increase_or_decrease_over_prior_year:\n    '#type': select\n    '#title': 'Increase or Decrease over prior year'\n    '#options':\n      Increase: Increase\n      Decrease: Decrease\n      'About the Same': 'About the Same'\n  percentage_change_from_prior_year:\n    '#type': textfield\n    '#title': 'Percentage change from prior year'\n    '#field_suffix': '%'\n    '#maxlength': '3'\n    '#format': raw\n  most_recent_revenue_reported_on_990:\n    '#type': textfield\n    '#title': 'Most recent revenue reported on 990'\n    '#field_prefix': $\n  most_dramatic_change_in_organization:\n    '#type': textarea\n    '#title': 'Describe the most dramatic change in your organization since last review.'\n    '#rows': '2'\n    '#states':\n      invisible:\n        ':input[name=\"application_type\"]':\n          value: Affiliation\nstandards_of_affiliation_section:\n  '#type': details\n  '#title': 'Section 6: Standards of Affiliation'\n  is_your_organization_incorporated_:\n    '#type': select\n    '#title': 'Is your organization incorporated?'\n    '#options': yes_no\n  tax_exempt_nonprofit_organization:\n    '#type': select\n    '#title': 'Are you a 501c3 or c4 tax-exempt nonprofit organization maintaining awareness of the limitations?'\n    '#description': 'The limitations regarding lobbying, and actively taking appropriate steps to protect tax-exempt status.'\n    '#options': yes_no\n  maintain_required_documentation_reporting:\n    '#type': select\n    '#title': 'Does your organization maintain required documentation for internal and external reporting?'\n    '#options': yes_no\n  provide_annual_reporting_on_timely_basis:\n    '#type': select\n    '#title': 'Does your organization provide annual reporting on a timely basis as required by law?'\n    '#options': yes_no\n  develop_strategies__financial_mgmt_operations:\n    '#type': select\n    '#title': 'Does your organization develop effective and realistic strategies for financial management and operation?'\n    '#options': yes_no\n  current_written_financial_contingency_plan:\n    '#type': select\n    '#title': 'Does your MHA have a written financial contingency plan current within the last 3 years?'\n    '#description': '(i.e. - for disaster, bad ecomony, etc.)'\n    '#description_display': before\n    '#options': yes_no\n  current_written_document_retention_plan:\n    '#type': select\n    '#title': 'Does your MHA have a written document retention plan current within the last 3 years?'\n    '#options': yes_no\n  current_written_emergency_preparedness_plan:\n    '#type': select\n    '#title': 'Does your MHA have a written emergency preparedness plan current within the last 3 years?'\n    '#options': yes_no\nleadership_section:\n  '#type': details\n  '#title': 'Section 7: Leadership'\n  number_of_board_members:\n    '#type': number\n    '#title': 'Number of Board Members'\n  number_of_board_members_represent_groups_fieldset:\n    '#type': details\n    '#title': 'Please report how many Board Members (in percentages) represent the following groups'\n    '#open': true\n    males_board_member_group_percentage:\n      '#type': textfield\n      '#title': Males\n      '#field_suffix': '%'\n      '#maxlength': '3'\n      '#format': raw\n    females_board_member_group_percentage:\n      '#type': textfield\n      '#title': Females\n      '#field_suffix': '%'\n      '#maxlength': '3'\n      '#format': raw\n    consumers_mental_health_services__board_percentage:\n      '#type': textfield\n      '#title': 'Consumers of Mental Health Services'\n      '#field_suffix': '%'\n      '#maxlength': '3'\n      '#format': raw\n    family_members_board_member_group_percentage:\n      '#type': textfield\n      '#title': 'Family Members'\n      '#field_suffix': '%'\n      '#maxlength': '3'\n      '#format': raw\n    medical_health_providers_board_group_percent:\n      '#type': textfield\n      '#title': 'Medical Mental Health Providers'\n      '#field_suffix': '%'\n      '#maxlength': '3'\n      '#format': raw\n    nonmedical_health_providers_board_group_percent:\n      '#type': textfield\n      '#title': 'Non-Medical Mental Health Providers'\n      '#field_suffix': '%'\n      '#maxlength': '3'\n      '#format': raw\n    community_leaders_board_group_percent:\n      '#type': textfield\n      '#title': 'Business / Community Leaders'\n      '#field_suffix': '%'\n      '#maxlength': '3'\n      '#format': raw\n    marketing_professionals_board_group_percent:\n      '#type': textfield\n      '#title': 'Marketing / Communications Professionals'\n      '#field_suffix': '%'\n      '#maxlength': '3'\n      '#format': raw\n    financial_professionals_board_group_percent:\n      '#type': textfield\n      '#title': 'Financial / Fundraising Professionals'\n      '#field_suffix': '%'\n      '#maxlength': '3'\n      '#format': raw\n    legal_professionals_board_group_percent:\n      '#type': textfield\n      '#title': 'Legal Professionals'\n      '#field_suffix': '%'\n      '#maxlength': '3'\n      '#format': raw\n    lgbtq_members_board_group_percent:\n      '#type': textfield\n      '#title': 'LGBTQ Community Members'\n      '#field_suffix': '%'\n      '#maxlength': '3'\n      '#format': raw\n  how_often_does_board_meet:\n    '#type': textarea\n    '#title': 'How often does the Board meet?'\n    '#maxlength': '200'\n    '#rows': '2'\naffiliate_relations_section:\n  '#type': details\n  '#title': 'Section 8: Affiliate Relations'\n  national_activities_staff_participated_on:\n    '#type': textarea\n    '#title': 'What activities from national have your staff participated on since last review?'\n    '#rows': '3'\n  have_chartered_affiliates:\n    '#type': select\n    '#title': 'Does organization have chartered affiliates?'\n    '#options': yes_no\n  how_do_you_conduct_reaffiliation_process:\n    '#type': textarea\n    '#title': 'If applicable, how does your organization conduct Re-affiliation process?'\n    '#maxlength': '300'\n    '#rows': '3'\n  are_you_current_on_national_dues:\n    '#type': select\n    '#title': 'Is your organization current on its dues to national?'\n    '#options':\n      'Yes': 'Yes'\n      'No': 'No'\n      'My organization has its dues paid by chartering affiliate': 'My organization has its dues paid by chartering affiliate'\nstandards_of_affiliation_policy_section:\n  '#type': details\n  '#title': 'Section 9: Standards of Affiliation - Policy'\n  advocate_policies_consistent_with_mha:\n    '#type': select\n    '#title': 'Does your organization advocate for policies consistent with MHA mission?'\n    '#options': yes_no\n  policy_issues_most_important__leads_taken:\n    '#type': textarea\n    '#title': 'What policy issues are most important to your organization, and how do you take a lead on them?'\n    '#rows': '3'\n  advocacy_partnerships_coalitions_belong_to:\n    '#type': textarea\n    '#title': 'List advocacy partnerships or coalitions you belong to.'\n    '#rows': '3'\n  elected_to_operate_section_501h:\n    '#type': select\n    '#title': 'Has your organization elected to operate under section 501h of the Internal Revenue Code with regard to lobbying?'\n    '#options': yes_no\n  activities_you_engaged_in:\n    '#type': checkboxes\n    '#title': 'Check activities you have engaged in since last review period?'\n    '#options':\n      'Responded to legislative alerts from MHA National': 'Responded to legislative alerts from MHA National'\n      'Made Hill visits during MHA''s Annual Meeting': 'Made Hill visits during MHA''s Annual Meeting'\n      'Worked with state and/or local affiliates on advocacy': 'Worked with state and/or local affiliates on advocacy'\n      'Participated in Regional Policy Council webinars or conference calls': 'Participated in Regional Policy Council webinars or conference calls'\n      'Attended local, state, or federal hearings': 'Attended local, state, or federal hearings'\n      'Served on local or state policy committees': 'Served on local or state policy committees'\n      'Participated in healthcare reform coalitions': 'Participated in healthcare reform coalitions'\n      'Participated in state or local policy or advocacy coalitions': 'Participated in state or local policy or advocacy coalitions'\n      'Made visits to local, state, or federal decision-makers': 'Made visits to local, state, or federal decision-makers'\n      'Telephoned local, state or federal decision-makers': 'Telephoned local, state or federal decision-makers'\n      'Written local, state or federal decision-makers': 'Written local, state or federal decision-makers'\n      'Organized a legislative network, like a telephone tree, to contact decision-makers rapidly': 'Organized a legislative network, like a telephone tree, to contact decision-makers rapidly'\n      'Conducted town hall meetings or forums on mental health related policy issues': 'Conducted town hall meetings or forums on mental health related policy issues'\n      'Held a legislative breakfast/lunch/dinner for local or state policy makers': 'Held a legislative breakfast/lunch/dinner for local or state policy makers'\n      'Developed a position paper on a mental health policy related issue': 'Developed a position paper on a mental health policy related issue'\n      'If a state affiliate only, your affiliates worked with you on advocacy and policy efforts': 'If a state affiliate only, your affiliates worked with you on advocacy and policy efforts'\n      'Presented testimony at local, state, or federal hearings': 'Presented testimony at local, state, or federal hearings'\n    '#states':\n      invisible:\n        ':input[name=\"application_type\"]':\n          value: Affiliation\n  advocacy__best_achievement:\n    '#type': textarea\n    '#title': 'With regard to advocacy, what is your best achievement since last review?'\n    '#rows': '3'\n    '#states':\n      invisible:\n        ':input[name=\"application_type\"]':\n          value: Affiliation\nstandards_of_affiliation_research_services_section:\n  '#type': details\n  '#title': 'Section 10: Standards of Affiliation - Research and Services'\n  programs_services_you_provide:\n    '#type': textarea\n    '#title': 'What kind of programs & services does your MHA provide?'\n  conducted_participated_community_needs_assessment:\n    '#type': select\n    '#title': 'Has your organization conducted or participated in a community needs assessment since your last review?'\n    '#options': yes_no\n    '#states':\n      invisible:\n        ':input[name=\"application_type\"]':\n          value: Affiliation\n  describe_signature_program:\n    '#type': textarea\n    '#title': 'Describe your signature program'\n  promising_practices_do_you_use:\n    '#type': textarea\n    '#title': 'What evidence-based or promising practices do you use?'\nstandards_education_section:\n  '#type': details\n  '#title': 'Section 11: Standards - Education'\n  implement_education_media_effors_otherpartsofmha:\n    '#type': select\n    '#title': 'Does your organization plan and implement public education and media efforts in partnership with the other parts of the MHA?'\n    '#options': yes_no\n    '#states':\n      invisible:\n        ':input[name=\"application_type\"]':\n          value: Affiliation\n  which_have_you_done_since_last_review:\n    '#type': checkboxes\n    '#title': 'Since last review, which of the following have you done?'\n    '#options':\n      'Developed or implemented a public education plan': 'Developed or implemented a public education plan'\n      'Participated/exhibited at a health fair': 'Participated / exhibited at a health fair'\n      'Disseminated brochures/fact sheets about MH topics': 'Disseminated brochures / fact sheets about MH topics'\n      'Done radio or print PSAs': 'Done radio or print PSA''s'\n      'Conducted an annual May is Mental Health Month campaign': 'Conducted an annual May is Mental Health Month campaign'\n      'Established a speaker''s bureau willing to speak on MH topics': 'Established a speaker''s bureau willing to speak on MH topics'\n      'Presented training or workshops on mental health topics': 'Presented training or workshops on mental health topics'\n      'Developed or maintained a newsletter': 'Developed or maintained a newsletter'\n      'Had an article or op-ed published by local media': 'Had an article or op-ed published by local media'\n      'Developed or implemented a media plan': 'Developed or implemented a media plan'\n    '#states':\n      invisible:\n        ':input[name=\"application_type\"]':\n          value: Affiliation\n  audiences_you_present_to:\n    '#type': textarea\n    '#title': 'Please list audiences you present to'\n  outreach_vehicles_media:\n    '#type': checkboxes\n    '#title': 'Please select outreach vehicles:'\n    '#options':\n      Blog: Blog\n      Website: Website\n      Twitter: Twitter\n      Newsletter: Newsletter\n      eNewsletter: eNewsletter\n      Email: Email\n      Facebook: Facebook\n      Brochures: Brochures\n      Flyers: Flyers\n  best_accomplishment_in_this_area:\n    '#type': textarea\n    '#title': 'What is your best accomplishment in this area?'\nstandards_clc_section:\n  '#type': details\n  '#title': 'Section 12: Standards - CLC'\n  develop_implement_cultural_competency_statement:\n    '#type': select\n    '#title': 'Does your organization develop, endorse, and implement a statement and plan related to cultural competency?'\n    '#options': yes_no\n  programs_rep_respond_to_diversity_of_community:\n    '#type': select\n    '#title': 'Does your organization have a staff, board, and programs that represent and respond to the diversity of the community?'\n    '#options': yes_no\n  groups_represented_by_board_staff:\n    '#type': checkboxes\n    '#title': 'Please indicate which groups are represented by Board and Staff'\n    '#options':\n      Caucasian: Caucasian\n      'African American': 'African American'\n      'Asian / Pacific Islander': 'Asian / Pacific Islander'\n      'Native American/Alaska Native': 'Native American/Alaska Native'\n      Hispanic: Hispanic\n      'Middle Eastern': 'Middle Eastern'\n      'Youth / Young Adult': 'Youth / Young Adult'\n      'Older Americans': 'Older Americans'\n      'LGBTQ Community': 'LGBTQ Community'\n  3_less_groups_repd_by_board_staff_explain:\n    '#type': textarea\n    '#title': 'If 3 or less categories were checked, explain:'\n    '#maxlength': '300'\n    '#rows': '1'\n  since_last_review_has_your_organization__clc:\n    '#type': checkboxes\n    '#title': 'Since the last review, has your organization...'\n    '#options':\n      'Conducted a board training on cultural competence': 'Conducted a board training on cultural competence'\n      'Conducted a staff training on cultural competence': 'Conducted a staff training on cultural competence'\n      'Examined the need for bilingual staff': 'Examined the need for bilingual staff'\n      'Included questions related to cultural competence on customer satisfaction surveys': 'Included questions related to cultural competence on customer satisfaction surveys'\n      'Established a board committee to see that priority is given to the needs of diverse groups within the population served by your MHA': 'Established a board committee to see that priority is given to the needs of diverse groups within the population served by your MHA'\n      'Provided public education materials in languages consistent with the cultural diversity of the population served by your organization': 'Provided public education materials in languages consistent with the cultural diversity of the population served by your organization'\n    '#states':\n      invisible:\n        ':input[name=\"application_type\"]':\n          value: Affiliation\nmarketing_section:\n  '#type': details\n  '#title': 'Section 13: Marketing'\n  use_logo_from_template_for_national:\n    '#type': select\n    '#title': 'Does your organization use the logo provided from the template for national?'\n    '#options':\n      'Yes': 'Yes'\n      'No': 'No'\n      N/A: N/A\n  what_is_your_mission_statement:\n    '#type': textarea\n    '#title': 'What is your mission statement?'\n  ensure_materials_are_consistent:\n    '#type': select\n    '#title': 'Ensure materials are consistent?'\n    '#options':\n      'Yes': 'Yes'\n      'No': 'No'\n      N/A: N/A\n  nterested_in_rebranding_to_mha:\n    '#type': select\n    '#title': 'Are you interested in rebranding to Mental Health America?'\n    '#options':\n      'Yes': 'Yes'\n      'No': 'No'\n      'Already branded to Mental Health America': 'Already branded to Mental Health America'\n  why_or_why_not_intrested_in_rebranding:\n    '#type': textfield\n    '#title': 'Why or why not?'\n    '#states':\n      visible:\n        - ':input[name=\"nterested_in_rebranding_to_mha\"]':\n            value: 'Yes'\n        - or\n        - ':input[name=\"nterested_in_rebranding_to_mha\"]':\n            value: 'No'\n  does_your_organization_marketing:\n    '#type': checkboxes\n    '#title': 'Does your organization...'\n    '#options':\n      'Include visuals and the story of the Bell in our public presentations': 'Include visuals and the story of the Bell in our public presentations'\n      'Use colors in its letterhead and other materials that are consistent with those of the national movement': 'Use colors in its letterhead and other materials that are consistent with those of the national movement'\n      'Disseminate MHA materials': 'Disseminate MHA materials'\n      'Link its website to the Mental Health America website': 'Link its website to the Mental Health America website'\n      'Identify publicly as an affiliate of Mental Health America': 'Identify publicly as an affiliate of Mental Health America (on letterhead, newsletter, website, etc.)'\n  organization_have_other_memberships:\n    '#type': textarea\n    '#title': 'Does your organization have other memberships? Please list.'"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  page: true
+  page_submit_path: affiliation-application
+  page_confirm_path: ''
+  form_title: both
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: false
+  form_confidential: false
+  form_confidential_message: ''
+  form_remote_addr: true
+  form_convert_anonymous: true
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: true
+  form_disable_back: false
+  form_submit_back: true
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: true
+  submission_views: {  }
+  submission_views_replace:
+    webform_routes: {  }
+    node_routes: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: true
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: true
+  autofill_message: ''
+  autofill_excluded_elements:
+    notification_e_mail: notification_e_mail
+    submit_for_review: submit_for_review
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: true
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: authenticated
+  draft_multiple: false
+  draft_auto_save: true
+  draft_saved_message: 'Draft saved. You may return to this form later and it will restore the current values.'
+  draft_loaded_message: ''
+  confirmation_type: page
+  confirmation_title: '[current-user:field_application_type:value] Application Submission Complete'
+  confirmation_message: "Thank you for submitting your [current-user:field_application_type:value] Application.\n<h4><strong><a href=\"/affiliation-application?application_type=[current-user:field_application_type:value]&amp;token=[webform_submission:token]\" target=\"_self\">Please click here to update your application information.</a></strong></h4>\n"
+  confirmation_url: affiliation-application/update
+  confirmation_attributes: {  }
+  confirmation_back: false
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: true
+  form_login: true
+  form_login_message: ''
+  submission_login: true
+  submission_login_message: ''
+access:
+  create:
+    roles:
+      - administrator
+      - mha_admin
+      - mha_affiliate
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles:
+      - administrator
+      - mha_admin
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles:
+      - administrator
+      - mha_admin
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles:
+      - administrator
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles:
+      - administrator
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles:
+      - administrator
+      - mha_admin
+      - mha_affiliate
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles:
+      - administrator
+      - mha_admin
+    users: {  }
+    permissions: {  }
+  administer:
+    roles:
+      - administrator
+      - mha_admin
+    users: {  }
+    permissions: {  }
+  test:
+    roles:
+      - administrator
+      - mha_admin
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  email:
+    id: email
+    label: Email
+    handler_id: email
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: vsterns@mentalhealthamerica.net
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''

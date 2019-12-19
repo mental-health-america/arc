@@ -1,0 +1,25 @@
+uuid: 605227ae-4f8d-4f9e-9073-acb0e1850545
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.mt-footer-menu-three
+  module:
+    - system
+  theme:
+    - enterpriseplus
+id: enterpriseplus_usefullinks
+theme: enterpriseplus
+region: footer_third
+weight: -55
+provider: null
+plugin: 'system_menu_block:mt-footer-menu-three'
+settings:
+  id: 'system_menu_block:mt-footer-menu-three'
+  label: 'Useful Links'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

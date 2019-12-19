@@ -1,0 +1,21 @@
+uuid: 908c2c18-6cc4-4ac5-b2c6-b1c0221b794f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_model_type
+  module:
+    - options
+    - user
+id: user.user.field_model_type
+field_name: field_model_type
+entity_type: user
+bundle: user
+label: 'Model Type'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

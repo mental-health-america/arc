@@ -1,0 +1,31 @@
+//==========================================================================
+// Home
+//==========================================================================
+
+//Hiding numbers from the "cards"
+.featured-linked-text-tile__count{
+  display: none;  
+}
+
+//Making all the "cards" the same height using flexbox
+.featured-linked-text-tiles .row{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: wrap;
+  
+  > div{
+    margin-bottom: 30px;
+    width: 100%;
+    
+    @include grid-media($grid-tablet) {
+      width: 33%;
+    }
+  }
+}
+
+.featured-linked-text-tile{
+  height: 100%;
+  margin-bottom: 0;
+}

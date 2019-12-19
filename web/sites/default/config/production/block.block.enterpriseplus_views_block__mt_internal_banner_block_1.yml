@@ -1,0 +1,24 @@
+uuid: aa347b02-a76c-4d6f-b2d1-9e9a83df181a
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.mt_internal_banner
+  module:
+    - views
+  theme:
+    - enterpriseplus
+id: enterpriseplus_views_block__mt_internal_banner_block_1
+theme: enterpriseplus
+region: banner
+weight: -49
+provider: null
+plugin: 'views_block:mt_internal_banner-block_1'
+settings:
+  id: 'views_block:mt_internal_banner-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility: {  }

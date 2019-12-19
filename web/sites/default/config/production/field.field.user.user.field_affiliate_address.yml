@@ -1,0 +1,48 @@
+uuid: 6b38905f-01b6-4b15-986d-8d199d4d7668
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_affiliate_address
+  module:
+    - address
+    - user
+id: user.user.field_affiliate_address
+field_name: field_affiliate_address
+entity_type: user
+bundle: user
+label: 'Affiliate Address'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_countries:
+    US: US
+  langcode_override: ''
+  field_overrides:
+    givenName:
+      override: hidden
+    additionalName:
+      override: hidden
+    familyName:
+      override: hidden
+    organization:
+      override: hidden
+    addressLine1:
+      override: required
+    addressLine2:
+      override: optional
+    postalCode:
+      override: required
+    sortingCode:
+      override: hidden
+    dependentLocality:
+      override: hidden
+    locality:
+      override: required
+    administrativeArea:
+      override: required
+  fields: {  }
+field_type: address

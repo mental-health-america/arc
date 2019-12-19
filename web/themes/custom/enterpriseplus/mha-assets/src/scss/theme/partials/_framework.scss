@@ -1,0 +1,187 @@
+//==========================================================================
+// Framework: header, footer, blocks on all pages
+//==========================================================================
+
+//Top blue bar w/ social media icons
+//==========================================================================
+#block-contactinfoheadertop .inline-list{
+  text-align: center;
+  
+  @include grid-media($grid-tablet) {
+    text-align: left;
+  }
+}
+
+.region--light-typography ul.icons-list a img{
+  opacity: .7;
+}
+
+.region--light-typography ul.icons-list a:hover img,
+.region--light-typography ul.icons-list a:active img,
+.region--light-typography ul.icons-list a:focus img{
+  opacity: 1;
+}
+
+
+//White header (logo and main menu)
+//==========================================================================
+.onscroll .header-first, 
+.onscroll .header-second, 
+.onscroll .header-third{
+  padding: 5px 0 10px;
+}
+
+// Changing header pattern to work better w/ their logo
+.header__container {
+  padding: 20px 0;
+}
+
+//Need to give these to the SVG logo
+.site-branding__logo img{
+  width: 200px;
+}
+
+
+
+//Main menu (fullsize) in header
+//==========================================================================
+@include grid-media($grid-tablet) {
+  
+  .header-container ul.sf-menu > li > a.menuparent::after, 
+  .header-container ul.sf-menu > li > span.menuparent::after {
+    position: relative;
+    top: auto;
+    right: auto;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 0 .25em;
+  }
+
+
+  .header-container ul.menu li a.sf-depth-1{
+    padding: 0;
+    margin: 0 0 1em 2em;
+  }
+
+  .header-container .menu.cta-active > li:first-child > a{
+    margin-left: 0;
+  }
+
+  .header-container .menu.cta-active > li:last-child > a{
+    padding: 18px 25px 17px;
+  }
+}
+
+//Content Items
+//==========================================================================
+
+//Share icons
+.addtoany_list{
+  display: block;
+  text-align: right;
+  padding-bottom: 1em;
+  
+  .share-label{
+    vertical-align: middle;
+  }
+  
+  > a{
+    padding: 0 0 0 5px;
+    vertical-align: middle;
+  }
+}
+
+//.path-frontpage{
+//  #block-enterpriseplus-content{
+//    display: none;
+//  }
+//}
+
+//Sidebar - login
+//==========================================================================
+.sidebar-second .block-user-login-block{
+  border: $base-border;
+  padding: 20px !important;
+  margin-bottom: 20px;
+  border-radius: $base-border-radius;
+  
+  h2.title{
+    margin-bottom: 20px;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  
+  form{
+    position: relative;
+  }
+  
+  input{
+    margin: 0;
+  }
+  
+  .form-item{
+    margin: 0;
+  }
+  
+  .js-form-type-textfield{
+    margin-bottom: 1em;
+  }
+  
+  .form-type-password{
+    padding-right: 6em;
+  }
+  
+  .form-actions{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    
+    input[type="submit"]{
+      box-shadow: none;
+      padding: 18px 15px 17px;
+    }
+  }
+  
+  .item-list{
+    display: none;
+  }
+}
+
+//@include grid-media($grid-sidebar) {
+//  .path-frontpage .sidebar-second{
+//    padding-top: 84px;
+//  }
+//}
+
+
+
+//Footer
+//==========================================================================
+.mha-phone,
+.mha-fax{
+  
+  &:before{
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: .25em;
+  }
+  
+  span{
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.mha-phone:before{
+  background-image: url(../../images/phone-icon.png);
+}
+
+.mha-fax:before{
+  background-image: url(../../images/fax-icon.png);
+}

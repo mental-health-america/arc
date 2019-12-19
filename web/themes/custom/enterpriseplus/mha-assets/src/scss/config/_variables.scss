@@ -1,0 +1,84 @@
+//==========================================================================
+// Variables
+//==========================================================================
+
+// Colors
+//----------------------------------------------------
+$black: #000;
+$white: #FFF;
+$dark-blue: #003478;
+$cyan: #019ED3;
+$off-white: #F2EEE7;
+$red: #d3222a;
+$dark-red: #62050a;
+$orange: #F37F02;
+$fuschia: #810262;
+$green: #4f8d11;
+$gray: #eaeaea;
+
+$base-text-color: #707070;
+$base-border-color: $gray;
+$base-border: 1px solid $base-border-color;
+$base-border-radius: 5px;
+
+
+
+// Grids - based on Neat v2.1.0
+//----------------------------------------------------
+//Example:
+
+//$max-width: 1440px;
+
+//$grid-mobile: (
+//  columns: 1,
+//  gutter: 20px,
+//);
+
+$grid-tablet: (
+  columns: 8,
+  gutter: 20px,
+  media: "(min-width: 768px)",
+);
+
+$grid-sidebar: (
+  columns: 12,
+  gutter: 20px,
+  media: "(min-width: 992px)",
+);
+
+//$grid-fullsize: (
+//  columns: 12,
+//  gutter: 20px,
+//  media: "(min-width: " + $max-width + ")",
+//);
+
+//.outer-container{
+//  @include grid-container;
+//  max-width: $max-width;
+//  margin: 0 auto;
+//  background-color: #666;
+//}
+
+//.col-wide{
+//  @include grid-column(1, $grid-mobile);
+//
+//  @include grid-media($grid-tablet) {
+//    @include grid-column(5);
+//  }
+//  
+//  @include grid-media($grid-fullsize) {
+//    @include grid-column(6);
+//  }
+//}
+
+//.col-narrow{
+//  @include grid-column(1, $grid-mobile);
+//
+//  @include grid-media($grid-tablet) {
+//    @include grid-column(3);
+//  }
+//  
+//  @include grid-media($grid-fullsize) {
+//    @include grid-column(6);
+//  }
+//}
