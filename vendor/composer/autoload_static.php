@@ -167,6 +167,8 @@ class ComposerStaticInit5b8ad456d71ccae2443036eb3854cda8
             'Drupal\\Console\\Composer\\Plugin\\' => 31,
             'Drupal\\Console\\' => 15,
             'Drupal\\Component\\' => 17,
+            'Drupal\\' => 7,
+            'DrupalPractice\\' => 15,
             'DrupalComposer\\DrupalScaffold\\' => 30,
             'DrupalCodeGenerator\\' => 20,
             'Dotenv\\' => 7,
@@ -532,6 +534,14 @@ class ComposerStaticInit5b8ad456d71ccae2443036eb3854cda8
         array (
             0 => __DIR__ . '/../..' . '/web/core/lib/Drupal/Component',
         ),
+        'Drupal\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/drupal/coder/coder_sniffer/Drupal',
+        ),
+        'DrupalPractice\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/drupal/coder/coder_sniffer/DrupalPractice',
+        ),
         'DrupalComposer\\DrupalScaffold\\' => 
         array (
             0 => __DIR__ . '/..' . '/drupal-composer/drupal-scaffold/src',
@@ -715,14 +725,6 @@ class ComposerStaticInit5b8ad456d71ccae2443036eb3854cda8
         ),
         'D' => 
         array (
-            'Drupal\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/drupal/coder/coder_sniffer/Drupal',
-            ),
-            'DrupalPractice\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/drupal/coder/coder_sniffer/DrupalPractice',
-            ),
             'Dflydev\\PlaceholderResolver' => 
             array (
                 0 => __DIR__ . '/..' . '/dflydev/placeholder-resolver/src',
