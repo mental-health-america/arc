@@ -9,8 +9,6 @@ use Drupal\token\TokenInterface;
 use Drupal\Core\Render\BubbleableMetadata;
 use Drupal\Core\Url;
 use Drupal\user\Entity\User;
-use Drupal\webform\Entity\Webform;
-use Drupal\webform\Entity\WebformSubmission;
 
 /**
  * TokenReplacer class.
@@ -112,31 +110,6 @@ class TokenReplacer {
         // there are nothing shown for anonymous user..
         // Let them have string Anonymous and they will be happy and quiet.
         return [$token => "Anonymous"];
-      }
-      else if ($entity_type == "webform_submission" && $token == "[webform_submission:token]")
-      {
-          //$webform = Webform::load('affiliation_application');
-          $query = \Drupal::entityQuery('webform_submission')
-                 ->condition('webform_id', 'affiliation_application')
-                 ->condition('uid', \Drupal::currentUser()->id(), '=')
-                 ->range(0, 1);
-          $results = $query->execute();
-
-          if (empty($results))
-          { return []; }
-
-          foreach ($results as $result)
-          {
-            if(isset($result))
-            {
-              $webform_submission = WebformSubmission::load($result);
-              $webform_token = $webform_submission->getToken();
-              return [$token => $webform_token];
-            }
-            else
-            { return []; }
-          }
-
       }
 
       if (empty($value)) {

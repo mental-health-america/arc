@@ -406,8 +406,6 @@ function menu_token_prepare_context_replacement(&$links) {
   foreach ($links as $key => $linkData) {
     $links[$key]["link"]["url"] = $token_service->replace($linkData["link"]["url"], [], ["configuration" => $linkData["config"]], $bubbleable_metadata);
     $links[$key]["link"]["title"] = $token_service->replace($linkData["link"]["title"], [], ["configuration" => $linkData["config"]], $bubbleable_metadata);
-    isset($links[$key]["link"]["options"]["query"]) ?
-       $links[$key]["link"]["options"]["query"] = $token_service->replaceArray($linkData["link"]["options"]["query"], [], ["configuration" => $linkData["config"]], $bubbleable_metadata) : $links[$key]["link"]["options"]["query"] = [];
     $links[$key]["link"]["options"]["bubleble_metadata"] = $bubbleable_metadata;
     $links[$key] = $links[$key]["link"];
   }
@@ -449,7 +447,6 @@ function menu_token_menu_links_discovered_alter(&$links) {
         $context_manager->prepareContextualLinks($relevant_link, $config);
         replace_links_with_tokens($token_service, "url", $relevant_link, $links, $bubbleable_metadata);
         replace_links_with_tokens($token_service, "title", $relevant_link, $links, $bubbleable_metadata);
-        replace_links_with_tokens($token_service, "query", $relevant_link, $links, $bubbleable_metadata);
       }
     }
   }
