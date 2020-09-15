@@ -3,9 +3,13 @@
  * Attaches behaviors for the Clientside Validation jQuery module.
  */
 
-(function ($) {
+(function ($, drupalSettings) {
 
   'use strict';
+
+  // Always perform clientside validation for webforms submitted using Ajax.
+  // @see \Drupal\clientside_validation_jquery\Form\ClientsideValidationjQuerySettingsForm
+  drupalSettings.clientside_validation_jquery.validate_all_ajax_forms = 1;
 
   $(document).once('webform_cvjquery').on('cv-jquery-validate-options-update', function (event, options) {
     options.errorElement = 'strong';
@@ -28,8 +32,8 @@
         var $fieldSuffix = $(this);
         var $errorMessages = $fieldSuffix.prev('strong.error.form-item--error-message');
         $errorMessages.insertAfter($fieldSuffix);
-      })
+      });
     };
   });
 
-})(jQuery);
+})(jQuery, drupalSettings);

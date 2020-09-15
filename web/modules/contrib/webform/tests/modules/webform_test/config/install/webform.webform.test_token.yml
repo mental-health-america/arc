@@ -63,7 +63,7 @@ elements: |
       Submitter name: [webform_submission:user:account-name]
       Submitter mail: [webform_submission:user:mail]
       Token: [webform_submission:token]
-      Update URL: [webform_submission:token-update-url]
+      Update URL: [webform_submission:update-url]
       URL: [webform_submission:url]
       URL Edit Webform: [webform_submission:url:edit-form]
       UUID: [webform_submission:uuid]
@@ -146,7 +146,7 @@ settings:
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
-  form_disable_remote_addr: false
+  form_remote_addr: true
   form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false
@@ -199,6 +199,7 @@ settings:
   wizard_progress_states: false
   wizard_auto_forward: true
   wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
   wizard_start_label: ''
   wizard_preview_link: false
   wizard_confirmation: true
@@ -254,6 +255,7 @@ settings:
   results_customize: false
   token_view: false
   token_update: true
+  serial_disabled: false
 access:
   create:
     roles:
@@ -322,7 +324,7 @@ handlers:
       from_options: {  }
       from_name: _default
       subject: _default
-      body: '<a href="[webform_submission:token-update-url]">[webform_submission:token-update-url]</a>'
+      body: '<a href="[webform_submission:update-url]">[webform_submission:update-url]</a>'
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true

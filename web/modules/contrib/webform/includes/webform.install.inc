@@ -23,6 +23,10 @@ use Drupal\webform\WebformInterface;
  * @see drush_webform_repair()
  */
 function _webform_update_admin_settings($reset = FALSE) {
+  // Make sure to purge the config cache before updating any config.
+  // This ensure that any config schema changes are loaded.
+  \Drupal::service('cache.config')->deleteAll();
+
   $admin_config = \Drupal::configFactory()->getEditable('webform.settings');
 
   $current_settings = $admin_config->getRawData();
@@ -167,14 +171,6 @@ function _webform_update_webform_setting_settings(array $settings) {
     }
     unset($settings['page_admin_theme']);
   }
-
-  // Issue #3088780: Add the ability to disable user IP tracking for all forms.
-  // Convert 'form_remote_addr' to 'form_disable_remote_addr'.
-  if (isset($settings['form_remote_addr'])) {
-    $settings['form_disable_remote_addr'] = $settings['form_remote_addr'] ? FALSE : TRUE;
-    unset($settings['form_remote_addr']);
-  }
-
   return $settings;
 }
 

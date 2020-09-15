@@ -66,8 +66,7 @@ class WebformDevelSchema implements WebformDevelSchemaInterface {
       'maxlength' => $this->t('Maxlength'),
       'required' => $this->t('Required'),
       'multiple' => $this->t('Multiple'),
-      'options_text' => $this->t('Options text'),
-      'options_value' => $this->t('Options value'),
+      'options' => $this->t('Options'),
     ];
   }
 
@@ -216,12 +215,10 @@ class WebformDevelSchema implements WebformDevelSchemaInterface {
     $data['multiple'] = $multiple;
 
     if (isset($element['#options'])) {
-      $data['options_text'] = OptGroup::flattenOptions($element['#options']);
-      $data['options_value'] = array_keys(OptGroup::flattenOptions($element['#options']));
+      $data['options'] = OptGroup::flattenOptions($element['#options']);
     }
     else {
-      $data['options_text'] = [];
-      $data['options_value'] = [];
+      $data['options'] = [];
     }
 
     return $data;

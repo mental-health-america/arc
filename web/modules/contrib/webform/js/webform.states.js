@@ -38,7 +38,17 @@
    *   TRUE if element is within the webform.
    */
   $.fn.isWebform = function () {
-    return $(this).closest('form[id^="webform"]').length ? true : false;
+    return $(this).closest('form[id^="webform"], form[data-is-webform]').length ? true : false;
+  };
+
+  /**
+   * Check if element is to be treated as a webform element.
+   *
+   * @return {boolean}
+   *   TRUE if element is to be treated as a webform element.
+   */
+  $.fn.isWebformElement = function () {
+    return ($(this).isWebform() || $(this).closest('[data-is-webform-element]').length) ? true : false;
   };
 
   /* ************************************************************************ */
@@ -53,7 +63,7 @@
     return this.val() === '';
   };
 
- /* ************************************************************************ */
+  /* ************************************************************************ */
   // Dependents.
   /* ************************************************************************ */
 
@@ -115,19 +125,19 @@
     else if ('greater_equal' in reference) {
       return (value !== '' && parseFloat(reference['greater_equal']) <= parseFloat(value));
     }
-    else if ('between' in reference) {
+    else if ('between' in reference || '!between' in reference) {
       if (value === '') {
         return false;
       }
-      else {
-        var between = reference['between'];
-        var betweenParts = between.split(':');
-        var greater = betweenParts[0];
-        var less = (typeof betweenParts[1] !== 'undefined') ? betweenParts[1] : null;
-        var isGreaterThan = (greater === null || greater === '' || parseFloat(value) >= parseFloat(greater));
-        var isLessThan = (less === null || less === '' || parseFloat(value) <= parseFloat(less));
-        return (isGreaterThan && isLessThan);
-      }
+
+      var between = reference['between'] || reference['!between'];
+      var betweenParts = between.split(':');
+      var greater = betweenParts[0];
+      var less = (typeof betweenParts[1] !== 'undefined') ? betweenParts[1] : null;
+      var isGreaterThan = (greater === null || greater === '' || parseFloat(value) >= parseFloat(greater));
+      var isLessThan = (less === null || less === '' || parseFloat(value) <= parseFloat(less));
+      var result = (isGreaterThan && isLessThan);
+      return (reference['!between']) ? !result : result;
     }
     else {
       return reference.indexOf(value) !== false;
@@ -141,7 +151,7 @@
   var $document = $(document);
 
   $document.on('state:required', function (e) {
-    if (e.trigger && $(e.target).isWebform()) {
+    if (e.trigger && $(e.target).isWebformElement()) {
       var $target = $(e.target);
       // Fix #required file upload.
       // @see Issue #2860529: Conditional required File upload field don't work.
@@ -207,7 +217,7 @@
   });
 
   $document.on('state:readonly', function (e) {
-    if (e.trigger && $(e.target).isWebform()) {
+    if (e.trigger && $(e.target).isWebformElement()) {
       $(e.target).prop('readonly', e.value).closest('.js-form-item, .js-form-wrapper').toggleClass('webform-readonly', e.value).find('input, textarea').prop('readonly', e.value);
 
       // Trigger webform:readonly.
@@ -217,7 +227,7 @@
   });
 
   $document.on('state:visible state:visible-slide', function (e) {
-    if (e.trigger && $(e.target).isWebform()) {
+    if (e.trigger && $(e.target).isWebformElement()) {
       if (e.value) {
         $(':input', e.target).addBack().each(function () {
           restoreValueAndRequired(this);
@@ -236,7 +246,7 @@
   });
 
   $document.on('state:visible-slide', function (e) {
-    if (e.trigger && $(e.target).isWebform()) {
+    if (e.trigger && $(e.target).isWebformElement()) {
       var effect = e.value ? 'slideDown' : 'slideUp';
       var duration = Drupal.webform.states[effect].duration;
       $(e.target).closest('.js-form-item, .js-form-submit, .js-form-wrapper')[effect](duration);
@@ -245,7 +255,7 @@
   Drupal.states.State.aliases['invisible-slide'] = '!visible-slide';
 
   $document.on('state:disabled', function (e) {
-    if (e.trigger && $(e.target).isWebform()) {
+    if (e.trigger && $(e.target).isWebformElement()) {
       // Make sure disabled property is set before triggering webform:disabled.
       // Copied from: core/misc/states.js
       $(e.target)
@@ -315,6 +325,9 @@
   /**
    * Add HTML5 multiple checkboxes required validation.
    *
+   * @param {jQuery} $element
+   *   An jQuery object containing HTML5 radios.
+   *
    * @see https://stackoverflow.com/a/37825072/145846
    */
   function checkboxesRequired($element) {
@@ -326,6 +339,9 @@
 
   /**
    * Add HTML5 radios required validation.
+   *
+   * @param {jQuery} $element
+   *   An jQuery object containing HTML5 radios.
    *
    * @see https://www.drupal.org/project/webform/issues/2856795
    */
@@ -508,10 +524,11 @@
   /* ************************************************************************ */
 
   /**
+   * Toggle an input's required attributes.
    *
    * @param {element} $input
    *   An input.
-   * @param boolean required
+   * @param {boolean} required
    */
   function toggleRequired($input, required) {
     if (required) {

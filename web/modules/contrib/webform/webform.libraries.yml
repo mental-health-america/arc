@@ -89,6 +89,12 @@ webform.admin.tabledrag:
   dependencies:
     - core/drupal.tabledrag
 
+webform.admin.toolbar:
+  version: VERSION
+  css:
+    theme:
+      css/webform.admin.toolbar.css: {}
+
 webform.admin.translation:
   version: VERSION
   css:
@@ -289,7 +295,7 @@ webform.tooltip:
   dependencies:
     - core/drupal
     - core/jquery.once
-    - jquery_ui_tooltip/tooltip
+    - core/jquery.ui.tooltip
 
 # Theme
 
@@ -372,7 +378,7 @@ webform.form.tabs:
   dependencies:
     - core/drupal
     - core/jquery.once
-    - jquery_ui_tabs/tabs
+    - core/jquery.ui.tabs
 
 webform.form.unsaved:
   version: VERSION
@@ -579,10 +585,8 @@ webform.element.date:
   js:
     js/webform.element.date.js: {}
   dependencies:
+    - core/drupal.date
     - core/drupalSettings
-    - core/modernizr
-    - core/jquery.once
-    - jquery_ui_datepicker/datepicker
 
 webform.element.datelist:
   version: VERSION
@@ -640,7 +644,7 @@ webform.element.help:
   dependencies:
     - core/drupal
     - core/jquery.once
-    - jquery_ui_tooltip/tooltip
+    - core/jquery.ui.tooltip
 
 webform.element.html_editor:
   version: VERSION
@@ -845,6 +849,7 @@ webform.element.signature:
     js/webform.element.signature.js: {}
   dependencies:
     - core/drupal
+    - core/drupal.debounce
     - webform/libraries.signature_pad
 
 webform.element.states:
@@ -984,14 +989,14 @@ libraries.choices:
 
 libraries.codemirror.text:
   remote: https://github.com/codemirror/codemirror
-  version: &webform_codemirror_version '5.53.2'
+  version: &webform_codemirror_version '5.57.0'
   license: &webform_codemirror_license
     name: MIT
     url: http://codemirror.net/LICENSE
     gpl-compatible: true
   cdn: &webform_codemirror_cdn
-    /libraries/codemirror/lib/: https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.53.2/
-    /libraries/codemirror/: https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.53.2/
+    /libraries/codemirror/lib/: https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/
+    /libraries/codemirror/: https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/
   css:
     component:
       /libraries/codemirror/lib/codemirror.css: {}
@@ -1070,25 +1075,25 @@ libraries.codemirror.twig:
 
 libraries.algolia.places:
   remote: https://github.com/algolia/places
-  version: '1.18.2'
+  version: '1.19.0'
   license:
     name: MIT
     url: https://github.com/algolia/places/blob/master/LICENSE
     gpl-compatible: true
   cdn:
-    /libraries/algolia.places/dist/cdn/: https://cdn.jsdelivr.net/npm/places.js@1.18.2/dist/cdn/
+    /libraries/algolia.places/dist/cdn/: https://cdn.jsdelivr.net/npm/places.js@1.19.0/dist/cdn/
   js:
     /libraries/algolia.places/dist/cdn/places.js: {}
 
 libraries.jquery.inputmask:
   remote: https://github.com/RobinHerbots/jquery.inputmask
-  version: '5.0.3'
+  version: '5.0.5'
   license:
     name: MIT
     url: http://opensource.org/licenses/mit-license.php
     gpl-compatible: true
   cdn:
-    /libraries/jquery.inputmask/: https://cdn.jsdelivr.net/gh/RobinHerbots/Inputmask@5.0.3/
+    /libraries/jquery.inputmask/: https://cdn.jsdelivr.net/gh/RobinHerbots/Inputmask@5.0.5/
   js:
     /libraries/jquery.inputmask/dist/jquery.inputmask.min.js: { minified: true }
   dependencies:
@@ -1180,13 +1185,13 @@ libraries.jquery.textcounter:
 
 libraries.jquery.timepicker:
   remote: https://github.com/jonthornton/jquery-timepicker
-  version: '1.13.10'
+  version: '1.13.14'
   license:
     name: MIT
     url: http://opensource.org/licenses/mit-license.php
     gpl-compatible: true
   cdn:
-    /libraries/jquery.timepicker/: https://cdn.jsdelivr.net/gh/jonthornton/jquery-timepicker@1.13.10/
+    /libraries/jquery.timepicker/: https://cdn.jsdelivr.net/gh/jonthornton/jquery-timepicker@1.13.14/
   css:
     component:
       /libraries/jquery.timepicker/jquery.timepicker.min.css: { minified: true }
@@ -1197,16 +1202,16 @@ libraries.jquery.timepicker:
 
 libraries.progress-tracker:
   remote: https://github.com/NigelOToole/progress-tracker
-  version: '2.0.6'
+  version: '1.4.0'
   license:
     name: MIT
     url: https://github.com/NigelOToole/progress-tracker/blob/master/LICENSE
     gpl-compatible: true
   cdn:
-    /libraries/progress-tracker/: https://cdn.jsdelivr.net/gh/NigelOToole/progress-tracker@v2.0.6/
+    /libraries/progress-tracker/: https://cdn.jsdelivr.net/gh/NigelOToole/progress-tracker@v1.4.0/
   css:
     component:
-      /libraries/progress-tracker/docs/styles/progress-tracker.css: {}
+      /libraries/progress-tracker/app/styles/progress-tracker.css: {}
 
 libraries.signature_pad:
   remote: https://github.com/szimek/signature_pad

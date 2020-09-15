@@ -8,7 +8,6 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element\FormElement;
 use Drupal\Core\Template\Attribute;
 use Drupal\webform\Entity\WebformSubmission;
-use Drupal\webform\Utility\WebformFormHelper;
 use Drupal\webform\Utility\WebformHtmlHelper;
 use Drupal\webform\Utility\WebformXss;
 use Drupal\webform\WebformSubmissionForm;
@@ -76,7 +75,7 @@ abstract class WebformComputedBase extends FormElement implements WebformCompute
     }
 
     if (!empty($element['#states'])) {
-      WebformFormHelper::processStates($element, '#wrapper_attributes');
+      webform_process_states($element, '#wrapper_attributes');
     }
 
     // Add validate callback.

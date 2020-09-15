@@ -5,6 +5,7 @@
  * Theme hooks, preprocessor, and suggestions.
  */
 
+use Drupal\Core\Render\Element;
 use Drupal\file\Entity\File;
 use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\NestedArray;
@@ -497,14 +498,12 @@ function webform_preprocess_form_element(&$variables) {
   // Setup description, help, and more.
   _webform_preprocess_element($variables, ['label', '#title']);
 
-  // Issue #2700439: Description class not added to
-  // form-element.html.twig template.
-  // @see https://www.drupal.org/project/drupal/issues/2700439
-  if (isset($variables['description_display']) && $variables['description_display'] === 'before') {
-    // Add system .description class.
-    if (isset($variables['description'])) {
-      $variables['description']['attributes']->addClass('description');
-    }
+  // Make sure the #description_display is always applied to account for
+  // #more which is placed in the #description.
+  // @see template_preprocess_form_element()
+  if (isset($variables['description'])) {
+    $element = &$variables['element'];
+    $variables['description_display'] = $element['#description_display'];
   }
 
   // Add missing classes to the Claro theme's form elements.
@@ -578,7 +577,7 @@ function webform_preprocess_file_managed_file(&$variables) {
   }
 
   // Don't alter hidden file upload input.
-  if (isset($element['upload']['#access']) && $element['upload']['#access'] === FALSE) {
+  if (!Element::isVisibleElement($element['upload'])) {
     return;
   }
 

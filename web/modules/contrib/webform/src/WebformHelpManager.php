@@ -1648,7 +1648,7 @@ class WebformHelpManager implements WebformHelpManagerInterface {
     $help['help'] = [
       'group' => 'help',
       'title' => $this->t('Help'),
-      'content' => $this->t('Visit the Webform 6.x <a href="https://www.drupal.org/node/2856146">documentation pages</a> for an <a href="https://www.drupal.org/node/2834423">introduction</a>, <a href="https://www.drupal.org/node/2837024">features overview</a>, <a href="https://www.drupal.org/node/2932764">articles</a>, <a href="https://www.drupal.org/node/2860989">recipes</a>, <a href="https://www.drupal.org/node/2932760">known issues</a>, and a <a href="https://www.drupal.org/node/2843422">roadmap</a>.'),
+      'content' => $this->t('Visit the Webform 8.x-5.x <a href="https://www.drupal.org/node/2856146">documentation pages</a> for an <a href="https://www.drupal.org/node/2834423">introduction</a>, <a href="https://www.drupal.org/node/2837024">features overview</a>, <a href="https://www.drupal.org/node/2932764">articles</a>, <a href="https://www.drupal.org/node/2860989">recipes</a>, <a href="https://www.drupal.org/node/2932760">known issues</a>, and a <a href="https://www.drupal.org/node/2843422">roadmap</a>.'),
       'routes' => [
         // @see /admin/structure/webform/help
         'webform.help',
@@ -1690,7 +1690,7 @@ class WebformHelpManager implements WebformHelpManagerInterface {
       'content' => $this->t('The <strong>Options configuration</strong> page lists reusable predefined options/values available for select menus, radio buttons, checkboxes and Likert elements.'),
       'video_id' => 'configuration',
       'routes' => [
-        // @see /admin/structure/webform/options
+        // @see /admin/structure/webform/config/options
         'entity.webform_options.collection',
       ],
     ];

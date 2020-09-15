@@ -7,14 +7,13 @@ use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\NestedArray;
 use Drupal\Component\Utility\Xss;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
 use Drupal\Core\Render\Element\FormElement;
 use Drupal\Core\Render\Markup;
 use Drupal\webform\Element\WebformCompositeFormElementTrait;
 use Drupal\webform\Utility\WebformArrayHelper;
 use Drupal\webform\Utility\WebformElementHelper;
-use Drupal\webform\Utility\WebformFormHelper;
 use Drupal\webform\Utility\WebformOptionsHelper;
-use Symfony\Component\CssSelector\CssSelectorConverter;
 use Drupal\webform_options_custom\Entity\WebformOptionsCustom as WebformOptionsCustomEntity;
 
 /**
@@ -213,7 +212,7 @@ class WebformOptionsCustom extends FormElement implements WebformOptionsCustomIn
     }
 
     // Process states.
-    WebformFormHelper::processStates($element, '#wrapper_attributes');
+    webform_process_states($element, '#wrapper_attributes');
 
     return $element;
   }
@@ -223,9 +222,6 @@ class WebformOptionsCustom extends FormElement implements WebformOptionsCustomIn
    */
   public static function validateWebformOptionsCustom(&$element, FormStateInterface $form_state, &$complete_form) {
     $value = NestedArray::getValue($form_state->getValues(), $element['select']['#parents']);
-
-    // Determine if the element is visible. (#access !== FALSE)
-    $has_access = (!isset($element['#access']) || $element['#access'] === TRUE);
 
     // Determine if the element has multiple values.
     $is_multiple = (empty($element['#multiple'])) ? FALSE : TRUE;
@@ -239,7 +235,7 @@ class WebformOptionsCustom extends FormElement implements WebformOptionsCustomIn
     }
 
     // Validate on elements with #access.
-    if ($has_access && !empty($element['#required']) && $is_empty) {
+    if (Element::isVisibleElement($element) && !empty($element['#required']) && $is_empty) {
       WebformElementHelper::setRequiredError($element, $form_state);
     }
 

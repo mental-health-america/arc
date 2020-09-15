@@ -4,7 +4,6 @@ namespace Drupal\Tests\webform\Unit\Plugin\Block;
 
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Cache\Context\CacheContextsManager;
-use Drupal\Core\DependencyInjection\ContainerBuilder;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Session\AccountInterface;
@@ -136,19 +135,13 @@ class WebformBlockTest extends UnitTestCase {
       ->disableOriginalConstructor()
       ->getMock();
 
-    // Build container.
-    $container = new ContainerBuilder();
-    $container->set('request_stack', $request_stack);
-    $container->set('entity_type.manager', $entity_type_manager);
-    $container->set('webform.token_manager', $token_manager);
-
     $configuration = ['webform_id' => $webform->id()];
 
     $plugin_id = 'webform_block';
 
     $plugin_definition = ['provider' => 'unit_test'];
 
-    return WebformBlock::create($container, $configuration, $plugin_id, $plugin_definition);
+    return new WebformBlock($configuration, $plugin_id, $plugin_definition, $request_stack, $entity_type_manager, $token_manager);
   }
 
 }

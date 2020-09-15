@@ -4,7 +4,11 @@ namespace Drupal\webform_submission_export_import\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Serialization\Yaml;
+use Drupal\webform\WebformRequestInterface;
+use Drupal\webform\WebformSubmissionGenerateInterface;
+use Drupal\webform_submission_export_import\WebformSubmissionExportImportImporterInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
@@ -49,28 +53,41 @@ class WebformSubmissionExportImportController extends ControllerBase implements 
   protected $importer;
 
   /**
-   * {@inheritdoc}
+   * Constructs a WebformSubmissionExportImportController object.
+   *
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   *   The entity type manager.
+   * @param \Drupal\webform\WebformRequestInterface $request_handler
+   *   The webform request handler.
+   * @param \Drupal\webform\WebformSubmissionGenerateInterface $submission_generate
+   *   The webform submission generation service.
+   * @param \Drupal\webform_submission_export_import\WebformSubmissionExportImportImporterInterface $importer
+   *   The webform submission importer.
    */
-  public static function create(ContainerInterface $container) {
-    /** @var \Drupal\webform_submission_export_import\Controller\WebformSubmissionExportImportController $instance */
-    $instance = parent::create($container);
-    $instance->entityTypeManager = $container->get('entity_type.manager');
-    $instance->webformSubmissionStorage = $instance->entityTypeManager->getStorage('webform_submission');
-    $instance->requestHandler = $container->get('webform.request');
-    $instance->generate = $container->get('webform_submission.generate');
-    $instance->importer = $container->get('webform_submission_export_import.importer');
-    $instance->initialize();
-    return $instance;
-  }
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, WebformRequestInterface $request_handler, WebformSubmissionGenerateInterface $submission_generate, WebformSubmissionExportImportImporterInterface $importer) {
+    $this->entityTypeManager = $entity_type_manager;
+    $this->webformSubmissionStorage = $entity_type_manager->getStorage('webform_submission');
+    $this->requestHandler = $request_handler;
+    $this->generate = $submission_generate;
+    $this->importer = $importer;
 
-  /**
-   * Initialize WebformSubmissionExportImportController object.
-   */
-  protected function initialize() {
+    // Initialize the importer.
     $webform = $this->requestHandler->getCurrentWebform();
     $source_entity = $this->requestHandler->getCurrentSourceEntity();
     $this->importer->setWebform($webform);
     $this->importer->setSourceEntity($source_entity);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('entity_type.manager'),
+      $container->get('webform.request'),
+      $container->get('webform_submission.generate'),
+      $container->get('webform_submission_export_import.importer')
+    );
   }
 
   /**

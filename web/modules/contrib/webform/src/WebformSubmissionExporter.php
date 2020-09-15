@@ -281,7 +281,7 @@ class WebformSubmissionExporter implements WebformSubmissionExporterInterface {
     // Append webform exporter default options.
     $exporter_plugins = $this->exporterManager->getInstances();
     foreach ($exporter_plugins as $element_type => $element_plugin) {
-      $this->defaultOptions = $element_plugin->defaultConfiguration() + $this->defaultOptions;
+      $this->defaultOptions += $element_plugin->defaultConfiguration();
     }
 
     // Append webform element default options.
@@ -308,14 +308,18 @@ class WebformSubmissionExporter implements WebformSubmissionExporterInterface {
     // Get exporter plugins.
     $exporter_plugins = $this->exporterManager->getInstances($export_options);
 
+    // Determine if the file can be downloaded or displayed in the file browser.
+    $total = $this->entityStorage->getTotal($this->getWebform(), $this->getSourceEntity());
+    $default_batch_limit = $this->configFactory->get('webform.settings')->get('batch.default_batch_export_size') ?: 500;
+    $download_access = ($total > $default_batch_limit) ? FALSE : TRUE;
+
     // Build #states.
     $states_archive = ['invisible' => []];
     $states_options = ['invisible' => []];
-    $states_files = [
-      'invisible' => [
-        [':input[name="download"]' => ['checked' => FALSE]],
-      ],
-    ];
+    $states_files = ['invisible' => []];
+    if ($webform && $download_access) {
+      $states_files['invisible'][] = [':input[name="download"]' => ['checked' => FALSE]];
+    }
     $states_archive_type = ['visible' => []];
     if ($webform && $webform->hasManagedFile()) {
       $states_archive_type['visible'][] = [':input[name="files"]' => ['checked' => TRUE]];
@@ -499,7 +503,7 @@ class WebformSubmissionExporter implements WebformSubmissionExporterInterface {
         '#description' => $this->t('If checked, the export file will be automatically download to your local machine. If unchecked, the export file will be displayed as plain text within your browser.'),
         '#return_value' => TRUE,
         '#default_value' => $export_options['download'],
-        '#access' => !$this->requiresBatch(),
+        '#access' => $download_access,
         '#states' => $states_archive,
       ];
       $form['export']['download']['files'] = [
@@ -1054,6 +1058,18 @@ class WebformSubmissionExporter implements WebformSubmissionExporterInterface {
    */
   public function isBatch() {
     return ($this->isArchive() || ($this->getTotal() >= $this->getBatchLimit()));
+  }
+
+  /**
+   * Construct an instance of archive tar object.
+   *
+   * @return \Archive_Tar
+   *   Archive tar object.
+   *
+   * @deprecated Scheduled for removal in Webform 8.x-6.x
+   */
+  protected function getArchiveTar() {
+    return new \Archive_Tar($this->getArchiveFilePath(), 'gz');
   }
 
 }

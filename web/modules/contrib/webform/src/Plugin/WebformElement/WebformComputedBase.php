@@ -6,12 +6,12 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Mail\MailFormatHelper;
 use Drupal\webform\Element\WebformComputedTwig as WebformComputedTwigElement;
 use Drupal\webform\Element\WebformComputedBase as WebformComputedBaseElement;
+use Drupal\webform\Element\WebformMessage as WebformMessageElement;
 use Drupal\webform\Plugin\WebformElementBase;
 use Drupal\webform\Plugin\WebformElementComputedInterface;
 use Drupal\webform\Plugin\WebformElementDisplayOnInterface;
 use Drupal\webform\WebformInterface;
 use Drupal\webform\WebformSubmissionInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a base class for 'webform_computed' elements.
@@ -19,22 +19,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 abstract class WebformComputedBase extends WebformElementBase implements WebformElementDisplayOnInterface, WebformElementComputedInterface {
 
   use WebformDisplayOnTrait;
-
-  /**
-   * The database connection.
-   *
-   * @var \Drupal\Core\Database\Connection
-   */
-  protected $database;
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
-    $instance->database = $container->get('database');
-    return $instance;
-  }
 
   /**
    * {@inheritdoc}
@@ -177,6 +161,14 @@ abstract class WebformComputedBase extends WebformElementBase implements Webform
       '#type' => 'fieldset',
       '#title' => $this->t('Computed settings'),
     ];
+    $form['computed']['warning'] = [
+      '#type' => 'webform_message',
+      '#message_message' => $this->t('Computing complex or multiple values with or without Ajax can be resource intensive and may have performance implications. When possible try limiting or combining computations or consider using custom Twig functions, JavaScript, or PHP.'),
+      '#message_type' => 'warning',
+      '#message_close' => TRUE,
+      '#message_storage' => WebformMessageElement::STORAGE_SESSION,
+      '#access' => TRUE,
+    ];
     $form['computed']['display_on'] = [
       '#type' => 'select',
       '#title' => $this->t('Display on'),
@@ -276,7 +268,7 @@ abstract class WebformComputedBase extends WebformElementBase implements Webform
       'delta' => 0,
       'value' => $value,
     ];
-    $this->database->update('webform_submission_data')
+    \Drupal::database()->update('webform_submission_data')
       ->fields($fields)
       ->condition('webform_id', $fields['webform_id'])
       ->condition('sid', $fields['sid'])

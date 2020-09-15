@@ -2,6 +2,7 @@
 
 namespace Drupal\webform_templates\Form;
 
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -26,12 +27,22 @@ class WebformTemplatesFilterForm extends FormBase {
   protected $webformStorage;
 
   /**
+   * Constructs a WebformResultsCustomForm object.
+   *
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   *   The entity type manager.
+   */
+  public function __construct(EntityTypeManagerInterface $entity_type_manager) {
+    $this->webformStorage = $entity_type_manager->getStorage('webform');
+  }
+
+  /**
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
-    $instance = parent::create($container);
-    $instance->webformStorage = $container->get('entity_type.manager')->getStorage('webform');
-    return $instance;
+    return new static(
+      $container->get('entity_type.manager')
+    );
   }
 
   /**

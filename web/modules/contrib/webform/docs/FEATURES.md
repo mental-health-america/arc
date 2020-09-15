@@ -36,7 +36,7 @@ There are <a href="https://www.drupal.org/about/licensing">no licensing fees</a>
 <table class="views-view-grid">
   <tr>
 <td><a class="action-button" href="https://youtu.be/VncMRSwjVto">▶ Watch video</a></td>
-<td><a class="action-button" href="https://simplytest.me/project/webform/6.x">Try Webform</a></td>
+<td><a class="action-button" href="https://simplytest.me/project/webform/8.x-5.x">Try Webform</a></td>
   </tr>
 </table>
 </div>

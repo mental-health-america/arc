@@ -2,11 +2,11 @@ name: 'Webform Image Select test'
 type: module
 description: 'Support module for webform image select element testing.'
 package: 'Webform Testing'
-core_version_requirement: ^8.8 || ^9
+core_version_requirement: ^8.8
 dependencies:
   - 'webform:webform_image_select'
 
-# Information added by Drupal.org packaging script on 2020-07-20
-version: '6.0.0-alpha12'
+# Information added by Drupal.org packaging script on 2020-09-11
+version: '8.x-5.20'
 project: 'webform'
-datestamp: 1595283366
+datestamp: 1599851758
