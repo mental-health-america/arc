@@ -71,6 +71,10 @@ class ComposerStaticInit5b8ad456d71ccae2443036eb3854cda8
             'Webmozart\\PathUtil\\' => 19,
             'Webmozart\\Assert\\' => 17,
         ),
+        'V' => 
+        array (
+            'VariableAnalysis\\' => 17,
+        ),
         'T' => 
         array (
             'Twig\\' => 5,
@@ -256,6 +260,10 @@ class ComposerStaticInit5b8ad456d71ccae2443036eb3854cda8
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
+        'VariableAnalysis\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sirbrillig/phpcs-variable-analysis/VariableAnalysis',
         ),
         'Twig\\' => 
         array (

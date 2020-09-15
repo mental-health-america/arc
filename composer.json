@@ -52,7 +52,7 @@
         "drupal/geofield_map": "^2.7",
         "drupal/google_analytics": "^2.3",
         "drupal/google_fonts_api": "^3.2",
-        "drupal/imce": "^1.6",
+        "drupal/imce": "^2.0",
         "drupal/jquery_ui_accordion": "^1.1",
         "drupal/jquery_ui_tabs": "^1.1",
         "drupal/jquery_ui_tooltip": "^1.1",
