@@ -2,7 +2,22 @@
  * @file
  * Visual styles for Enterprise+'s layout.
  */
+/**
+ * @file
+ * Visual styles for Enterprise+'s layout.
+ */
+.region-sidebar-second .block-views-exposed-filter-blockfind-an-affiliate-findanaffiliate .form-actions input[type=submit] {
+  background-color: #019ed3 !important;
+}
 
+.region-sidebar-second .block-views-exposed-filter-blockfind-an-affiliate-findanaffiliate .form-actions {
+  position: inherit!important;
+  margin: 20px 0 0 !important;
+}
+
+.region-sidebar-second .block-views-exposed-filter-blockfind-an-affiliate-findanaffiliate .form-actions input[type="submit"] {
+  margin: 10px !important;
+}
 /*Regions background colors*/
 .region--white-background {
   background-color: #ffffff;
