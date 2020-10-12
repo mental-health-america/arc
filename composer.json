@@ -32,7 +32,7 @@
         "drupal/console": "^1.0.2",
         "drupal/content_access": "^1.0@alpha",
         "drupal/contribute": "^1.0",
-        "drupal/core": "^8.9.6",
+        "drupal/core": "^8.9.x",
         "drupal/dashboard": "1.x-dev",
         "drupal/devel": "^2.0",
         "drupal/dynamic_entity_reference": "^2.0",
