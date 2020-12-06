@@ -1,0 +1,17 @@
+uuid: 57203b4c-fc0a-4afe-929f-8c211faca302
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 92bXZdyYJ5xqukdfmGRr_CYcwm1vfuS8b8aJ7X_G7E0
+id: taxonomy_term
+label: 'Taxonomy term'
+tags:
+  title: '[term:name] | [site:name]'
+  description: '[term:description]'
+  canonical_url: '[term:url]'
+  og_type: 'Affiliate Programs and Services'
+  og_site_name: '[site:name]'
+  og_title: '[current-page:title]'
+  og_image: /themes/custom/enterpriseplus/mha-assets/build/images/shareimg.png
+  og_url: '[current-page:url:absolute]'

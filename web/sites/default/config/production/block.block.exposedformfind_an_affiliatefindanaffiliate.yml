@@ -1,0 +1,29 @@
+uuid: 87e98f25-1db6-4ed2-982c-293315ca1ba2
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.find_an_affiliate
+  module:
+    - system
+    - views
+  theme:
+    - enterpriseplus
+id: exposedformfind_an_affiliatefindanaffiliate
+theme: enterpriseplus
+region: content
+weight: -52
+provider: null
+plugin: 'views_exposed_filter_block:find_an_affiliate-findanaffiliate'
+settings:
+  id: 'views_exposed_filter_block:find_an_affiliate-findanaffiliate'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /find-an-affiliate
+    negate: false
+    context_mapping: {  }

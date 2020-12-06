@@ -1,0 +1,25 @@
+uuid: 38e87d88-8fbf-4f8f-9e54-5bbeb2c6aac8
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - enterpriseplus
+_core:
+  default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
+id: enterpriseplus_branding
+theme: enterpriseplus
+region: header_first
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

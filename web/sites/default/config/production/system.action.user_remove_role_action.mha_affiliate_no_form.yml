@@ -1,0 +1,14 @@
+uuid: 2a53d966-c4a2-40a4-9fb1-dbb04fe19e5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.mha_affiliate_no_form
+  module:
+    - user
+id: user_remove_role_action.mha_affiliate_no_form
+label: 'Remove the MHA Affiliate (No Affiliation Form) role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: mha_affiliate_no_form

@@ -1,0 +1,33 @@
+uuid: 8a99ae06-181d-4cef-9582-3003b45ea4dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.simplenews_issue
+    - node.type.forum
+    - simplenews.newsletter.default
+  module:
+    - simplenews
+id: node.forum.simplenews_issue
+field_name: simplenews_issue
+entity_type: node
+bundle: forum
+label: Issue
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    handler: simplenews_all
+    handler_settings: null
+    status: 0
+    sent_count: 0
+    subscribers: 0
+    target_uuid: 07671e10-49b5-4e02-a82d-281dc1ccad00
+default_value_callback: ''
+settings:
+  handler: 'default:simplenews_newsletter'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: simplenews_issue

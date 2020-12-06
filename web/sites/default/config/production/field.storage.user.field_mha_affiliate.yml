@@ -1,0 +1,22 @@
+uuid: 27d26622-481f-4e64-b75a-502de36cc1fd
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: user.field_mha_affiliate
+field_name: field_mha_affiliate
+entity_type: user
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,30 @@
+uuid: 1075023e-1d12-4bb5-9a72-bf5699ab6e6d
+langcode: en
+status: true
+dependencies: {  }
+id: d7_syslog_settings
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Configuration
+migration_group: migrate_drupal_7
+label: 'Syslog configuration'
+source:
+  plugin: variable
+  variables:
+    - syslog_facility
+    - syslog_format
+    - syslog_identity
+  source_module: syslog
+process:
+  facility: syslog_facility
+  format: syslog_format
+  identity: syslog_identity
+destination:
+  plugin: config
+  config_name: syslog.settings
+migration_dependencies:
+  required: {  }
+  optional: {  }

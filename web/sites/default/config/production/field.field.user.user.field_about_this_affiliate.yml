@@ -1,0 +1,20 @@
+uuid: 027e4ff1-596c-4780-9339-0cdc8f95b129
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_about_this_affiliate
+  module:
+    - user
+id: user.user.field_about_this_affiliate
+field_name: field_about_this_affiliate
+entity_type: user
+bundle: user
+label: 'About This Affiliate'
+description: 'Please add a sentence or two describing your Affiliate.  This will be displayed on your individual listing as well as used for meta data.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

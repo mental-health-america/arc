@@ -1,0 +1,1019 @@
+//==========================================================================
+// For everything below here, I copied the data from the main theme
+// in /css/theme/color-blue.css
+// Then I did a search and replace for the hex and rgb for my color variables
+// The color theme is the last stylesheet added - it is added dynamically so
+// I need to include "body" as a wrapper to be more specific
+//==========================================================================
+
+
+body{
+
+
+  // base: elements
+  //==========================================================================
+  a {
+    color: $cyan;
+  }
+  a:hover {
+    color: $dark-blue;
+  }
+  a:focus {
+    color: $dark-blue;
+  }
+  a.link--dark,
+  .link--dark a {
+    color: $dark-blue;
+  }
+  a.link--dark:hover,
+  a.link--dark:focus,
+  .link--dark a:hover,
+  .link--dark a:focus {
+    color: $cyan;
+  }
+  a.link--bordered,
+  .link--bordered a {
+    border-bottom-color: $cyan;
+  }
+  a.link--bordered:hover,
+  .link--bordered a:hover {
+    border-bottom-color: $dark-blue;
+  }
+  .region--light-typography.region--dark-background a.link--bordered,
+  .region--light-typography.region--dark-background .link--bordered a {
+    border-color: $cyan;
+  }
+  a.link--hover-style-2:before,
+  .link--hover-style-2 a:before {
+    color: $cyan;
+  }
+  .region--light-typography.region--dark-background a {
+    color: $cyan;
+  }
+  .text--colored {
+    color: $cyan;
+  }
+  .text--dark {
+    color: $dark-blue;
+  }
+  blockquote {
+    border-left-color: $cyan;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $dark-blue;
+  }
+  
+  ::placeholder {
+    color: $base-text-color;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: $base-text-color;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+   color: $base-text-color;
+}
+
+  // base: layout
+  //==========================================================================
+  .region--colored-background {
+    background-color: $cyan;
+  }
+  .region--dark-background {
+    background-color: $dark-blue;
+  }
+  .region--colored-background + .region--separator-incline-diagonal:before {
+    background: linear-gradient(to bottom right, $cyan 49.5%, transparent 50%);
+  }
+  .region--dark-background + .region--separator-incline-diagonal:before {
+    background: linear-gradient(to bottom right, $dark-blue 49.5%, transparent 50%);
+  }
+  .region--colored-background + .region--separator-decline-diagonal:before {
+    background: linear-gradient(to bottom left, $cyan 49.5%, transparent 50%);
+  }
+  .region--dark-background + .region--separator-decline-diagonal:before {
+    background: linear-gradient(to bottom left, $dark-blue 49.5%, transparent 50%);
+  }
+
+  // components: accordion
+  //==========================================================================
+  .panel-title a {
+    color: $dark-blue;
+  }
+  .panel-title a:focus {
+    color: $dark-blue;
+  }
+  .panel-heading--trigger-icon .panel-title a:after {
+    background-color: $dark-blue;
+  }
+  .panel-heading--trigger-icon .panel-title a.collapsed:after {
+    background-color: $cyan;
+  }
+  .panel-heading--trigger-icon .panel-title a:hover:after {
+    background-color: $dark-blue;
+  }
+  .region--light-typography .panel-title a:hover {
+    color: $dark-blue;
+  }
+  .region--light-typography .panel-body a {
+    color: $cyan;
+  }
+  .region--light-typography .panel-body a:hover {
+    color: $dark-blue;
+  }
+  .panel-group.panel-group--style-2 .panel .panel-title a {
+    background-color: $dark-blue;
+  }
+  .panel-group.panel-group--style-2 .panel-title a.collapsed {
+    background-color: $cyan;
+  }
+  .panel-group.panel-group--style-2 .panel-title a:hover {
+    background-color: $dark-blue;
+  }
+  .region--colored-background .panel-group.panel-group--style-2 .panel-heading--trigger-icon .panel-title a,
+  .region--colored-background .panel-group.panel-group--style-2 .panel-heading--trigger-icon .panel-title a:hover {
+    color: $cyan;
+  }
+  .region--dark-background .panel-group.panel-group--style-2 .panel-heading--trigger-icon .panel-title a,
+  .region--dark-background .panel-group.panel-group--style-2 .panel-heading--trigger-icon .panel-title a:hover {
+    color: $dark-blue;
+  }
+
+  // components: breadcrumb
+  //==========================================================================
+  .breadcrumb__items {
+    color: $dark-blue;
+  }
+
+  // components: buttons
+  //==========================================================================
+  a.button,
+  input[type="submit"],
+  input[type="reset"],
+  input[type="button"] {
+    background-color: $cyan;
+    -webkit-box-shadow: 0 0 15px rgba($cyan, 0.5);
+    box-shadow: 0 0 15px rgba($cyan, 0.5);
+  }
+  a.button:hover,
+  input[type="submit"]:hover,
+  input[type="reset"]:hover,
+  input[type="button"]:hover,
+  a.button:focus,
+  input[type="submit"]:focus,
+  input[type="reset"]:focus,
+  input[type="button"]:focus {
+    background-color: $dark-blue;
+    -webkit-box-shadow: 0 0 15px rgba($dark-blue, 0.5);
+    box-shadow: 0 0 15px rgba($dark-blue, 0.5);
+  }
+  a.button.button--hover-style-2:before {
+    background-color: $dark-blue;
+  }
+  .region--colored-background a.button:hover,
+  .region--colored-background input[type="submit"]:hover,
+  .region--colored-background input[type="reset"]:hover,
+  .region--colored-background input[type="button"]:hover,
+  .region--colored-background a.button:focus,
+  .region--colored-background input[type="submit"]:focus,
+  .region--colored-background input[type="reset"]:focus,
+  .region--colored-background input[type="button"]:focus {
+    color: $cyan;
+  }
+  .region--dark-background a.button:hover,
+  .region--dark-background input[type="submit"]:hover,
+  .region--dark-background input[type="reset"]:hover,
+  .region--dark-background input[type="button"]:hover,
+  .region--dark-background a.button:focus,
+  .region--dark-background input[type="submit"]:focus,
+  .region--dark-background input[type="reset"]:focus,
+  .region--dark-background input[type="button"]:focus {
+    color: $dark-blue;
+  }
+  a.button--colored,
+  .region--colored-background a.button--colored,
+  .region--dark-background a.button--colored,
+  .region--black-background a.button--colored {
+    background-color: $cyan;
+    border-color: $cyan;
+  }
+
+  // components: comment
+  //==========================================================================
+  .node .comment ul.links li a {
+    color: $cyan;
+  }
+  .node .comment ul.links li a:hover {
+    color: $dark-blue;
+  }
+
+  // components: comments
+  //==========================================================================
+  .comment-wrapper h2.title {
+    color: $cyan;
+  }
+
+  // components: contact info
+  //==========================================================================
+  .contact-info .icon {
+    background: $cyan;
+  }
+  .contact-info li > i {
+    background: $cyan;
+  }
+  .region--light-typography.region--colored-background .contact-info li i,
+  .region--light-typography.region--colored-background .contact-info .icon {
+    color: $cyan;
+  }
+  .region--light-typography.region--dark-background .contact-info li i,
+  .region--light-typography.region--dark-background .contact-info .icon {
+    color: $dark-blue;
+  }
+  .region--dark-typography .contact-info-items-grid .contact-info-item__text {
+    color: $dark-blue;
+  }
+
+  // components: fancy block
+  //==========================================================================
+  .region--colored-background .fancy-block-text {
+    background-color: $cyan;
+  }
+  .region--dark-background .fancy-block-text {
+    background-color: $dark-blue;
+  }
+
+  // components: fancy linked images block
+  //==========================================================================
+  .clip-path-support .clip-pentagon-container {
+    background-color: $cyan;
+  }
+  .clip-path-support .clip-circle-container {
+    background-color: $cyan;
+  }
+  .clip-path-support .clip-rectangle-container:before {
+    border-color: $cyan;
+  }
+  @-moz-document url-prefix() {
+    .clip-pentagon-container {
+      background-color: $cyan;
+    }
+    .clip-circle-container {
+      background-color: $cyan;
+    }
+    .clip-rectangle-container:before {
+      border-color: $cyan;
+    }
+  }
+
+  // components: featured linked text tiles block 
+  //==========================================================================
+  .featured-linked-text-tile .featured-linked-text-tile__title {
+    color: $cyan;
+  }
+  .featured-linked-text-tile .featured-linked-text-tile__title a {
+    color: $cyan;
+  }
+  .featured-linked-text-tile .featured-linked-text-tile__title a:hover {
+    color: $dark-blue;
+  }
+  .featured-linked-text-tile a.featured-linked-text-tile__link {
+    color: $cyan;
+  }
+  .featured-linked-text-tile a.featured-linked-text-tile__link:hover {
+    color: $dark-blue;
+  }
+
+  // components: content tabs 
+  //==========================================================================
+  .field--name-field-mt-content-tabs .nav-tabs > li > a {
+    color: $cyan;
+  }
+  .field--name-field-mt-content-tabs .nav-tabs > li > a:hover {
+    color: $dark-blue;
+  }
+  .field--name-field-mt-content-tabs .nav-tabs > li > a:focus,
+  .field--name-field-mt-content-tabs .nav-tabs > li.active > a,
+  .field--name-field-mt-content-tabs .nav-tabs > li.active > a:focus,
+  .field--name-field-mt-content-tabs .nav-tabs > li.active > a:hover {
+    color: $dark-blue;
+  }
+
+  // components: video 
+  //==========================================================================
+  .video-item > a:before {
+    background-color: rgba($dark-blue, 0.75);
+  }
+
+  // components: taxonomy term 
+  //==========================================================================
+  .field--entity-reference-target-type-taxonomy-term:after {
+    color: $cyan;
+  }
+
+  // components: flexslider global 
+  //==========================================================================
+  .flexslider .flex-direction-nav a:before {
+    color: $cyan;
+  }
+  .flexslider .flex-prev:hover:before,
+  .flexslider .flex-next:hover:before {
+    color: $dark-blue;
+  }
+
+  // components: flexslider nodes slideshow 
+  //==========================================================================
+  .nodes-slideshow-navigation .slides > li.is-active a {
+    color: $dark-blue;
+  }
+
+  // components: forms 
+  //==========================================================================
+  input.form-text:hover,
+  input.form-tel:hover,
+  input.form-email:hover,
+  input.form-url:hover,
+  input.form-search:hover,
+  input.form-file:hover,
+  input.form-number:hover,
+  input.form-color:hover,
+  textarea:hover,
+  select:hover,
+  input.form-text:focus,
+  input.form-tel:focus,
+  input.form-email:focus,
+  input.form-url:focus,
+  input.form-search:focus,
+  input.form-file:focus,
+  input.form-number:focus,
+  input.form-color:focus,
+  textarea:focus,
+  select:focus {
+    color: $dark-blue;
+  }
+  .form-submit-icon {
+    background-color: $cyan;
+  }
+  .region--colored-background .form-submit-icon {
+    background-color: $dark-blue;
+  }
+  .label {
+    color: $dark-blue;
+  }
+  
+  select{
+    padding: 14px 15px 13px;
+  }
+  
+  fieldset{
+    padding: 0 1.5em 2em;
+    
+    legend{
+      margin: 0;
+    }
+  }
+
+  // components: highlights 
+  //==========================================================================
+  .highlight-head {
+    color: $dark-blue;
+    border-color: $cyan;
+  }
+  .highlight-body {
+    color: $dark-blue;
+  }
+
+  // components: image overlay 
+  //==========================================================================
+  .overlay--colored {
+    background-color: rgba($dark-blue, 0.75);
+  }
+  .overlay-icon--colored.overlay-icon--button {
+    background-color: $cyan;
+    border-color: $cyan;
+  }
+  .overlay-icon--white.overlay-icon--button:hover,
+  .region--light-typography .overlay-icon--white.overlay-icon--button:hover {
+    color: $dark-blue;
+  }
+  .overlay-icon--colored.overlay-icon--button:hover,
+  .region--light-typography .overlay-icon--colored.overlay-icon--button:hover {
+    background-color: $dark-blue;
+    border-color: $dark-blue;
+  }
+
+  // components: layout switcher 
+  //==========================================================================
+  .layout-switcher li.active a {
+    color: $cyan;
+  }
+
+  // components: menu 
+  //==========================================================================
+  ul.menu li a.is-active,
+  ul.menu li > span.is-active {
+    color: $dark-blue;
+  }
+  ul.menu li > a:before,
+  ul.menu li > span:before {
+    color: $dark-blue;
+  }
+  .header-container ul.menu li a,
+  .header-container ul.menu li > span {
+    color: $dark-blue;
+  }
+  .header-container ul.menu li a:hover,
+  .header-container ul.menu li.active-trail > a,
+  .header-container ul.menu li span:hover,
+  .header-container ul.menu li.active-trail > span {
+    color: $cyan;
+  }
+  .header-container .region--light-typography ul.menu li a:hover,
+  .header-container .region--light-typography ul.menu li.active-trail > a,
+  .header-container .region--light-typography ul.menu li > span:hover,
+  .header-container .region--light-typography ul.menu li.active-trail > span {
+    color: $cyan;
+  }
+  .region--dark-typography .subfooter__section ul.menu li a,
+  .region--dark-typography .subfooter__section ul.menu li > span {
+    color: $dark-blue;
+  }
+  .region--dark-typography .subfooter__section ul.menu li a:hover,
+  .region--dark-typography .subfooter__section ul.menu li > span:hover {
+    color: $cyan;
+  }
+  .header-container .sf-menu li.sfHover > a,
+  .header-container .region--light-typography .sf-menu li.sfHover > a,
+  .header-container .sf-menu li.sfHover > span,
+  .header-container .region--light-typography .sf-menu li.sfHover > span {
+    color: $cyan;
+  }
+  .header-container ul.sf-menu > li > a.menuparent:after,
+  .header-container ul.sf-menu > li > span.menuparent:after {
+    color: $cyan;
+  }
+  .menu.cta-active > li:last-child > a {
+    -webkit-box-shadow: 0 0 15px rgba($red, 0.5);
+    box-shadow: 0 0 15px rgba($red, 0.5);
+    background-color: $red;
+  }
+  .menu.cta-active > li:last-child > a:hover {
+    background-color: $dark-red;
+    -webkit-box-shadow: 0 0 15px rgba($dark-red, 0.5);
+    box-shadow: 0 0 15px rgba($dark-red, 0.5);
+  }
+  .region--colored-background .menu.cta-active > li:last-child > a {
+    color: $red;
+  }
+  .region--light-typography.js-transparent-header ul.menu.sf-accordion li a,
+  .region--light-typography.js-transparent-header ul.menu.sf-accordion li > span {
+    color: $dark-red;
+  }
+  .menu.cta-active--email > li:last-child > a::before {
+    content: '';
+    display: none;
+  }
+
+  // components: mini pager 
+  //==========================================================================
+  li.pager__item a:hover {
+    background-color: $cyan;
+  }
+  .region--gray-background li.pager__item > a,
+  .region--gray-background li.pager__item.is-active {
+    background-color: $dark-blue;
+  }
+  .region--gray-background li.pager__item > a:hover {
+    background-color: $cyan;
+  }
+  .region--colored-background li.pager__item a:hover {
+    color: $cyan;
+  }
+  .region--dark-background li.pager__item a:hover {
+    color: $dark-blue;
+  }
+
+  // components: node links 
+  //==========================================================================
+  .node ul.links li a {
+    -webkit-box-shadow: 0 0 15px rgba($cyan, 0.5);
+    box-shadow: 0 0 15px rgba($cyan, 0.5);
+    background-color: $cyan;
+  }
+  .node ul.links li a:hover {
+    background-color: $dark-blue;
+  }
+
+  // components: node product 
+  //==========================================================================
+  .node--type-mt-product .comments-count__counter {
+    color: $cyan;
+  }
+  .node--type-mt-product .field--name-field-mt-price {
+    color: $cyan;
+  }
+  .node--type-mt-product .field--name-field-mt-buy-link a {
+    -webkit-box-shadow: 0 0 15px rgba($cyan, 0.5);
+    box-shadow: 0 0 15px rgba($cyan, 0.5);
+    background-color: $cyan;
+  }
+  .node--type-mt-product .field--name-field-mt-buy-link a:hover {
+    background-color: $dark-blue;
+    -webkit-box-shadow: 0 0 15px rgba($dark-blue, 0.5);
+    box-shadow: 0 0 15px rgba($dark-blue, 0.5);
+  }
+  .region--colored-background .field--name-field-mt-buy-link a:hover {
+    color: $cyan;
+  }
+  .region--dark-background .field--name-field-mt-buy-link a:hover {
+    color: $dark-blue;
+  }
+
+  // components: node service 
+  //==========================================================================
+  .node--type-mt-service .field--name-field-mt-buy-link a {
+    -webkit-box-shadow: 0 0 15px rgba($cyan, 0.5);
+    box-shadow: 0 0 15px rgba($cyan, 0.5);
+    background-color: $cyan;
+  }
+  .node--type-mt-service .field--name-field-mt-buy-link a:hover {
+    background-color: $dark-blue;
+    -webkit-box-shadow: 0 0 15px rgba($dark-blue, 0.5);
+    box-shadow: 0 0 15px rgba($dark-blue, 0.5);
+  }
+  .region--colored-background .field--name-field-mt-buy-link a:hover {
+    color: $cyan;
+  }
+  .region--dark-background .field--name-field-mt-buy-link a:hover {
+    color: $dark-blue;
+  }
+
+  // components: owl carousel global 
+  //==========================================================================
+  .owl-theme .owl-controls .owl-buttons div {
+    color: $cyan;
+  }
+  .owl-theme .owl-controls .owl-buttons div:hover {
+    color: $dark-blue;
+  }
+
+  // components: pager 
+  //==========================================================================
+  li.pager__item a:hover,
+  li.pager__item.is-active a {
+    background-color: $cyan;
+  }
+  .region--colored-background li.pager__item a:hover,
+  .region--colored-background li.pager__item.is-active a,
+  .region--colored-background li.pager__item.is-active:last-child a {
+    color: $cyan;
+  }
+  .region--dark-background li.pager__item a:hover,
+  .region--dark-background li.pager__item.is-active a,
+  .region--dark-background li.pager__item.is-active:last-child a {
+    color: $dark-blue;
+  }
+  .region--gray-background li.pager__item > a {
+    background-color: $dark-blue;
+  }
+  .region--gray-background li.pager__item > a:hover,
+  .region--gray-background li.pager__item.is-active a {
+    background-color: $cyan;
+  }
+
+  // components: pills 
+  //==========================================================================
+  .nav-pills > li > a {
+    background-color: $cyan;
+    -webkit-box-shadow: 0 0 15px rgba($cyan, 0.5);
+    box-shadow: 0 0 15px rgba($cyan, 0.5);
+  }
+  .nav-pills > li.active > a,
+  .nav-pills > li.active > a:focus,
+  .nav-pills > li.active > a:hover,
+  .nav-pills > li > a:hover,
+  .nav-pills > li > a:focus {
+    background-color: $dark-blue;
+    -webkit-box-shadow: 0 0 15px rgba($dark-blue, 0.5);
+    box-shadow: 0 0 15px rgba($dark-blue, 0.5);
+  }
+  .region--colored-background .nav-pills > li.active > a,
+  .region--colored-background .nav-pills > li.active > a:focus,
+  .region--colored-background .nav-pills > li.active > a:hover,
+  .region--colored-background .nav-pills > li > a:hover,
+  .region--colored-background .nav-pills > li > a:focus {
+    color: $cyan;
+  }
+  .region--dark-background .nav-pills > li.active > a,
+  .region--dark-background .nav-pills > li.active > a:focus,
+  .region--dark-background .nav-pills > li.active > a:hover,
+  .region--dark-background .nav-pills > li > a:hover,
+  .region--dark-background .nav-pills > li > a:focus {
+    color: $dark-blue;
+  }
+
+  // components: post progress 
+  //==========================================================================
+  .post-progress__bar {
+    background-color: $cyan;
+  }
+
+  // components: separators 
+  //==========================================================================
+  .separator--colored {
+    background-color: $cyan;
+  }
+  .separator--dark {
+    background-color: $dark-blue;
+  }
+
+  // components: site branding 
+  //==========================================================================
+  .site-name a {
+    color: $dark-blue;
+  }
+
+  // components: site slideout 
+  //==========================================================================
+  .slideout-toggle {
+    background-color: $cyan;
+  }
+  .slideout.region--dark-background {
+    background-color: #131737;
+  }
+
+  // components: slider revolution full screen 
+  //==========================================================================
+  .scroll-button a {
+    background-color: rgba($dark-blue, 0.9);
+  }
+
+  // components: slider revolution global 
+  //==========================================================================
+  .region--light-typography.region--dark-background .tp-caption__title a:hover {
+    color: $cyan;
+  }
+  .tp-caption__button {
+    border-color: $cyan;
+    background-color: $cyan;
+  }
+  .tp-caption__button:hover {
+    background-color: $dark-blue;
+    border-color: $dark-blue;
+  }
+  .region--light-typography.region--dark-background a.tp-caption__button:hover {
+    color: $dark-blue;
+  }
+  .region--light-typography.region--colored-background a.tp-caption__button:hover {
+    color: $cyan;
+  }
+  .slideshow-boxedwidth .tp-caption--transparent-background.region--dark-background,
+  .slideshow-fullscreen .tp-caption--transparent-background.region--dark-background,
+  .slideshow-fullwidth .tp-caption--transparent-background.region--dark-background,
+  .slideshow-internal .tp-caption--transparent-background.region--dark-background {
+    background-color: rgba($dark-blue, 0.9);
+  }
+  .tparrows {
+    background-color: $cyan;
+  }
+  .tparrows:hover {
+    background-color: $dark-blue;
+  }
+  .tp-bullets .tp-bullet {
+    background-color: $dark-blue;
+  }
+  .tp-bullets .tp-bullet:hover,
+  .tp-bullets .tp-bullet.selected {
+    background-color: $cyan;
+  }
+  .tp-tabs {
+    background-color: rgba($dark-blue, 0.93) !important;
+  }
+  .tp-tabs .tp-tab.selected,
+  .tp-tabs .tp-tab:hover {
+    background-color: $dark-blue;
+  }
+
+  // components: tables 
+  //==========================================================================
+  table tr th {
+    color: $dark-blue;
+  }
+  .region--gray-background table tr th {
+    background-color: $dark-blue;
+  }
+  
+  //Fixing border radius
+  table tr:first-child th:first-child, 
+  table tr:first-child td:first-child,
+  table tr:first-child th:last-child, 
+  table tr:first-child td:last-child,
+  table tr:last-child th:first-child, 
+  table tr:last-child td:first-child,
+  table tr:last-child th:last-child, 
+  table tr:last-child td:last-child{
+    border-radius: initial;
+  }
+  
+  td.is-active {
+    background-color: #f6f8f9;
+  }
+  
+
+  // components: tabs 
+  //==========================================================================
+  .nav-tabs > li > a {
+    color: $cyan;
+  }
+  .nav-tabs > li > a:hover {
+    border-color: $dark-blue $dark-blue $dark-blue;
+    background: $dark-blue;
+  }
+  .nav-tabs > li > a:focus,
+  .nav-tabs > li.active > a,
+  .nav-tabs > li.active > a:focus,
+  .nav-tabs > li.active > a:hover {
+    background-color: $dark-blue;
+    border: 1px solid $dark-blue;
+    border-bottom-color: $dark-blue;
+  }
+  .nav-tabs.nav-tabs--vertical > li > a:hover,
+  .nav-tabs.nav-tabs--vertical > li > a:focus,
+  .nav-tabs.nav-tabs--vertical .active > a,
+  .nav-tabs.nav-tabs--vertical .active > a:hover,
+  .nav-tabs.nav-tabs--vertical .active > a:focus {
+    border-color: $dark-blue transparent $dark-blue $dark-blue;
+  }
+  .region--black-background .nav-tabs > li.active > a,
+  .region--black-background .nav-tabs > li > a:focus,
+  .region--black-background .nav-tabs > li.active > a:focus,
+  .region--black-background .nav-tabs > li.active > a:hover {
+    border-color: $cyan;
+  }
+  .region--black-background .nav-tabs > li.active > a,
+  .region--black-background .nav-tabs > li > a:focus,
+  .region--black-background .nav-tabs > li > a:hover {
+    background-color: $cyan;
+    border-color: $cyan;
+  }
+  .region--dark-background .nav-tabs > li.active > a,
+  .region--dark-background .nav-tabs > li > a:focus,
+  .region--dark-background .nav-tabs > li.active > a:focus,
+  .region--dark-background .nav-tabs > li.active > a:hover {
+    border-color: $cyan;
+  }
+  .region--dark-background .nav-tabs > li.active > a,
+  .region--dark-background .nav-tabs > li > a:focus,
+  .region--dark-background .nav-tabs > li > a:hover {
+    background-color: $cyan;
+    border-color: $cyan;
+  }
+  .nav-tab__subtitle {
+    color: $cyan;
+  }
+  .nav-tabs.nav-tabs--fancy > li > a {
+    color: $dark-blue;
+  }
+  .nav-tabs.nav-tabs--fancy > .active > a,
+  .nav-tabs.nav-tabs--fancy > .active > a:focus,
+  .nav-tabs.nav-tabs--fancy > .active > a:hover,
+  .nav-tabs.nav-tabs--fancy > li > a:focus,
+  .nav-tabs.nav-tabs--fancy > li > a:hover {
+    border-color: $dark-blue;
+    color: $dark-blue;
+  }
+
+  // components: to top 
+  //==========================================================================
+  .to-top {
+    background-color: $cyan;
+    -webkit-box-shadow: 0 0 15px rgba($cyan, 0.5);
+    box-shadow: 0 0 15px rgba($cyan, 0.5);
+  }
+  .to-top:hover {
+    background-color: $dark-blue;
+    -webkit-box-shadow: 0 0 15px rgba($dark-blue, 0.5);
+    box-shadow: 0 0 15px rgba($dark-blue, 0.5);
+  }
+
+  // components: tooltip 
+  //==========================================================================
+  .tooltip-inner {
+    background-color: $dark-blue;
+  }
+  .tooltip.top .tooltip-arrow,
+  .tooltip.top-left .tooltip-arrow,
+  .tooltip.top-right .tooltip-arrow {
+    border-top-color: $dark-blue;
+  }
+  .tooltip.right .tooltip-arrow {
+    border-right-color: $dark-blue;
+  }
+  .tooltip.left .tooltip-arrow {
+    border-left-color: $dark-blue;
+  }
+  .tooltip.bottom .tooltip-arrow,
+  .tooltip.bottom-left .tooltip-arrow,
+  .tooltip.bottom-right .tooltip-arrow {
+    border-bottom-color: $dark-blue;
+  }
+
+  // components: transparent header 
+  //==========================================================================
+  .onscroll .js-transparent-header .header.region--dark-background {
+    background-color: rgba($dark-blue, 0.9);
+    border-bottom-color: $dark-blue;
+  }
+  @media (max-width: 767px) {
+    .js-transparent-header .region--dark-background {
+      background-color: $dark-blue !important;
+    }
+  }
+
+  // components: view collections image overlay 
+  //==========================================================================
+  .view-collections-grid .overlay-inner .overlay-animated,
+  .view-collections-carousel .overlay-inner .overlay-animated,
+  .view-collection-masonry .overlay-inner .overlay-animated {
+    background-color: $cyan;
+    -webkit-box-shadow: 0 0 15px rgba($cyan, 0.5);
+    box-shadow: 0 0 15px rgba($cyan, 0.5);
+  }
+  .view-collections-grid .overlay-inner .overlay-animated:hover,
+  .view-collections-carousel .overlay-inner .overlay-animated:hover,
+  .view-collection-masonry .overlay-inner .overlay-animated:hover {
+    background-color: $dark-blue;
+    -webkit-box-shadow: 0 0 15px rgba($dark-blue, 0.5);
+    box-shadow: 0 0 15px rgba($dark-blue, 0.5);
+  }
+
+  // components: view grid style 2 
+  //==========================================================================
+  .view-grid-style-2 .views-field-title a {
+    color: $cyan;
+  }
+  .view-grid-style-2 .views-field-title a:hover {
+    color: $dark-blue;
+  }
+  .region--light-typography.region--dark-background .view-grid-style-2 a.link-hover-style-2:before,
+  .region--light-typography.region--dark-background .view-grid-style-2 .link-hover-style-2:before {
+    color: $cyan;
+  }
+
+  // components: view items list 
+  //==========================================================================
+  .view-items-list .views-field-title a {
+    color: $dark-blue;
+  }
+  .view-items-list .views-field-title a:hover {
+    color: $cyan;
+  }
+  .view-items-list .views-field-field-mt-price {
+    color: $cyan;
+  }
+
+  // components: view popular taxonomy 
+  //==========================================================================
+  .view-mt-popular-tags .views-row a {
+    background-color: $cyan;
+  }
+  .view-mt-popular-tags .views-row a:hover {
+    background-color: $dark-blue;
+  }
+  .region--colored-background .view-mt-popular-tags .views-row a:hover {
+    color: $cyan;
+  }
+  .region--dark-background .view-mt-popular-tags .views-row a:hover {
+    color: $dark-blue;
+  }
+
+  // components: view pricing tables 
+  //==========================================================================
+  .view-pricing-tables .pricing-table-header {
+    background-color: $dark-blue;
+  }
+  .view-pricing-tables .pricing-table-body {
+    color: $dark-blue;
+  }
+  .pricing-table a.button {
+    background-color: $cyan;
+    -webkit-box-shadow: 0 0 15px rgba($cyan, 0.5);
+    box-shadow: 0 0 15px rgba($cyan, 0.5);
+  }
+  .pricing-table a.button:hover {
+    background-color: $dark-blue;
+    -webkit-box-shadow: 0 0 15px rgba($dark-blue, 0.5);
+    box-shadow: 0 0 15px rgba($dark-blue, 0.5);
+  }
+  .region--dark-background .view-pricing-tables .pricing-table-header {
+    background-color: $cyan;
+  }
+  .region--black-background .view-pricing-tables .pricing-table-header {
+    background-color: $cyan;
+  }
+
+  // components: view products tags 
+  //==========================================================================
+  .view-product-tags .views-field-name a {
+    background-color: $cyan;
+  }
+  .view-product-tags .views-field-name a:hover {
+    background-color: $dark-blue;
+  }
+  .region--colored-background .view-product-tags .views-field-name a:hover {
+    color: $cyan;
+  }
+  .region--dark-background .view-product-tags .views-field-name a:hover {
+    color: $dark-blue;
+  }
+
+  // components: view products grid 
+  //==========================================================================
+  .view-products-grid .views-field-field-mt-price {
+    color: $cyan;
+  }
+  .view-products-grid .views-field-title h5 a {
+    color: $dark-blue;
+  }
+
+  // components: view promoted items 
+  //==========================================================================
+  .view-promoted-items-icon {
+    background-color: $cyan;
+  }
+  .view-promoted-items-icon:hover {
+    background-color: $dark-blue;
+  }
+  .view-promoted-items-info span,
+  .view-promoted-items-info a {
+    background-color: $cyan;
+  }
+
+  // components: view team members grid 2 
+  //==========================================================================
+  .view-team-members-grid-2 .views-field-title a {
+    color: $dark-blue;
+  }
+
+  // components: view testimonials grid 2 
+  //==========================================================================
+  .view-testimonials-grid-2 .views-field-title a {
+    color: $dark-blue;
+  }
+
+  // components: view testimonials grid 
+  //==========================================================================
+  .view-testimonials-grid .views-field-title a {
+    color: $dark-blue;
+  }
+  .region--gray-background .view-testimonials-grid .views-field-body {
+    background-color: $dark-blue;
+  }
+  .region--gray-background .view-testimonials-grid .views-field-body:after {
+    border-color: $dark-blue transparent transparent transparent;
+  }
+
+  // components: view testimonials list 
+  //==========================================================================
+  .view-testimonials-list .views-field-title a {
+    color: $dark-blue;
+  }
+  .region--gray-background .view-testimonials-list .views-field-body {
+    background-color: $dark-blue;
+  }
+  .region--gray-background .view-testimonials-list .views-field-body:after {
+    border-color: $dark-blue transparent transparent transparent;
+  }
+
+  // components: view titles list 
+  //==========================================================================
+  .view-titles-list .views-field-title a:before {
+    color: $dark-blue;
+  }
+
+  // components: views 
+  //==========================================================================
+  .view > .more-link a {
+    -webkit-box-shadow: 0 0 15px rgba($cyan, 0.5);
+    box-shadow: 0 0 15px rgba($cyan, 0.5);
+    background-color: $cyan;
+  }
+  .view > .more-link a:hover {
+    background-color: $dark-blue;
+    -webkit-box-shadow: 0 0 15px rgba($dark-blue, 0.5);
+    box-shadow: 0 0 15px rgba($dark-blue, 0.5);
+  }
+  .region--dark-background .view > .more-link a:hover {
+    color: $dark-blue;
+  }
+  .region--colored-background .view > .more-link a:hover {
+    color: $cyan;
+  }
+  
+}

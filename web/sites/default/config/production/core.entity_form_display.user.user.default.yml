@@ -1,0 +1,279 @@
+uuid: 4c08e0a8-5971-46fc-879f-ad962dc81471
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_about_this_affiliate
+    - field.field.user.user.field_affiliate_address
+    - field.field.user.user.field_affiliate_geocode
+    - field.field.user.user.field_affiliate_name
+    - field.field.user.user.field_affiliate_programs
+    - field.field.user.user.field_application_type
+    - field.field.user.user.field_bpsp
+    - field.field.user.user.field_cbs_affiliate
+    - field.field.user.user.field_cbs_membership_level
+    - field.field.user.user.field_mha_affiliate
+    - field.field.user.user.field_model_type
+    - field.field.user.user.field_old_affiliation_nid
+    - field.field.user.user.field_other
+    - field.field.user.user.field_phone
+    - field.field.user.user.field_please_list_any_other_prog
+    - field.field.user.user.field_website
+    - field.field.user.user.user_picture
+  module:
+    - address
+    - conditional_fields
+    - field_group
+    - geofield
+    - link
+    - telephone
+    - user
+third_party_settings:
+  field_group:
+    group_tabs:
+      children:
+        - group_login
+        - group_listing
+        - group_program_services
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: Tabs
+      region: content
+    group_login:
+      children:
+        - account
+        - timezone
+      parent_name: group_tabs
+      weight: 20
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Login
+      region: content
+    group_listing:
+      children:
+        - field_model_type
+        - field_application_type
+        - field_mha_affiliate
+        - field_cbs_affiliate
+        - field_cbs_membership_level
+        - field_bpsp
+        - field_affiliate_name
+        - field_about_this_affiliate
+        - field_phone
+        - field_website
+        - field_affiliate_address
+        - field_affiliate_geocode
+      parent_name: group_tabs
+      weight: 22
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Listing
+      region: content
+    group_program_services:
+      children:
+        - field_affiliate_programs
+        - field_other
+        - field_please_list_any_other_prog
+      parent_name: group_tabs
+      weight: 23
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Programs/Services
+      region: content
+_core:
+  default_config_hash: LLAieeozVsoZDb-2PbFxRJpQqnKmpR7-4OoRJnduz-U
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  account:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_about_this_affiliate:
+    weight: 15
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_affiliate_address:
+    weight: 18
+    settings:
+      default_country: null
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_affiliate_geocode:
+    weight: 19
+    settings:
+      html5_geolocation: false
+    third_party_settings: {  }
+    type: geofield_latlon
+    region: content
+  field_affiliate_name:
+    weight: 14
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_affiliate_programs:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_application_type:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_bpsp:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_cbs_affiliate:
+    weight: 11
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_cbs_membership_level:
+    weight: 12
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        8cb64ee7-1896-4130-b09d-9912be5a692e:
+          dependee: field_cbs_affiliate
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: false
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: user
+          bundle: user
+    type: options_buttons
+    region: content
+  field_mha_affiliate:
+    weight: 10
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_model_type:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_old_affiliation_nid:
+    weight: 24
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_other:
+    weight: 2
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_phone:
+    weight: 16
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_please_list_any_other_prog:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings:
+      conditional_fields:
+        6ae0b491-dc23-4b31-be35-05574d916591:
+          dependee: field_other
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: false
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: user
+          bundle: user
+    type: string_textarea
+    region: content
+  field_website:
+    weight: 17
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  google_analytics:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  simplenews:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  timezone:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  contact: true
+  language: true
+  path: true
+  user_picture: true

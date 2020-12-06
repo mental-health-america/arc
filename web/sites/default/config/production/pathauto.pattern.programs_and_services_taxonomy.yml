@@ -1,0 +1,23 @@
+uuid: 7811e81c-7dd3-4001-b575-57bd71613fda
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: programs_and_services_taxonomy
+label: 'Affiliate Programs and Services Taxonomy'
+type: 'canonical_entities:taxonomy_term'
+pattern: 'affiliate-programs/[term:name]'
+selection_criteria:
+  2066bf8e-4b91-482d-b216-f439da0e6ed1:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      programs_and_services: programs_and_services
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: 2066bf8e-4b91-482d-b216-f439da0e6ed1
+selection_logic: and
+weight: -5
+relationships: {  }

@@ -1,0 +1,51 @@
+uuid: f2ca08e9-7793-44f8-b9e6-d277cc2b7f8c
+langcode: en
+status: true
+dependencies:
+  module:
+    - salesforce_push
+id: user_account_information
+label: 'User Account Information'
+weight: 0
+locked: false
+type: salesforce_mapping
+key: Drupal_ID__c
+async: false
+push_standalone: false
+pull_trigger_date: LastModifiedDate
+pull_where_clause: ''
+sync_triggers:
+  push_create: true
+  push_update: true
+  push_delete: false
+  pull_create: false
+  pull_update: false
+  pull_delete: false
+salesforce_object_type: Account
+drupal_entity_type: user
+drupal_bundle: user
+field_mappings:
+  -
+    drupal_field_type: properties
+    drupal_field_value: uid
+    salesforce_field: Drupal_ID__c
+    direction: sync
+  -
+    drupal_field_type: record_type
+    drupal_field_value: Organization
+    salesforce_field: RecordTypeId
+    direction: drupal_sf
+  -
+    drupal_field_type: Token
+    drupal_field_value: '[user:field_affiliate_programs]'
+    salesforce_field: Affiliate_Programs_and_Services__c
+    direction: drupal_sf
+  -
+    drupal_field_type: properties
+    drupal_field_value: field_old_affiliation_nid
+    salesforce_field: cv__External_ID__c
+    direction: sync
+push_limit: 0
+push_retries: 3
+push_frequency: 0
+pull_frequency: 0

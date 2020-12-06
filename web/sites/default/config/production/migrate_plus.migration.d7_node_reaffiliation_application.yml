@@ -1,0 +1,827 @@
+uuid: 3031c050-d36f-4dd6-9889-67aa9f402d3e
+langcode: en
+status: true
+dependencies: {  }
+id: d7_node_reaffiliation_application
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: 'Nodes (Reaffiliation Application)'
+source:
+  plugin: d7_node
+  node_type: reaffiliation_application
+process:
+  sid: sid
+  webform_id:
+    plugin: default_value
+    default_value: affiliation_application
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_reaffiliation_application/0/status: comment
+  data/model_type:
+    plugin: get
+    source: field_model_type/0/value
+  data/affiliate_name:
+    plugin: get
+    source: field_affiliate_name_/0/value
+  data/ein_number:
+    plugin: get
+    source: field_ein_number/0/value
+  data/mailing_address:
+    -
+      plugin: sub_process
+      source: field_mailing_address_mha
+      process:
+        postal_code: postal_code
+        state_province:
+          -
+            plugin: get
+            source: administrative_area
+          -
+            plugin: static_map
+            bypass: true
+            map:
+              AL: Alabama
+              AK: Alaska
+              AZ: Arizona
+              AR: Arkansas
+              CA: California
+              CO: Colorado
+              CT: Connecticut
+              DE: Delaware
+              FL: Florida
+              GA: Georgia
+              HI: Hawaii
+              ID: Idaho
+              IL: Illinois
+              IN: Indiana
+              IA: Iowa
+              KS: Kansas
+              KY: Kentucky
+              LA: Louisiana
+              ME: Maine
+              MD: Maryland
+              MA: Massachusetts
+              MI: Michigan
+              MN: Minnesota
+              MS: Mississippi
+              MO: Missouri
+              MT: Montana
+              NE: Nebraska
+              NV: Nevada
+              NH: 'New Hampshire'
+              NJ: 'New Jersey'
+              NM: 'New Mexico'
+              NY: 'New York'
+              NC: 'North Carolina'
+              ND: 'North Dakota'
+              OH: Ohio
+              OK: Oklahoma
+              OR: Oregon
+              PA: Pennsylvania
+              RI: 'Rhode Island'
+              SC: 'South Carolina'
+              SD: 'South Dakota'
+              TN: Tennessee
+              TX: Texas
+              UT: Utah
+              VT: Vermont
+              VA: Virginia
+              WA: Washington
+              WV: 'West Virginia'
+              WI: Wisconsin
+              WY: Wyoming
+        city: locality
+        country:
+          plugin: default_value
+          default_value: 'United States'
+        address: thoroughfare
+        address_2: premise
+    -
+      plugin: array_pop
+  data/website_address/url:
+    plugin: get
+    source: field_website_address/0/value
+  data/exec_ceo_name:
+    plugin: get
+    source: field_exec_ceo_name/0/value
+  data/email_address:
+    plugin: get
+    source: field_emaill_address/0/value
+  data/phone_number:
+    plugin: get
+    source: field_phone_number/0/value
+  data/board_chair_s_name:
+    plugin: get
+    source: field_board_chair_s_name/0/value
+  data/board_chairs_email_address:
+    plugin: get
+    source: field_board_chair_s_email_addres/0/value
+  data/board_chairs_phone_number:
+    plugin: get
+    source: field_board_chair_s_phone_number/0/value
+  data/contact_for_reaffiliation:
+    plugin: get
+    source: field_person_to_contact_for_reaf/0/value
+  data/email__contact_for_reaffiliation:
+    plugin: get
+    source: field_email_of_contact_for_reaff/0/value
+  data/annual_report:
+    -
+      plugin: sub_process
+      source: field_annual_report
+      process:
+        fid:
+          -
+            plugin: skip_on_empty
+            method: process
+            source: fid
+          -
+            plugin: migration_lookup
+            migration: d7_file
+            source: fid
+            source_ids:
+              - fid
+            no_stub: true
+    -
+      plugin: array_pop
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: extract
+      index:
+        - fid
+  data/board_roster:
+    -
+      plugin: sub_process
+      source: field_board_roster
+      process:
+        fid:
+          -
+            plugin: skip_on_empty
+            method: process
+            source: fid
+          -
+            plugin: migration_lookup
+            migration: d7_file
+            source: fid
+            source_ids:
+              - fid
+            no_stub: true
+    -
+      plugin: array_pop
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: extract
+      index:
+        - fid
+  data/strategic_plan:
+    -
+      plugin: sub_process
+      source: field_strategic_plan_
+      process:
+        fid:
+          -
+            plugin: skip_on_empty
+            method: process
+            source: fid
+          -
+            plugin: migration_lookup
+            migration: d7_file
+            source: fid
+            source_ids:
+              - fid
+            no_stub: true
+    -
+      plugin: array_pop
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: extract
+      index:
+        - fid
+  data/audited_financial_statements:
+    -
+      plugin: sub_process
+      source: field_audited_financial_statemen
+      process:
+        fid:
+          -
+            plugin: skip_on_empty
+            method: process
+            source: fid
+          -
+            plugin: migration_lookup
+            migration: d7_file
+            source: fid
+            source_ids:
+              - fid
+            no_stub: true
+    -
+      plugin: array_pop
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: extract
+      index:
+        - fid
+  data/management_letter:
+    -
+      plugin: sub_process
+      source: field_management_letter
+      process:
+        fid:
+          -
+            plugin: skip_on_empty
+            method: process
+            source: fid
+          -
+            plugin: migration_lookup
+            migration: d7_file
+            source: fid
+            source_ids:
+              - fid
+            no_stub: true
+    -
+      plugin: array_pop
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: extract
+      index:
+        - fid
+  data/irs_form_990_990_ez_or_990_n:
+    -
+      plugin: sub_process
+      source: field_irs_form_990_990_ez_or_990
+      process:
+        fid:
+          -
+            plugin: skip_on_empty
+            method: process
+            source: fid
+          -
+            plugin: migration_lookup
+            migration: d7_file
+            source: fid
+            source_ids:
+              - fid
+            no_stub: true
+    -
+      plugin: array_pop
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: extract
+      index:
+        - fid
+  data/501c3_letter_from_irs:
+    -
+      plugin: sub_process
+      source: field_501c3_letter_from_irs
+      process:
+        fid:
+          -
+            plugin: skip_on_empty
+            method: process
+            source: fid
+          -
+            plugin: migration_lookup
+            migration: d7_file
+            source: fid
+            source_ids:
+              - fid
+            no_stub: true
+    -
+      plugin: array_pop
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: extract
+      index:
+        - fid
+  data/cultural_competency_statement:
+    -
+      plugin: sub_process
+      source: field_cultural_competency_statem
+      process:
+        fid:
+          -
+            plugin: skip_on_empty
+            method: process
+            source: fid
+          -
+            plugin: migration_lookup
+            migration: d7_file
+            source: fid
+            source_ids:
+              - fid
+            no_stub: true
+    -
+      plugin: array_pop
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: extract
+      index:
+        - fid
+  data/roster_of_affiliates:
+    -
+      plugin: sub_process
+      source: field_roster_of_affiliates_optio
+      process:
+        fid:
+          -
+            plugin: skip_on_empty
+            method: process
+            source: fid
+          -
+            plugin: migration_lookup
+            migration: d7_file
+            source: fid
+            source_ids:
+              - fid
+            no_stub: true
+    -
+      plugin: array_pop
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: extract
+      index:
+        - fid
+  data/sample_of_re_evaluation_tool:
+    -
+      plugin: sub_process
+      source: field_sample_of_re_evaluation_to
+      process:
+        fid:
+          -
+            plugin: skip_on_empty
+            method: process
+            source: fid
+          -
+            plugin: migration_lookup
+            migration: d7_file
+            source: fid
+            source_ids:
+              - fid
+            no_stub: true
+    -
+      plugin: array_pop
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: extract
+      index:
+        - fid
+  data/population_area_your_organization_serve:
+    -
+      plugin: get
+      source: field_what_population_serve
+    -
+      plugin: flatten
+  data/describe_population_area:
+    plugin: get
+    source: field_describe_the_population/0/value
+  data/organization_required_to_have_audit:
+    plugin: get
+    source: field_required_audit/0/value
+  data/city_county_population:
+    plugin: get
+    source: field_city_county/0/value
+  data/multi_county_population:
+    plugin: get
+    source: field_multi_county/0/value
+  data/major_metro_area_population:
+    plugin: get
+    source: field_major_metro_area_/0/value
+  data/state_population:
+    plugin: get
+    source: field_state_us/0/value
+  data/region_population:
+    plugin: get
+    source: field_region/0/value
+  data/white_population_percentage:
+    plugin: get
+    source: field_white_/0/value
+  data/asian_population_percentage:
+    plugin: get
+    source: field_asian/0/value
+  data/black_population_percentage:
+    plugin: get
+    source: field_black/0/value
+  data/american_indian_population_percentage:
+    plugin: get
+    source: field_american_indian/0/value
+  data/pacific_islander_population_percentage:
+    plugin: get
+    source: field_pacific_islander/0/value
+  data/hispanic_latino_population_percentage:
+    plugin: get
+    source: field_hispanic_latino/0/value
+  data/multiracial_other_population_percentage:
+    plugin: get
+    source: field_multiracial_other/0/value
+  data/frontier_area_population_percentage:
+    plugin: get
+    source: field_frontier_area_/0/value
+  data/rural_population_percentage:
+    plugin: get
+    source: field_rural/0/value
+  data/urban_population_percentage:
+    plugin: get
+    source: field_urban/0/value
+  data/suburban_population_percentage:
+    plugin: get
+    source: field_suburban/0/value
+  data/number_full_time_employees:
+    plugin: get
+    source: field__of_full_time_employees/0/value
+  data/number_part_time_employees:
+    plugin: get
+    source: field_part_time_employees/0/value
+  data/number_volunteers:
+    plugin: get
+    source: field__of_volunteers/0/value
+  data/review_process__annual_biannual:
+    plugin: get
+    source: field_annual_biannual_review/0/value
+  data/average_length_of_employment_of_staff:
+    plugin: get
+    source: field_average_employment/0/value
+  data/fee_for_service_percentage_funding:
+    plugin: get
+    source: field_fee_for_service_percent_/0/value
+  data/individual_donors_percentage_funding:
+    plugin: get
+    source: field_individual_donors/0/value
+  data/special_events_percentage_funding:
+    plugin: get
+    source: field_special_events/0/value
+  data/corporate_funding_percentage_funding:
+    plugin: get
+    source: field_corporate_funding/0/value
+  data/united_way_funding_cfc_percentage_funding:
+    plugin: get
+    source: field_united_way_finding_cfc/0/value
+  data/government_contracts_percentage_funding:
+    plugin: get
+    source: field_government_contracts/0/value
+  data/government_grants_percentage_funding:
+    plugin: get
+    source: field_government_grants/0/value
+  data/private_funding_percentage_funding:
+    plugin: get
+    source: field_private_foundations/0/value
+  data/other_percentage_funding:
+    plugin: get
+    source: field_other/0/value
+  data/number_of_members:
+    plugin: get
+    source: field__of_members/0/value
+  data/number_of_donors:
+    plugin: get
+    source: field__of_donors/0/value
+  data/trusts_and_bequests_percentage_funding:
+    plugin: get
+    source: field_trusts_and_bequests/0/value
+  data/current_fiscal_year_expense_budget:
+    plugin: get
+    source: field_mos_recent_fiscal_year_exp/0/value
+  data/increase_or_decrease_over_prior_year:
+    plugin: get
+    source: field_increase_or_decrease_over_/0/value
+  data/percentage_change_from_prior_year:
+    plugin: get
+    source: field_percentage_change_from_pri/0/value
+  data/most_recent_revenue_reported_on_990:
+    plugin: get
+    source: field_most_recent_revenue_report/0/value
+  data/most_dramatic_change_in_organization:
+    plugin: get
+    source: field_describe_the_most_dramatic/0/value
+  data/number_of_board_members:
+    plugin: get
+    source: field_number_of_board_members/0/value
+  data/males_board_member_group_percentage:
+    plugin: get
+    source: field_number_of_male_board_membe/0/value
+  data/females_board_member_group_percentage:
+    plugin: get
+    source: field_number_of_female_board_mem/0/value
+  data/consumers_mental_health_services__board_percentage:
+    plugin: get
+    source: field_consumers_of_mental_health/0/value
+  data/family_members_board_member_group_percentage:
+    plugin: get
+    source: field_family_members/0/value
+  data/medical_health_providers_board_group_percent:
+    plugin: get
+    source: field_medical_mental_health_prov/0/value
+  data/nonmedical_health_providers_board_group_percent:
+    plugin: get
+    source: field_non_medical_mental_health_/0/value
+  data/community_leaders_board_group_percent:
+    plugin: get
+    source: field_business_community_leaders/0/value
+  data/marketing_professionals_board_group_percent:
+    plugin: get
+    source: field_marketing_communications_p/0/value
+  data/financial_professionals_board_group_percent:
+    plugin: get
+    source: field_financial_fundraising_prof/0/value
+  data/legal_professionals_board_group_percent:
+    plugin: get
+    source: field_legal_professionals/0/value
+  data/lgbtq_members_board_group_percent:
+    plugin: get
+    source: field_lgbt_community_members/0/value
+  data/how_often_does_board_meet:
+    plugin: get
+    source: field_how_often_does_board_meet/0/value
+  data/have_chartered_affiliates:
+    plugin: get
+    source: field_chartered_affiliates/0/value
+  data/are_you_current_on_national_dues:
+    plugin: get
+    source: field_organization_pay_dues/0/value
+  data/elected_to_operate_section_501h:
+    plugin: get
+    source: field_internal_revenue_code/0/value
+  data/activities_you_engaged_in:
+    -
+      plugin: get
+      source: field_activities_engaged
+    -
+      plugin: flatten
+  data/conducted_participated_community_needs_assessment:
+    plugin: get
+    source: field_assessment_last_review/0/value
+  data/implement_education_media_effors_otherpartsofmha:
+    plugin: get
+    source: field_public_education_efforts/0/value
+  data/which_have_you_done_since_last_review:
+    -
+      plugin: get
+      source: field_since_review_completion
+    -
+      plugin: flatten
+  data/outreach_vehicles_media:
+    -
+      plugin: get
+      source: field_outreach_vehicles2
+    -
+      plugin: flatten
+  data/develop_implement_cultural_competency_statement:
+    plugin: get
+    source: field_endorse_cultural_competenc/0/value
+  data/programs_rep_respond_to_diversity_of_community:
+    plugin: get
+    source: field_org_diversity/0/value
+  data/groups_represented_by_board_staff:
+    -
+      plugin: get
+      source: field_which_groups_represent
+    -
+      plugin: flatten
+  data/3_less_groups_repd_by_board_staff_explain:
+    plugin: get
+    source: field_less_than_three_categories/0/value
+  data/since_last_review_has_your_organization__clc:
+    -
+      plugin: get
+      source: field_since_the_last_review
+    -
+      plugin: flatten
+  data/use_logo_from_template_for_national:
+    plugin: get
+    source: field_marketing/0/value
+  data/ensure_materials_are_consistent:
+    plugin: get
+    source: field_ensure_materials/0/value
+  data/nterested_in_rebranding_to_mha:
+    plugin: get
+    source: field_rebranding/0/value
+  data/why_or_why_not_intrested_in_rebranding:
+    plugin: get
+    source: field_why_or_why_not_/0/value
+  data/does_your_organization_marketing:
+    -
+      plugin: get
+      source: field_does_your_organization
+    -
+      plugin: flatten
+  data/current_employee_personnel_policies:
+    plugin: get
+    source: field_handbook_policies/0/value
+  data/no_current_employee_personnel_policies_reason:
+    plugin: get
+    source: field_if_not_please_explain/0/value
+  data/succession_plan:
+    plugin: get
+    source: field_succession_plan1/0/value
+  data/maintain_required_documentation_reporting:
+    plugin: get
+    source: field_annual_reporting/0/value
+  data/current_written_financial_contingency_plan:
+    plugin: get
+    source: field_annual_reporting_1/0/value
+  data/develop_strategies__financial_mgmt_operations:
+    plugin: get
+    source: field_organization_effective/0/value
+  data/tax_exempt_nonprofit_organization:
+    plugin: get
+    source: field_effective_operations/0/value
+  data/current_written_document_retention_plan:
+    plugin: get
+    source: field_written_plan_3_yrs/0/value
+  data/current_written_emergency_preparedness_plan:
+    plugin: get
+    source: field_emergency_plan_3_yrs/0/value
+  data/provide_annual_reporting_on_timely_basis:
+    plugin: get
+    source: field_does_your_org/0/value
+  data/your_donors_considered_members:
+    -
+      plugin: get
+      source: field_section5_member_donors/0/value
+    -
+      plugin: static_map
+      bypass: true
+      map:
+        - 'No'
+        - 'Yes'
+  data/is_your_organization_incorporated_:
+    plugin: get
+    source: field_incorporated/0/value
+  data/advocate_policies_consistent_with_mha:
+    -
+      plugin: get
+      source: field_mha_mission_policies/0/value
+    -
+      plugin: static_map
+      bypass: true
+      map:
+        - 'No'
+        - 'Yes'
+  data/end_of_current_fiscal_year:
+    -
+      plugin: sub_process
+      source: field_end_of_current_fiscal_year
+      process:
+        value:
+          plugin: format_date
+          from_format: 'Y-m-d H:i:s'
+          to_format: 'Y-m-d\TH:i:s'
+          source: value
+    -
+      plugin: array_pop
+    -
+      plugin: array_pop
+  data/national_activities_staff_participated_on:
+    plugin: get
+    source: field_what_activities_from_natio/0/value
+  data/how_do_you_conduct_reaffiliation_process:
+    plugin: get
+    source: field_if_applicable_how_does_you/0/value
+  data/policy_issues_most_important__leads_taken:
+    plugin: get
+    source: field_what_policy_issuse_are_mos/0/value
+  data/advocacy_partnerships_coalitions_belong_to:
+    plugin: get
+    source: field_list_advocacy_partnerships/0/value
+  data/advocacy__best_achievement:
+    plugin: get
+    source: field_with_regard_to_advocacy_wh/0/value
+  data/programs_services_you_provide:
+    plugin: get
+    source: field_what_kind_of_programs_serv/0/value
+  data/describe_signature_program:
+    plugin: get
+    source: field_describe_your_signature_pr/0/value
+  data/promising_practices_do_you_use:
+    plugin: get
+    source: field_what_evidence_based_or_pro/0/value
+  data/best_accomplishment_in_this_area:
+    plugin: get
+    source: field_what_is_your_best_accompli/0/value
+  data/audiences_you_present_to:
+    plugin: get
+    source: field_please_list_audiences_you_/0/value
+  data/physical_address:
+    -
+      plugin: sub_process
+      source: field_physical_address
+      process:
+        postal_code: postal_code
+        state_province:
+          -
+            plugin: get
+            source: administrative_area
+          -
+            plugin: static_map
+            bypass: true
+            map:
+              AL: Alabama
+              AK: Alaska
+              AZ: Arizona
+              AR: Arkansas
+              CA: California
+              CO: Colorado
+              CT: Connecticut
+              DE: Delaware
+              FL: Florida
+              GA: Georgia
+              HI: Hawaii
+              ID: Idaho
+              IL: Illinois
+              IN: Indiana
+              IA: Iowa
+              KS: Kansas
+              KY: Kentucky
+              LA: Louisiana
+              ME: Maine
+              MD: Maryland
+              MA: Massachusetts
+              MI: Michigan
+              MN: Minnesota
+              MS: Mississippi
+              MO: Missouri
+              MT: Montana
+              NE: Nebraska
+              NV: Nevada
+              NH: 'New Hampshire'
+              NJ: 'New Jersey'
+              NM: 'New Mexico'
+              NY: 'New York'
+              NC: 'North Carolina'
+              ND: 'North Dakota'
+              OH: Ohio
+              OK: Oklahoma
+              OR: Oregon
+              PA: Pennsylvania
+              RI: 'Rhode Island'
+              SC: 'South Carolina'
+              SD: 'South Dakota'
+              TN: Tennessee
+              TX: Texas
+              UT: Utah
+              VT: Vermont
+              VA: Virginia
+              WA: Washington
+              WV: 'West Virginia'
+              WI: Wisconsin
+              WY: Wyoming
+        city: locality
+        country:
+          plugin: default_value
+          default_value: 'United States'
+        address: thoroughfare
+        address_2: premise
+    -
+      plugin: array_pop
+  data/what_is_your_mission_statement:
+    plugin: get
+    source: field_mission_statement/0/value
+  data/organization_have_other_memberships:
+    plugin: get
+    source: field_other_membership_list/0/value
+  data/notification_e_mail:
+    plugin: get
+    source: field_cc_email/0/email
+  data/submit_for_review:
+    plugin: get
+    source: field_submit_for_review/0/value
+destination:
+  plugin: 'entity:webform_submission'
+migration_dependencies:
+  required:
+    - upgrade_d7_webform

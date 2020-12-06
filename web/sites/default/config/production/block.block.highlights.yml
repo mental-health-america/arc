@@ -1,0 +1,31 @@
+uuid: 584f76a5-06a8-49f8-802a-49362220ab53
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:0524307c-2048-42b8-833e-fe424b730597'
+  module:
+    - block_content
+    - system
+  theme:
+    - enterpriseplus
+id: highlights
+theme: enterpriseplus
+region: content_top_highlighted
+weight: -54
+provider: null
+plugin: 'block_content:0524307c-2048-42b8-833e-fe424b730597'
+settings:
+  id: 'block_content:0524307c-2048-42b8-833e-fe424b730597'
+  label: Highlights
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "//<front>\r\n/node/16\r\n/node/17\r\n/node/40\r\n/node/53\r\n/node/54\r\n/node/55\r\n/about-us\r\n/blocks"
+    negate: false
+    context_mapping: {  }

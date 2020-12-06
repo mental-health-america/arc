@@ -1,0 +1,25 @@
+uuid: 911fe8c7-b2de-4475-b9c5-62351f64aa76
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.mt-subfooter-menu
+  module:
+    - system
+  theme:
+    - enterpriseplus
+id: enterpriseplus_subfooter
+theme: enterpriseplus
+region: slideout
+weight: -25
+provider: null
+plugin: 'system_menu_block:mt-subfooter-menu'
+settings:
+  id: 'system_menu_block:mt-subfooter-menu'
+  label: Subfooter
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

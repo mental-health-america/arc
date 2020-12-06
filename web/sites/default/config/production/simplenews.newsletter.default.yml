@@ -1,0 +1,19 @@
+uuid: 07671e10-49b5-4e02-a82d-281dc1ccad00
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: hj6zGNwndnW_J6lKfFcg-tY5e5YqWfgXyt0qioGtXL8
+name: 'MHA - Affiliates - Forum'
+id: default
+description: 'This is the Forum newsletter.'
+format: html
+priority: 3
+receipt: false
+from_name: 'Affiliates - Mental Health America'
+subject: '[[simplenews-newsletter:name]] [node:title]'
+from_address: noreply@mentalhealthamerica.net
+hyperlinks: false
+new_account: 'on'
+opt_inout: double
+weight: 0

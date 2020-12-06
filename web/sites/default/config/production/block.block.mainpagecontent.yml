@@ -1,0 +1,25 @@
+uuid: e0475cd1-d6cf-4ddc-a3e1-05f978c19d11
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - enterpriseplus
+id: mainpagecontent
+theme: enterpriseplus
+region: content_top
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

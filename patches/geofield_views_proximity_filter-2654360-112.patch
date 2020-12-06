@@ -1,0 +1,1365 @@
+diff --git a/config/schema/geofield.schema.yml b/config/schema/geofield.schema.yml
+index e881257..4113b84 100644
+--- a/config/schema/geofield.schema.yml
++++ b/config/schema/geofield.schema.yml
+@@ -73,6 +73,10 @@ field.widget.settings.geofield_latlon:
+       type: boolean
+       label: 'Use HTML5 Geolocation to set default values'
+ 
++views.filter_value.geofield_proximity:
++  type: views.field.numeric
++  label: 'Geofield Proximity Field'
++
+ field.formatter.settings.geofield_default:
+   type: mapping
+   label: 'Geofield default display format settings'
+diff --git a/geofield.module b/geofield.module
+index 735f293..45cb326 100644
+--- a/geofield.module
++++ b/geofield.module
+@@ -111,15 +111,44 @@ function geofield_theme() {
+  */
+ function geofield_radius_options() {
+   return [
+-    GEOFIELD_KILOMETERS => t('Kilometers'),
+-    GEOFIELD_METERS => t('Meters'),
+-    GEOFIELD_MILES => t('Miles'),
+-    GEOFIELD_YARDS => t('Yards'),
+-    GEOFIELD_FEET => t('Feet'),
+-    GEOFIELD_NAUTICAL_MILES => t('Nautical Miles'),
++    'GEOFIELD_KILOMETERS' => t('Kilometers'),
++    'GEOFIELD_METERS' => t('Meters'),
++    'GEOFIELD_MILES' => t('Miles'),
++    'GEOFIELD_YARDS' => t('Yards'),
++    'GEOFIELD_FEET' => t('Feet'),
++    'GEOFIELD_NAUTICAL_MILES' => t('Nautical Miles'),
+   ];
+ }
+ 
++/**
++ * Build SQL query snippet for the haversine formula.
++ *
++ * @param array $options
++ *   The haversine options.
++ *   - origin_latitude - the origin latitude (in degrees).
++ *   - origin_longitude - the origin longitude (in degrees).
++ *   - earth_radius - the earth radius (see the constants at the top).
++ *   - destination_latitude - the db field with the latitude.
++ *   - destination_longitude - the db field with the longitude.
++ *
++ * @return string
++ *   The generated SQL query snippet for haversine formula.
++ */
++function geofield_haversine($options = []) {
++  $formula = '( :earth_radius * ACOS( COS( RADIANS(:origin_latitude) ) * COS( RADIANS(:destination_latitude) ) * COS( RADIANS(:destination_longitude) - RADIANS(:origin_longitude) ) + SIN( RADIANS(:origin_latitude) ) * SIN( RADIANS(:destination_latitude) ) ) )';
++
++  foreach ($options as $key => $option) {
++    if (is_numeric($option)) {
++      $formula = str_replace(':' . $key, $option, $formula);
++    }
++    else {
++      $formula = str_replace(':' . $key, db_escape_field($option), $formula);
++    }
++  }
++
++  return $formula;
++}
++
+ /**
+  * Theme wrapper for geofield_proximity form item.
+  *
+@@ -147,3 +176,18 @@ function theme_geofield_proximity(array $vars) {
+ 
+   return $output;
+ }
++
++/**
++ * Validator function for our element values.
++ *
++ * @param $value
++ * @return bool
++ */
++function geofield_element_validate_integer_positive($value) {
++  if ($value >= 0) {
++    return TRUE;
++  }
++  else {
++    return FALSE;
++  }
++}
+diff --git a/geofield.services.yml b/geofield.services.yml
+index 60bf945..8c3951a 100644
+--- a/geofield.services.yml
++++ b/geofield.services.yml
+@@ -8,3 +8,6 @@ services:
+ 
+   geofield.geophp:
+     class: Drupal\geofield\GeoPHP\GeoPHPWrapper
++  plugin.manager.geofield_proximity:
++    class: Drupal\geofield\Plugin\GeofieldProximityManager
++    parent: default_plugin_manager
+diff --git a/geofield.views.inc b/geofield.views.inc
+new file mode 100644
+index 0000000..98350f7
+--- /dev/null
++++ b/geofield.views.inc
+@@ -0,0 +1,55 @@
++<?php
++
++/**
++ * @file
++ * Views hook implementations.
++ */
++
++use Drupal\field\FieldStorageConfigInterface;
++
++/**
++ * Implements hook_field_views_data().
++ */
++function geofield_field_views_data(FieldStorageConfigInterface $field_storage) {
++  // TODO: This code only covers configurable fields, handle base table fields.
++  // @see https://www.drupal.org/node/2489476.
++  $data = views_field_default_views_data($field_storage);
++  $field_name = $field_storage->getName();
++  $field_label = NULL;
++  foreach ($data as $table_name => $table_data) {
++    if (isset($data[$table_name][$field_name])) {
++      $field_label = $data[$table_name][$field_name]['title'];
++      break;
++    }
++  }
++  foreach ($data as $table_name => $table_data) {
++    $data[$table_name][$field_name . '_proximity'] = [
++      'group' => $table_data[$field_name . '_value']['group'],
++      'title' => t('@label: Proximity', ['@label' => $field_label]),
++      'help' => $table_data[$field_name . '_value']['help'],
++      'field' => [
++        'id' => 'geofield_proximity',
++        'float' => TRUE,
++        'click sortable' => FALSE,
++        'additional fields' => [
++          'latitude' => [
++            'field' => $field_name . '_lat',
++          ],
++          'longitude' => [
++            'field' => $field_name . '_lon',
++          ],
++        ],
++      ],
++      'filter' => [
++        'id' => 'geofield_proximity',
++        'real field' => $field_name,
++      ],
++      'sort' => [
++        'id' => 'geofield_proximity',
++        'real field' => $field_name,
++      ],
++    ];
++  }
++
++  return $data;
++}
+diff --git a/src/Annotation/GeofieldProximity.php b/src/Annotation/GeofieldProximity.php
+new file mode 100644
+index 0000000..75c38a0
+--- /dev/null
++++ b/src/Annotation/GeofieldProximity.php
+@@ -0,0 +1,34 @@
++<?php
++
++namespace Drupal\geofield\Annotation;
++
++use Drupal\Component\Annotation\Plugin;
++
++/**
++ * Defines a Geofield Proximity item annotation object.
++ *
++ * @see \Drupal\geofield\Plugin\GeofieldProximityManager
++ * @see plugin_api
++ *
++ * @Annotation
++ */
++class GeofieldProximity extends Plugin {
++
++
++  /**
++   * The plugin ID.
++   *
++   * @var string
++   */
++  public $id;
++
++  /**
++   * The label of the plugin.
++   *
++   * @var \Drupal\Core\Annotation\Translation
++   *
++   * @ingroup plugin_translatable
++   */
++  public $label;
++
++}
+diff --git a/src/Element/GeofieldProximity.php b/src/Element/GeofieldProximity.php
+index ba1c172..59860e5 100644
+--- a/src/Element/GeofieldProximity.php
++++ b/src/Element/GeofieldProximity.php
+@@ -45,7 +45,7 @@ class GeofieldProximity extends FormElement {
+   public static function proximityProcess(array &$element, FormStateInterface $form_state, array &$complete_form) {
+     $element['#attributes'] = ['class' => ['clearfix']];
+     $element['#tree'] = TRUE;
+-    $element['#attached']['css'] = [drupal_get_path('module', 'geofield') . '/css/proximity-element.css'];
++    //$element['#attached']['css'] = [drupal_get_path('module', 'geofield') . '/css/proximity-element.css'];
+ 
+     // Create the textfield for distance.
+     $element['distance'] = [
+@@ -53,7 +53,7 @@ class GeofieldProximity extends FormElement {
+       '#title' => t('Distance'),
+       '#default_value' => !empty($element['#default_value']['distance']) ? $element['#default_value']['distance'] : '',
+       '#title_display' => 'invisible',
+-      '#element_validate' => ['element_validate_integer_positive'],
++      '#element_validate' => ['geofield_element_validate_integer_positive'],
+     ];
+ 
+     // If #geofield_range is TRUE, create second option for range.
+@@ -63,7 +63,7 @@ class GeofieldProximity extends FormElement {
+         '#title' => t('Distance End'),
+         '#default_value' => !empty($element['#default_value']['distance2']) ? $element['#default_value']['distance2'] : '',
+         '#title_display' => 'invisible',
+-        '#element_validate' => ['element_validate_integer_positive'],
++        '#element_validate' => ['geofield_element_validate_integer_positive'],
+       ];
+     }
+ 
+@@ -77,6 +77,7 @@ class GeofieldProximity extends FormElement {
+     ];
+ 
+     // Create textfield for geocoded input.
++    // @TODO Does this need element validation of some form?
+     $element['origin'] = [
+       '#type' => (!empty($element['#origin_element'])) ? $element['#origin_element'] : 'textfield',
+       '#title' => t('Origin'),
+diff --git a/src/Exception/HaversineUnavailableException.php b/src/Exception/HaversineUnavailableException.php
+new file mode 100644
+index 0000000..19825bc
+--- /dev/null
++++ b/src/Exception/HaversineUnavailableException.php
+@@ -0,0 +1,10 @@
++<?php
++
++namespace Drupal\geofield\Exception;
++
++/**
++ * Defines 'haversine is unavailable' exception class.
++ */
++class HaversineUnavailableException extends \UnexpectedValueException {
++
++}
+diff --git a/src/Exception/InvalidPointException.php b/src/Exception/InvalidPointException.php
+new file mode 100644
+index 0000000..283c23c
+--- /dev/null
++++ b/src/Exception/InvalidPointException.php
+@@ -0,0 +1,10 @@
++<?php
++
++namespace Drupal\geofield\Exception;
++
++/**
++ * Defines 'invalid point' exception class.
++ */
++class InvalidPointException extends \InvalidArgumentException {
++
++}
+diff --git a/src/Exception/ProximityUnavailableException.php b/src/Exception/ProximityUnavailableException.php
+new file mode 100644
+index 0000000..5bc9c15
+--- /dev/null
++++ b/src/Exception/ProximityUnavailableException.php
+@@ -0,0 +1,10 @@
++<?php
++
++namespace Drupal\geofield\Exception;
++
++/**
++ * Defines 'proximity value is unavailable' exception class.
++ */
++class ProximityUnavailableException extends \UnexpectedValueException {
++
++}
+diff --git a/src/Plugin/GeofieldProximity/GeofieldProximityDefault.php b/src/Plugin/GeofieldProximity/GeofieldProximityDefault.php
+new file mode 100644
+index 0000000..d7f540a
+--- /dev/null
++++ b/src/Plugin/GeofieldProximity/GeofieldProximityDefault.php
+@@ -0,0 +1,78 @@
++<?php
++
++namespace Drupal\geofield\Plugin\GeofieldProximity;
++
++use Drupal\Component\Utility\NestedArray;
++use Drupal\Core\Form\FormStateInterface;
++use Drupal\geofield\Plugin\GeofieldProximityBase;
++
++/**
++ * Defines 'Geofield manual origin' plugin.
++ *
++ * @package Drupal\geofield\Plugin
++ *
++ * @GeofieldProximity(
++ *   id = "geofield_manual_origin",
++ *   label = @Translation("Geofield manual origin"),
++ *   admin_label = @Translation("Geofield manual origin"),
++ * )
++ */
++class GeofieldProximityDefault extends GeofieldProximityBase {
++
++  /**
++   * The origin point to measure proximity from.
++   *
++   * @var array
++   */
++  protected $origin;
++
++  /**
++   * {@inheritdoc}
++   */
++  public function __construct(array $configuration, $plugin_id, $plugin_definition) {
++    parent::__construct($configuration, $plugin_id, $plugin_definition);
++    $this->origin['lat'] = isset($configuration['origin_latitude']) ? $configuration['origin_latitude'] : NULL;
++    $this->origin['lon'] = isset($configuration['origin_longitude']) ? $configuration['origin_longitude'] : NULL;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function buildOptionsForm(array &$form, FormStateInterface $form_state, array $options_parents) {
++
++    $form['origin_latitude'] = [
++      '#type' => 'textfield',
++      '#title' => t('Origin latitude'),
++      '#default_value' => isset($this->configuration['origin_latitude']) ? $this->configuration['origin_latitude'] : '',
++    ];
++
++    $form['origin_longitude'] = [
++      '#type' => 'textfield',
++      '#title' => t('Origin longitude'),
++      '#default_value' => isset($this->configuration['origin_longitude']) ? $this->configuration['origin_longitude'] : '',
++    ];
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function validateOptionsForm(array &$form, FormStateInterface $form_state, array $options_parents) {
++    $values = $form_state->getValues();
++    $values = NestedArray::getValue($values, array_merge(['options'], $options_parents));
++
++    if (strlen($values['origin_latitude']) > 0 && !preg_match('/^\-?\d+(?:\.\d+)?$/', $values['origin_latitude'])) {
++      $form_state->setError($form['origin_latitude'], t('Invalid latitude value: @value', ['@value' => $values['origin_latitude']]));
++    }
++    if (strlen($values['origin_longitude']) > 0 && !preg_match('/^\-?\d+(?:\.\d+)?$/', $values['origin_longitude'])) {
++      $form_state->setError($form['origin_longitude'], t('Invalid longitude value: @value', ['@value' => $values['origin_longitude']]));
++    }
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function getOrigin() {
++    return $this->origin;
++  }
++
++}
+diff --git a/src/Plugin/GeofieldProximityBase.php b/src/Plugin/GeofieldProximityBase.php
+new file mode 100644
+index 0000000..d39173b
+--- /dev/null
++++ b/src/Plugin/GeofieldProximityBase.php
+@@ -0,0 +1,175 @@
++<?php
++
++namespace Drupal\geofield\Plugin;
++
++use Drupal\Component\Plugin\PluginBase;
++use Drupal\Core\Form\FormStateInterface;
++use Drupal\geofield\Exception\HaversineUnavailableException;
++use Drupal\geofield\Exception\InvalidPointException;
++use Drupal\geofield\Exception\ProximityUnavailableException;
++use Drupal\views\Plugin\views\HandlerBase;
++
++/**
++ * Base class for Geofield Proximity plugins.
++ */
++abstract class GeofieldProximityBase extends PluginBase implements GeofieldProximityInterface {
++
++  /**
++   * The name of the constant defining the measurement unit.
++   *
++   * @var string
++   */
++  protected $units;
++
++  /**
++   * The view handler which uses this proximity plugin.
++   *
++   * @var \Drupal\views\Plugin\views\HandlerBase
++   */
++  protected $viewHandler;
++
++  /**
++   * {@inheritdoc}
++   */
++  public function buildOptionsForm(array &$form, FormStateInterface $form_state, array $options_parents) {
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function validateOptionsForm(array &$form, FormStateInterface $form_state, array $options_parents) {
++  }
++
++  /**
++   * Get the current origin.
++   *
++   * @return array
++   *   The origin coordinates.
++   */
++  abstract public function getOrigin();
++
++  /**
++   * {@inheritdoc}
++   */
++  public function setUnits($units) {
++
++    // If the given value is not a valid option, throw an error.
++    if (!in_array($units, $this->getUnitsOptions())) {
++      $message = t('Invalid units supplied.');
++      \Drupal::logger('geofield')->error($message);
++      return FALSE;
++    }
++
++    // Otherwise set units to the given value.
++    else {
++      $this->units = $units;
++    }
++
++    return TRUE;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function getUnits() {
++    return $this->units;
++  }
++
++  /**
++   * Get the list of valid options for units.
++   *
++   * @return array
++   *   The list of available unit types.
++   */
++  public function getUnitsOptions() {
++    return array_keys(geofield_radius_options());
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function setViewHandler(HandlerBase $view_handler) {
++    $this->viewHandler = $view_handler;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function getProximity($lat, $lon) {
++    if (!$this->validLocation($lat, $lon)) {
++      throw new InvalidPointException();
++    }
++
++    // Fetch the value of the units that have been set for this class. The
++    // constants are defined in the module file.
++    $radius = constant($this->units);
++
++    $origin = $this->getOrigin();
++
++    if (!$origin) {
++      throw new ProximityUnavailableException();
++    }
++
++    if (!$this->validLocation($origin['lat'], $origin['lon'])) {
++      throw new ProximityUnavailableException();
++    }
++
++    // Convert degrees to radians.
++    $origin_latitude = deg2rad($origin['lat']);
++    $origin_longitude = deg2rad($origin['lon']);
++    $destination_longitude = deg2rad($lon);
++    $destination_latitude = deg2rad($lat);
++
++    // Calculate proximity.
++    $proximity = $radius * acos(
++      cos($origin_latitude)
++      * cos($destination_latitude)
++      * cos($destination_longitude - $origin_longitude)
++      + sin($origin_latitude)
++      * sin($destination_latitude)
++    );
++
++    return $proximity;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function getHaversineOptions() {
++    $origin = $this->getOrigin();
++
++    if (!$origin) {
++      throw new HaversineUnavailableException();
++    }
++
++    return [
++      'origin_latitude' => $origin['lat'],
++      'origin_longitude' => $origin['lon'],
++      'earth_radius' => constant($this->units),
++    ];
++  }
++
++  /**
++   * Test the given latitude and longitude values.
++   *
++   * @param float $lat
++   *   The latitude value.
++   * @param float $lon
++   *   The longitude value.
++   *
++   * @return bool
++   *   The flag indicates whether location is valid.
++   *
++   * @todo: add more tests, particularly around max/min values.
++   */
++  protected function validLocation($lat, $lon) {
++    if (!is_numeric($lat) || !is_numeric($lon)) {
++      $message = t('Invalid location supplied, latitude and longitude must be numerical values.');
++      \Drupal::logger('geofield')->error($message);
++      return FALSE;
++    }
++
++    return TRUE;
++  }
++
++}
+diff --git a/src/Plugin/GeofieldProximityInterface.php b/src/Plugin/GeofieldProximityInterface.php
+new file mode 100644
+index 0000000..f537e3c
+--- /dev/null
++++ b/src/Plugin/GeofieldProximityInterface.php
+@@ -0,0 +1,83 @@
++<?php
++
++namespace Drupal\geofield\Plugin;
++
++use Drupal\Component\Plugin\PluginInspectionInterface;
++use Drupal\Core\Form\FormStateInterface;
++use Drupal\views\Plugin\views\HandlerBase;
++
++/**
++ * Defines an interface for Geofield Proximity plugins.
++ */
++interface GeofieldProximityInterface extends PluginInspectionInterface {
++
++  /**
++   * Builds the options form for the geofield proximity plugin.
++   *
++   * @param array $form
++   *   The form element to build.
++   * @param \Drupal\Core\Form\FormStateInterface $form_state
++   *   The form state.
++   * @param array $options_parents
++   *   The values parents.
++   */
++  public function buildOptionsForm(array &$form, FormStateInterface $form_state, array $options_parents);
++
++  /**
++   * Validates the options form for the geofield proximity plugin.
++   *
++   * @param array $form
++   *   The form element to build.
++   * @param \Drupal\Core\Form\FormStateInterface $form_state
++   *   The form state.
++   * @param array $options_parents
++   *   The values parents.
++   */
++  public function validateOptionsForm(array &$form, FormStateInterface $form_state, array $options_parents);
++
++  /**
++   * Set the units to perform the calculation in.
++   *
++   * @param string $units
++   *   The name of the units constant to be used or string representation of it.
++   */
++  public function setUnits($units);
++
++  /**
++   * Get the current units.
++   *
++   * @return string
++   *   The name of the units constant to be used or string representation of it.
++   */
++  public function getUnits();
++
++  /**
++   * Sets view handler which uses this proximity plugin.
++   *
++   * @param \Drupal\views\Plugin\views\HandlerBase $view_handler
++   *   The view handler which uses this proximity plugin.
++   */
++  public function setViewHandler(HandlerBase $view_handler);
++
++  /**
++   * Get the calculated proximity.
++   *
++   * @param float $lat
++   *   The current point latitude.
++   * @param float $lon
++   *   The current point longitude.
++   *
++   * @return float
++   *   The calculated proximity.
++   */
++  public function getProximity($lat, $lon);
++
++  /**
++   * Gets the haversine options.
++   *
++   * @return array
++   *   The haversine options.
++   */
++  public function getHaversineOptions();
++
++}
+diff --git a/src/Plugin/GeofieldProximityManager.php b/src/Plugin/GeofieldProximityManager.php
+new file mode 100644
+index 0000000..519dc80
+--- /dev/null
++++ b/src/Plugin/GeofieldProximityManager.php
+@@ -0,0 +1,24 @@
++<?php
++
++namespace Drupal\geofield\Plugin;
++
++use Drupal\Core\Plugin\DefaultPluginManager;
++use Drupal\Core\Cache\CacheBackendInterface;
++use Drupal\Core\Extension\ModuleHandlerInterface;
++
++/**
++ * Provides the Geofield Proximity plugin manager.
++ */
++class GeofieldProximityManager extends DefaultPluginManager {
++
++  /**
++   * {@inheritdoc}
++   */
++  public function __construct(\Traversable $namespaces, CacheBackendInterface $cache_backend, ModuleHandlerInterface $module_handler) {
++    parent::__construct('Plugin/GeofieldProximity', $namespaces, $module_handler, 'Drupal\geofield\Plugin\GeofieldProximityInterface', 'Drupal\geofield\Annotation\GeofieldProximity');
++
++    $this->alterInfo('geofield_geofield_proximity_info');
++    $this->setCacheBackend($cache_backend, 'geofield_geofield_proximity_plugins');
++  }
++
++}
+diff --git a/src/Plugin/views/field/GeofieldProximity.php b/src/Plugin/views/field/GeofieldProximity.php
+index 5e647a0..f1b305e 100644
+--- a/src/Plugin/views/field/GeofieldProximity.php
++++ b/src/Plugin/views/field/GeofieldProximity.php
+@@ -3,33 +3,62 @@
+ namespace Drupal\geofield\Plugin\views\field;
+ 
+ use Drupal\Core\Form\FormStateInterface;
++use Drupal\geofield\Exception\ProximityUnavailableException;
+ use Drupal\views\Plugin\views\field\NumericField;
+ use Drupal\views\ResultRow;
++use Symfony\Component\DependencyInjection\ContainerInterface;
+ 
+ /**
+  * Field handler to render a Geofield proximity in Views.
+  *
+  * @ingroup views_field_handlers
+  *
+- * @PluginID("geofield_proximity")
++ * @ViewsField("geofield_proximity")
++ *
++ * TODO: Make this field handler click sortable.
++ * FIXME: Perhaps need to use haversine formula here too (instead of php func)?
+  */
+ class GeofieldProximity extends NumericField {
+ 
++  /**
++   * The geofield proximity manager.
++   *
++   * @var \Drupal\geofield\Plugin\GeofieldProximityManager
++   */
++  protected $proximityManager;
++
++  /**
++   * {@inheritdoc}
++   */
++  public function __construct(array $configuration, $plugin_id, $plugin_definition, $proximity_manager) {
++    parent::__construct($configuration, $plugin_id, $plugin_definition);
++    $this->proximityManager = $proximity_manager;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
++    return new static (
++      $configuration,
++      $plugin_id,
++      $plugin_definition,
++      $container->get('plugin.manager.geofield_proximity')
++    );
++  }
++
+   /**
+    * {@inheritdoc}
+    */
+   protected function defineOptions() {
+     $options = parent::defineOptions();
+ 
+-    // Data sources and info needed.
+-    $options['source'] = ['default' => 'manual'];
++    $options['units'] = ['default' => 'GEOFIELD_KILOMETERS'];
+ 
+-    foreach (geofield_proximity_views_handlers() as $key => $handler) {
+-      $proximityPlugin = geofield_proximity_load_plugin($key);
+-      $proximityPlugin->option_definition($options, $this);
+-    }
++    // Data sources and info needed.
++    $options['source'] = ['default' => 'geofield_manual_origin'];
++    $options['source_configuration'] = ['default' => []];
+ 
+-    $options['radius_of_earth'] = ['default' => GEOFIELD_KILOMETERS];
+     return $options;
+   }
+ 
+@@ -39,45 +68,64 @@ class GeofieldProximity extends NumericField {
+   public function buildOptionsForm(&$form, FormStateInterface $form_state) {
+     parent::buildOptionsForm($form, $form_state);
+ 
++    $form['units'] = [
++      '#type' => 'select',
++      '#title' => t('Unit of Measure'),
++      '#description' => '',
++      '#options' => geofield_radius_options(),
++      '#default_value' => $this->options['units'],
++    ];
++
+     $form['source'] = [
+       '#type' => 'select',
+       '#title' => t('Source of Origin Point'),
+       '#description' => t('How do you want to enter your origin point?'),
+       '#options' => [],
+       '#default_value' => $this->options['source'],
++      '#ajax' => [
++        'url' => views_ui_build_form_url($form_state),
++      ],
++      '#submit' => [[$this, 'submitTemporaryForm']],
++      '#executes_submit_callback' => TRUE,
+     ];
+ 
+-    $proximityHandlers = geofield_proximity_views_handlers();
+-    foreach ($proximityHandlers as $key => $handler) {
+-      $form['source']['#options'][$key] = $handler['name'];
+-      $proximityPlugin = geofield_proximity_load_plugin($key);
+-      $proximityPlugin->options_form($form, $form_state, $this);
++    foreach ($this->proximityManager->getDefinitions() as $plugin_id => $definition) {
++      $form['source']['#options'][$plugin_id] = $definition['admin_label'];
+     }
+ 
+-    $form['radius_of_earth'] = [
+-      '#type' => 'select',
+-      '#title' => t('Unit of Measure'),
+-      '#description' => '',
+-      '#options' => geofield_radius_options(),
+-      '#default_value' => $this->options['radius_of_earth'],
++    $form['source_configuration'] = [
++      '#type' => 'container',
++      '#tree' => TRUE,
+     ];
++
++    $source_plugin_id = isset($form_state->getUserInput()['options']['source']) ? $form_state->getUserInput()['options']['source'] : $this->options['source'];
++    $source_plugin_configuration = isset($form_state->getUserInput()['options']['source_configuration']) ? $form_state->getUserInput()['options']['source_configuration'] : $this->options['source_configuration'];
++    /** @var \Drupal\geofield\Plugin\GeofieldProximityInterface $instance */
++    $source_plugin = $this->proximityManager->createInstance($source_plugin_id, $source_plugin_configuration);
++    $source_plugin->setViewHandler($this);
++    $source_plugin->buildOptionsForm($form['source_configuration'], $form_state, ['source_configuration']);
+   }
+ 
+   /**
+    * {@inheritdoc}
+    */
+   public function validateOptionsForm(&$form, FormStateInterface $form_state) {
+-    $proximityPlugin = geofield_proximity_load_plugin($form_state['values']['options']['source']);
+-    $proximityPlugin->options_validate($form, $form_state, $this);
++    /** @var \Drupal\geofield\Plugin\GeofieldProximityInterface $instance */
++    $instance = $this->proximityManager->createInstance($form_state->getValue('options')['source']);
++    $instance->setViewHandler($this);
++    $instance->validateOptionsForm($form['source_configuration'], $form_state, ['source_configuration']);
+   }
+ 
+   /**
+    * {@inheritdoc}
+    */
+   public function getValue(ResultRow $values, $field = NULL) {
+-    if (isset($values->{$this->field_alias})) {
+-      return $values->{$this->field_alias};
+-    }
++    /** @var \Drupal\geofield\Plugin\GeofieldProximityInterface $source_plugin */
++    $source_plugin = $this->proximityManager->createInstance($this->options['source'], $this->options['source_configuration']);
++    $source_plugin->setViewHandler($this);
++    $source_plugin->setUnits($this->options['units']);
++
++    return $source_plugin->getProximity($values->{$this->aliases['latitude']}, $values->{$this->aliases['longitude']});
+   }
+ 
+   /**
+@@ -86,23 +134,26 @@ class GeofieldProximity extends NumericField {
+   public function query() {
+     $this->ensureMyTable();
+ 
+-    $lat_alias = $this->tableAlias . '.' . $this->definition['field_name'] . '_lat';
+-    $lon_alias = $this->tableAlias . '.' . $this->definition['field_name'] . '_lon';
+-
+-    $proximityPlugin = geofield_proximity_load_plugin($this->options['source']);
+-    $options = $proximityPlugin->getSourceValue($this);
++    $this->addAdditionalFields();
++  }
+ 
+-    if ($options != FALSE) {
+-      $haversine_options = [
+-        'origin_latitude' => $options['latitude'],
+-        'origin_longitude' => $options['longitude'],
+-        'destination_latitude' => $lat_alias,
+-        'destination_longitude' => $lon_alias,
+-        'earth_radius' => $this->options['radius_of_earth'],
+-      ];
++  /**
++   * {@inheritdoc}
++   */
++  public function render(ResultRow $values) {
++    $build = '';
+ 
+-      $this->field_alias = $this->query->add_field(NULL, geofield_haversine($haversine_options), $this->tableAlias . '_' . $this->field);
++    try {
++      $build = parent::render($values);
++    }
++    catch (ProximityUnavailableException $e) {
++      // Do nothing if proximity is unavailable.
+     }
++    catch (\Exception $e) {
++      watchdog_exception('geofield', $e);
++    }
++
++    return $build;
+   }
+ 
+ }
+diff --git a/src/Plugin/views/filter/GeofieldProximity.php b/src/Plugin/views/filter/GeofieldProximity.php
+index a1d3d39..27b5ccd 100644
+--- a/src/Plugin/views/filter/GeofieldProximity.php
++++ b/src/Plugin/views/filter/GeofieldProximity.php
+@@ -4,37 +4,59 @@ namespace Drupal\geofield\Plugin\views\filter;
+ 
+ use Drupal\Core\Form\FormStateInterface;
+ use Drupal\views\Plugin\views\filter\NumericFilter;
++use Symfony\Component\DependencyInjection\ContainerInterface;
+ 
+ /**
+  * Field handler to filter Geofields by proximity.
+  *
+- * @ingroup views_field_handlers
++ * @ingroup views_filter_handlers
+  *
+- * @PluginID("geofield_proximity")
++ * @ViewsFilter("geofield_proximity")
++ *
++ * TODO: Use 'geofield_proximity' element in exposed filter.
++ * TODO: Allow user to specify the point of origin on the exposed form.
+  */
+ class GeofieldProximity extends NumericFilter {
+ 
++  /**
++   * The geofield proximity manager.
++   *
++   * @var \Drupal\geofield\Plugin\GeofieldProximityManager
++   */
++  protected $proximityManager;
++
++  /**
++   * {@inheritdoc}
++   */
++  public function __construct(array $configuration, $plugin_id, $plugin_definition, $proximity_manager) {
++    parent::__construct($configuration, $plugin_id, $plugin_definition);
++    $this->proximityManager = $proximity_manager;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
++    return new static (
++      $configuration,
++      $plugin_id,
++      $plugin_definition,
++      $container->get('plugin.manager.geofield_proximity')
++    );
++  }
++
+   /**
+    * {@inheritdoc}
+    */
+   protected function defineOptions() {
+     $options = parent::defineOptions();
+ 
++    $options['units'] = ['default' => 'GEOFIELD_KILOMETERS'];
++
+     // Data sources and info needed.
+-    $options['source'] = ['default' => 'manual'];
+-    $options['value'] = [
+-      'default' => [
+-        'distance' => 100,
+-        'distance2' => 200,
+-        'unit' => GEOFIELD_KILOMETERS,
+-        'origin' => [],
+-      ],
+-    ];
+-    $proximityHandlers = geofield_proximity_views_handlers();
+-    foreach ($proximityHandlers as $key => $handler) {
+-      $proximityPlugin = geofield_proximity_load_plugin($key);
+-      $proximityPlugin->option_definition($options, $this);
+-    }
++    $options['source'] = ['default' => 'geofield_manual_origin'];
++    $options['source_configuration'] = ['default' => []];
++
+     return $options;
+   }
+ 
+@@ -100,34 +122,36 @@ class GeofieldProximity extends NumericFilter {
+    * {@inheritdoc}
+    */
+   public function query() {
+-    $proximityPlugin = geofield_proximity_load_plugin($this->options['source']);
+-    $options = $proximityPlugin->getSourceValue($this);
++    $this->ensureMyTable();
++    $lat_alias = $this->realField . '_lat';
++    $lon_alias = $this->realField . '_lon';
+ 
+-    if ($options) {
+-      $lat_alias = $this->definition['field_name'] . '_lat';
+-      $lon_alias = $this->definition['field_name'] . '_lon';
+-      $this->ensureMyTable();
++    /** @var \Drupal\geofield\Plugin\GeofieldProximityInterface $source_plugin */
++    $source_plugin = $this->proximityManager->createInstance($this->options['source'], $this->options['source_configuration']);
++    $source_plugin->setViewHandler($this);
++    $source_plugin->setUnits($this->options['units']);
+ 
+-      $info = $this->operators();
+-      if (!empty($info[$this->operator]['method'])) {
+-        $haversine_options = [
+-          'origin_latitude' => $options['latitude'],
+-          'origin_longitude' => $options['longitude'],
+-          'destination_latitude' => $this->tableAlias . '.' . $lat_alias,
+-          'destination_longitude' => $this->tableAlias . '.' . $lon_alias,
+-          'earth_radius' => $this->value['unit'],
+-        ];
+-        $this->{$info[$this->operator]['method']}($haversine_options);
+-      }
+-    }
++    $info = $this->operators();
++
++    $haversine_options = $source_plugin->getHaversineOptions();
++    $haversine_options['destination_latitude'] = $this->tableAlias . '.' . $lat_alias;
++    $haversine_options['destination_longitude'] = $this->tableAlias . '.' . $lon_alias;
++
++    $this->{$info[$this->operator]['method']}($haversine_options);
+   }
+ 
++  /**
++   * {@inheritdoc}
++   */
+   protected function opBetween($options) {
+-    $this->query->add_where_expression($this->options['group'], geofield_haversine($options) . ' ' . strtoupper($this->operator) . ' ' . $this->value['distance'] . ' AND ' . $this->value['distance2']);
++    $this->query->addWhereExpression($this->options['group'], geofield_haversine($options) . ' ' . strtoupper($this->operator) . ' ' . $this->value['min'] . ' AND ' . $this->value['max']);
+   }
+ 
++  /**
++   * {@inheritdoc}
++   */
+   protected function opSimple($options) {
+-    $this->query->add_where_expression($this->options['group'], geofield_haversine($options) . ' ' . $this->operator . ' ' . $this->value['distance']);
++    $this->query->addWhereExpression($this->options['group'], geofield_haversine($options) . ' ' . $this->operator . ' ' . $this->value['value']);
+   }
+ 
+   /**
+@@ -135,44 +159,43 @@ class GeofieldProximity extends NumericFilter {
+    */
+   public function buildOptionsForm(&$form, FormStateInterface $form_state) {
+     parent::buildOptionsForm($form, $form_state);
++
++    $form['units'] = [
++      '#type' => 'select',
++      '#title' => t('Unit of Measure'),
++      '#description' => '',
++      '#options' => geofield_radius_options(),
++      '#default_value' => $this->options['units'],
++    ];
++
+     $form['source'] = [
+       '#type' => 'select',
+       '#title' => t('Source of Origin Point'),
+       '#description' => t('How do you want to enter your origin point?'),
+       '#options' => [],
+-      '#attached' => [
+-        'js' => [
+-          drupal_get_path('module', 'geofield') . '/js/viewsProximityValue.js',
+-        ],
+-      ],
+       '#default_value' => $this->options['source'],
++      '#ajax' => [
++        'url' => views_ui_build_form_url($form_state),
++      ],
++      '#submit' => [[$this, 'submitTemporaryForm']],
++      '#executes_submit_callback' => TRUE,
+     ];
+ 
+-    $form['source_change'] = [
+-      '#type' => 'submit',
+-      '#value' => 'Change Source Widget',
+-      '#submit' => [[get_class($this), 'geofieldViewsUiChangeProximityWidget']],
+-    ];
+-
+-    $proximityHandlers = geofield_proximity_views_handlers();
+-    foreach ($proximityHandlers as $key => $handler) {
+-      // Manually skip 'Exposed Filter', since it wouldn't make any sense
+-      // in this context.
+-      if ($key != 'exposed_geofield_filter') {
+-        $form['source']['#options'][$key] = $handler['name'];
+-
+-        $proximityPlugin = geofield_proximity_load_plugin($key);
+-        $proximityPlugin->options_form($form, $form_state, $this);
+-      }
++    foreach ($this->proximityManager->getDefinitions() as $plugin_id => $definition) {
++      $form['source']['#options'][$plugin_id] = $definition['admin_label'];
+     }
+ 
+-    // Look for any top-level item with a #proximity_plugin_value_element set.
+-    // If found, it doesn't belong in this particular field.
+-    foreach ($form as $key => $form_item) {
+-      if (isset($form_item['#proximity_plugin_value_element']) && $form_item['#proximity_plugin_value_element'] == TRUE) {
+-        unset($form[$key]);
+-      }
+-    }
++    $form['source_configuration'] = [
++      '#type' => 'container',
++      '#tree' => TRUE,
++    ];
++
++    $source_plugin_id = isset($form_state->getUserInput()['options']['source']) ? $form_state->getUserInput()['options']['source'] : $this->options['source'];
++    $source_plugin_configuration = isset($form_state->getUserInput()['options']['source_configuration']) ? $form_state->getUserInput()['options']['source_configuration'] : $this->options['source_configuration'];
++    /** @var \Drupal\geofield\Plugin\GeofieldProximityInterface $instance */
++    $source_plugin = $this->proximityManager->createInstance($source_plugin_id, $source_plugin_configuration);
++    $source_plugin->setViewHandler($this);
++    $source_plugin->buildOptionsForm($form['source_configuration'], $form_state, ['source_configuration']);
+   }
+ 
+   /**
+@@ -180,113 +203,10 @@ class GeofieldProximity extends NumericFilter {
+    */
+   public function validateOptionsForm(&$form, FormStateInterface $form_state) {
+     parent::validateOptionsForm($form, $form_state);
+-    $proximityPlugin = geofield_proximity_load_plugin($form_state['values']['options']['source']);
+-    $proximityPlugin->options_validate($form, $form_state, $this);
+-  }
+-
+-  /**
+-   * {@inheritdoc}
+-   */
+-  protected function valueForm(&$form, FormStateInterface $form_state) {
+-    $form['value'] = [
+-      '#type' => 'geofield_proximity',
+-      '#title' => t('Proximity Search'),
+-      '#default_value' => [
+-        'distance' => $this->value['distance'],
+-        'unit' => $this->value['unit'],
+-        'origin' => (is_string($this->value['origin'])) ? trim($this->value['origin']) : $this->value['origin'],
+-      ],
+-      '#origin_options' => [
+-        '#attributes' => [
+-          'class' => ['geofield-proximity-origin'],
+-        ],
+-      ],
+-    ];
+-
+-    $proximityPlugin = geofield_proximity_load_plugin($this->options['source']);
+-    $proximityPlugin->value_form($form, $form_state, $this);
+-
+-    if (in_array($this->operator, ['between', 'not between'])) {
+-      $form['value']['#geofield_range'] = TRUE;
+-      $form['value']['#default_value']['distance2'] = $this->value['distance2'];
+-    }
+-  }
+-
+-  protected function valueValidate($form, &$form_state) {
+-    parent::valueValidate($form, $form_state);
+-    $proximityPlugin = geofield_proximity_load_plugin($form_state['values']['options']['source']);
+-    $proximityPlugin->value_validate($form, $form_state, $this);
+-  }
+-
+-  public function adminSummary() {
+-    if (!empty($this->options['exposed'])) {
+-      return t('exposed');
+-    }
+-
+-    $options = $this->operator_options('short');
+-    $output = check_plain($options[$this->operator]);
+-    if (in_array($this->operator, $this->operator_values(2))) {
+-      $output .= ' ' . t('@min and @max', ['@min' => $this->value['distance'], '@max' => $this->value['distance2']]);
+-    }
+-    elseif (in_array($this->operator, $this->operator_values(1))) {
+-      $output .= ' ' . check_plain($this->value['distance']);
+-    }
+-    return $output;
+-  }
+-
+-  /**
+-   * Validation of the Exposed Input Filter.
+-   *
+-   * Check to see if input from the exposed filters should change
+-   * the behavior of this filter.
+-   *   - @TODO: This could be more polished.
+-   */
+-  public function acceptExposedInput($input) {
+-    if (!(isset($this->options['expose']) && isset($this->options['expose']['identifier']))) {
+-      return FALSE;
+-    }
+-
+-    $input_id = $this->options['expose']['identifier'];
+-    if (empty($input[$input_id]) || $input[$input_id]['distance'] === '' || $input[$input_id]['origin'] === '') {
+-      return FALSE;
+-    }
+-
+-    $this->value['distance'] = $input[$input_id]['distance'];
+-    $this->value['unit'] = $input[$input_id]['unit'];
+-    $this->value['origin'] = $input[$input_id]['origin'];
+-    return TRUE;
+-  }
+-
+-  /**
+-   * Function geofieldViewsUiChangeProximityWidget.
+-   *
+-   * @param array $form
+-   *   The Form array.
+-   * @param \Drupal\Core\Form\FormStateInterface $form_state
+-   *   The Form State array.
+-   *
+-   * @TODO: This function should be embedded in the class, if really needed.
+-   */
+-  public static function geofieldViewsUiChangeProximityWidget(array $form, FormStateInterface &$form_state) {
+-    $item = &$form_state['handler']->options;
+-    $changed = $item['source'] != $form_state['values']['options']['source'];
+-    $item['source'] = $form_state['values']['options']['source'];
+-
+-    if ($changed) {
+-      if ($item['source'] == 'manual') {
+-        $item['value']['origin'] = ['lat' => '', 'lon' => ''];
+-      }
+-      else {
+-        $item['value']['origin'] = '';
+-      }
+-    }
+-
+-    $form_state['view']->set_item($form_state['display_id'], $form_state['type'], $form_state['id'], $item);
+-
+-    views_ui_cache_set($form_state['view']);
+-    $form_state['rerender'] = TRUE;
+-    $form_state['rebuild'] = TRUE;
+-    $form_state['force_expose_options'] = TRUE;
++    /** @var \Drupal\geofield\Plugin\GeofieldProximityInterface $instance */
++    $instance = $this->proximityManager->createInstance($form_state->getValue('options')['source']);
++    $instance->setViewHandler($this);
++    $instance->validateOptionsForm($form['source_configuration'], $form_state, ['source_configuration']);
+   }
+ 
+ }
+diff --git a/src/Plugin/views/sort/GeofieldProximity.php b/src/Plugin/views/sort/GeofieldProximity.php
+index b0d940b..5545069 100644
+--- a/src/Plugin/views/sort/GeofieldProximity.php
++++ b/src/Plugin/views/sort/GeofieldProximity.php
+@@ -4,29 +4,56 @@ namespace Drupal\geofield\Plugin\views\sort;
+ 
+ use Drupal\Core\Form\FormStateInterface;
+ use Drupal\views\Plugin\views\sort\SortPluginBase;
++use Symfony\Component\DependencyInjection\ContainerInterface;
+ 
+ /**
+  * Field handler to sort Geofields by proximity.
+  *
+  * @ingroup views_field_handlers
+  *
+- * @PluginID("geofield_proximity")
++ * @ViewsSort("geofield_proximity")
+  */
+ class GeofieldProximity extends SortPluginBase {
+ 
++  /**
++   * The geofield proximity manager.
++   *
++   * @var \Drupal\geofield\Plugin\GeofieldProximityManager
++   */
++  protected $proximityManager;
++
++  /**
++   * {@inheritdoc}
++   */
++  public function __construct(array $configuration, $plugin_id, $plugin_definition, $proximity_manager) {
++    parent::__construct($configuration, $plugin_id, $plugin_definition);
++    $this->proximityManager = $proximity_manager;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
++    return new static (
++      $configuration,
++      $plugin_id,
++      $plugin_definition,
++      $container->get('plugin.manager.geofield_proximity')
++    );
++  }
++
+   /**
+    * {@inheritdoc}
+    */
+   protected function defineOptions() {
+     $options = parent::defineOptions();
++
++    $options['units'] = ['default' => 'GEOFIELD_KILOMETERS'];
++
+     // Data sources and info needed.
+-    $options['source'] = ['default' => 'manual'];
++    $options['source'] = ['default' => 'geofield_manual_origin'];
++    $options['source_configuration'] = ['default' => []];
+ 
+-    $proximity_handlers = geofield_proximity_views_handlers();
+-    foreach ($proximity_handlers as $key => $handler) {
+-      $proximity_plugin = geofield_proximity_load_plugin($key);
+-      $proximity_plugin->option_definition($options, $this);
+-    }
+     return $options;
+   }
+ 
+@@ -35,21 +62,23 @@ class GeofieldProximity extends SortPluginBase {
+    */
+   public function query() {
+     $this->ensureMyTable();
+-    $lat_alias = $this->tableAlias . '.' . $this->definition['field_name'] . '_lat';
+-    $lon_alias = $this->tableAlias . '.' . $this->definition['field_name'] . '_lon';
+-
+-    $proximity_plugin = geofield_proximity_load_plugin($this->options['source']);
+-    $options = $proximity_plugin->getSourceValue($this);
+-
+-    if ($options != FALSE) {
+-      $haversine_options = [
+-        'origin_latitude' => $options['latitude'],
+-        'origin_longitude' => $options['longitude'],
+-        'destination_latitude' => $lat_alias,
+-        'destination_longitude' => $lon_alias,
+-        'earth_radius' => GEOFIELD_KILOMETERS,
+-      ];
+-      $this->query->add_orderby(NULL, geofield_haversine($haversine_options), $this->options['order'], $this->tableAlias . '_geofield_distance');
++    $lat_alias = $this->realField . '_lat';
++    $lon_alias = $this->realField . '_lon';
++
++    /** @var \Drupal\geofield\Plugin\GeofieldProximityInterface $source_plugin */
++    $source_plugin = $this->proximityManager->createInstance($this->options['source'], $this->options['source_configuration']);
++    $source_plugin->setViewHandler($this);
++    $source_plugin->setUnits($this->options['units']);
++
++    try {
++      $haversine_options = $source_plugin->getHaversineOptions();
++      $haversine_options['destination_latitude'] = $this->tableAlias . '.' . $lat_alias;
++      $haversine_options['destination_longitude'] = $this->tableAlias . '.' . $lon_alias;
++
++      $this->query->addOrderBy(NULL, geofield_haversine($haversine_options), $this->options['order'], $this->tableAlias . '_' . $this->field);
++    }
++    catch (\Exception $e) {
++      watchdog_exception('geofield', $e);
+     }
+   }
+ 
+@@ -59,28 +88,52 @@ class GeofieldProximity extends SortPluginBase {
+   public function buildOptionsForm(&$form, FormStateInterface $form_state) {
+     parent::buildOptionsForm($form, $form_state);
+ 
++    $form['units'] = [
++      '#type' => 'select',
++      '#title' => t('Unit of Measure'),
++      '#description' => '',
++      '#options' => geofield_radius_options(),
++      '#default_value' => $this->options['units'],
++    ];
++
+     $form['source'] = [
+       '#type' => 'select',
+-      '#title' => t('Source of Origin Point'),
+-      '#description' => t('How do you want to enter your origin point?'),
++      '#title' => $this->t('Source of Origin Point'),
++      '#description' => $this->t('How do you want to enter your origin point?'),
+       '#options' => [],
+       '#default_value' => $this->options['source'],
++      '#ajax' => [
++        'url' => views_ui_build_form_url($form_state),
++      ],
++      '#submit' => [[$this, 'submitTemporaryForm']],
++      '#executes_submit_callback' => TRUE,
+     ];
+ 
+-    $proximity_handlers = geofield_proximity_views_handlers();
+-    foreach ($proximity_handlers as $key => $handler) {
+-      $form['source']['#options'][$key] = $handler['name'];
+-      $proximity_plugin = geofield_proximity_load_plugin($key);
+-      $proximity_plugin->options_form($form, $form_state, $this);
++    foreach ($this->proximityManager->getDefinitions() as $plugin_id => $definition) {
++      $form['source']['#options'][$plugin_id] = $definition['admin_label'];
+     }
++
++    $form['source_configuration'] = [
++      '#type' => 'container',
++      '#tree' => TRUE,
++    ];
++
++    $source_plugin_id = isset($form_state->getUserInput()['options']['source']) ? $form_state->getUserInput()['options']['source'] : $this->options['source'];
++    $source_plugin_configuration = isset($form_state->getUserInput()['options']['source_configuration']) ? $form_state->getUserInput()['options']['source_configuration'] : $this->options['source_configuration'];
++    /** @var \Drupal\geofield\Plugin\GeofieldProximityInterface $instance */
++    $source_plugin = $this->proximityManager->createInstance($source_plugin_id, $source_plugin_configuration);
++    $source_plugin->setViewHandler($this);
++    $source_plugin->buildOptionsForm($form['source_configuration'], $form_state, ['source_configuration']);
+   }
+ 
+   /**
+    * {@inheritdoc}
+    */
+   public function validateOptionsForm(&$form, FormStateInterface $form_state) {
+-    $proximity_plugin = geofield_proximity_load_plugin($form_state['values']['options']['source']);
+-    $proximity_plugin->options_validate($form, $form_state, $this);
++    /** @var \Drupal\geofield\Plugin\GeofieldProximityInterface $instance */
++    $instance = $this->proximityManager->createInstance($form_state->getValue('options')['source']);
++    $instance->setViewHandler($this);
++    $instance->validateOptionsForm($form['source_configuration'], $form_state, ['source_configuration']);
+   }
+ 
+ }

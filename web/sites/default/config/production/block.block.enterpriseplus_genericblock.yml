@@ -1,0 +1,31 @@
+uuid: 2cffe9fc-8bf5-4742-981d-3300ee268f04
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:fae21d9e-1b0b-418f-b1a1-e4f297688838'
+  module:
+    - block_content
+    - system
+  theme:
+    - enterpriseplus
+id: enterpriseplus_genericblock
+theme: enterpriseplus
+region: sidebar_first
+weight: -19
+provider: null
+plugin: 'block_content:fae21d9e-1b0b-418f-b1a1-e4f297688838'
+settings:
+  id: 'block_content:fae21d9e-1b0b-418f-b1a1-e4f297688838'
+  label: 'Generic Block'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /node/5
+    negate: false
+    context_mapping: {  }

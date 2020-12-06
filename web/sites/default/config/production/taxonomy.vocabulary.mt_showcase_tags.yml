@@ -1,0 +1,8 @@
+uuid: dea10740-d52d-47a7-a386-be129a6398f7
+langcode: en
+status: true
+dependencies: {  }
+name: 'Showcase Tags'
+vid: mt_showcase_tags
+description: ''
+weight: 0

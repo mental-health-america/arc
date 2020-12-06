@@ -1,0 +1,31 @@
+uuid: 382cdc4f-a62a-4fa2-8365-c21cf8d83331
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:31b30664-2603-4c59-9b3c-9ecaa6d74fc5'
+  module:
+    - block_content
+    - system
+  theme:
+    - enterpriseplus
+id: enterpriseplus_imageblockstatic
+theme: enterpriseplus
+region: hidden_blocks_collection
+weight: -36
+provider: null
+plugin: 'block_content:31b30664-2603-4c59-9b3c-9ecaa6d74fc5'
+settings:
+  id: 'block_content:31b30664-2603-4c59-9b3c-9ecaa6d74fc5'
+  label: 'Image block (Static)'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

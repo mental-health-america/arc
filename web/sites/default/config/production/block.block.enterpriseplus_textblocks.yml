@@ -1,0 +1,31 @@
+uuid: 228e1bcc-dff3-45b9-b8ec-8a6dfa5f1ccf
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:78f50698-8922-4e4c-ade4-531c59340958'
+  module:
+    - block_content
+    - system
+  theme:
+    - enterpriseplus
+id: enterpriseplus_textblocks
+theme: enterpriseplus
+region: content
+weight: -55
+provider: null
+plugin: 'block_content:78f50698-8922-4e4c-ade4-531c59340958'
+settings:
+  id: 'block_content:78f50698-8922-4e4c-ade4-531c59340958'
+  label: 'Text blocks'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /node/17
+    negate: false
+    context_mapping: {  }

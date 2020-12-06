@@ -1,0 +1,31 @@
+uuid: 07bb927a-1e56-4c35-8b1d-b07a34c7c43b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:mt_background_image_block:5907671d-1ce2-48b3-b2fa-045b54572c1e'
+  module:
+    - block_content
+    - system
+  theme:
+    - enterpriseplus
+id: enterpriseplus_backgroundimageblock
+theme: enterpriseplus
+region: content_bottom_first
+weight: -36
+provider: null
+plugin: 'block_content:5907671d-1ce2-48b3-b2fa-045b54572c1e'
+settings:
+  id: 'block_content:5907671d-1ce2-48b3-b2fa-045b54572c1e'
+  label: 'Background Image Block'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "//<front>\r\n/node/16\r\n/node/17\r\n/node/40\r\n/node/53\r\n/node/54\r\n/node/55\r\n/blocks"
+    negate: false
+    context_mapping: {  }

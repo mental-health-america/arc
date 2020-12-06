@@ -1,0 +1,31 @@
+uuid: cb737e26-9375-4573-8f9e-ef112c6118a1
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:a9b55ad4-dbf3-4c01-a3e6-01f1f2ca7d97'
+  module:
+    - block_content
+    - system
+  theme:
+    - enterpriseplus
+id: enterpriseplus_productslayoutswithergridactive
+theme: enterpriseplus
+region: content
+weight: -50
+provider: null
+plugin: 'block_content:a9b55ad4-dbf3-4c01-a3e6-01f1f2ca7d97'
+settings:
+  id: 'block_content:a9b55ad4-dbf3-4c01-a3e6-01f1f2ca7d97'
+  label: 'Products Layout Swither (Grid active)'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "/products-4-col\r\n/products-3-col\r\n/products-2-col"
+    negate: false
+    context_mapping: {  }

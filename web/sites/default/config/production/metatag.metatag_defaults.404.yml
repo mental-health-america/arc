@@ -1,0 +1,15 @@
+uuid: d84ffae0-20d8-4f63-835d-4a8e022010ac
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: puBstSLDz8mbaWU357zaqQDBGMGsJzG0j-TQNQkjg20
+id: '404'
+label: '404 page not found'
+tags:
+  title: 'Page Not Found | [site:name]'
+  canonical_url: '[site:url]'
+  shortlink: '[site:url]'
+  og_site_name: '[site:name]'
+  og_title: 'Page Not Found'
+  og_image: /themes/custom/enterpriseplus/mha-assets/build/images/shareimg.png

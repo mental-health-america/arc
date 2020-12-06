@@ -1,0 +1,15 @@
+available_entities:
+  node: node
+  user: user
+  webform_submission: webform_submission
+  block_content: 0
+  comment: 0
+  file: 0
+  salesforce_mapped_object: 0
+  shortcut: 0
+  taxonomy_term: 0
+  font: 0
+  menu_link_content: 0
+  paragraph: 0
+_core:
+  default_config_hash: w4lg2w4ee2Ig5VjqsctKuiSFEuhYXm2KaAMk6Qg1ZxM

@@ -1,0 +1,24 @@
+uuid: e32b8b86-25ac-4a4a-a00f-9aca6584affc
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - geofield
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: user.field_affiliate_geocode
+field_name: field_affiliate_geocode
+entity_type: user
+type: geofield
+settings:
+  backend: geofield_backend_default
+module: geofield
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

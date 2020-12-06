@@ -1,0 +1,31 @@
+uuid: a3c45969-101d-46e4-b512-403e438892ec
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:d4a7f7e5-a159-4436-91e3-09d3aabdfff8'
+  module:
+    - block_content
+    - system
+  theme:
+    - enterpriseplus
+id: enterpriseplus_socialmedia
+theme: enterpriseplus
+region: slideout
+weight: -26
+provider: null
+plugin: 'block_content:d4a7f7e5-a159-4436-91e3-09d3aabdfff8'
+settings:
+  id: 'block_content:d4a7f7e5-a159-4436-91e3-09d3aabdfff8'
+  label: 'Social Media'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/node/16\r\n/node/17\r\n/node/40"
+    negate: false
+    context_mapping: {  }
