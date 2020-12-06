@@ -32,7 +32,7 @@
         "drupal/console": "^1.0.2",
         "drupal/content_access": "^1.0@alpha",
         "drupal/contribute": "^1.0",
-        "drupal/core": "^8.9.x",
+        "drupal/core": "^8.9.11",
         "drupal/dashboard": "1.x-dev",
         "drupal/devel": "^2.0",
         "drupal/dynamic_entity_reference": "^2.0",
@@ -91,7 +91,6 @@
         "webmozart/path-util": "^2.3"
     },
     "require-dev": {
-        "webflo/drupal-core-require-dev": "^8.6"
     },
     "conflict": {
         "drupal/drupal": "*"
