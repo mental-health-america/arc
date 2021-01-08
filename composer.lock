@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5f18afe785543e2124dd1acb2885fdb5",
+    "content-hash": "73bf6be5d84617a1e1cd9c4cb74d6862",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -6539,7 +6539,8 @@
                     }
                 },
                 "patches_applied": {
-                    "Rules": "https://www.drupal.org/files/issues/2020-07-23/2927132-15-remove-other-conditions-from-ui.patch"
+                    "Rules": "https://www.drupal.org/files/issues/2020-07-23/2927132-15-remove-other-conditions-from-ui.patch",
+                    "Rules number two": "https://www.drupal.org/files/issues/2816157-10.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -12124,6 +12125,7 @@
         "drupal/menu_token": 15,
         "drupal/mimemail": 15,
         "drupal/rabbit_hole": 10,
+        "drupal/rules": 15,
         "drupal/simplenews": 15,
         "drupal/swiftmailer": 10,
         "drupal/term_csv_tree_import": 20,

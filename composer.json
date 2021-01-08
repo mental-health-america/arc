@@ -72,7 +72,7 @@
         "drupal/rabbit_hole": "^1.0@beta",
         "drupal/recaptcha": "^2.3",
         "drupal/recently_read": "^1.0",
-        "drupal/rules": "^3.0",
+        "drupal/rules": "^3.0@alpha",
         "drupal/salesforce": "^3.5",
         "drupal/simplenews": "^1.0@alpha",
         "drupal/superfish": "^1.2",
@@ -138,7 +138,8 @@
         },
         "patches": {
             "drupal/rules": {
-                "Rules":"https://www.drupal.org/files/issues/2020-07-23/2927132-15-remove-other-conditions-from-ui.patch"
+                "Rules":"https://www.drupal.org/files/issues/2020-07-23/2927132-15-remove-other-conditions-from-ui.patch",
+                "Rules number two":"https://www.drupal.org/files/issues/2816157-10.patch"
             }
         },
         "drupal-scaffold": {
@@ -151,3 +152,4 @@
         "patches-file": "composer.patches.json"
     }
 }
+
