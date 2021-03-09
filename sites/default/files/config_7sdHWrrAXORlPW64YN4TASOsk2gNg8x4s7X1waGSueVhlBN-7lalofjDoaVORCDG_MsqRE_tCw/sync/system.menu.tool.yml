@@ -1,8 +1,0 @@
-uuid: ad364d93-c330-47ad-ae10-315df0587be8
-langcode: en
-status: true
-dependencies: {  }
-id: tool
-label: Tools
-description: 'Tools for Footer MEnu'
-locked: false

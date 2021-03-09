@@ -1,9 +1,0 @@
-uuid: c1a7c690-5477-467d-a189-96f8798e529b
-langcode: en
-status: true
-dependencies: {  }
-name: Condition
-vid: condition
-description: Condition/Severity
-hierarchy: 0
-weight: 0

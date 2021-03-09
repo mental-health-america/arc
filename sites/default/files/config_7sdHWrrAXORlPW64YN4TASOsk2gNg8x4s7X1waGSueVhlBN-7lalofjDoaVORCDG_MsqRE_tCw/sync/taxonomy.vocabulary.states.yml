@@ -1,9 +1,0 @@
-uuid: 6e201f4e-21f4-4687-8070-2d6129a697c7
-langcode: en
-status: true
-dependencies: {  }
-name: States
-vid: states
-description: 'U.S. States'
-hierarchy: 0
-weight: 0
