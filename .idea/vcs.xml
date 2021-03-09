@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/modules/contrib/geolocation_zip" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/modules/contrib/views_data_export" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/modules/custom/screening_blocks" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web/core" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web/modules/contrib/dashboard" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web/modules/contrib/term_csv_tree_import" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web/modules/contrib/typed_data" vcs="Git" />
+  </component>
+</project>

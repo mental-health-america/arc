@@ -1,9 +1,0 @@
-uuid: 22e4c1fb-3895-4d51-9e79-d7653222d1a5
-langcode: en
-status: true
-dependencies: {  }
-name: 'DIY Type'
-vid: diy_type
-description: 'DIY Type'
-hierarchy: 0
-weight: 0
