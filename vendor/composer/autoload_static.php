@@ -49,10 +49,6 @@ class ComposerStaticInit7320d926879abcbedcc51a3c63fd2d6a
         array (
             'cweagans\\Composer\\' => 18,
         ),
-        'X' => 
-        array (
-            'XdgBaseDir\\' => 11,
-        ),
         'W' => 
         array (
             'Webmozart\\PathUtil\\' => 19,
@@ -190,10 +186,6 @@ class ComposerStaticInit7320d926879abcbedcc51a3c63fd2d6a
         'cweagans\\Composer\\' => 
         array (
             0 => __DIR__ . '/..' . '/cweagans/composer-patches/src',
-        ),
-        'XdgBaseDir\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src',
         ),
         'Webmozart\\PathUtil\\' => 
         array (
