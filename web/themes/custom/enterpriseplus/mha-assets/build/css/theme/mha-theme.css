@@ -347,3 +347,10 @@ fieldset legend {
   text-transform: uppercase;
   margin-left: 10px;
 }
+
+#edit-field-affiliate-geocode-proximity-source-configuration-origin-address--3--description {
+  display: none;
+}
+#edit-field-affiliate-geocode-proximity-value--3 {
+  margin-top: 15px;
+}
