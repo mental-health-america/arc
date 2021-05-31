@@ -28,7 +28,7 @@
         "drupal/better_exposed_filters": "^5.0@beta",
         "drupal/block_exclude_pages": "^1.2",
         "drupal/captcha": "^1.0",
-        "drupal/conditional_fields": "^1.0",
+        "drupal/conditional_fields": "^4.0",
         "drupal/console": "^1.0.2",
         "drupal/content_access": "^1.0@alpha",
         "drupal/contribute": "^1.0",
@@ -50,6 +50,7 @@
         "drupal/geocoder_autocomplete": "^1.0",
         "drupal/geofield": "^1.13",
         "drupal/geofield_map": "^2.7",
+        "drupal/geolocation": "^3.6",
         "drupal/google_analytics": "^2.3",
         "drupal/google_fonts_api": "^3.2",
         "drupal/imce": "^2.0",
@@ -152,4 +153,3 @@
         "patches-file": "composer.patches.json"
     }
 }
-

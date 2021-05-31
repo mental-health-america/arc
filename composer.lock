@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "73bf6be5d84617a1e1cd9c4cb74d6862",
+    "content-hash": "3f5d2a409bd5d6ceb695787fdbc5d6e1",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2785,26 +2785,29 @@
         },
         {
             "name": "drupal/conditional_fields",
-            "version": "1.0.0-alpha10",
+            "version": "4.0.0-alpha1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/conditional_fields.git",
-                "reference": "8.x-1.0-alpha10"
+                "reference": "4.0.0-alpha1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/conditional_fields-8.x-1.0-alpha10.zip",
-                "reference": "8.x-1.0-alpha10",
-                "shasum": "ac11881a07eaf3ce796dea1cb0e537434d1fbd3d"
+                "url": "https://ftp.drupal.org/files/projects/conditional_fields-4.0.0-alpha1.zip",
+                "reference": "4.0.0-alpha1",
+                "shasum": "2e5f493f1ae09494857f58fde97715cdb7e21553"
             },
             "require": {
                 "drupal/core": "^8 || ^9"
             },
+            "require-dev": {
+                "drupal/paragraphs": "*"
+            },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-alpha10",
-                    "datestamp": "1610130227",
+                    "version": "4.0.0-alpha1",
+                    "datestamp": "1621481938",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -2816,10 +2819,6 @@
                 "GPL-2.0-or-later"
             ],
             "authors": [
-                {
-                    "name": "Adyax",
-                    "homepage": "https://www.adyax.com/"
-                },
                 {
                     "name": "OlgaRabodzei",
                     "homepage": "https://www.drupal.org/user/3389198"
@@ -2841,6 +2840,10 @@
                     "homepage": "https://www.drupal.org/user/928152"
                 },
                 {
+                    "name": "mparker17",
+                    "homepage": "https://www.drupal.org/user/536298"
+                },
+                {
                     "name": "peterpoe",
                     "homepage": "https://www.drupal.org/user/55674"
                 },
@@ -2849,7 +2852,7 @@
                     "homepage": "https://www.drupal.org/user/3589086"
                 }
             ],
-            "description": "Conditional fields",
+            "description": "Define dependencies between fields based on their states and values.",
             "homepage": "https://www.drupal.org/project/conditional_fields",
             "support": {
                 "source": "https://git.drupalcode.org/project/conditional_fields"
@@ -4806,6 +4809,70 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/geofield_map",
                 "issues": "https://www.drupal.org/project/issues/geofield_map"
+            }
+        },
+        {
+            "name": "drupal/geolocation",
+            "version": "3.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/geolocation.git",
+                "reference": "8.x-3.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/geolocation-8.x-3.6.zip",
+                "reference": "8.x-3.6",
+                "shasum": "96b388fea50609bfa52257a704c2fb08cf8c530d"
+            },
+            "require": {
+                "drupal/core": "^8.7.7 || ^9"
+            },
+            "require-dev": {
+                "drupal/address": "*",
+                "drupal/geofield": "*",
+                "drupal/geolocation_demo": "*",
+                "drupal/geolocation_geometry": "*",
+                "drupal/geolocation_geometry_data": "*",
+                "drupal/geolocation_geometry_natural_earth_countries": "*",
+                "drupal/geolocation_google_maps": "*",
+                "drupal/geolocation_google_maps_demo": "*",
+                "drupal/geolocation_google_static_maps": "*",
+                "drupal/geolocation_leaflet": "*",
+                "drupal/search_api": "*",
+                "drupal/search_api_location": "*",
+                "drupal/search_api_location_views": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-3.6",
+                    "datestamp": "1622022802",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "derjochenmeyer",
+                    "homepage": "https://www.drupal.org/u/derjochenmeyer"
+                },
+                {
+                    "name": "cadamski",
+                    "homepage": "https://www.drupal.org/u/cadamski"
+                }
+            ],
+            "description": "Provides a simple geolocation Drupal field type to store and display location data (lat, lng).",
+            "homepage": "https://www.drupal.org/project/geolocation",
+            "support": {
+                "source": "https://git.drupal.org/project/geolocation.git",
+                "issues": "https://www.drupal.org/project/issues/geolocation"
             }
         },
         {
