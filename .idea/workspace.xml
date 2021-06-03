@@ -2,6 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ff411c3-1290-44db-8d08-6db79bfcd0db" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/web/modules/contrib/views_accordion/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/modules/contrib/views_accordion/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/modules/contrib/views_accordion/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/modules/contrib/views_accordion/config/schema/views.style.views_accordion.schema.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/modules/contrib/views_accordion/drupalci.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/modules/contrib/views_accordion/help/theming-views-accordion.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/modules/contrib/views_accordion/help/using-views-accordion.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/modules/contrib/views_accordion/help/views-accordion-style.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/modules/contrib/views_accordion/help/views_accordion.help.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/modules/contrib/views_accordion/src/Plugin/views/style/ViewsAccordion.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/modules/contrib/views_accordion/templates/views-accordion-view.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/modules/contrib/views_accordion/tests/modules/views_accordion_test/config/install/views.view.views_accordion_test.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/modules/contrib/views_accordion/tests/modules/views_accordion_test/config/install/views.view.views_accordion_test_grouping.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/modules/contrib/views_accordion/tests/modules/views_accordion_test/views_accordion_test.info.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/modules/contrib/views_accordion/tests/src/Functional/ViewsAccordionTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/modules/contrib/views_accordion/tests/src/FunctionalJavascript/ViewsAccordionTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/modules/contrib/views_accordion/views-accordion.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/modules/contrib/views_accordion/views_accordion.info.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/modules/contrib/views_accordion/views_accordion.libraries.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/modules/contrib/views_accordion/views_accordion.module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/themes/custom/enterpriseplus/mha-assets/build/css/theme/mha-theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/themes/custom/enterpriseplus/mha-assets/build/css/theme/mha-theme.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -186,7 +210,8 @@
       <workItem from="1621528224479" duration="3000" />
       <workItem from="1622223621468" duration="947000" />
       <workItem from="1622227349642" duration="328000" />
-      <workItem from="1622471623989" duration="2514000" />
+      <workItem from="1622471623989" duration="2887000" />
+      <workItem from="1622741488077" duration="1444000" />
     </task>
     <servers />
   </component>

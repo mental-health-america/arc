@@ -354,3 +354,29 @@ fieldset legend {
 #edit-field-affiliate-geocode-proximity-value--3 {
   margin-top: 15px;
 }
+
+.ui-accordion .ui-accordion-header {
+  margin: 3px 0 0 0;
+  padding: 1.2rem;
+  font-weight: bold;
+}
+
+.ui-state-active {
+  border: 1px solid #005596;
+  background: #005596;
+}
+
+.js .dropbutton-widget {
+  margin: 0 0 5px;
+  padding: 1rem;
+  font-weight: bold;
+}
+
+.dropbutton-arrow {
+  transform: rotate(-90deg); /* Equal to rotateZ(45deg) */
+}
+
+.js .dropbutton-widget:hover {
+  border-color: #f89b41;
+  background: #f89b41;
+}
