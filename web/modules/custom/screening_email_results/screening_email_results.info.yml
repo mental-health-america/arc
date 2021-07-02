@@ -2,5 +2,5 @@ name: Screening Email Results Module
 description: Creates custom module for Screening Email Results.
 package: Custom
 type: module
-version: 1.1
-core: 8.x
+version: '8.x-5.6.0'
+core_version_requirement: ^8 || ^9

@@ -3,7 +3,7 @@ type: theme
 base theme: classy
 description: 'A flexible, recolorable theme with many regions and a responsive, mobile-first layout.'
 version: '8.x-5.5.0'
-core: 8.x
+core_version_requirement: ^8 || ^9
 libraries:
   - enterpriseplus/bootstrap
   - enterpriseplus/fontawesome

@@ -11,11 +11,12 @@ use Drupal\Core\Entity\EntityInterface;
  * @see \Drupal\simplenews\Entity\Newsletter
  */
 class NewsletterListBuilder extends ConfigEntityListBuilder {
+
   /**
    * {@inheritdoc}
    */
   public function buildHeader() {
-    $header['name'] = t('Newsletter name');
+    $header['name'] = $this->t('Newsletter name');
     return $header + parent::buildHeader();
   }
 
@@ -23,7 +24,8 @@ class NewsletterListBuilder extends ConfigEntityListBuilder {
    * {@inheritdoc}
    */
   public function buildRow(EntityInterface $entity) {
-    $row['name'] = $this->getLabel($entity);
+    $row['name'] = $entity->label();
     return $row + parent::buildRow($entity);
   }
+
 }

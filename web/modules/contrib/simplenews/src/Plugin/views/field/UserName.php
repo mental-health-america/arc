@@ -22,11 +22,11 @@ class UserName extends FieldPluginBase {
     $uid = $this->getValue($values);
     if (!empty($uid)) {
       $account = User::load($uid);
-      $username = array(
+      $username = [
         '#theme' => 'username',
         '#account' => $account,
-      );
-      return drupal_render($username);
+      ];
+      return $this->getRenderer()->render($username);
     }
     return [];
   }
