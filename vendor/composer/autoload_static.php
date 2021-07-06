@@ -152,6 +152,7 @@ class ComposerStaticInit7320d926879abcbedcc51a3c63fd2d6a
         ),
         'E' => 
         array (
+            'Enlightn\\SecurityChecker\\' => 25,
             'Egulias\\EmailValidator\\' => 23,
         ),
         'D' => 
@@ -472,6 +473,10 @@ class ComposerStaticInit7320d926879abcbedcc51a3c63fd2d6a
         'Geocoder\\' => 
         array (
             0 => __DIR__ . '/..' . '/willdurand/geocoder',
+        ),
+        'Enlightn\\SecurityChecker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/enlightn/security-checker/src',
         ),
         'Egulias\\EmailValidator\\' => 
         array (
