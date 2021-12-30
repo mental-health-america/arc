@@ -7167,54 +7167,6 @@
             "install-path": "../../web/modules/contrib/swiftmailer"
         },
         {
-            "name": "drupal/term_csv_tree_import",
-            "version": "dev-1.x",
-            "version_normalized": "dev-1.x",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/term_csv_tree_import.git",
-                "reference": "1fbfe719e792f196dc56a7275cb87dac1026f165"
-            },
-            "require": {
-                "drupal/core": "~8.0"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.x-dev",
-                    "datestamp": "1637763834",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
-                    }
-                }
-            },
-            "installation-source": "source",
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "b.ravanbakhsh",
-                    "homepage": "https://www.drupal.org/user/1413464"
-                },
-                {
-                    "name": "harora",
-                    "homepage": "https://www.drupal.org/user/1900830"
-                }
-            ],
-            "description": "Helper module to quickly import a list of terms with parent structure.",
-            "homepage": "https://www.drupal.org/project/term_csv_tree_import",
-            "support": {
-                "source": "https://git.drupalcode.org/project/term_csv_tree_import"
-            },
-            "install-path": "../../web/modules/contrib/term_csv_tree_import"
-        },
-        {
             "name": "drupal/token",
             "version": "1.10.0",
             "version_normalized": "1.10.0.0",

@@ -79,7 +79,6 @@
         "drupal/simplenews": "^2.0",
         "drupal/superfish": "^1.2",
         "drupal/swiftmailer": "^2.0",
-        "drupal/term_csv_tree_import": "1.x-dev",
         "drupal/token": "^1.9",
         "drupal/typed_data": "^1.0@alpha",
         "drupal/upgrade_status": "^3.13",

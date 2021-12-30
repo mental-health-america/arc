@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '5419f193cd8f7289322635f18a73ad8953b11b3e',
+    'reference' => 'a917ada2bf9c0e3c04283e222eea7d08692d3ff2',
     'name' => 'drupal-composer/drupal-project',
   ),
   'versions' => 
@@ -311,7 +311,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '5419f193cd8f7289322635f18a73ad8953b11b3e',
+      'reference' => 'a917ada2bf9c0e3c04283e222eea7d08692d3ff2',
     ),
     'drupal/action' => 
     array (
@@ -1621,16 +1621,6 @@
       array (
         0 => '8.9.20',
       ),
-    ),
-    'drupal/term_csv_tree_import' => 
-    array (
-      'pretty_version' => 'dev-1.x',
-      'version' => 'dev-1.x',
-      'aliases' => 
-      array (
-        0 => '1.x-dev',
-      ),
-      'reference' => '1fbfe719e792f196dc56a7275cb87dac1026f165',
     ),
     'drupal/text' => 
     array (

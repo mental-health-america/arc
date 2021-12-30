@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e24e6ac09fa6d5acdf7e07e80114a572",
+    "content-hash": "429e8613e79d200e822422e07847b962",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -6882,51 +6882,6 @@
             }
         },
         {
-            "name": "drupal/term_csv_tree_import",
-            "version": "dev-1.x",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/term_csv_tree_import.git",
-                "reference": "1fbfe719e792f196dc56a7275cb87dac1026f165"
-            },
-            "require": {
-                "drupal/core": "~8.0"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.x-dev",
-                    "datestamp": "1637763834",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "b.ravanbakhsh",
-                    "homepage": "https://www.drupal.org/user/1413464"
-                },
-                {
-                    "name": "harora",
-                    "homepage": "https://www.drupal.org/user/1900830"
-                }
-            ],
-            "description": "Helper module to quickly import a list of terms with parent structure.",
-            "homepage": "https://www.drupal.org/project/term_csv_tree_import",
-            "support": {
-                "source": "https://git.drupalcode.org/project/term_csv_tree_import"
-            }
-        },
-        {
             "name": "drupal/token",
             "version": "1.10.0",
             "source": {
@@ -13595,7 +13550,6 @@
         "drupal/mimemail": 15,
         "drupal/rabbit_hole": 10,
         "drupal/rules": 15,
-        "drupal/term_csv_tree_import": 20,
         "drupal/typed_data": 15,
         "drupal/votingapi": 10,
         "drupal/webform_views": 15
