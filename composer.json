@@ -82,7 +82,7 @@
         "drupal/term_csv_tree_import": "1.x-dev",
         "drupal/token": "^1.9",
         "drupal/typed_data": "^1.0@alpha",
-        "drupal/upgrade_status": "^3.7",
+        "drupal/upgrade_status": "^3.13",
         "drupal/video_embed_field": "^2.2",
         "drupal/views_accordion": "^2.0",
         "drupal/views_slideshow": "^4.8",
@@ -95,8 +95,6 @@
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3"
-    },
-    "require-dev": {
     },
     "conflict": {
         "drupal/drupal": "*"
