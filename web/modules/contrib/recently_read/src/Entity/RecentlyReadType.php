@@ -29,6 +29,12 @@ use Drupal\Core\Entity\EntityStorageInterface;
  *     "label" = "label",
  *     "uuid" = "uuid"
  *   },
+ *   config_export = {
+ *     "id" = "id",
+ *     "label" = "label",
+ *     "uuid" = "uuid",
+ *     "types" = "types"
+ *   },
  *   links = {
  *     "canonical" = "/admin/config/system/recently-read/{recently_read_type}",
  *     "edit-form" = "/admin/config/system/recently-read/{recently_read_type}/edit",
@@ -51,13 +57,6 @@ class RecentlyReadType extends ConfigEntityBundleBase implements RecentlyReadTyp
    * @var string
    */
   protected $label = '';
-
-  /**
-   * The Recently read type enabled.
-   *
-   * @var bool
-   */
-  protected $enabled = FALSE;
 
   /**
    * The Recently read types.

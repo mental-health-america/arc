@@ -2,44 +2,51 @@
 
 namespace Drupal\recently_read;
 
-use Drupal\Core\Session\SessionManager;
-use Drupal\recently_read\Entity\RecentlyRead;
+use Drupal\Core\Config\ConfigFactory;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Session\AccountInterface;
-use Drupal\Core\Config\ConfigFactory;
+use Drupal\Core\Session\SessionManager;
 
 /**
  * Recently read service.
  */
-class RecentlyReadService {
+class RecentlyReadService implements RecentlyReadServiceInterface {
 
   /**
    * The current user injected into the service.
    *
    * @var \Drupal\Core\Session\AccountInterface
    */
-  private $currentUser;
+  protected $currentUser;
 
   /**
    * Entity type manager service.
    *
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
-  private $entityTypeManager;
+  protected $entityTypeManager;
 
   /**
    * SessionManager service.
    *
    * @var \Drupal\Core\Session\SessionManager
    */
-  private $sessionManager;
+  protected $sessionManager;
 
   /**
    * Config factory service.
    *
    * @var \Drupal\Core\Config\ConfigFactory
    */
-  private $configFactory;
+  protected $configFactory;
+
+  /**
+   * The Recently Read storage.
+   *
+   * @var \Drupal\Core\Entity\EntityStorageInterface
+   */
+  protected $recentlyReadStorage;
 
   /**
    * Constructor.
@@ -52,6 +59,9 @@ class RecentlyReadService {
    *   Session manager.
    * @param \Drupal\Core\Config\ConfigFactory $configFactory
    *   Config factory service.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
   public function __construct(
     AccountInterface $current_user,
@@ -63,21 +73,25 @@ class RecentlyReadService {
     $this->entityTypeManager = $entity_type_manager;
     $this->sessionManager = $sessionManager;
     $this->configFactory = $configFactory;
+    $this->recentlyReadStorage = $this->entityTypeManager->getStorage('recently_read');
   }
 
   /**
-   * Custom function to insert or update an entry for recently read.
+   * {@inheritdoc}
    */
-  public function insertEntity($entity) {
+  public function insertEntity(EntityInterface $entity, AccountInterface $user = NULL) {
     // Get configuration and check if RR delete options is count based.
     $config = $this->configFactory->getEditable('recently_read.configuration');
     $maxRecords = NULL;
     if ($config->get('delete_config') == "count") {
       $maxRecords = $config->get('count');
     }
-    $user_id = $this->currentUser->id();
+
+    // Assert a user.
+    $user = $user ?? $this->currentUser;
+
     // If anonymous set user_id to 0 and check for any existing entries.
-    if ($this->currentUser->isAnonymous()) {
+    if ($user->isAnonymous()) {
       // Ensure something is in $_SESSION, otherwise the session ID will
       // not persist.
       // TODO: Replace this with something cleaner once core provides it.
@@ -86,21 +100,18 @@ class RecentlyReadService {
         $_SESSION['recently_read'] = TRUE;
         $this->sessionManager->start();
       }
-      $user_id = 0;
-      $exists = $this->entityTypeManager->getStorage('recently_read')
-        ->loadByProperties([
-          'session_id' => $this->sessionManager->getId(),
-          'type' => $entity->getEntityTypeId(),
-          'entity_id' => $entity->id(),
-        ]);
+      $exists = $this->recentlyReadStorage->loadByProperties([
+        'session_id' => $this->sessionManager->getId(),
+        'type' => $entity->getEntityTypeId(),
+        'entity_id' => $entity->id(),
+      ]);
     }
     else {
-      $exists = $this->entityTypeManager->getStorage('recently_read')
-        ->loadByProperties([
-          'user_id' => $user_id,
-          'type' => $entity->getEntityTypeId(),
-          'entity_id' => $entity->id(),
-        ]);
+      $exists = $this->recentlyReadStorage->loadByProperties([
+        'user_id' => $user->id(),
+        'type' => $entity->getEntityTypeId(),
+        'entity_id' => $entity->id(),
+      ]);
     }
     // If exists then update created else create new.
     if (!empty($exists)) {
@@ -110,18 +121,17 @@ class RecentlyReadService {
     }
     else {
       // Create new.
-      $recentlyRead = $this->entityTypeManager->getStorage('recently_read')
-        ->create([
-          'type' => $entity->getEntityTypeId(),
-          'user_id' => $user_id,
-          'entity_id' => $entity->id(),
-          'session_id' => $user_id ? 0 : $this->sessionManager->getId(),
-          'created' => time(),
-        ]);
+      $recentlyRead = $this->recentlyReadStorage->create([
+        'type' => $entity->getEntityTypeId(),
+        'user_id' => $user->id(),
+        'entity_id' => $entity->id(),
+        'session_id' => $user->id() ? 0 : $this->sessionManager->getId(),
+        'created' => time(),
+      ]);
       $recentlyRead->save();
     }
     // Delete records if there is a limit.
-    $userRecords = $this->getRecords($user_id);
+    $userRecords = $this->getRecords($user->id());
     if ($maxRecords && count($userRecords) > $maxRecords) {
       $records = array_slice($userRecords, $maxRecords, count($userRecords));
       $this->deleteRecords($records);
@@ -129,46 +139,54 @@ class RecentlyReadService {
   }
 
   /**
-   * Delete records from DB.
-   *
-   * @param array $records
-   *   Number of records to delete.
+   * {@inheritdoc}
    */
   public function deleteRecords(array $records) {
     foreach ($records as $rid) {
       // Delete data.
-      $recently_read = RecentlyRead::load($rid);
+      $recently_read = $this->recentlyReadStorage->load($rid);
       $recently_read->delete();
     }
   }
 
   /**
-   * Get all records in DB for specified user/anonymous.
-   *
-   * @param int $user_id
-   *   User id.
-   *
-   * @return array|int
-   *   Returns an array of record id's.
-   *
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * {@inheritdoc}
    */
   public function getRecords($user_id) {
     if ($user_id != 0) {
-      $records = $this->entityTypeManager->getStorage('recently_read')
-        ->getQuery()
+      $records = $this->recentlyReadStorage->getQuery()
         ->condition('user_id', $user_id)
         ->sort('created', 'DESC')
         ->execute();
     }
     else {
-      $records = $this->entityTypeManager->getStorage('recently_read')
-        ->getQuery()
+      $records = $this->recentlyReadStorage->getQuery()
         ->condition('session_id', session_id())
         ->sort('created', 'DESC')
         ->execute();
     }
     return $records;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function deleteEntityRecords(EntityInterface $entity, AccountInterface $user = NULL) {
+    $properties = [
+      'type' => $entity->getEntityTypeId(),
+      'entity_id' => $entity->id(),
+    ];
+    if ($user) {
+      if ($user->isAnonymous()) {
+        $properties['session_id'] = $this->sessionManager->getId();
+      }
+      else {
+        $properties['user_id'] = $user->id();
+      }
+    }
+
+    $recently_read_entities = $this->recentlyReadStorage->loadByProperties($properties);
+    $this->recentlyReadStorage->delete($recently_read_entities);
   }
 
 }

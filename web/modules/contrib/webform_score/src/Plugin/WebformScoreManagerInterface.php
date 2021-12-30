@@ -14,7 +14,7 @@ interface WebformScoreManagerInterface extends PluginManagerInterface {
    *
    * @param string $data_type_id
    *   Data type plugin ID for which to retrieve compatible WebformScore plugin
-   *   options
+   *   options.
    * @param bool $include_aggregation
    *   Whether to include aggregation plugins.
    *

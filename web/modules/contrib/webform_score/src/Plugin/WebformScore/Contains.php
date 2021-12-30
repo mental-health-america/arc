@@ -8,6 +8,8 @@ use Drupal\Core\TypedData\TypedDataInterface;
 use Drupal\webform_score\Plugin\WebformScoreInterface;
 
 /**
+ * Score is based on whether answer contains a string.
+ *
  * @WebformScore(
  *   id="contains",
  *   label=@Translation("Contains"),

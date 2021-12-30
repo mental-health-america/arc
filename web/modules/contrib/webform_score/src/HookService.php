@@ -17,6 +17,12 @@ class HookService {
    */
   protected $elementManager;
 
+  /**
+   * Constructor.
+   *
+   * @param \Drupal\webform\Plugin\WebformElementManagerInterface $element_manager
+   *   The element manager service.
+   */
   public function __construct(WebformElementManagerInterface $element_manager) {
     $this->elementManager = $element_manager;
   }
@@ -31,7 +37,7 @@ class HookService {
     ];
     foreach ($webform_submission->getWebform()->getElementsInitializedAndFlattened() as $element) {
       $element_plugin = $this->elementManager->createInstance($this->elementManager->getElementPluginId($element));
-      if ($element_plugin instanceof \Drupal\webform_score\QuizInterface) {
+      if ($element_plugin instanceof QuizInterface) {
         $score['maximum'] += $element_plugin->getMaxScore($element);
         $score['scored'] += $element_plugin->score($element, $webform_submission);
       }

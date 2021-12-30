@@ -41,18 +41,20 @@ INSTALLATION
 CONFIGURATION
 -------------
 
-    1. Navigate to Administration > Extend and enable the module.
-    2. When the module is enabled, it automatically creates a view block for
+  1. Navigate to Administration > Extend and enable the module.
+  2. When the module is enabled, it automatically creates a view block for
        recently read articles.
-    3. Navigate to Administration > Configuration > System > Recently read to
+  3. Navigate to Administration > Configuration > System > Recently read config to
        configure.
-    4. From the "List" tab, entities can be individually configured by
-       selecting the "Edit" option.
-    5. From the "Configuration" tab, there are options for deleting the records:
+  4. From the "Configuration" tab, enable entity types for which you want
+       to track recently read items. There are also options for deleting the records:
        Time based, Count based, or Never.
-    6. Navigate to Administration > Structure > Views to create a new view for
+  5. From the "List" tab, entities can be individually configured by
+       selecting the "Edit" option.
+  6. Navigate to Administration > Structure > Views to create a new view for
        Recently read content (Content) just add a relationship to Recently read
-       (see sample view named 'Recently').
+       with Require this relationship option checked. See (Recently read content)
+       as an example.
 
 
 MAINTAINERS

@@ -40,7 +40,7 @@ class WebformScoreManager extends DefaultPluginManager implements WebformScoreMa
   public function pluginOptionsCompatibleWith($data_type_id, $include_aggregation = TRUE) {
     $options = [];
 
-    // TODO: Try to take into consideration OOP inheritance when building the
+    // @todo Try to take into consideration OOP inheritance when building the
     // list of options. For example if $data_type_id is "string", then not only
     // "string" data type but also all of its children should be matched, such
     // as "email", "uri", etc.

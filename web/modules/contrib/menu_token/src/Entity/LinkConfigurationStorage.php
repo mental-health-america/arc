@@ -35,6 +35,12 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *     "edit-form" = "/admin/structure/link_configuration_storage/{link_configuration_storage}/edit",
  *     "delete-form" = "/admin/structure/link_configuration_storage/{link_configuration_storage}/delete",
  *     "collection" = "/admin/structure/link_configuration_storage"
+ *   },
+ *   config_export = {
+ *     "id",
+ *     "label",
+ *     "linkid",
+ *     "uuid"
  *   }
  * )
  */

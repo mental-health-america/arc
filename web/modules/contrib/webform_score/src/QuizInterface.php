@@ -30,12 +30,12 @@ interface QuizInterface extends WebformElementInterface {
    * @param array $element
    *   Webform element to score.
    * @param \Drupal\webform\WebformSubmissionInterface $webform_submission
-   *   Webform submission within which score is being calculated
+   *   Webform submission within which score is being calculated.
    *
    * @return int
    *   Calculated score for the provided webform element within the provided
    *   webform submission.
    */
-  public function score($element, WebformSubmissionInterface $webform_submission);
+  public function score(array $element, WebformSubmissionInterface $webform_submission);
 
 }

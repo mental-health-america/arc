@@ -20,6 +20,7 @@ use Drupal\user\UserInterface;
  *   bundle_label = @Translation("Recently read type"),
  *   fieldable = FALSE,
  *   handlers = {
+ *     "storage_schema" = "Drupal\recently_read\RecentlyReadStorageSchema",
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
  *     "views_data" = "Drupal\views\EntityViewsData",
  *     "route_provider" = {
@@ -35,6 +36,14 @@ use Drupal\user\UserInterface;
  *     "uid" = "user_id",
  *     "langcode" = "langcode",
  *     "status" = "status",
+ *   },
+ *   config_export = {
+ *     "id" = "id",
+ *     "bundle" = "type",
+ *     "uuid" = "uuid",
+ *     "uid" = "user_id",
+ *     "langcode" = "langcode",
+ *     "status" = "status"
  *   },
  *   bundle_entity_type = "recently_read_type",
  * )

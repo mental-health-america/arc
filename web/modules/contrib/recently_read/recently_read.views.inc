@@ -15,6 +15,9 @@ function recently_read_views_data_alter(array &$data) {
   $entity_type_manager = \Drupal::entityTypeManager();
   foreach ($recently_read_types as $type) {
     $entity_type_id = $type->id();
+    if (!$entity_type_manager->hasDefinition($entity_type_id)) {
+      continue;
+    }
     $entity_type = $entity_type_manager->getDefinition($entity_type_id);
     if ($entity_type->hasHandlerClass('views_data')) {
       $base_table = $entity_type_manager->getHandler($entity_type_id, 'views_data')->getViewsTableForEntityType($entity_type);

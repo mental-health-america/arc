@@ -5,8 +5,8 @@ namespace Drupal\Tests\term_csv_tree_import\kernel;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\KernelTests\KernelTestBase;
-use Drupal\Tests\taxonomy\Functional\TaxonomyTestTrait;
 use Drupal\term_csv_tree_import\Service\CollectCsvData;
+use Drupal\Tests\taxonomy\Traits\TaxonomyTestTrait;
 use org\bovigo\vfs\vfsStream;
 
 /**
@@ -14,8 +14,10 @@ use org\bovigo\vfs\vfsStream;
  *
  * @group term_csv_tree_import
  */
-class TermKernelTest extends KernelTestBase {
+class TermKernelTest extends KernelTestBase
+{
   use TaxonomyTestTrait;
+
   /**
    * Service to test.
    *
@@ -45,7 +47,8 @@ class TermKernelTest extends KernelTestBase {
   /**
    * Setup file and vocabulary.
    */
-  protected function setUp() {
+  protected function setUp()
+  {
     parent::setUp();
     $this->installEntitySchema('taxonomy_term');
     // Sample data.
@@ -63,7 +66,8 @@ class TermKernelTest extends KernelTestBase {
   /**
    * Test data in csv after file upload.
    */
-  public function testCsvImportService() {
+  public function testCsvImportService()
+  {
     $file = $this->fileSystem->url() . '/csv/input.csv';
     // Create vocabulary.
     $vocabulary = $this->createVocabulary()->id();

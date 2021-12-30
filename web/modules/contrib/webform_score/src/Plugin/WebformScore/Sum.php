@@ -5,6 +5,8 @@ namespace Drupal\webform_score\Plugin\WebformScore;
 use Drupal\Core\TypedData\TypedDataInterface;
 
 /**
+ * Score is based on the sub of scores from a set of answers.
+ *
  * @WebformScore(
  *   id="sum",
  *   label=@Translation("Sum score from a set"),
