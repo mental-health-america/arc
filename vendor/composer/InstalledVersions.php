@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'a917ada2bf9c0e3c04283e222eea7d08692d3ff2',
+    'reference' => 'c6215f6fdada104b50dfdeb8150b9c44cce18c5d',
     'name' => 'drupal-composer/drupal-project',
   ),
   'versions' => 
@@ -337,7 +337,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'a917ada2bf9c0e3c04283e222eea7d08692d3ff2',
+      'reference' => 'c6215f6fdada104b50dfdeb8150b9c44cce18c5d',
     ),
     'drupal/action' => 
     array (
@@ -634,15 +634,6 @@ private static $installed = array (
       array (
         0 => '8.9.20',
       ),
-    ),
-    'drupal/contribute' => 
-    array (
-      'pretty_version' => '5.0.0-beta3',
-      'version' => '5.0.0.0-beta3',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '8.x-5.0-beta3',
     ),
     'drupal/core' => 
     array (
