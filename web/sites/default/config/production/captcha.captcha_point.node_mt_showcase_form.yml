@@ -1,7 +1,0 @@
-uuid: 136e19b7-52de-4ff3-b4c5-21dfa1556cec
-langcode: en
-status: false
-dependencies: {  }
-formId: node_mt_showcase_form
-captchaType: default
-label: null
