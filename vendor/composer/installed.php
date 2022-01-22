@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '5aea18d407480210288f77e7d260ede2cca01356',
+        'reference' => 'a84d01b6c4e6abd93b93f4a3dbdc0c67686faefa',
         'name' => 'drupal/legacy-project',
         'dev' => true,
     ),
@@ -1108,7 +1108,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '5aea18d407480210288f77e7d260ede2cca01356',
+            'reference' => 'a84d01b6c4e6abd93b93f4a3dbdc0c67686faefa',
             'dev_requirement' => false,
         ),
         'drupal/link' => array(
@@ -1373,12 +1373,12 @@
             'dev_requirement' => false,
         ),
         'drupal/salesforce' => array(
-            'pretty_version' => '4.2.0',
-            'version' => '4.2.0.0',
+            'pretty_version' => '5.0.0',
+            'version' => '5.0.0.0',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/salesforce',
             'aliases' => array(),
-            'reference' => '8.x-4.2',
+            'reference' => '5.0.0',
             'dev_requirement' => false,
         ),
         'drupal/search' => array(
