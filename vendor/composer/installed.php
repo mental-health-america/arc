@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'a84d01b6c4e6abd93b93f4a3dbdc0c67686faefa',
+        'reference' => 'cdfc2a6b18a954aa47fd4328201e03739024058e',
         'name' => 'drupal/legacy-project',
         'dev' => true,
     ),
@@ -275,12 +275,12 @@
             'dev_requirement' => false,
         ),
         'drupal/admin_toolbar' => array(
-            'pretty_version' => '3.0.3',
-            'version' => '3.0.3.0',
+            'pretty_version' => '3.1.0',
+            'version' => '3.1.0.0',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/admin_toolbar',
             'aliases' => array(),
-            'reference' => '3.0.3',
+            'reference' => '3.1.0',
             'dev_requirement' => false,
         ),
         'drupal/adminimal_admin_toolbar' => array(
@@ -1108,7 +1108,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'a84d01b6c4e6abd93b93f4a3dbdc0c67686faefa',
+            'reference' => 'cdfc2a6b18a954aa47fd4328201e03739024058e',
             'dev_requirement' => false,
         ),
         'drupal/link' => array(
