@@ -47,8 +47,8 @@ class ComposerStaticInit02deb6efc4b561886c793a95be9bf467
         '2d0bd6b7e257b7230c706e6559d6a87b' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/drupal-phpunit-hack.php',
         '9c67151ae59aff4788964ce8eb2a0f43' => __DIR__ . '/..' . '/clue/stream-filter/src/functions_include.php',
         '5a12a5271c58108e0aa33355e6ac54ea' => __DIR__ . '/..' . '/drupal/console-core/src/functions.php',
-        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '8cff32064859f4559445b89279f3199c' => __DIR__ . '/..' . '/php-http/message/src/filters.php',
+        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -472,8 +472,8 @@ class ComposerStaticInit02deb6efc4b561886c793a95be9bf467
         ),
         'Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/php-http/message-factory/src',
-            1 => __DIR__ . '/..' . '/php-http/message/src',
+            0 => __DIR__ . '/..' . '/php-http/message/src',
+            1 => __DIR__ . '/..' . '/php-http/message-factory/src',
         ),
         'Http\\Client\\' => 
         array (
@@ -1160,6 +1160,7 @@ class ComposerStaticInit02deb6efc4b561886c793a95be9bf467
         'Consolidation\\SiteAlias\\Util\\FsUtils' => __DIR__ . '/..' . '/consolidation/site-alias/src/Util/FsUtils.php',
         'Consolidation\\SiteAlias\\Util\\YamlDataFileLoader' => __DIR__ . '/..' . '/consolidation/site-alias/src/Util/YamlDataFileLoader.php',
         'Consolidation\\SiteProcess\\Factory\\DockerComposeTransportFactory' => __DIR__ . '/..' . '/consolidation/site-process/src/Factory/DockerComposeTransportFactory.php',
+        'Consolidation\\SiteProcess\\Factory\\KubectlTransportFactory' => __DIR__ . '/..' . '/consolidation/site-process/src/Factory/KubectlTransportFactory.php',
         'Consolidation\\SiteProcess\\Factory\\SshTransportFactory' => __DIR__ . '/..' . '/consolidation/site-process/src/Factory/SshTransportFactory.php',
         'Consolidation\\SiteProcess\\Factory\\TransportFactoryInterface' => __DIR__ . '/..' . '/consolidation/site-process/src/Factory/TransportFactoryInterface.php',
         'Consolidation\\SiteProcess\\Factory\\VagrantTransportFactory' => __DIR__ . '/..' . '/consolidation/site-process/src/Factory/VagrantTransportFactory.php',
@@ -1169,6 +1170,7 @@ class ComposerStaticInit02deb6efc4b561886c793a95be9bf467
         'Consolidation\\SiteProcess\\ProcessManagerAwareTrait' => __DIR__ . '/..' . '/consolidation/site-process/src/ProcessManagerAwareTrait.php',
         'Consolidation\\SiteProcess\\SiteProcess' => __DIR__ . '/..' . '/consolidation/site-process/src/SiteProcess.php',
         'Consolidation\\SiteProcess\\Transport\\DockerComposeTransport' => __DIR__ . '/..' . '/consolidation/site-process/src/Transport/DockerComposeTransport.php',
+        'Consolidation\\SiteProcess\\Transport\\KubectlTransport' => __DIR__ . '/..' . '/consolidation/site-process/src/Transport/KubectlTransport.php',
         'Consolidation\\SiteProcess\\Transport\\LocalTransport' => __DIR__ . '/..' . '/consolidation/site-process/src/Transport/LocalTransport.php',
         'Consolidation\\SiteProcess\\Transport\\SshTransport' => __DIR__ . '/..' . '/consolidation/site-process/src/Transport/SshTransport.php',
         'Consolidation\\SiteProcess\\Transport\\TransportInterface' => __DIR__ . '/..' . '/consolidation/site-process/src/Transport/TransportInterface.php',
