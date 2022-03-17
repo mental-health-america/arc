@@ -2517,6 +2517,7 @@ class ComposerStaticInit02deb6efc4b561886c793a95be9bf467
         'Drupal\\Core\\Entity\\Exception\\EntityTypeIdLengthException' => __DIR__ . '/../..' . '/web/core/lib/Drupal/Core/Entity/Exception/EntityTypeIdLengthException.php',
         'Drupal\\Core\\Entity\\Exception\\FieldStorageDefinitionUpdateForbiddenException' => __DIR__ . '/../..' . '/web/core/lib/Drupal/Core/Entity/Exception/FieldStorageDefinitionUpdateForbiddenException.php',
         'Drupal\\Core\\Entity\\Exception\\InvalidLinkTemplateException' => __DIR__ . '/../..' . '/web/core/lib/Drupal/Core/Entity/Exception/InvalidLinkTemplateException.php',
+        'Drupal\\Core\\Entity\\Exception\\MissingBundleClassException' => __DIR__ . '/../..' . '/web/core/lib/Drupal/Core/Entity/Exception/MissingBundleClassException.php',
         'Drupal\\Core\\Entity\\Exception\\NoCorrespondingEntityClassException' => __DIR__ . '/../..' . '/web/core/lib/Drupal/Core/Entity/Exception/NoCorrespondingEntityClassException.php',
         'Drupal\\Core\\Entity\\Exception\\UndefinedLinkTemplateException' => __DIR__ . '/../..' . '/web/core/lib/Drupal/Core/Entity/Exception/UndefinedLinkTemplateException.php',
         'Drupal\\Core\\Entity\\Exception\\UnsupportedEntityTypeDefinitionException' => __DIR__ . '/../..' . '/web/core/lib/Drupal/Core/Entity/Exception/UnsupportedEntityTypeDefinitionException.php',
