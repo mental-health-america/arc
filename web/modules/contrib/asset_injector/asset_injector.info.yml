@@ -5,7 +5,7 @@ core_version_requirement: ^8.8 || ^9 || ^10
 package: Development
 configure: asset_injector.development
 
-# Information added by Drupal.org packaging script on 2022-02-02
-version: '8.x-2.9'
+# Information added by Drupal.org packaging script on 2022-03-21
+version: '8.x-2.10'
 project: 'asset_injector'
-datestamp: 1643764376
+datestamp: 1647880966
