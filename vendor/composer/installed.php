@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'e79a8c3fb7768fa878066f77db399a3b1ec915f8',
+        'reference' => '86dfe759882a656a2810f7474f1c929060732bf8',
         'name' => 'drupal/legacy-project',
         'dev' => true,
     ),
@@ -1162,7 +1162,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'e79a8c3fb7768fa878066f77db399a3b1ec915f8',
+            'reference' => '86dfe759882a656a2810f7474f1c929060732bf8',
             'dev_requirement' => false,
         ),
         'drupal/link' => array(
@@ -1412,6 +1412,15 @@
             'install_path' => __DIR__ . '/../../web/modules/contrib/recently_read',
             'aliases' => array(),
             'reference' => '8.x-1.2',
+            'dev_requirement' => false,
+        ),
+        'drupal/redirect' => array(
+            'pretty_version' => '1.7.0',
+            'version' => '1.7.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/redirect',
+            'aliases' => array(),
+            'reference' => '8.x-1.7',
             'dev_requirement' => false,
         ),
         'drupal/redirect_after_login' => array(

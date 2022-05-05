@@ -76,6 +76,7 @@
         "drupal/rabbit_hole": "^1.0@beta",
         "drupal/recaptcha": "^3.0",
         "drupal/recently_read": "^1.0",
+        "drupal/redirect": "^1.7",
         "drupal/redirect_after_login": "^2.7",
         "drupal/rules": "^3.0@alpha",
         "drupal/salesforce": "^5.0",
