@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '86dfe759882a656a2810f7474f1c929060732bf8',
+        'reference' => '18329a4db95d62af6ea187bcdd37c6a50ae86fc2',
         'name' => 'drupal/legacy-project',
         'dev' => true,
     ),
@@ -913,6 +913,15 @@
                 0 => '9.3.12',
             ),
         ),
+        'drupal/file_delete' => array(
+            'pretty_version' => '1.0.0',
+            'version' => '1.0.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/file_delete',
+            'aliases' => array(),
+            'reference' => '8.x-1.0',
+            'dev_requirement' => false,
+        ),
         'drupal/filter' => array(
             'dev_requirement' => false,
             'replaced' => array(
@@ -1162,7 +1171,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '86dfe759882a656a2810f7474f1c929060732bf8',
+            'reference' => '18329a4db95d62af6ea187bcdd37c6a50ae86fc2',
             'dev_requirement' => false,
         ),
         'drupal/link' => array(
