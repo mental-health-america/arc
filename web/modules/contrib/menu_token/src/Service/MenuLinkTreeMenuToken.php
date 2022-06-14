@@ -74,7 +74,7 @@ class MenuLinkTreeMenuToken extends MenuLinkTree {
    */
   protected function buildItems(array $tree, CacheableMetadata &$tree_access_cacheability, CacheableMetadata &$tree_link_cacheability) {
     $items = [];
-	$current_path = \Drupal::request()->getRequestUri();
+    $current_path = \Drupal::request()->getRequestUri();
 
     foreach ($tree as $data) {
       /** @var \Drupal\Core\Menu\MenuLinkInterface $link */
@@ -143,8 +143,9 @@ class MenuLinkTreeMenuToken extends MenuLinkTree {
       if (isset($data->options)) {
         $element['url']->setOptions(NestedArray::mergeDeep($element['url']->getOptions(), $data->options));
       }
-	  if ($element['url']->toString() == $current_path) {
-        $element['url']->setOption('attributes', array('class' => array('is-active')));
+      if ($element['url']->toString() === $current_path) {
+        $attributes = $element['url']->getOption('attributes') ?? [];
+        $element['url']->setOption('attributes', NestedArray::mergeDeep($attributes, ['class' => ['is-active']]));
       }
 
       $element['original_link'] = $link;

@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\user\Entity\Role;
+
 /**
  * @file
  * Contains menu_token.install.
@@ -45,5 +47,19 @@ function menu_token_uninstall() {
     ->condition('mlid', $menu_links, 'IN')
     ->execute();
     \Drupal::messenger()->addStatus(t('Reset %num_updated menu items.', ['%num_updated' => $num_updated]));
+  }
+}
+
+/**
+ * Implements hook_update_N().
+ */
+function menu_token_update_8901(&$sandbox) {
+  $roles = Role::loadMultiple();
+
+  foreach ($roles as $role) {
+    if ($role->hasPermission('access administration pages') && !$role->hasPermission('administer site configuration')) {
+      $role->grantPermission('administer site configuration');
+      $role->save();
+    }
   }
 }

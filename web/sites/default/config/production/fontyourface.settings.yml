@@ -1,6 +1,0 @@
-enabled_fonts:
-  - 'http://www.google.com/webfonts/family?family=Libre Franklin&subset=latin-ext#regular'
-  - 'http://www.google.com/webfonts/family?family=Libre Franklin&subset=latin-ext#700'
-load_all_enabled_fonts: 1
-_core:
-  default_config_hash: r8uAx4mTBwCkgDFbdKCmhjgbb91BQ4HbWSYRKrlowMY

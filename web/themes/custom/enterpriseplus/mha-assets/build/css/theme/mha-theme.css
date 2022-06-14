@@ -380,3 +380,7 @@ fieldset legend {
   border-color: #f89b41;
   background: #f89b41;
 }
+
+.messages.messages--error {
+  display: none !important;
+}

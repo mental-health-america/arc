@@ -55,6 +55,7 @@ trait QuizTrait {
    */
   public function prepare(array &$element, WebformSubmissionInterface $webform_submission = NULL) {
     $element['#type'] = str_replace('webform_score_', '', $element['#type']);
+    parent::prepare($element, $webform_submission);
   }
 
   /**
@@ -68,7 +69,7 @@ trait QuizTrait {
       '#title' => $this->t('Quiz answer'),
       '#attributes' => [
         'id' => Html::getId('webform-score-plugin-configuration-wrapper'),
-      ]
+      ],
     ];
 
     $form['webform_score']['webform_score_plugin'] = [
@@ -157,7 +158,7 @@ trait QuizTrait {
    * @return array|\Drupal\Core\Ajax\AjaxResponse
    *   Ajax response or a renderable array.
    */
-  public static function ajaxForm($form, FormStateInterface $form_state) {
+  public static function ajaxForm(array $form, FormStateInterface $form_state) {
     return $form['properties']['webform_score'];
   }
 
@@ -218,7 +219,7 @@ trait QuizTrait {
    * @return \Drupal\Core\TypedData\TypedDataInterface
    *   Answer, wrapped into TypedDataInterface object.
    */
-  protected function getAnswer($element, WebformSubmissionInterface $webform_submission) {
+  protected function getAnswer(array $element, WebformSubmissionInterface $webform_submission) {
     return $this->typedDataManager->create($this->typedDataManager->createDataDefinition($this->getAnswerDataTypeId()), $webform_submission->getElementData($element['#webform_key']));
   }
 

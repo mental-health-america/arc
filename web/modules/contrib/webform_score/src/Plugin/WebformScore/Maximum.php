@@ -5,6 +5,8 @@ namespace Drupal\webform_score\Plugin\WebformScore;
 use Drupal\Core\TypedData\TypedDataInterface;
 
 /**
+ * Score is based on the maximum value from a set of scores.
+ *
  * @WebformScore(
  *   id="maximum",
  *   label=@Translation("Max score from a set"),

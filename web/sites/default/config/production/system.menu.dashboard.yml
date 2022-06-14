@@ -1,8 +1,0 @@
-uuid: 30a19f48-389f-416b-98ab-45d570f94104
-langcode: en
-status: true
-dependencies: {  }
-id: dashboard
-label: Dashboard
-description: 'Dashboard Menu'
-locked: false

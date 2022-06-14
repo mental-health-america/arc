@@ -44,7 +44,7 @@ for further information.
 Usage:
 
 ```
-$fraction = fraction(1, 2);
+$fraction = new \Drupal\fraction\Fraction(1, 2);
 ```
 
 Get the numerator and denominator (as strings):
@@ -64,8 +64,8 @@ $decimal =  $fraction->toDecimal($precision);
 Multiply fractions:
 
 ```
-$fraction1 = fraction(2, 3);
-$fraction2 = fraction(1, 2);
+$fraction1 = new \Drupal\fraction\Fraction(2, 3);
+$fraction2 = new \Drupal\fraction\Fraction(1, 2);
 $fraction1->multiply($fraction2);
 ```
 
@@ -116,7 +116,7 @@ setting the second parameter to TRUE:
 ```
 $precision = 2;
 $auto_precision = TRUE;
-$decimal =  $fraction->toDecimal($precision, TRUE);
+$decimal = $fraction->toDecimal($precision, TRUE);
 ```
 
 In the above example, if the fraction's denominator is not base 10, then the
@@ -134,8 +134,9 @@ denominator.
 The numerator is represented as a signed BIGINT, which allows for a range of
 values between -9223372036854775808 and 9223372036854775807.
 
-The denominator is represented as an unsigned INT, which allows for a range of
-values between 0 and 4294967295.
+The denominator is represented as a signed INT, which allows for a range of
+values between -2147483648 to +2147483647, but a constraint is added to ensure
+it is always a positive non-zero integer.
 
 For modules that want to implement their own numerator and denominator columns
 in a database table, the following schema can be used as an example (for use in
@@ -146,30 +147,27 @@ hook_schema()):
  * Implements hook_schema().
  */
 function mymodule_schema() {
-  $schema['mymodule_table'] = array(
-    'fields' => array(
+  $schema['mymodule_table'] = [
+    'fields' => [
 
       ...
 
-      'value_numerator' => array(
+      'value_numerator' => [
         'description' => 'Value numerator',
         'type' => 'int',
         'size' => 'big',
-        'not null' => TRUE,
-        'default' => 0,
-      ),
-      'value_denominator' => array(
+        'not null' => FALSE,
+      ],
+      'value_denominator' => [
         'description' => 'Value denominator',
         'type' => 'int',
-        'unsigned' => TRUE,
-        'not null' => TRUE,
-        'default' => 1,
-      ),
+        'not null' => FALSE,
+      ],
 
       ...
 
-    ),
-  );
+    ],
+  ];
   return $schema;
 }
 ```
@@ -195,60 +193,60 @@ function mymodule_views_data() {
   ...
 
   // Value numerator.
-  $data['mymodule_table']['value_numerator'] = array(
+  $data['mymodule_table']['value_numerator'] = [
     'title' => t('Value numerator'),
     'help' => t('The stored numerator value.'),
-    'field' => array(
+    'field' => [
       'id' => 'numeric',
       'click sortable' => TRUE,
-    ),
-    'filter' => array(
+    ],
+    'filter' => [
       'id' => 'numeric',
-    ),
-    'sort' => array(
+    ],
+    'sort' => [
       'id' => 'standard',
-    ),
-  );
+    ],
+  ];
 
   // Value denominator.
-  $data['mymodule_table']['value_denominator'] = array(
+  $data['mymodule_table']['value_denominator'] = [
     'title' => t('Value denominator'),
     'help' => t('The stored denominator value.'),
-    'field' => array(
+    'field' => [
       'id' => 'numeric',
       'click sortable' => TRUE,
-    ),
-    'filter' => array(
+    ],
+    'filter' => [
       'id' => 'numeric',
-    ),
-    'sort' => array(
+    ],
+    'sort' => [
       'id' => 'standard',
-    ),
-  );
+    ],
+  ];
 
   // Create a new decimal column with fraction decimal handlers.
-  $fraction_fields = array(
+  $fraction_fields = [
     'numerator' => 'value_numerator',
     'denominator' => 'value_denominator',
-  );
-  $data['mymodule_table']['value_decimal'] = array(
+  ];
+  $data['mymodule_table']['value_decimal'] = [
     'title' => t('Value (decimal)'),
     'help' => t('Decimal equivalent of the value.'),
     'real field' => 'value_numerator',
-    'field' => array(
+    'field' => [
       'id' => 'fraction',
       'additional fields' => $fraction_fields,
       'click sortable' => TRUE,
-    ),
-    'sort' => array(
+    ],
+    'sort' => [
       'id' => 'fraction',
       'additional fields' => $fraction_fields,
-    ),
-    'filter' => array(
+    ],
+    'filter' => [
       'id' => 'fraction',
       'additional fields' => $fraction_fields,
-    )
-  );
+    ]
+  ];
 
   return $data;
 }
@@ -303,4 +301,4 @@ store is 9,223,372,036.854775807.
 
 Current maintainers:
  * Michael Stenta (m.stenta) - https://drupal.org/user/581414
-
+ * Pedro Cambra (pcambra) - https://drupal.org/user/122101

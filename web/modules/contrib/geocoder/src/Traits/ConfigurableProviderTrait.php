@@ -38,6 +38,7 @@ trait ConfigurableProviderTrait {
    * {@inheritdoc}
    */
   public function buildConfigurationForm(array $form, FormStateInterface $form_state): array {
+    $id = $form['id']['#default_value'];
     try {
       foreach ($this->getPluginArguments() as $argument => $argument_definition) {
         switch ($argument_definition['type']) {
@@ -70,6 +71,17 @@ trait ConfigurableProviderTrait {
           '#description' => $argument_definition['description'] ?? '',
           '#default_value' => $this->configuration[$argument] ?? $argument_definition['default_value'],
           '#required' => empty($argument_definition['nullable']) || $argument_definition['nullable'] === FALSE,
+          // Add support for COI module (https://www.drupal.org/project/coi)
+          '#config' => [
+            'key' => 'geocoder.geocoder_provider.' . $id . ':' . $argument,
+            'secret' => in_array($argument, [
+              'accessToken',
+              'apiKey',
+              'clientId',
+              'privateKey',
+            ],
+            ),
+          ],
         ];
       }
     }
@@ -88,6 +100,7 @@ trait ConfigurableProviderTrait {
       Be aware that if you bulk geocode with a hard throttle, it may take a long time or even reach the maximum execution time."),
       '#open' => FALSE,
       '#tree' => TRUE,
+      '#weight' => 10,
     ];
     foreach ($this->getThrottleOptions() as $option => $option_definition) {
       $form['options']['throttle'][$option] = [
@@ -96,6 +109,10 @@ trait ConfigurableProviderTrait {
         '#description' => $option_definition['description'],
         '#default_value' => $this->configuration['throttle'][$option] ?? $this->pluginDefinition['throttle'][$option] ?? NULL,
         '#required' => FALSE,
+        // Add support for COI module (https://www.drupal.org/project/coi)
+        '#config' => [
+          'key' => 'geocoder.geocoder_provider.' . $id . ':throttle.' . $option,
+        ],
       ];
       if (!empty($form['options']['throttle'][$option]['#default_value'])) {
         $form['options']['throttle']['#open'] = TRUE;

@@ -1,8 +1,0 @@
-uuid: 016b3213-39e8-4c68-a660-07f695445059
-langcode: en
-status: true
-dependencies: {  }
-id: e1bd4e9e-4424-4707-b80b-c29eee6446de
-label: 'Menu token link configuration'
-linkid: 'internal:/affiliation-application?application_type=[current-user:field_application_type:value]&model_type=[current-user:field_model_type:value]'
-configurationSerialized: 'a:5:{s:18:"menu_token_enabled";i:1;s:36:"remove_if_replacement_is_not_present";i:1;s:4:"node";a:2:{i:0;s:4:"none";i:1;i:0;}s:4:"user";a:2:{i:0;s:7:"context";i:1;i:0;}s:18:"webform_submission";a:2:{i:0;s:7:"context";i:1;i:0;}}'

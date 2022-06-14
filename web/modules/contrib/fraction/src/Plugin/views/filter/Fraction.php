@@ -30,7 +30,11 @@ class Fraction extends NumericFilter {
 
     // Formula for calculating the final value, by dividing numerator by denominator.
     // These are added as additional fields in hook_field_views_data_alter().
-    $formula = $this->tableAlias . '.' . $this->definition['additional fields']['numerator'] . ' / ' . $this->tableAlias . '.' . $this->definition['additional fields']['denominator'];
+    $numerator = $this->tableAlias . '.' . $this->definition['additional fields']['numerator'];
+    $denominator = $this->tableAlias . '.' . $this->definition['additional fields']['denominator'];
+    // Multiply the numerator field by 1.0 so the database returns a decimal
+    // from the computation.
+    $formula = '1.0 * ' . $numerator . ' / ' . $denominator;
 
     // Perform the filter using the selected operator and the formula.
     $info = $this->operators();
@@ -45,11 +49,11 @@ class Fraction extends NumericFilter {
   protected function opBetween($field) {
     if ($this->operator == 'between') {
       $expression = $field . ' BETWEEN :min AND :max';
-      $this->query->addWhereExpression($this->options['group'], $expression, array(':min' => $this->value['min'], ':max' => $this->value['max']));
+      $this->query->addWhereExpression($this->options['group'], $expression, [':min' => $this->value['min'], ':max' => $this->value['max']]);
     }
     else {
       $expression = $field . ' <= :min OR ' . $field . ' >= :max';
-      $this->query->addWhereExpression($this->options['group'], $expression, array(':min' => $this->value['min'], ':max' => $this->value['max']));
+      $this->query->addWhereExpression($this->options['group'], $expression, [':min' => $this->value['min'], ':max' => $this->value['max']]);
     }
   }
 
@@ -58,7 +62,7 @@ class Fraction extends NumericFilter {
    */
   protected function opSimple($field) {
     $expression = $field . ' ' . $this->operator . ' :value';
-    $this->query->addWhereExpression($this->options['group'], $expression, array(':value' => $this->value['value']));
+    $this->query->addWhereExpression($this->options['group'], $expression, [':value' => $this->value['value']]);
   }
 
   /**
@@ -66,6 +70,7 @@ class Fraction extends NumericFilter {
    */
   protected function opRegex($field) {
     $expression = $field . ' RLIKE :value';
-    $this->query->addWhereExpression($this->options['group'], $expression, array(':value' => $this->value['value']));
+    $this->query->addWhereExpression($this->options['group'], $expression, [':value' => $this->value['value']]);
   }
+
 }

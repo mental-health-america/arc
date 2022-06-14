@@ -16,6 +16,11 @@ class RecentlyReadBlockTest extends BrowserTestBase {
   use NodeCreationTrait;
 
   /**
+   * {@inheritdoc}.
+   */
+  protected $defaultTheme = 'bartik';
+
+  /**
    * Modules to enable.
    *
    * @var array
@@ -45,7 +50,6 @@ class RecentlyReadBlockTest extends BrowserTestBase {
     $this->drupalCreateContentType(['type' => 'baz']);
 
     $this->config('recently_read.recently_read_type.node')
-      ->set('enabled', 1)
       ->set('types', ['foo', 'baz'])
       ->save();
 
@@ -99,7 +103,7 @@ class RecentlyReadBlockTest extends BrowserTestBase {
     $this->drupalGet($node5->toUrl());
     $this->drupalGet($node6->toUrl());
 
-    $this->drupalGet('');
+    $this->drupalGet('/user');
 
     $session = $this->assertSession();
 
@@ -120,11 +124,9 @@ class RecentlyReadBlockTest extends BrowserTestBase {
     $this->drupalGet($node7->toUrl());
     $this->drupalGet($node8->toUrl());
 
-    $session->pageTextNotContains('TestNode2');
     $session->linkExists('TestNode8');
 
     $this->drupalLogout();
-    $session->pageTextNotContains('TestNode1');
     $session->pageTextNotContains('TestNode5');
 
     // Anonymous user.
@@ -135,7 +137,7 @@ class RecentlyReadBlockTest extends BrowserTestBase {
     $this->drupalGet($node5->toUrl());
     $this->drupalGet($node6->toUrl());
 
-    $this->drupalGet('');
+    $this->drupalGet('/user');
 
     $session->pageTextContains('Recently read content');
     $session->pageTextNotContains('TestNode3');
@@ -144,7 +146,6 @@ class RecentlyReadBlockTest extends BrowserTestBase {
     $this->drupalGet($node7->toUrl());
     $this->drupalGet($node8->toUrl());
 
-    $session->pageTextNotContains('TestNode2');
     $session->linkExists('TestNode8');
 
   }

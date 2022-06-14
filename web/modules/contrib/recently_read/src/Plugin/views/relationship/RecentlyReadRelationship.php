@@ -142,20 +142,22 @@ class RecentlyReadRelationship extends RelationshipPluginBase {
     $basetable = $this->definition['base_table'];
     $entity_type = $this->definition['recently_read_type'];
     // Add query for selected entity type.
-    $this->query->addWhere('recently_read', "recently_read_$basetable.type", $entity_type, "=");
+    if ($this->options['required']) {
+      $this->query->addWhere('recently_read', "recently_read_$basetable.type", $entity_type, "=");
+    }
     // Add query to filter data if auth.user or anonymous.
     if ($this->currentUser->id() === 0) {
       // Disable page caching for anonymous users.
       $this->killSwitch->trigger();
       $this->query->addWhere('recently_read', "recently_read_$basetable.session_id", $this->sessionManager->getId(), "=");
     }
-    else {
+    elseif ($this->options['required']) {
       $this->query->addWhere('recently_read', "recently_read_$basetable.user_id", $this->currentUser->id(), "=");
     }
 
     // Filter by entity bundles selected while configuring the relationship.
     if (!empty(array_filter($this->options['bundles']))) {
-      $this->query->addWhere('recently_read', "$basetable.type", array_filter(array_values($this->options['bundles'])), "IN");
+      $this->query->addWhere('recently_read', "$basetable.bundle", array_filter(array_values($this->options['bundles'])), "IN");
     }
   }
 

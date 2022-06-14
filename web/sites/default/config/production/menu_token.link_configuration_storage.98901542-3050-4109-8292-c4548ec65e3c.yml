@@ -1,8 +1,0 @@
-uuid: c61465fc-331e-475f-bf25-20caccc0c8ea
-langcode: en
-status: true
-dependencies: {  }
-id: 98901542-3050-4109-8292-c4548ec65e3c
-label: 'Menu token link configuration'
-linkid: 'internal:/user/[user:account-name]'
-configurationSerialized: 'a:4:{s:18:"menu_token_enabled";i:1;s:36:"remove_if_replacement_is_not_present";i:0;s:4:"node";a:2:{i:0;s:4:"none";i:1;i:0;}s:4:"user";a:2:{i:0;s:7:"context";i:1;i:0;}}'

@@ -87,7 +87,7 @@ abstract class WebformScoreAggregateBase extends WebformScoreBase implements Web
    * {@inheritdoc}
    */
   public function calculateDependencies() {
-    // TODO: include the underlying plugins as dependencies and their respective
+    // @todo include the underlying plugins as dependencies and their respective
     // dependencies.
     return [];
   }
@@ -96,11 +96,10 @@ abstract class WebformScoreAggregateBase extends WebformScoreBase implements Web
    * {@inheritdoc}
    */
   public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
-    // TODO: Make this adjustable via UI.
+    // @todo Make this adjustable via UI.
     $rows = 5;
 
-    // TODO: The below 'string' should be dynamically determined from the
-    // webform element in question.
+    // @todo The 'string' below should be dynamically determined from the webform element in question.
     $plugin_options = $this->webformScoreManager->pluginOptionsCompatibleWith('string', FALSE);
 
     $form['score_plugins'] = [
@@ -208,7 +207,7 @@ abstract class WebformScoreAggregateBase extends WebformScoreBase implements Web
    * @return array|\Drupal\Core\Ajax\AjaxResponse
    *   Ajax response or a renderable array.
    */
-  public static function ajaxForm($form, FormStateInterface $form_state) {
+  public static function ajaxForm(array $form, FormStateInterface $form_state) {
     $parents = $form_state->getTriggeringElement()['#array_parents'];
     while (!empty($parents) && end($parents) !== 'score_plugins') {
       array_pop($parents);

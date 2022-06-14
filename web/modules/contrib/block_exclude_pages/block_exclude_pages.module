@@ -54,7 +54,7 @@ function block_exclude_pages_block_access(Block $block, $operation, AccountInter
 /* ######################################################## */
 
   $nodeid = \Drupal::service('path.current')->getPath();
-  $path = explode('/', trim(\Drupal::request()->query->get('q'), '/'));
+  $path = explode('/', trim((string) \Drupal::request()->query->get('q'), '/'));
   if ($path[0] == "" && \Drupal::service('path.matcher')->isFrontPage() != TRUE) {
     $path = explode('/', trim(\Drupal::service('path_alias.manager')->getAliasByPath($nodeid), '/'));
   }

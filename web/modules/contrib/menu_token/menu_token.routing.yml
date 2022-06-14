@@ -4,7 +4,7 @@ menu_token.available_entities_configuration_form:
     _form: '\Drupal\menu_token\Form\AvailableEntitiesConfigurationForm'
     _title: 'Menu Token'
   requirements:
-    _permission: 'access administration pages'
+    _permission: 'administer site configuration'
   options:
     _admin_route: TRUE
 
@@ -14,6 +14,6 @@ menu_token.page.show.available.tokens:
     _controller: '\Drupal\menu_token\Controller\MenuTokenSupportedTokensController::content'
     _title: 'Available tokens'
   requirements:
-    _permission: 'access administration pages'
+    _permission: 'administer site configuration'
   options:
     _admin_route: TRUE
