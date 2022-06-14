@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '4c53d2319149e2b2cedd52024d63939fc197323c',
+        'reference' => 'f874b66b9ab02d8c7f7f1755f03e77030afce028',
         'name' => 'drupal/legacy-project',
         'dev' => true,
     ),
@@ -1171,7 +1171,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '4c53d2319149e2b2cedd52024d63939fc197323c',
+            'reference' => 'f874b66b9ab02d8c7f7f1755f03e77030afce028',
             'dev_requirement' => false,
         ),
         'drupal/link' => array(
@@ -2116,8 +2116,8 @@
         'psr/container-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0',
-                1 => '^1.0',
+                0 => '^1.0',
+                1 => '1.0',
             ),
         ),
         'psr/event-dispatcher-implementation' => array(
