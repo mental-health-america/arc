@@ -2,7 +2,6 @@
 #
 # earlier versions of Drupal are tracked in `community/PHP/`
 
-.cpanel.yml
 # Ignore configuration files that may contain sensitive information
 /web/sites/*/*settings*.php
 /web/sites/*/*services*.yml
