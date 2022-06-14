@@ -1,15 +1,11 @@
 # gitignore template for Drupal 8 projects
 #
 # earlier versions of Drupal are tracked in `community/PHP/`
-_sql
+
 # Ignore configuration files that may contain sensitive information
-/web/sites/
-/web/sites/*
 /web/sites/*/*settings*.php
 /web/sites/*/*services*.yml
-/web/sites/development.services.yml
-/web/sites/default/settings.local.php
-/web/sites/default/settings.php
+
 # Ignore paths that may contain user-generated content
 /web/sites/*/files
 /web/sites/*/public
@@ -21,9 +17,6 @@ _sql
 /web/sites/*/translations
 /web/sites/*/tmp
 /web/sites/*/cache
-/web/INSTALL.txt
-/web/README.md
-/web/example.gitignore
 
 # Ignore testing related files
 /sites/simpletest
@@ -41,7 +34,7 @@ _sql
 #/autoload.php
 #/composer.lock
 #/web/index.php
-/web/robots.txt
+#/web/robots.txt
 #/web/update.php
 #/web/web.config
 /example.gitignore
@@ -49,10 +42,15 @@ _sql
 /web/sites/README.txt
 /web/sites/example.sites.php
 /web/sites/example.settings.local.php
+/web/sites/development.services.yml
 /web/themes/README.txt
-/web/modules/README.txt
 /web/LICENSE.txt
 /web/README.txt
+/web/example.gitignore
+/web/README.md
+/web/INSTALL.txt
+README.md
+/web/modules/README.txt
 
 # Ignore OS garbage
 .DS_Store
@@ -122,8 +120,6 @@ fabric.properties
 # .idea/misc.xml
 # *.ipr
 .idea/workspace.xml
-/.idea/workspace.xml
-
 # Sonarlint plugin
 .idea/sonarlint
 # End of https://www.gitignore.io/api/phpstorm
@@ -145,4 +141,3 @@ web/sites/simpletest
 
 #ignore logs
 error_log
-affiliate.mha.dd

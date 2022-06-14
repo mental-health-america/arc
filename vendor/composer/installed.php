@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'bce4111d460768facf39fcdc746f8f24a20edf44',
+        'reference' => '4c53d2319149e2b2cedd52024d63939fc197323c',
         'name' => 'drupal/legacy-project',
         'dev' => true,
     ),
@@ -1171,7 +1171,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'bce4111d460768facf39fcdc746f8f24a20edf44',
+            'reference' => '4c53d2319149e2b2cedd52024d63939fc197323c',
             'dev_requirement' => false,
         ),
         'drupal/link' => array(
@@ -2069,12 +2069,12 @@
             'dev_requirement' => false,
         ),
         'phpstan/phpstan' => array(
-            'pretty_version' => '1.7.13',
-            'version' => '1.7.13.0',
+            'pretty_version' => '1.7.14',
+            'version' => '1.7.14.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpstan/phpstan',
             'aliases' => array(),
-            'reference' => '86ffc063bfd8f264c9eba568e84b0225a6090d09',
+            'reference' => 'e6f145f196a59c7ca91ea926c87ef3d936c4305f',
             'dev_requirement' => false,
         ),
         'phpstan/phpstan-deprecation-rules' => array(
@@ -2116,8 +2116,8 @@
         'psr/container-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '^1.0',
-                1 => '1.0',
+                0 => '1.0',
+                1 => '^1.0',
             ),
         ),
         'psr/event-dispatcher-implementation' => array(
