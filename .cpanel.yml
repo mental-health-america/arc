@@ -1,10 +1,14 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/arcmhanational/drupal
+    - export DEPLOYPATH=/home/stagearc/drupal
     - /bin/cp -R * $DEPLOYPATH
 
 ######################
+
+# arcmhanational
+# stagearc
+
 #deployment:
 #tasks:
 #  - export DEPLOYPATH=/home/devmhanational/public_html  # Add /<app_folder> if required
