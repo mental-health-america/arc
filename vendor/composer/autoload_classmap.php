@@ -647,6 +647,8 @@ return array(
     'Doctrine\\Common\\Util\\Debug' => $vendorDir . '/doctrine/common/lib/Doctrine/Common/Util/Debug.php',
     'Doctrine\\Common\\Util\\Inflector' => $vendorDir . '/doctrine/common/lib/Doctrine/Common/Util/Inflector.php',
     'Doctrine\\Common\\Version' => $vendorDir . '/doctrine/common/lib/Doctrine/Common/Version.php',
+    'Doctrine\\Deprecations\\Deprecation' => $vendorDir . '/doctrine/deprecations/lib/Doctrine/Deprecations/Deprecation.php',
+    'Doctrine\\Deprecations\\PHPUnit\\VerifyDeprecations' => $vendorDir . '/doctrine/deprecations/lib/Doctrine/Deprecations/PHPUnit/VerifyDeprecations.php',
     'Doctrine\\Inflector\\CachedWordInflector' => $vendorDir . '/doctrine/inflector/lib/Doctrine/Inflector/CachedWordInflector.php',
     'Doctrine\\Inflector\\GenericLanguageInflectorFactory' => $vendorDir . '/doctrine/inflector/lib/Doctrine/Inflector/GenericLanguageInflectorFactory.php',
     'Doctrine\\Inflector\\Inflector' => $vendorDir . '/doctrine/inflector/lib/Doctrine/Inflector/Inflector.php',
