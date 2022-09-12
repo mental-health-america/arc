@@ -4,6 +4,7 @@ deployment:
     - export DEPLOYPATH=/home/arcmhanational/drupal
     - /bin/cp -R * $DEPLOYPATH
 
+
 ######################
 
 # arcmhanational
