@@ -155,6 +155,21 @@ class RecentlyRead extends ContentEntityBase implements RecentlyReadInterface {
   /**
    * {@inheritdoc}
    */
+  public function isEnabled() {
+    return (bool) $this->get('status')->value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setStatus($status) {
+    $this->set('status', $status);
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
     $fields = parent::baseFieldDefinitions($entity_type);
 
@@ -195,6 +210,11 @@ class RecentlyRead extends ContentEntityBase implements RecentlyReadInterface {
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))
       ->setDescription(t('The time that the entity was created.'));
+
+    $fields['status'] = BaseFieldDefinition::create('boolean')
+      ->setLabel(t('Status'))
+      ->setDescription(t('A boolean indicating whether the review is enabled.'))
+      ->setDefaultValue(TRUE);
 
     return $fields;
   }
