@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit690db66c5f20a67167072fdc5548dfd2
+class ComposerStaticInit1b65a00683ddd0fd4b3759551313e163
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -997,6 +997,7 @@ class ComposerStaticInit690db66c5f20a67167072fdc5548dfd2
         'Consolidation\\AnnotatedCommand\\AnnotationData' => __DIR__ . '/..' . '/consolidation/annotated-command/src/AnnotationData.php',
         'Consolidation\\AnnotatedCommand\\Attributes\\Argument' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Attributes/Argument.php',
         'Consolidation\\AnnotatedCommand\\Attributes\\Command' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Attributes/Command.php',
+        'Consolidation\\AnnotatedCommand\\Attributes\\Complete' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Attributes/Complete.php',
         'Consolidation\\AnnotatedCommand\\Attributes\\DefaultFields' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Attributes/DefaultFields.php',
         'Consolidation\\AnnotatedCommand\\Attributes\\DefaultTableFields' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Attributes/DefaultTableFields.php',
         'Consolidation\\AnnotatedCommand\\Attributes\\FieldLabels' => __DIR__ . '/..' . '/consolidation/annotated-command/src/Attributes/FieldLabels.php',
@@ -7225,11 +7226,11 @@ class ComposerStaticInit690db66c5f20a67167072fdc5548dfd2
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit690db66c5f20a67167072fdc5548dfd2::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit690db66c5f20a67167072fdc5548dfd2::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit690db66c5f20a67167072fdc5548dfd2::$prefixesPsr0;
-            $loader->fallbackDirsPsr0 = ComposerStaticInit690db66c5f20a67167072fdc5548dfd2::$fallbackDirsPsr0;
-            $loader->classMap = ComposerStaticInit690db66c5f20a67167072fdc5548dfd2::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit1b65a00683ddd0fd4b3759551313e163::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit1b65a00683ddd0fd4b3759551313e163::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit1b65a00683ddd0fd4b3759551313e163::$prefixesPsr0;
+            $loader->fallbackDirsPsr0 = ComposerStaticInit1b65a00683ddd0fd4b3759551313e163::$fallbackDirsPsr0;
+            $loader->classMap = ComposerStaticInit1b65a00683ddd0fd4b3759551313e163::$classMap;
 
         }, null, ClassLoader::class);
     }
