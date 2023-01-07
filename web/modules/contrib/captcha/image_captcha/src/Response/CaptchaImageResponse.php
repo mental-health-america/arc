@@ -8,7 +8,6 @@ use Drupal\Core\File\FileSystemInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Drupal\captcha\Constants\CaptchaConstants;
 
 /**
  * Response which is returned as the captcha for image_captcha.
@@ -94,7 +93,7 @@ class CaptchaImageResponse extends Response {
    * {@inheritdoc}
    */
   public function sendHeaders() {
-    if ($this->config->get('image_captcha_file_format') == CaptchaConstants::IMAGE_CAPTCHA_FILE_FORMAT_JPG) {
+    if ($this->config->get('image_captcha_file_format') == IMAGE_CAPTCHA_FILE_FORMAT_JPG) {
       $this->headers->set('content-type', 'image/jpeg');
     }
     else {
@@ -117,7 +116,7 @@ class CaptchaImageResponse extends Response {
     ob_start();
 
     $file_format = $this->config->get('image_captcha_file_format');
-    if ($file_format == CaptchaConstants::IMAGE_CAPTCHA_FILE_FORMAT_JPG) {
+    if ($file_format == IMAGE_CAPTCHA_FILE_FORMAT_JPG) {
       imagejpeg($this->image);
     }
     else {
@@ -173,7 +172,7 @@ class CaptchaImageResponse extends Response {
     $background_color = imagecolorallocate($image, $background_rgb[0], $background_rgb[1], $background_rgb[2]);
     // Set transparency if needed.
     $file_format = $this->config->get('image_captcha_file_format');
-    if ($file_format == CaptchaConstants::IMAGE_CAPTCHA_FILE_FORMAT_TRANSPARENT_PNG) {
+    if ($file_format == IMAGE_CAPTCHA_FILE_FORMAT_TRANSPARENT_PNG) {
       imagecolortransparent($image, $background_color);
     }
     imagefilledrectangle($image, 0, 0, $width, $height, $background_color);
@@ -211,7 +210,7 @@ class CaptchaImageResponse extends Response {
 
       $distorted_image = imagecreatetruecolor($width, $height);
 
-      if ($file_format == CaptchaConstants::IMAGE_CAPTCHA_FILE_FORMAT_TRANSPARENT_PNG) {
+      if ($file_format == IMAGE_CAPTCHA_FILE_FORMAT_TRANSPARENT_PNG) {
         imagecolortransparent($distorted_image, $background_color);
       }
 
