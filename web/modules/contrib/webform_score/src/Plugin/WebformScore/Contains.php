@@ -2,7 +2,6 @@
 
 namespace Drupal\webform_score\Plugin\WebformScore;
 
-use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\TypedData\TypedDataInterface;
 use Drupal\webform_score\Plugin\WebformScoreInterface;
@@ -35,11 +34,11 @@ class Contains extends WebformScoreBase implements WebformScoreInterface {
     $answer = $answer->getValue();
     $expected = $this->configuration['expected'];
     if (!$this->configuration['case_sensitive']) {
-      $answer = Unicode::strtolower($answer);
-      $expected = Unicode::strtolower($expected);
+      $answer = mb_strtolower($answer);
+      $expected = mb_strtolower($expected);
     }
 
-    return Unicode::strpos($answer, $expected) === FALSE ? 0 : $this->getMaxScore();
+    return mb_strpos($answer, $expected) === FALSE ? 0 : $this->getMaxScore();
   }
 
   /**
@@ -53,7 +52,7 @@ class Contains extends WebformScoreBase implements WebformScoreInterface {
       '#title' => $this->t('Match'),
       '#size' => 32,
       '#required' => TRUE,
-      '#default_value' => $this->configuration['expected'],
+      '#default_value' => $this->configuration['expected'] ?? '',
       '#description' => $this->t('The answer should contain this string to qualify as correct.'),
     ];
 
@@ -61,7 +60,7 @@ class Contains extends WebformScoreBase implements WebformScoreInterface {
       '#type' => 'checkbox',
       '#title' => $this->t('Case sensitive?'),
       '#description' => $this->t('Whether to compare the answer in case sensitive mode.'),
-      '#default_value' => $this->configuration['case_sensitive'],
+      '#default_value' => $this->configuration['case_sensitive'] ?? FALSE,
     ];
 
     return $form;

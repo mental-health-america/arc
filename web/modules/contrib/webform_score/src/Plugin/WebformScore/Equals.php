@@ -19,6 +19,24 @@ use Drupal\webform_score\Plugin\WebformScoreInterface;
 class Equals extends WebformScoreBase implements WebformScoreInterface {
 
   /**
+   * Constructs a PluginBase object.
+   *
+   * @param array $configuration
+   *   A configuration array containing information about the plugin instance.
+   * @param string $plugin_id
+   *   The plugin_id for the plugin instance.
+   * @param mixed $plugin_definition
+   *   The plugin implementation definition.
+   */
+  public function __construct(array $configuration, $plugin_id, $plugin_definition) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
+
+    // Set default configuration on initialization.
+    $this->setConfiguration($configuration);
+  }
+
+
+  /**
    * {@inheritdoc}
    */
   public function defaultConfiguration() {
@@ -53,14 +71,14 @@ class Equals extends WebformScoreBase implements WebformScoreInterface {
       '#title' => $this->t('Expected answer'),
       '#size' => 32,
       '#required' => TRUE,
-      '#default_value' => $this->configuration['expected'],
+      '#default_value' => $this->configuration['expected'] ?? '',
     ];
 
     $form['case_sensitive'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Case sensitive?'),
       '#description' => $this->t('Whether to compare the answer in case sensitive mode.'),
-      '#default_value' => $this->configuration['case_sensitive'],
+      '#default_value' => $this->configuration['case_sensitive'] ?? FALSE,
     ];
 
     return $form;

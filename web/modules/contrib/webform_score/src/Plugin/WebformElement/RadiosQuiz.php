@@ -42,7 +42,7 @@ class RadiosQuiz extends Radios implements QuizInterface {
   /**
    * {@inheritdoc}
    */
-  protected function getAnswer($element, WebformSubmissionInterface $webform_submission) {
+  protected function getAnswer(array $element, WebformSubmissionInterface $webform_submission) {
     $answer = $webform_submission->getElementData($element['#webform_key']);
     return $this->typedDataManager->create($this->typedDataManager->createDataDefinition($this->getAnswerDataTypeId()), $answer);
   }

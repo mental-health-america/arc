@@ -3,6 +3,7 @@
 namespace Drupal\webform_score\Plugin\WebformScore;
 
 use Drupal\Core\TypedData\TypedDataInterface;
+use Drupal\Core\TypedData\TraversableTypedDataInterface;
 
 /**
  * Score is based on the sub of scores from a set of answers.
@@ -31,11 +32,21 @@ class Sum extends WebformScoreAggregateBase {
   /**
    * {@inheritdoc}
    */
-  public function score(TypedDataInterface $answer) {
+  public function score(TypedDataInterface $answers) {
     $score = 0;
+    $plugins = $this->createPlugins();
 
-    foreach ($this->createPlugins() as $plugin) {
-      $score += $plugin->score($answer);
+    if (!($answers instanceof TraversableTypedDataInterface)) {
+      // If the answers are not in traversable format, convert them in an array
+      // so that further logic can work correctly.
+      $temp[] = $answers;
+      $answers = $temp;
+    }
+
+    foreach ($answers as $answer) {
+      foreach ($plugins as $plugin) {
+        $score += $plugin->score($answer);
+      }
     }
 
     return $score;
