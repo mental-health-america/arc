@@ -52,7 +52,7 @@
         "drupal/geocoder": "^3.0",
         "drupal/geocoder_autocomplete": "^2.0",
         "drupal/geofield": "^1.48",
-        "drupal/geofield_map": "^2.7",
+        "drupal/geofield_map": "^3.0",
         "drupal/geolocation": "^3.11",
         "drupal/google_analytics": "^3.1",
         "drupal/google_fonts_api": "^3.2",
