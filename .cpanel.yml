@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/arcmhanational/drupal
+    - export DEPLOYPATH=/home/astagearc/drupal
     - /bin/cp -R * $DEPLOYPATH
 
 
