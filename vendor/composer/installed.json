@@ -6347,6 +6347,9 @@
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "Menu Token core upgrade": "https://www.drupal.org/files/issues/2022-06-23/3292102-php8.1-string-cast.patch"
                 }
             },
             "installation-source": "dist",
