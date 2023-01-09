@@ -54,7 +54,7 @@
         "drupal/geofield": "^1.48",
         "drupal/geofield_map": "^2.7",
         "drupal/geolocation": "^3.11",
-        "drupal/google_analytics": "^2.3",
+        "drupal/google_analytics": "^3.1",
         "drupal/google_fonts_api": "^3.2",
         "drupal/imce": "^2.0",
         "drupal/jquery_ui": "^1.4",
