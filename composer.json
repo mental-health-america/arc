@@ -72,6 +72,7 @@
         "drupal/menu_token": "^9.1@alpha",
         "drupal/metatag": "^1.10",
         "drupal/mimemail": "^1.0@alpha",
+        "drupal/module_filter": "^4.0",
         "drupal/paragraphs": "^1.10",
         "drupal/pathauto": "^1.8",
         "drupal/quick_node_clone": "^1.14",
