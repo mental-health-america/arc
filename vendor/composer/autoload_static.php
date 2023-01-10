@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit1b65a00683ddd0fd4b3759551313e163
+class ComposerStaticInit31179fddba3b31c1506cf5871d42a1da
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -7183,7 +7183,6 @@ class ComposerStaticInit1b65a00683ddd0fd4b3759551313e163
         'geoPHP' => __DIR__ . '/..' . '/itamair/geophp/geoPHP.inc',
         'mglaman\\PHPStanDrupal\\Drupal\\DrupalAutoloader' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Drupal/DrupalAutoloader.php',
         'mglaman\\PHPStanDrupal\\Drupal\\DrupalServiceDefinition' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Drupal/DrupalServiceDefinition.php',
-        'mglaman\\PHPStanDrupal\\Drupal\\DrupalStubFilesExtension' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Drupal/DrupalStubFilesExtension.php',
         'mglaman\\PHPStanDrupal\\Drupal\\EntityData' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Drupal/EntityData.php',
         'mglaman\\PHPStanDrupal\\Drupal\\EntityDataRepository' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Drupal/EntityDataRepository.php',
         'mglaman\\PHPStanDrupal\\Drupal\\Extension' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Drupal/Extension.php',
@@ -7191,7 +7190,6 @@ class ComposerStaticInit1b65a00683ddd0fd4b3759551313e163
         'mglaman\\PHPStanDrupal\\Drupal\\ExtensionMap' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Drupal/ExtensionMap.php',
         'mglaman\\PHPStanDrupal\\Drupal\\RecursiveExtensionFilterIterator' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Drupal/RecursiveExtensionFilterIterator.php',
         'mglaman\\PHPStanDrupal\\Drupal\\ServiceMap' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Drupal/ServiceMap.php',
-        'mglaman\\PHPStanDrupal\\Internal\\DeprecatedScopeCheck' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Internal/DeprecatedScopeCheck.php',
         'mglaman\\PHPStanDrupal\\Internal\\NamespaceCheck' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Internal/NamespaceCheck.php',
         'mglaman\\PHPStanDrupal\\Reflection\\EntityFieldMethodsViaMagicReflectionExtension' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Reflection/EntityFieldMethodsViaMagicReflectionExtension.php',
         'mglaman\\PHPStanDrupal\\Reflection\\EntityFieldReflection' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Reflection/EntityFieldReflection.php',
@@ -7201,24 +7199,18 @@ class ComposerStaticInit1b65a00683ddd0fd4b3759551313e163
         'mglaman\\PHPStanDrupal\\Rules\\Classes\\ClassExtendsInternalClassRule' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Rules/Classes/ClassExtendsInternalClassRule.php',
         'mglaman\\PHPStanDrupal\\Rules\\Classes\\PluginManagerInspectionRule' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Rules/Classes/PluginManagerInspectionRule.php',
         'mglaman\\PHPStanDrupal\\Rules\\Deprecations\\AccessDeprecatedConstant' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Rules/Deprecations/AccessDeprecatedConstant.php',
-        'mglaman\\PHPStanDrupal\\Rules\\Deprecations\\ConditionManagerCreateInstanceContextConfigurationRule' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Rules/Deprecations/ConditionManagerCreateInstanceContextConfigurationRule.php',
         'mglaman\\PHPStanDrupal\\Rules\\Deprecations\\ConfigEntityConfigExportRule' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Rules/Deprecations/ConfigEntityConfigExportRule.php',
         'mglaman\\PHPStanDrupal\\Rules\\Deprecations\\DeprecatedAnnotationsRuleBase' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Rules/Deprecations/DeprecatedAnnotationsRuleBase.php',
         'mglaman\\PHPStanDrupal\\Rules\\Deprecations\\GetDeprecatedServiceRule' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Rules/Deprecations/GetDeprecatedServiceRule.php',
         'mglaman\\PHPStanDrupal\\Rules\\Deprecations\\PluginAnnotationContextDefinitionsRule' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Rules/Deprecations/PluginAnnotationContextDefinitionsRule.php',
         'mglaman\\PHPStanDrupal\\Rules\\Deprecations\\StaticServiceDeprecatedServiceRule' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Rules/Deprecations/StaticServiceDeprecatedServiceRule.php',
-        'mglaman\\PHPStanDrupal\\Rules\\Deprecations\\SymfonyCmfRouteObjectInterfaceConstantsRule' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Rules/Deprecations/SymfonyCmfRouteObjectInterfaceConstantsRule.php',
-        'mglaman\\PHPStanDrupal\\Rules\\Deprecations\\SymfonyCmfRoutingInClassMethodSignatureRule' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Rules/Deprecations/SymfonyCmfRoutingInClassMethodSignatureRule.php',
         'mglaman\\PHPStanDrupal\\Rules\\Drupal\\Coder\\DiscouragedFunctionsRule' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Rules/Drupal/Coder/DiscouragedFunctionsRule.php',
-        'mglaman\\PHPStanDrupal\\Rules\\Drupal\\EntityQuery\\EntityQueryHasAccessCheckRule' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Rules/Drupal/EntityQuery/EntityQueryHasAccessCheckRule.php',
         'mglaman\\PHPStanDrupal\\Rules\\Drupal\\GlobalDrupalDependencyInjectionRule' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Rules/Drupal/GlobalDrupalDependencyInjectionRule.php',
         'mglaman\\PHPStanDrupal\\Rules\\Drupal\\LoadIncludeBase' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Rules/Drupal/LoadIncludeBase.php',
         'mglaman\\PHPStanDrupal\\Rules\\Drupal\\LoadIncludes' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Rules/Drupal/LoadIncludes.php',
         'mglaman\\PHPStanDrupal\\Rules\\Drupal\\ModuleLoadInclude' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Rules/Drupal/ModuleLoadInclude.php',
         'mglaman\\PHPStanDrupal\\Rules\\Drupal\\PluginManager\\AbstractPluginManagerRule' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Rules/Drupal/PluginManager/AbstractPluginManagerRule.php',
         'mglaman\\PHPStanDrupal\\Rules\\Drupal\\PluginManager\\PluginManagerSetsCacheBackendRule' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Rules/Drupal/PluginManager/PluginManagerSetsCacheBackendRule.php',
-        'mglaman\\PHPStanDrupal\\Rules\\Drupal\\RenderCallbackRule' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Rules/Drupal/RenderCallbackRule.php',
-        'mglaman\\PHPStanDrupal\\Rules\\Drupal\\RequestStackGetMainRequestRule' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Rules/Drupal/RequestStackGetMainRequestRule.php',
         'mglaman\\PHPStanDrupal\\Rules\\Drupal\\Tests\\BrowserTestBaseDefaultThemeRule' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Rules/Drupal/Tests/BrowserTestBaseDefaultThemeRule.php',
         'mglaman\\PHPStanDrupal\\Type\\AccessibleReturnTypeExtension' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/AccessibleReturnTypeExtension.php',
         'mglaman\\PHPStanDrupal\\Type\\ContainerDynamicReturnTypeExtension' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/ContainerDynamicReturnTypeExtension.php',
@@ -7226,21 +7218,13 @@ class ComposerStaticInit1b65a00683ddd0fd4b3759551313e163
         'mglaman\\PHPStanDrupal\\Type\\DrupalClassResolverDynamicStaticReturnTypeExtension' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/DrupalClassResolverDynamicStaticReturnTypeExtension.php',
         'mglaman\\PHPStanDrupal\\Type\\DrupalClassResolverReturnType' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/DrupalClassResolverReturnType.php',
         'mglaman\\PHPStanDrupal\\Type\\DrupalServiceDynamicReturnTypeExtension' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/DrupalServiceDynamicReturnTypeExtension.php',
-        'mglaman\\PHPStanDrupal\\Type\\DrupalStaticEntityQueryDynamicReturnTypeExtension' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/DrupalStaticEntityQueryDynamicReturnTypeExtension.php',
         'mglaman\\PHPStanDrupal\\Type\\EntityAccessControlHandlerReturnTypeExtension' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/EntityAccessControlHandlerReturnTypeExtension.php',
-        'mglaman\\PHPStanDrupal\\Type\\EntityQuery\\ConfigEntityQueryType' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/EntityQuery/ConfigEntityQueryType.php',
-        'mglaman\\PHPStanDrupal\\Type\\EntityQuery\\ContentEntityQueryType' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/EntityQuery/ContentEntityQueryType.php',
-        'mglaman\\PHPStanDrupal\\Type\\EntityQuery\\EntityQueryAccessCheckDynamicReturnTypeExtension' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/EntityQuery/EntityQueryAccessCheckDynamicReturnTypeExtension.php',
         'mglaman\\PHPStanDrupal\\Type\\EntityQuery\\EntityQueryCountType' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/EntityQuery/EntityQueryCountType.php',
         'mglaman\\PHPStanDrupal\\Type\\EntityQuery\\EntityQueryDynamicReturnTypeExtension' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/EntityQuery/EntityQueryDynamicReturnTypeExtension.php',
-        'mglaman\\PHPStanDrupal\\Type\\EntityQuery\\EntityQueryExecuteWithoutAccessCheckCountType' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/EntityQuery/EntityQueryExecuteWithoutAccessCheckCountType.php',
-        'mglaman\\PHPStanDrupal\\Type\\EntityQuery\\EntityQueryExecuteWithoutAccessCheckType' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/EntityQuery/EntityQueryExecuteWithoutAccessCheckType.php',
-        'mglaman\\PHPStanDrupal\\Type\\EntityQuery\\EntityQueryType' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/EntityQuery/EntityQueryType.php',
         'mglaman\\PHPStanDrupal\\Type\\EntityStorage\\ConfigEntityStorageType' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/EntityStorage/ConfigEntityStorageType.php',
         'mglaman\\PHPStanDrupal\\Type\\EntityStorage\\ContentEntityStorageType' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/EntityStorage/ContentEntityStorageType.php',
         'mglaman\\PHPStanDrupal\\Type\\EntityStorage\\EntityStorageDynamicReturnTypeExtension' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/EntityStorage/EntityStorageDynamicReturnTypeExtension.php',
         'mglaman\\PHPStanDrupal\\Type\\EntityStorage\\EntityStorageType' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/EntityStorage/EntityStorageType.php',
-        'mglaman\\PHPStanDrupal\\Type\\EntityStorage\\GetQueryReturnTypeExtension' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/EntityStorage/GetQueryReturnTypeExtension.php',
         'mglaman\\PHPStanDrupal\\Type\\EntityTypeManagerGetStorageDynamicReturnTypeExtension' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/EntityTypeManagerGetStorageDynamicReturnTypeExtension.php',
         'mglaman\\PHPStanDrupal\\Type\\UrlToStringDynamicReturnTypeExtension' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Type/UrlToStringDynamicReturnTypeExtension.php',
     );
@@ -7248,11 +7232,11 @@ class ComposerStaticInit1b65a00683ddd0fd4b3759551313e163
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit1b65a00683ddd0fd4b3759551313e163::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit1b65a00683ddd0fd4b3759551313e163::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit1b65a00683ddd0fd4b3759551313e163::$prefixesPsr0;
-            $loader->fallbackDirsPsr0 = ComposerStaticInit1b65a00683ddd0fd4b3759551313e163::$fallbackDirsPsr0;
-            $loader->classMap = ComposerStaticInit1b65a00683ddd0fd4b3759551313e163::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit31179fddba3b31c1506cf5871d42a1da::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit31179fddba3b31c1506cf5871d42a1da::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit31179fddba3b31c1506cf5871d42a1da::$prefixesPsr0;
+            $loader->fallbackDirsPsr0 = ComposerStaticInit31179fddba3b31c1506cf5871d42a1da::$fallbackDirsPsr0;
+            $loader->classMap = ComposerStaticInit31179fddba3b31c1506cf5871d42a1da::$classMap;
 
         }, null, ClassLoader::class);
     }
