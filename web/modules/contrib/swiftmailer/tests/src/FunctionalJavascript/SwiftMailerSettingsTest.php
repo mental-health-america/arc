@@ -62,7 +62,7 @@ class SwiftMailerSettingsTest extends WebDriverTestBase {
     $page = $session->getPage();
 
     // Select Smtp tranport option.
-    $page->fillField('transport[type]', 'smtp');
+    $this->assertSession()->fieldExists('transport[type]')->selectOption('smtp');
     $this->assertSession()->waitForElementVisible('css', '.js-form-item-transport-configuration-smtp');
     $page->fillField('transport[configuration][smtp][credential_provider]', 'swiftmailer');
     $page->fillField('transport[configuration][smtp][credentials][swiftmailer][username]', 'example');
@@ -83,7 +83,7 @@ class SwiftMailerSettingsTest extends WebDriverTestBase {
     $this->assertSame('pass', $password);
 
     // Select Spool tranport option.
-    $page->fillField('transport[type]', 'spool');
+    $this->assertSession()->fieldExists('transport[type]')->selectOption('spool');
     $this->assertSession()->waitForElementVisible('css', '.js-form-item-transport-configuration-spool');
     $page->fillField('transport[configuration][spool][directory]', 'aaaaa');
     $this->submitForm([], 'Save configuration');
@@ -97,7 +97,7 @@ class SwiftMailerSettingsTest extends WebDriverTestBase {
     $this->assertSame('aaaaa', $directory);
 
     // Select Sendmail tranport option.
-    $page->fillField('transport[type]', 'sendmail');
+    $this->assertSession()->fieldExists('transport[type]')->selectOption('sendmail');
     $this->assertSession()->waitForElementVisible('css', '.js-form-item-transport-configuration-sendmail');
     $page->fillField('transport[configuration][sendmail][path]', 'bbbbb');
     $this->submitForm([], 'Save configuration');
