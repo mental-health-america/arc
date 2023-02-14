@@ -122,6 +122,16 @@
         }
     },
     "extra": {
+        "composer-exit-on-patch-failure": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+
+        "patches": {
+            "drupal/webforms": {
+                "Post submissions from a dedicated URL":"https://www.drupal.org/files/issues/2022-08-19/3249092-9.patch"
+            }
+        },
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
