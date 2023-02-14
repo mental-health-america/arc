@@ -27,6 +27,7 @@ class TextfieldQuiz extends TextField implements QuizInterface {
     $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
 
     $instance->webformScoreManager = $container->get('plugin.manager.webform_score');
+    $instance->typedDataManager = $container->get('typed_data_manager');
     return $instance;
   }
 

@@ -57,7 +57,7 @@ abstract class WebformScoreBase extends PluginBase implements WebformScoreInterf
       '#required' => TRUE,
       '#step' => 1,
       '#min' => 0,
-      '#default_value' => $this->configuration['max_score'],
+      '#default_value' => $this->configuration['max_score'] ?? 1,
     ];
 
     return $form;

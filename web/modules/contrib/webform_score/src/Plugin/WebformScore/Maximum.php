@@ -3,6 +3,7 @@
 namespace Drupal\webform_score\Plugin\WebformScore;
 
 use Drupal\Core\TypedData\TypedDataInterface;
+use Drupal\Core\TypedData\TraversableTypedDataInterface;
 
 /**
  * Score is based on the maximum value from a set of scores.
@@ -31,11 +32,20 @@ class Maximum extends WebformScoreAggregateBase {
   /**
    * {@inheritdoc}
    */
-  public function score(TypedDataInterface $answer) {
+  public function score(TypedDataInterface $answers) {
     $scores = [];
+    $plugins = $this->createPlugins();
 
-    foreach ($this->createPlugins() as $plugin) {
-      $scores[] = $plugin->score($answer);
+    if (!($answers instanceof TraversableTypedDataInterface)) {
+      // If the answers are not in traversable format, convert them in an array
+      // so that further logic can work correctly.
+      $answers = [$answers];
+    }
+
+    foreach ($answers as $answer) {
+      foreach ($plugins as $plugin) {
+        $scores[] = $plugin->score($answer);
+      }
     }
 
     return max($scores);

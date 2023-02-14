@@ -96,11 +96,14 @@ abstract class WebformScoreAggregateBase extends WebformScoreBase implements Web
    * {@inheritdoc}
    */
   public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
-    // @todo Make this adjustable via UI.
-    $rows = 5;
-
     // @todo The 'string' below should be dynamically determined from the webform element in question.
     $plugin_options = $this->webformScoreManager->pluginOptionsCompatibleWith('string', FALSE);
+
+    $count = !empty($this->configuration['score_plugins']) ? count($this->configuration['score_plugins']) : 1;
+    if (!$form_state->has('num_items')) {
+      $form_state->set('num_items', $count);
+    }
+    $thresholdFields = $form_state->get('num_items');
 
     $form['score_plugins'] = [
       '#type' => 'table',
@@ -111,7 +114,7 @@ abstract class WebformScoreAggregateBase extends WebformScoreBase implements Web
       '#attributes' => ['id' => Html::getId('webform-score-maximum')],
     ];
 
-    for ($i = 0; $i < $rows; $i++) {
+    for ($i = 0; $i < $thresholdFields; $i++) {
       $form['score_plugins'][$i]['plugin'] = [
         '#type' => 'select',
         '#title' => $this->t('Scoring methodology'),
@@ -140,16 +143,68 @@ abstract class WebformScoreAggregateBase extends WebformScoreBase implements Web
       catch (PluginException $e) {
         $this->logException($e);
       }
-
+    }
+    $form['score_plugins']['threshold_fieldset']['actions']['add_item'] = [
+      '#type' => 'submit',
+      '#value' => $this->t('Add'),
+      '#submit' => [[get_class($this), 'addOne']],
+      '#ajax' => [
+        'callback' => [get_class($this), 'ajaxForm'],
+        'wrapper' => $form['score_plugins']['#attributes']['id'],
+      ],
+    ];
+    if ($thresholdFields > 1) {
+      $form['score_plugins']['threshold_fieldset']['actions']['remove_item'] = [
+        '#type' => 'submit',
+        '#value' => $this->t('Remove'),
+        '#submit' => [[get_class($this), 'removeCallback']],
+        '#ajax' => [
+          'callback' => [get_class($this), 'ajaxForm'],
+          'wrapper' => $form['score_plugins']['#attributes']['id'],
+        ],
+      ];
     }
 
     return $form;
   }
 
   /**
+   * Remove callback.
+   *
+   * @param array $form
+   *   Form.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   Form state.
+   */
+  public static function removeCallback(array &$form, FormStateInterface $form_state) {
+    $thresholdFields = $form_state->get('num_items');
+    if ($thresholdFields > 1) {
+      $thresholdFields = $thresholdFields - 1;
+      $form_state->set('num_items', $thresholdFields);
+    }
+    $form_state->setRebuild();
+  }
+
+  /**
+   * Add more element.
+   *
+   * @param array $form
+   *   Form reference.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   Form state.
+   */
+  public static function addOne(array &$form, FormStateInterface $form_state) {
+    $thresholdFields = $form_state->get('num_items');
+    $thresholdFields = $thresholdFields + 1;
+    $form_state->set('num_items', $thresholdFields);
+    $form_state->setRebuild();
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function validateConfigurationForm(array &$form, FormStateInterface $form_state) {
+    unset($form_state->getValue('score_plugins')['threshold_fieldset']);
     foreach ($form_state->getValue('score_plugins') as $i => $score_plugin) {
       if ($score_plugin['plugin']) {
         try {
