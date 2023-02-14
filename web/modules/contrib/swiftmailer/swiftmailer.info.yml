@@ -7,7 +7,7 @@ configure: swiftmailer.transport_settings
 dependencies:
   - mailsystem:mailsystem
 
-# Information added by Drupal.org packaging script on 2022-12-17
-version: '8.x-2.3'
+# Information added by Drupal.org packaging script on 2023-01-12
+version: '8.x-2.4'
 project: 'swiftmailer'
-datestamp: 1671321229
+datestamp: 1673559955
