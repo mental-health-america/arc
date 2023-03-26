@@ -5123,18 +5123,18 @@
         },
         {
             "name": "drupal/geofield_map",
-            "version": "2.90.0",
-            "version_normalized": "2.90.0.0",
+            "version": "3.0.8",
+            "version_normalized": "3.0.8.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/geofield_map.git",
-                "reference": "8.x-2.90"
+                "reference": "3.0.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/geofield_map-8.x-2.90.zip",
-                "reference": "8.x-2.90",
-                "shasum": "ced6886eef54e20d5ad6694cf46681bc9e4c8d8c"
+                "url": "https://ftp.drupal.org/files/projects/geofield_map-3.0.8.zip",
+                "reference": "3.0.8",
+                "shasum": "e3341ba968743964a440f934eb0b6e4b2a3dfa42"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10",
@@ -5143,8 +5143,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.90",
-                    "datestamp": "1666656350",
+                    "version": "3.0.8",
+                    "datestamp": "1679700364",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
