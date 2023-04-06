@@ -57,7 +57,7 @@
         "drupal/google_fonts_api": "^3.2",
         "drupal/imce": "^2.0",
         "drupal/jquery_ui": "^1.4",
-        "drupal/jquery_ui_accordion": "^1.1",
+        "drupal/jquery_ui_accordion": "^2",
         "drupal/jquery_ui_slider": "^1.1",
         "drupal/jquery_ui_tabs": "^1.1",
         "drupal/jquery_ui_tooltip": "^1.1",
@@ -133,6 +133,16 @@
                 "[web-root]/robots.txt": false
             }
         },
+
+        "patches": {
+            "drupal/entity_clone.module": {
+                "Entity clone":"https://www.drupal.org/files/issues/2020-05-14/2784373_13.patch"
+            },
+            "drupal/salesforce": {
+                "Draggableviews": "https://www.drupal.org/files/issues/2023-03-28/salesforce-3350924-2.patch"
+            }
+        },
+
         "installer-paths": {
             "web/core": [
                 "type:drupal-core"
