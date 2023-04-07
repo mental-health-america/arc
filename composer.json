@@ -55,7 +55,7 @@
         "drupal/geolocation": "^3.6",
         "drupal/google_analytics": "^2.3",
         "drupal/google_fonts_api": "^3.2",
-        "drupal/imce": "^2.0",
+        "drupal/imce": "^3.0",
         "drupal/jquery_ui": "^1.4",
         "drupal/jquery_ui_accordion": "^2",
         "drupal/jquery_ui_slider": "^1.1",
