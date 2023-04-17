@@ -76,7 +76,7 @@
         "drupal/quick_node_clone": "^1.14",
         "drupal/r4032login": "^2.0",
         "drupal/rabbit_hole": "^1.0@beta",
-        "drupal/recaptcha": "^3.0",
+        "drupal/recaptcha": "^3.2",
         "drupal/recently_read": "^1.0",
         "drupal/redirect": "^1.7",
         "drupal/redirect_after_login": "^2.7",
