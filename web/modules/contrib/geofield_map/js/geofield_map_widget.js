@@ -23,7 +23,7 @@
           // Set the map_data[mapid] settings.
           Drupal.geoFieldMap.map_data[mapid] = options;
 
-          // Google maps library shouldn't be requested if the following
+          // Google Maps library shouldn't be requested if the following
           // conditions apply:
           // - leaflet js is the chosen map library;
           // - geocoder integration is enabled;
@@ -60,7 +60,7 @@
     maps_api_loading: false,
 
     /**
-     * Returns the re-coded google maps api language parameter, from html lang
+     * Returns the re-coded Google Maps api language parameter, from html lang
      * attribute.
      *
      * @param {string} html_language - The language id string
@@ -120,7 +120,7 @@
       // Add the callback.
       self.addCallback(callback);
 
-      // Check for google maps.
+      // Check for Google Maps.
       if (typeof google === 'undefined' || typeof google.maps === 'undefined') {
         if (self.maps_api_loading === true) {
           return;
@@ -128,9 +128,9 @@
 
         self.maps_api_loading = true;
 
-        // Google maps isn't loaded so lazy load google maps.
+        // Google Maps isn't loaded so lazy load Google Maps.
         // Default script path.
-        let scriptPath = self.map_data[mapid]['gmap_api_localization'] + '?v=3.exp&sensor=false&libraries=places&language=' + self.googleMapsLanguage(html_language);
+        let scriptPath = self.map_data[mapid]['gmap_api_localization'] + '?v=3.exp&sensor=false&libraries=places&language=' + self.googleMapsLanguage(html_language) + '&callback=Drupal.geoFieldMap.googleCallback';
 
         // If a Google API key is set, use it.
         if (gmap_api_key) {
@@ -140,12 +140,11 @@
         $.getScript(scriptPath)
           .done(function () {
             self.maps_api_loading = false;
-            self.googleCallback();
           });
 
       }
       else {
-        // Google maps loaded. Run callback.
+        // Google Maps loaded. Run callback.
         self.googleCallback();
       }
     },
@@ -160,7 +159,7 @@
     place_marker: function (mapid) {
       let self = this;
       if (self.map_data[mapid].click_to_place_marker) {
-        if (!window.confirm('Change marker position ?')) {
+        if (!window.confirm(Drupal.t('Change marker position ?'))) {
           return;
         }
       }
@@ -303,8 +302,8 @@
     trigger_geocode: function (mapid, position) {
       let self = this;
       self.setMarkerPosition(mapid, position);
-      self.mapSetCenter(mapid, position);
       self.setZoomToFocus(mapid);
+      self.mapSetCenter(mapid, position);
       self.setLatLngValues(mapid, position);
       self.setGeoaddressField(mapid, self.map_data[mapid].search.val());
     },
