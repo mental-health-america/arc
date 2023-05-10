@@ -4,7 +4,7 @@ description: Adds an exclude pages filter for blocks
 core_version_requirement: ^8.8 || ^9
 package: Filters
 
-# Information added by Drupal.org packaging script on 2022-05-18
-version: '2.0.1'
+# Information added by Drupal.org packaging script on 2023-04-24
+version: '2.0.2'
 project: 'block_exclude_pages'
-datestamp: 1652894851
+datestamp: 1682353665
