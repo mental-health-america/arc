@@ -26,7 +26,7 @@
         "drupal/better_exposed_filters": "^6.0",
         "drupal/block_exclude_pages": "^2.0",
         "drupal/captcha": "^1.5",
-        "drupal/conditional_fields": "^4.0",
+        "drupal/conditional_fields": "^4.0@alpha",
         "drupal/console": "^1.0.2",
         "drupal/content_access": "^1.0@alpha",
         "drupal/core": "^9",

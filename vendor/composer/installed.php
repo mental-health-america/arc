@@ -3,7 +3,7 @@
         'name' => 'drupal/legacy-project',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '190a4fe205c3b051a16bdf3c5860e6f7bfddcf8d',
+        'reference' => 'b4e7479dd20da633b963eeac98666d77f7d70c53',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -386,9 +386,9 @@
             'dev_requirement' => false,
         ),
         'drupal/conditional_fields' => array(
-            'pretty_version' => '4.0.0-alpha2',
-            'version' => '4.0.0.0-alpha2',
-            'reference' => '4.0.0-alpha2',
+            'pretty_version' => '4.0.0-alpha3',
+            'version' => '4.0.0.0-alpha3',
+            'reference' => '4.0.0-alpha3',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/conditional_fields',
             'aliases' => array(),
@@ -626,9 +626,9 @@
             ),
         ),
         'drupal/ctools' => array(
-            'pretty_version' => '4.0.3',
-            'version' => '4.0.3.0',
-            'reference' => '4.0.3',
+            'pretty_version' => '4.0.4',
+            'version' => '4.0.4.0',
+            'reference' => '4.0.4',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/ctools',
             'aliases' => array(),
@@ -833,9 +833,9 @@
             'dev_requirement' => false,
         ),
         'drupal/imce' => array(
-            'pretty_version' => '3.0.7',
-            'version' => '3.0.7.0',
-            'reference' => '3.0.7',
+            'pretty_version' => '3.0.8',
+            'version' => '3.0.8.0',
+            'reference' => '3.0.8',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/imce',
             'aliases' => array(),
@@ -925,7 +925,11 @@
         'drupal/legacy-project' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
+<<<<<<< HEAD
             'reference' => '190a4fe205c3b051a16bdf3c5860e6f7bfddcf8d',
+=======
+            'reference' => 'b4e7479dd20da633b963eeac98666d77f7d70c53',
+>>>>>>> master
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -986,9 +990,9 @@
             'dev_requirement' => false,
         ),
         'drupal/metatag' => array(
-            'pretty_version' => '1.22.0',
-            'version' => '1.22.0.0',
-            'reference' => '8.x-1.22',
+            'pretty_version' => '1.23.0',
+            'version' => '1.23.0.0',
+            'reference' => '8.x-1.23',
             'type' => 'drupal-module',
             'install_path' => __DIR__ . '/../../web/modules/contrib/metatag',
             'aliases' => array(),
