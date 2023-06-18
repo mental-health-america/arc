@@ -130,6 +130,7 @@ class ComposerStaticInit1b65a00683ddd0fd4b3759551313e163
             'Psr\\Cache\\' => 10,
             'PhpParser\\' => 10,
             'PHPStan\\' => 8,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'M' => 
         array (
@@ -451,6 +452,10 @@ class ComposerStaticInit1b65a00683ddd0fd4b3759551313e163
         'PHPStan\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpstan/phpstan-deprecation-rules/src',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'MathieuViossat\\Util\\' => 
         array (
@@ -4706,6 +4711,13 @@ class ComposerStaticInit1b65a00683ddd0fd4b3759551313e163
         'PEAR' => __DIR__ . '/..' . '/pear/pear-core-minimal/src/PEAR.php',
         'PEAR_ErrorStack' => __DIR__ . '/..' . '/pear/pear-core-minimal/src/PEAR/ErrorStack.php',
         'PEAR_Exception' => __DIR__ . '/..' . '/pear/pear_exception/PEAR/Exception.php',
+        'PHPMailer\\PHPMailer\\DSNConfigurator' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/DSNConfigurator.php',
+        'PHPMailer\\PHPMailer\\Exception' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/Exception.php',
+        'PHPMailer\\PHPMailer\\OAuth' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuth.php',
+        'PHPMailer\\PHPMailer\\OAuthTokenProvider' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuthTokenProvider.php',
+        'PHPMailer\\PHPMailer\\PHPMailer' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/PHPMailer.php',
+        'PHPMailer\\PHPMailer\\POP3' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/POP3.php',
+        'PHPMailer\\PHPMailer\\SMTP' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/SMTP.php',
         'PHPStan\\Rules\\Deprecations\\AccessDeprecatedPropertyRule' => __DIR__ . '/..' . '/phpstan/phpstan-deprecation-rules/src/Rules/Deprecations/AccessDeprecatedPropertyRule.php',
         'PHPStan\\Rules\\Deprecations\\AccessDeprecatedStaticPropertyRule' => __DIR__ . '/..' . '/phpstan/phpstan-deprecation-rules/src/Rules/Deprecations/AccessDeprecatedStaticPropertyRule.php',
         'PHPStan\\Rules\\Deprecations\\CallToDeprecatedFunctionRule' => __DIR__ . '/..' . '/phpstan/phpstan-deprecation-rules/src/Rules/Deprecations/CallToDeprecatedFunctionRule.php',

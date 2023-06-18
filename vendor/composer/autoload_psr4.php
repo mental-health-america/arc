@@ -64,6 +64,7 @@ return array(
     'Psr\\Cache\\' => array($vendorDir . '/psr/cache/src'),
     'PhpParser\\' => array($vendorDir . '/nikic/php-parser/lib/PhpParser'),
     'PHPStan\\' => array($vendorDir . '/phpstan/phpstan-deprecation-rules/src'),
+    'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
     'MathieuViossat\\Util\\' => array($vendorDir . '/mathieuviossat/arraytotexttable/src'),
     'Masterminds\\' => array($vendorDir . '/masterminds/html5/src'),
     'League\\Container\\' => array($vendorDir . '/league/container/src'),
