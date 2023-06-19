@@ -3767,6 +3767,66 @@
             "install-path": null
         },
         {
+            "name": "drupal/crop",
+            "version": "2.3.0",
+            "version_normalized": "2.3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/crop.git",
+                "reference": "8.x-2.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/crop-8.x-2.3.zip",
+                "reference": "8.x-2.3",
+                "shasum": "8e109cf60077f4c605c4d1f895cb3dc28613a23a"
+            },
+            "require": {
+                "drupal/core": "^9.3 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-2.3",
+                    "datestamp": "1665437894",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Drupal Media Team",
+                    "homepage": "https://www.drupal.org/user/3260690"
+                },
+                {
+                    "name": "phenaproxima",
+                    "homepage": "https://www.drupal.org/user/205645"
+                },
+                {
+                    "name": "slashrsm",
+                    "homepage": "https://www.drupal.org/user/744628"
+                },
+                {
+                    "name": "woprrr",
+                    "homepage": "https://www.drupal.org/user/858604"
+                }
+            ],
+            "description": "Provides storage and API for image crops.",
+            "homepage": "https://www.drupal.org/project/crop",
+            "support": {
+                "source": "https://git.drupalcode.org/project/crop",
+                "issues": "https://www.drupal.org/project/issues/crop"
+            },
+            "install-path": "../../web/modules/contrib/crop"
+        },
+        {
             "name": "drupal/ctools",
             "version": "4.0.4",
             "version_normalized": "4.0.4.0",
@@ -4757,6 +4817,66 @@
             "install-path": "../../web/modules/contrib/flag"
         },
         {
+            "name": "drupal/focal_point",
+            "version": "2.0.0",
+            "version_normalized": "2.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/focal_point.git",
+                "reference": "2.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/focal_point-2.0.0.zip",
+                "reference": "2.0.0",
+                "shasum": "ff677594c632b4b87aaace39a90a8cdf48ec3ed4"
+            },
+            "require": {
+                "drupal/core": "^9.3 || ^10",
+                "drupal/crop": "^2.3",
+                "drupal/jquery_ui": "^1.6",
+                "drupal/jquery_ui_draggable": "^2.0"
+            },
+            "require-dev": {
+                "drupal/crop": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0",
+                    "datestamp": "1681277837",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Ross (bleen)",
+                    "homepage": "https://www.drupal.org/u/bleen",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Rajeshreeputra",
+                    "homepage": "https://www.drupal.org/user/3418561"
+                }
+            ],
+            "description": "Focal Point allows content creators to mark the most important part of an image for easier cropping.",
+            "homepage": "https://drupal.org/project/focal_point",
+            "support": {
+                "source": "https://cgit.drupalcode.org/focal_point",
+                "issues": "https://drupal.org/project/issues/focal_point",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
+            },
+            "install-path": "../../web/modules/contrib/focal_point"
+        },
+        {
             "name": "drupal/fontyourface",
             "version": "3.6.0",
             "version_normalized": "3.6.0.0",
@@ -4797,12 +4917,16 @@
                     "role": "Maintainer"
                 },
                 {
-                    "name": "BarisW",
-                    "homepage": "https://www.drupal.org/user/107229"
+                    "name": "BTMash",
+                    "homepage": "https://www.drupal.org/user/60422"
                 },
                 {
                     "name": "Drave Robber",
                     "homepage": "https://www.drupal.org/user/984338"
+                },
+                {
+                    "name": "hmendes",
+                    "homepage": "https://www.drupal.org/user/3673677"
                 },
                 {
                     "name": "Neslee Canil Pinto",
@@ -4963,40 +5087,12 @@
                     "role": "Co-maintainer"
                 },
                 {
-                    "name": "Dean Reilly",
-                    "homepage": "https://www.drupal.org/user/336031"
-                },
-                {
-                    "name": "gregseb",
-                    "homepage": "https://www.drupal.org/user/847848"
-                },
-                {
-                    "name": "indytechcook",
-                    "homepage": "https://www.drupal.org/user/245817"
-                },
-                {
-                    "name": "itamair",
-                    "homepage": "https://www.drupal.org/user/1179076"
-                },
-                {
                     "name": "michaelfavia",
                     "homepage": "https://www.drupal.org/user/49137"
                 },
                 {
-                    "name": "phayes",
-                    "homepage": "https://www.drupal.org/user/47098"
-                },
-                {
-                    "name": "Pol",
-                    "homepage": "https://www.drupal.org/user/47194"
-                },
-                {
-                    "name": "Simon Georges",
-                    "homepage": "https://www.drupal.org/user/172312"
-                },
-                {
-                    "name": "vidhatanand",
-                    "homepage": "https://www.drupal.org/user/585764"
+                    "name": "poker10",
+                    "homepage": "https://www.drupal.org/user/272316"
                 }
             ],
             "description": "Module and services based API to perform Geocode & Reverse Geocode operations among GIS data and addresses types & formats.",
@@ -5117,14 +5213,6 @@
                     "name": "Pablo López",
                     "homepage": "https://www.drupal.org/u/plopesc",
                     "role": "Drupal 7 Maintainer"
-                },
-                {
-                    "name": "phayes",
-                    "homepage": "https://www.drupal.org/user/47098"
-                },
-                {
-                    "name": "plopesc",
-                    "homepage": "https://www.drupal.org/user/282415"
                 }
             ],
             "description": "Stores geographic and location data (points, lines, and polygons).",
@@ -5314,8 +5402,8 @@
                     "homepage": "https://www.drupal.org/user/45640"
                 },
                 {
-                    "name": "pfaocle",
-                    "homepage": "https://www.drupal.org/user/9740"
+                    "name": "mglaman",
+                    "homepage": "https://www.drupal.org/user/2416470"
                 },
                 {
                     "name": "roberto.rivera.ixis",
@@ -5355,16 +5443,20 @@
             ],
             "authors": [
                 {
-                    "name": "BTMash",
-                    "homepage": "https://www.drupal.org/user/60422"
-                },
-                {
                     "name": "BarisW",
                     "homepage": "https://www.drupal.org/user/107229"
                 },
                 {
+                    "name": "BTMash",
+                    "homepage": "https://www.drupal.org/user/60422"
+                },
+                {
                     "name": "Drave Robber",
                     "homepage": "https://www.drupal.org/user/984338"
+                },
+                {
+                    "name": "hmendes",
+                    "homepage": "https://www.drupal.org/user/3673677"
                 },
                 {
                     "name": "Neslee Canil Pinto",
@@ -5716,6 +5808,14 @@
                     "homepage": "https://www.drupal.org/user/1078742"
                 },
                 {
+                    "name": "nod_",
+                    "homepage": "https://www.drupal.org/user/598310"
+                },
+                {
+                    "name": "phenaproxima",
+                    "homepage": "https://www.drupal.org/user/205645"
+                },
+                {
                     "name": "zrpnr",
                     "homepage": "https://www.drupal.org/user/1448368"
                 }
@@ -5727,6 +5827,62 @@
                 "issues": "https://www.drupal.org/project/issues/jquery_ui_datepicker"
             },
             "install-path": "../../web/modules/contrib/jquery_ui_datepicker"
+        },
+        {
+            "name": "drupal/jquery_ui_draggable",
+            "version": "2.0.0",
+            "version_normalized": "2.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/jquery_ui_draggable.git",
+                "reference": "2.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/jquery_ui_draggable-2.0.0.zip",
+                "reference": "2.0.0",
+                "shasum": "13a8f4bf037449cd176ddb967fc9cba9a466a705"
+            },
+            "require": {
+                "drupal/core": "^9.2 || ^10",
+                "drupal/jquery_ui": "^1.6"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0",
+                    "datestamp": "1670871516",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "bnjmnm",
+                    "homepage": "https://www.drupal.org/user/2369194"
+                },
+                {
+                    "name": "lauriii",
+                    "homepage": "https://www.drupal.org/user/1078742"
+                },
+                {
+                    "name": "zrpnr",
+                    "homepage": "https://www.drupal.org/user/1448368"
+                }
+            ],
+            "description": "Provides jQuery UI Draggable library.",
+            "homepage": "https://www.drupal.org/project/jquery_ui_draggable",
+            "support": {
+                "source": "https://git.drupalcode.org/project/jquery_ui_draggable"
+            },
+            "install-path": "../../web/modules/contrib/jquery_ui_draggable"
         },
         {
             "name": "drupal/jquery_ui_menu",
@@ -6070,6 +6226,10 @@
                 {
                     "name": "johnwebdev",
                     "homepage": "https://www.drupal.org/user/3331569"
+                },
+                {
+                    "name": "mark_fullmer",
+                    "homepage": "https://www.drupal.org/user/2612816"
                 }
             ],
             "description": "Linkit - Enriched linking experience",
@@ -6257,10 +6417,6 @@
             ],
             "authors": [
                 {
-                    "name": "RyanPrice",
-                    "homepage": "https://www.drupal.org/user/873848"
-                },
-                {
                     "name": "aaron",
                     "homepage": "https://www.drupal.org/user/33420"
                 },
@@ -6271,6 +6427,10 @@
                 {
                     "name": "rphair",
                     "homepage": "https://www.drupal.org/user/3196607"
+                },
+                {
+                    "name": "RyanPrice",
+                    "homepage": "https://www.drupal.org/user/873848"
                 },
                 {
                     "name": "vaibhavjain",
@@ -6287,6 +6447,83 @@
                 "source": "https://git.drupalcode.org/project/menu_breadcrumb"
             },
             "install-path": "../../web/modules/contrib/menu_breadcrumb"
+        },
+        {
+            "name": "drupal/menu_item_extras",
+            "version": "3.0.2",
+            "version_normalized": "3.0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/menu_item_extras.git",
+                "reference": "3.0.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/menu_item_extras-3.0.2.zip",
+                "reference": "3.0.2",
+                "shasum": "e9a86d3e703f480f93992237c5cc6e5a88671106"
+            },
+            "require": {
+                "drupal/core": "^9.4 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.2",
+                    "datestamp": "1685006505",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9 || ^10 || ^11"
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Andriy Khomych",
+                    "homepage": "https://www.drupal.org/u/andriy-khomych",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Bogdan Hepting",
+                    "homepage": "https://www.drupal.org/u/bogdan-hepting",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Oleh Vehera",
+                    "homepage": "https://www.drupal.org/u/voleger",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Mykhailo Gurei",
+                    "homepage": "https://www.drupal.org/u/ozin",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "voleger",
+                    "homepage": "https://www.drupal.org/user/3260314"
+                }
+            ],
+            "description": "Provide an additional custom fields which can be used on Menu link",
+            "homepage": "https://www.drupal.org/project/menu_item_extras",
+            "keywords": [
+                "Drupal",
+                "Mega Menu"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/menu_item_extras",
+                "issues": "https://www.drupal.org/project/issues/menu_item_extras"
+            },
+            "install-path": "../../web/modules/contrib/menu_item_extras"
         },
         {
             "name": "drupal/menu_link_attributes",
@@ -6949,6 +7186,10 @@
             ],
             "authors": [
                 {
+                    "name": "aleksey.tk",
+                    "homepage": "https://www.drupal.org/user/22093"
+                },
+                {
                     "name": "Dylan Donkersgoed",
                     "homepage": "https://www.drupal.org/user/2803351"
                 },
@@ -6967,10 +7208,6 @@
                 {
                     "name": "olofbokedal",
                     "homepage": "https://www.drupal.org/user/1198438"
-                },
-                {
-                    "name": "shumushin",
-                    "homepage": "https://www.drupal.org/user/22093"
                 }
             ],
             "description": "Basic functionality that is shared among the different Rabbit Hole modules.",
@@ -7225,16 +7462,16 @@
                     "role": "Author"
                 },
                 {
-                    "name": "pen",
-                    "homepage": "https://www.drupal.org/user/2435634"
-                },
-                {
                     "name": "prempatel2447",
                     "homepage": "https://www.drupal.org/user/3250112"
                 },
                 {
                     "name": "rahul-kr-sh",
                     "homepage": "https://www.drupal.org/user/3561577"
+                },
+                {
+                    "name": "Shamsher_Alam",
+                    "homepage": "https://www.drupal.org/user/2742027"
                 }
             ],
             "description": "Redirect user after login to a configured url",
@@ -7405,30 +7642,30 @@
         },
         {
             "name": "drupal/simplenews",
-            "version": "2.0.0-beta2",
-            "version_normalized": "2.0.0.0-beta2",
+            "version": "3.0.0-beta5",
+            "version_normalized": "3.0.0.0-beta5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/simplenews.git",
-                "reference": "8.x-2.0-beta2"
+                "reference": "3.0.0-beta5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/simplenews-8.x-2.0-beta2.zip",
-                "reference": "8.x-2.0-beta2",
-                "shasum": "e33699acad01501ff6a8fc474a53e7ca45244f83"
+                "url": "https://ftp.drupal.org/files/projects/simplenews-3.0.0-beta5.zip",
+                "reference": "3.0.0-beta5",
+                "shasum": "628d8a7cf54040350152db91e80e372b2a409d2a"
             },
             "require": {
-                "drupal/core": "^8.8 || ^9"
+                "drupal/core": "^9.3 || ^10"
             },
             "require-dev": {
-                "drupal/monitoring": "*"
+                "drupal/monitoring": "^1.10"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.0-beta2",
-                    "datestamp": "1592298547",
+                    "version": "3.0.0-beta5",
+                    "datestamp": "1681467531",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -7466,7 +7703,7 @@
                     "homepage": "https://www.drupal.org/user/73854"
                 }
             ],
-            "description": "Send newsletters to subscribed email addresses. For uninstall go to Configuration > Web services > Simplenews > Settings and hit \"Prepare uninstall\".",
+            "description": "Simplenews publishes and sends newsletters to lists of subscribers",
             "homepage": "https://www.drupal.org/project/simplenews",
             "support": {
                 "source": "https://git.drupalcode.org/project/simplenews"
@@ -8049,10 +8286,6 @@
                 {
                     "name": "NickDickinsonWilde",
                     "homepage": "https://www.drupal.org/user/3094661"
-                },
-                {
-                    "name": "aaron",
-                    "homepage": "https://www.drupal.org/user/33420"
                 },
                 {
                     "name": "redndahead",
@@ -10935,6 +11168,7 @@
                 "issues": "https://github.com/php-http/message-factory/issues",
                 "source": "https://github.com/php-http/message-factory/tree/1.1.0"
             },
+            "abandoned": "psr/http-factory",
             "install-path": "../php-http/message-factory"
         },
         {

@@ -8,7 +8,6 @@
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Render\BubbleableMetadata;
 use Drupal\Core\Url;
-use Drupal\user\Entity\User;
 
 /**
  * Implements hook_token_info().
@@ -92,7 +91,7 @@ function simplenews_tokens($type, $tokens, $data, $options, BubbleableMetadata $
       $url_arguments = ['absolute' => TRUE, 'langcode' => $language];
 
       foreach ($tokens as $name => $original) {
-        $route_parameters = ['snid' => $subscriber->id(), 'timestamp' => REQUEST_TIME];
+        $route_parameters = ['snid' => $subscriber->id(), 'timestamp' => \Drupal::time()->getRequestTime()];
         switch ($name) {
           case 'subscribe-url':
             $hash = simplenews_generate_hash($subscriber->getMail(), 'add');
@@ -142,7 +141,7 @@ function simplenews_tokens($type, $tokens, $data, $options, BubbleableMetadata $
       }
 
       if (($user_tokens = \Drupal::token()->findWithPrefix($tokens, 'user')) && !empty($subscriber->uid)) {
-        $replacements += \Drupal::token()->generate('user', $user_tokens, ['user' => User::load($subscriber->uid)], $options, $bubbleable_metadata);
+        $replacements += \Drupal::token()->generate('user', $user_tokens, ['user' => $subscriber->getUser()], $options, $bubbleable_metadata);
       }
 
       break;

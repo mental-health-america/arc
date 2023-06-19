@@ -24,12 +24,12 @@ abstract class SimplenewsTestBase extends BrowserTestBase {
    *
    * @var array
    */
-  public static $modules = ['simplenews', 'simplenews_test', 'block'];
+  protected static $modules = ['simplenews', 'simplenews_test', 'block'];
 
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'classy';
+  protected $defaultTheme = 'starterkit_theme';
 
   /**
    * The Simplenews settings config object.
@@ -41,7 +41,7 @@ abstract class SimplenewsTestBase extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
     $this->drupalPlaceBlock('local_tasks_block');
     $this->drupalPlaceBlock('local_actions_block');
@@ -135,7 +135,7 @@ abstract class SimplenewsTestBase extends BrowserTestBase {
       // @todo: Don't hardcode the default newsletter_id.
       'newsletters[' . $newsletter_id . ']' => TRUE,
     ];
-    $this->drupalPostForm(NULL, $edit, t('Subscribe'));
+    $this->submitForm($edit, 'Subscribe');
   }
 
   /**
@@ -183,16 +183,20 @@ abstract class SimplenewsTestBase extends BrowserTestBase {
    *   The email to subscribe.
    * @param array $edit
    *   (optional) Additional form field values, keyed by form field names.
-   * @param string $submit
-   *   (optional) The value of the form submit button. Defaults to
-   *   t('Subscribe').
-   * @param string $path
-   *   (optional) The path where to expect the form, defaults to
-   *   'newsletter/subscriptions'.
-   * @param int $response
-   *   (optional) Expected response, defaults to 200.
+   * @param int $uid
+   *   (optional) User ID to update via newsletter tab.
    */
-  protected function subscribe($newsletter_ids, $email = NULL, array $edit = [], $submit = NULL, $path = 'newsletter/subscriptions', $response = 200) {
+  protected function subscribe($newsletter_ids, $email = NULL, array $edit = [], $uid = NULL) {
+    if (!$uid) {
+      // Setup subscription block with subscription form.
+      $block_settings = [
+        'newsletters' => array_keys(simplenews_newsletter_get_all()),
+        'message' => $this->randomMachineName(4),
+      ];
+
+      $block = $this->setupSubscriptionBlock($block_settings);
+    }
+
     if (isset($email)) {
       $edit += [
         'mail[0][value]' => $email,
@@ -204,8 +208,14 @@ abstract class SimplenewsTestBase extends BrowserTestBase {
     foreach ($newsletter_ids as $newsletter_id) {
       $edit["subscriptions[$newsletter_id]"] = $newsletter_id;
     }
-    $this->drupalPostForm($path, $edit, $submit ?: t('Subscribe'));
-    $this->assertResponse($response);
+    $path = $uid ? "/user/$uid/simplenews" : '';
+    $this->drupalGet($path);
+    $this->submitForm($edit, $uid ? t('Save') : t('Subscribe'));
+    $this->assertSession()->statusCodeEquals(200);
+
+    if (!$uid) {
+      $block->delete();
+    }
   }
 
   /**
@@ -224,11 +234,13 @@ abstract class SimplenewsTestBase extends BrowserTestBase {
       'mail' => $email ?: $this->randomEmail(),
       'name' => $this->randomMachineName(),
     ];
-    $this->drupalPostForm('user/register', $edit, t('Create new account'));
+    $this->drupalGet('user/register');
+    $this->submitForm($edit, 'Create new account');
     // Return uid of new user.
     $uids = \Drupal::entityQuery('user')
       ->sort('created', 'DESC')
       ->range(0, 1)
+      ->accessCheck(FALSE)
       ->execute();
     return array_shift($uids);
   }
@@ -243,9 +255,10 @@ abstract class SimplenewsTestBase extends BrowserTestBase {
    */
   protected function resetPassLogin(UserInterface $user) {
     $uid = $user->id();
-    $timestamp = REQUEST_TIME;
+    $timestamp = \Drupal::time()->getRequestTime();
     $hash = user_pass_rehash($user, $timestamp);
-    $this->drupalPostForm("/user/reset/$uid/$timestamp/$hash", [], t('Log in'));
+    $this->drupalGet("/user/reset/$uid/$timestamp/$hash");
+    $this->submitForm([], 'Log in');
   }
 
   /**
@@ -258,6 +271,7 @@ abstract class SimplenewsTestBase extends BrowserTestBase {
     $snids = \Drupal::entityQuery('simplenews_subscriber')
       ->sort('created', 'DESC')
       ->range(0, 1)
+      ->accessCheck(FALSE)
       ->execute();
     return empty($snids) ? NULL : Subscriber::load(array_shift($snids));
   }
@@ -266,14 +280,17 @@ abstract class SimplenewsTestBase extends BrowserTestBase {
    * Returns the body content of mail that has been sent.
    *
    * @param int $offset
-   *   Zero-based ordinal number of a sent mail.
+   *   Zero-based ordinal number of a sent mail. Defaults to most recent mail.
    *
    * @return string
    *   The body of the mail.
    */
-  protected function getMail($offset) {
+  protected function getMail($offset = NULL) {
     $mails = $this->getMails();
-    $this->assertTrue(isset($mails[$offset]), t('Valid mails offset %offset (%count mails sent).', ['%offset' => $offset, '%count' => count($mails)]));
+    if (!isset($offset)) {
+      $offset = count($mails) - 1;
+    }
+    $this->assertArrayHasKey($offset, $mails, t('Valid mails offset %offset (%count mails sent).', ['%offset' => $offset, '%count' => count($mails)]));
     return $mails[$offset]['body'];
   }
 
@@ -283,13 +300,12 @@ abstract class SimplenewsTestBase extends BrowserTestBase {
    * @param string $needle
    *   The string to find.
    * @param int $offset
-   *   Specify to check the n:th last mail.
+   *   Zero-based ordinal number of a sent mail. Defaults to most recent mail.
    * @param bool $exist
    *   (optional) Whether the string is expected to be found or not.
    */
-  protected function assertMailText($needle, $offset, $exist = TRUE) {
+  protected function assertMailText($needle, $offset = NULL, $exist = TRUE) {
     $body = preg_replace('/\s+/', ' ', $this->getMail($offset));
-    $this->verbose($body);
     $pos = strpos($body, (string) $needle);
     $this->assertEquals($pos !== FALSE, $exist, "$needle found in mail");
   }
