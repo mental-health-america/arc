@@ -46,6 +46,7 @@
         "drupal/file_delete": "^2.0",
         "drupal/fivestar": "^1.0@alpha",
         "drupal/flag": "^4.0@beta",
+        "drupal/focal_point": "^2.0",
         "drupal/fontyourface": "^3.2",
         "drupal/fraction": "^2.0",
         "drupal/geocoder": "^3.0",
