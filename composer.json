@@ -84,7 +84,7 @@
         "drupal/redirect_after_login": "^2.7",
         "drupal/rules": "^3.0@alpha",
         "drupal/salesforce": "^5.0",
-        "drupal/simplenews": "^2.0",
+        "drupal/simplenews": "^3.0@beta",
         "drupal/superfish": "^1.2",
         "drupal/swiftmailer": "^2.0",
         "drupal/token": "^1.9",
