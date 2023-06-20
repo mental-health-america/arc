@@ -7603,7 +7603,8 @@
                     }
                 },
                 "patches_applied": {
-                    "Draggableviews": "https://www.drupal.org/files/issues/2023-03-28/salesforce-3350924-2.patch"
+                    "issues": "https://www.drupal.org/files/issues/2023-03-28/salesforce-3350924-2.patch",
+                    "Webform mapping php8": "https://www.drupal.org/files/issues/2023-03-09/3336753-only_implode_if_is_array_else_return_the_string.patch"
                 }
             },
             "installation-source": "dist",
