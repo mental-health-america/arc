@@ -136,7 +136,6 @@
                 "[web-root]/robots.txt": false
             }
         },
-
         "patches": {
             "drupal/entity_clone.module": {
                 "Entity clone":"https://www.drupal.org/files/issues/2020-05-14/2784373_13.patch"
@@ -146,7 +145,6 @@
                 "Webform mapping php8": "https://www.drupal.org/files/issues/2023-03-09/3336753-only_implode_if_is_array_else_return_the_string.patch"
             }
         },
-
         "installer-paths": {
             "web/core": [
                 "type:drupal-core"
