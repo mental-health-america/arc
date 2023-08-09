@@ -1,0 +1,13 @@
+@@ -76,7 +76,11 @@
+         ->objectDescribe($mapping->getSalesforceObjectType());
+       $field_definition = $describe->getField($this->config('salesforce_field'));
+       if ($field_definition['type'] == 'multipicklist') {
+-        return implode(';', $entity->getElementData($main_element_name));
++          if(is_array($entity->getElementData($main_element_name))){
++              return implode(';', $entity->getElementData($main_element_name));
++          }else{
++              return $entity->getElementData($main_element_name);
++          }
+       }
+       else {
+         $value = $entity->getElementData($main_element_name);
