@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b04f9382b9f4dd4727c0ce604547b9d",
+    "content-hash": "8cd5afe0580df6d7d2abb1d2eede90d1",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3223,20 +3223,20 @@
         },
         {
             "name": "drupal/content_access",
-            "version": "1.0.0-alpha4",
+            "version": "2.0.0-rc1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/content_access.git",
-                "reference": "8.x-1.0-alpha4"
+                "reference": "2.0.0-rc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/content_access-8.x-1.0-alpha4.zip",
-                "reference": "8.x-1.0-alpha4",
-                "shasum": "4ccaeb432d39de2649ea5602b15429633b6385cc"
+                "url": "https://ftp.drupal.org/files/projects/content_access-2.0.0-rc1.zip",
+                "reference": "2.0.0-rc1",
+                "shasum": "8bdd51e086a43f71be75cbe9b9670c002c650b64"
             },
             "require": {
-                "drupal/core": "^8.8 || ^9"
+                "drupal/core": "^9.4 || ^10"
             },
             "require-dev": {
                 "drupal/acl": "~1.0"
@@ -3244,8 +3244,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-alpha4",
-                    "datestamp": "1654070349",
+                    "version": "2.0.0-rc1",
+                    "datestamp": "1683474263",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -3980,29 +3980,30 @@
         },
         {
             "name": "drupal/editor_advanced_link",
-            "version": "2.1.1",
+            "version": "2.2.4",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/editor_advanced_link.git",
-                "reference": "2.1.1"
+                "reference": "2.2.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/editor_advanced_link-2.1.1.zip",
-                "reference": "2.1.1",
-                "shasum": "ba8f12aee9ac6c4d7b60ee916e7bd69e98c99d4a"
+                "url": "https://ftp.drupal.org/files/projects/editor_advanced_link-2.2.4.zip",
+                "reference": "2.2.4",
+                "shasum": "cd0db397827f2e21ec8a68211e8a153463a6c89b"
             },
             "require": {
                 "drupal/core": "^9.2 || ^10"
             },
             "require-dev": {
-                "drupal/ckeditor": "*"
+                "drupal/ckeditor": "*",
+                "phpro/grumphp": "^2.0"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.1.1",
-                    "datestamp": "1667462197",
+                    "version": "2.2.4",
+                    "datestamp": "1688040059",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4019,7 +4020,7 @@
                     "homepage": "https://www.drupal.org/user/931394"
                 }
             ],
-            "description": "Add title, target etc. attributes to Text Editor's link dialog if the text format allows them.",
+            "description": "Editor Advanced link",
             "homepage": "https://www.drupal.org/project/editor_advanced_link",
             "support": {
                 "source": "https://git.drupalcode.org/project/editor_advanced_link"
@@ -15255,7 +15256,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/conditional_fields": 15,
-        "drupal/content_access": 15,
+        "drupal/content_access": 5,
         "drupal/dynamic_entity_reference": 15,
         "drupal/entity_clone": 10,
         "drupal/field_permissions": 5,
