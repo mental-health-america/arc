@@ -6178,6 +6178,74 @@
             "install-path": "../../web/modules/contrib/jquery_ui_touch_punch"
         },
         {
+            "name": "drupal/key",
+            "version": "1.17.0",
+            "version_normalized": "1.17.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/key.git",
+                "reference": "8.x-1.17"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/key-8.x-1.17.zip",
+                "reference": "8.x-1.17",
+                "shasum": "fa9f606d2ba0e20693e12040004e2ed31302ed03"
+            },
+            "require": {
+                "drupal/core": ">=8.9 <11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.17",
+                    "datestamp": "1674343967",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": ">=9"
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Cellar Door",
+                    "homepage": "https://www.drupal.org/user/658076"
+                },
+                {
+                    "name": "crashtest_",
+                    "homepage": "https://www.drupal.org/user/261457"
+                },
+                {
+                    "name": "nerdstein",
+                    "homepage": "https://www.drupal.org/user/1557710"
+                },
+                {
+                    "name": "rlhawk",
+                    "homepage": "https://www.drupal.org/user/352283"
+                }
+            ],
+            "description": "Provides the ability to manage site-wide keys",
+            "homepage": "http://drupal.org/project/key",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/key",
+                "issues": "http://drupal.org/project/key"
+            },
+            "install-path": "../../web/modules/contrib/key"
+        },
+        {
             "name": "drupal/linkit",
             "version": "5.0.0-beta13",
             "version_normalized": "5.0.0.0-beta13",
@@ -7543,37 +7611,40 @@
         },
         {
             "name": "drupal/salesforce",
-            "version": "5.0.2",
-            "version_normalized": "5.0.2.0",
+            "version": "5.0.3",
+            "version_normalized": "5.0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/salesforce.git",
-                "reference": "5.0.2"
+                "reference": "5.0.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/salesforce-5.0.2.zip",
-                "reference": "5.0.2",
-                "shasum": "1dda8743e3b3650149f94f83ab9773cc5c55a939"
+                "url": "https://ftp.drupal.org/files/projects/salesforce-5.0.3.zip",
+                "reference": "5.0.3",
+                "shasum": "45f22b818a7b4104ee11dce9751bf47fd2ee3b6a"
             },
             "require": {
                 "consolidation/output-formatters": "^3.2.0 || ^4.1",
-                "drupal/core": "^9 || ^10",
-                "ext-json": "*",
-                "lusitanian/oauth": "^0.8.11"
-            },
-            "require-dev": {
                 "drupal/address": "^1.8",
+                "drupal/core": "^9 || ^10",
                 "drupal/dynamic_entity_reference": "^1.9 || ^2.0 || ^3 || ^4",
                 "drupal/key": "^1.14",
-                "drupal/salesforce_mapping": "*",
-                "drupal/salesforce_push": "*",
                 "drupal/typed_data": "^1.0-beta2",
-                "drupal/webform": "*",
+                "ext-json": "*",
                 "ext-soap": "*",
                 "firebase/php-jwt": "^5.0 || ^6.0",
                 "lusitanian/oauth": "^0.8.11",
                 "messageagency/force.com-toolkit-for-php": "^1.0.2"
+            },
+            "require-dev": {
+                "drupal/address": "*",
+                "drupal/dynamic_entity_reference": "*",
+                "drupal/key": "*",
+                "drupal/salesforce_mapping": "*",
+                "drupal/salesforce_push": "*",
+                "drupal/typed_data": "*",
+                "drupal/webform": "*"
             },
             "suggest": {
                 "consolidation/output-formatters": "Required for drush 10 commands.",
@@ -7588,8 +7659,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "5.0.2",
-                    "datestamp": "1679940932",
+                    "version": "5.0.3",
+                    "datestamp": "1691095606",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7601,8 +7672,7 @@
                     }
                 },
                 "patches_applied": {
-                    "issues": "https://www.drupal.org/files/issues/2023-03-28/salesforce-3350924-2.patch",
-                    "Webform mapping php8": "https://www.drupal.org/files/issues/2023-03-09/3336753-only_implode_if_is_array_else_return_the_string.patch"
+                    "issues": "https://www.drupal.org/files/issues/2023-03-28/salesforce-3350924-2.patch"
                 }
             },
             "installation-source": "dist",
@@ -8927,6 +8997,72 @@
                 "source": "https://github.com/enlightn/security-checker/tree/v1.10.0"
             },
             "install-path": "../enlightn/security-checker"
+        },
+        {
+            "name": "firebase/php-jwt",
+            "version": "v6.4.0",
+            "version_normalized": "6.4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/firebase/php-jwt.git",
+                "reference": "4dd1e007f22a927ac77da5a3fbb067b42d3bc224"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/4dd1e007f22a927ac77da5a3fbb067b42d3bc224",
+                "reference": "4dd1e007f22a927ac77da5a3fbb067b42d3bc224",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1||^8.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "^6.5||^7.4",
+                "phpspec/prophecy-phpunit": "^1.1",
+                "phpunit/phpunit": "^7.5||^9.5",
+                "psr/cache": "^1.0||^2.0",
+                "psr/http-client": "^1.0",
+                "psr/http-factory": "^1.0"
+            },
+            "suggest": {
+                "ext-sodium": "Support EdDSA (Ed25519) signatures",
+                "paragonie/sodium_compat": "Support EdDSA (Ed25519) signatures when libsodium is not present"
+            },
+            "time": "2023-02-09T21:01:23+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Firebase\\JWT\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Neuman Vong",
+                    "email": "neuman+pear@twilio.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Anant Narayanan",
+                    "email": "anant@php.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
+            "homepage": "https://github.com/firebase/php-jwt",
+            "keywords": [
+                "jwt",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/firebase/php-jwt/issues",
+                "source": "https://github.com/firebase/php-jwt/tree/v6.4.0"
+            },
+            "install-path": "../firebase/php-jwt"
         },
         {
             "name": "google/recaptcha",
@@ -10331,6 +10467,48 @@
                 "source": "https://github.com/mehrpadin/Superfish-for-Drupal/tree/2.x"
             },
             "install-path": "../../web/libraries/superfish"
+        },
+        {
+            "name": "messageagency/force.com-toolkit-for-php",
+            "version": "1.0.2",
+            "version_normalized": "1.0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/messageagency/Forcecom-Toolkit-for-PHP.git",
+                "reference": "ee971ea3ff1c1477c86ae0547f405c032bb58110"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/messageagency/Forcecom-Toolkit-for-PHP/zipball/ee971ea3ff1c1477c86ae0547f405c032bb58110",
+                "reference": "ee971ea3ff1c1477c86ae0547f405c032bb58110",
+                "shasum": ""
+            },
+            "require": {
+                "ext-soap": "^7.1 || ^8"
+            },
+            "time": "2022-05-05T15:39:51+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    "soapclient"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "A wrapper for the Force.com Web Services SOAP API",
+            "support": {
+                "issues": "https://github.com/messageagency/Forcecom-Toolkit-for-PHP/issues",
+                "source": "https://github.com/messageagency/Forcecom-Toolkit-for-PHP/tree/1.0.2"
+            },
+            "install-path": "../messageagency/force.com-toolkit-for-php"
         },
         {
             "name": "mglaman/phpstan-drupal",
