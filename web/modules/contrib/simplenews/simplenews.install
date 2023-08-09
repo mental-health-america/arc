@@ -11,6 +11,8 @@ use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\simplenews\Entity\Newsletter;
+use Drupal\simplenews\SubscriberInterface;
+use Drupal\simplenews\Subscription\SubscriptionStorageSchema;
 
 /**
  * Implements hook_schema().
@@ -304,7 +306,7 @@ function simplenews_update_830003() {
   $config->save();
 
   $newsletter_types = \Drupal::service('entity_type.manager')->getStorage('simplenews_newsletter')->loadMultiple();
-  foreach($newsletter_types as $type) {
+  foreach ($newsletter_types as $type) {
     $type->set('access', $type->get('opt_inout') != 'hidden' ? 'default' : 'hidden');
     $type->set('opt_inout', NULL);
     $type->save();
@@ -405,3 +407,81 @@ function simplenews_update_830009() {
   $manager = \Drupal::entityDefinitionUpdateManager();
   $manager->updateFieldStorageDefinition($manager->getFieldStorageDefinition('uuid', 'simplenews_subscriber'));
 }
+
+/**
+ * Update simplenews_subscriber definition.
+ */
+function simplenews_update_840001() {
+  $definition_manager = \Drupal::entityDefinitionUpdateManager();
+
+  $changes = $definition_manager->getFieldStorageDefinition('changes', 'simplenews_subscriber');
+  $definition_manager->uninstallFieldStorageDefinition($changes);
+
+  $status = BaseFieldDefinition::create('list_tiny_integer')
+    ->setLabel(t('Status'))
+    ->setDescription(t('Status of the subscriber.'))
+    ->setDefaultValue(SubscriberInterface::ACTIVE)
+    ->setRequired(TRUE)
+    ->setSetting('allowed_values', simplenews_subscriber_status_options())
+    ->setTargetEntityTypeId('simplenews_subscriber')
+    ->setName('status')
+    ->setProvider('simplenews');
+  $definition_manager->updateFieldStorageDefinition($status);
+
+  \Drupal::configFactory()->getEditable('simplenews.settings')
+    ->clear('subscription.confirm_combined_body_unchanged')
+    ->save();
+}
+
+/**
+ * Update simplenews_subscriber entities.
+ */
+function simplenews_update_840002() {
+  // Bypass Entity API for better performance.
+  // Delete unconfirmed subscriptions.
+  $database = \Drupal::database();
+  $database->delete('simplenews_subscriber__subscriptions')
+    ->condition('subscriptions_status', 2)
+    ->execute();
+
+  // Set all subscribers without a subscription to unconfirmed.
+  $has_subscriptions = $database->query('SELECT DISTINCT [entity_id] FROM {simplenews_subscriber__subscriptions}')->fetchCol();
+  $database->update('simplenews_subscriber')
+    ->condition('id', $has_subscriptions, 'NOT IN')
+    ->fields(['status' => SubscriberInterface::UNCONFIRMED])
+    ->execute();
+}
+
+/**
+ * Add new indexes for simplenews_subscriber.
+ */
+function simplenews_update_840003() {
+  $entity_type_manager = \Drupal::entityTypeManager();
+  $definition_update_manager = \Drupal::entityDefinitionUpdateManager();
+
+  // Set the storage schema.
+  $entity_type = $entity_type_manager->getDefinition('simplenews_subscriber')
+    ->setHandlerClass('storage_schema', SubscriptionStorageSchema::class);
+  $definition_update_manager->updateEntityType($entity_type);
+}
+
+/**
+ * Update subscription settings.
+ */
+function simplenews_update_840004() {
+  $config = \Drupal::configFactory()->getEditable('simplenews.settings');
+
+  if ($subject = $config->get('subscription.confirm_combined_subject')) {
+    $config->clear('subscription.confirm_combined_subject');
+    $config->set('subscription.confirm_subject', $subject);
+  }
+
+  if ($body = $config->get('subscription.confirm_combined_body')) {
+    $body = preg_replace('/\[simplenews-subscriber:combined-url\]/', '[simplenews-subscriber:confirm-url', $body);
+    $config->clear('subscription.confirm_combined_body');
+    $config->set('subscription.confirm_body', $body);
+  }
+
+  $config->save();
+}
+

@@ -2,9 +2,11 @@
 
 namespace Drupal\simplenews\Form;
 
+use Drupal\Core\Entity\ContentEntityForm;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 use Drupal\simplenews\Entity\Subscriber;
+use Drupal\simplenews\SubscriberInterface;
 
 /**
  * Add subscriptions for authenticated user or new subscriber.
@@ -168,6 +170,7 @@ class SubscriptionsBlockForm extends SubscriptionsFormBase {
     if (!$this->newsletterIds && !$this->defaultNewsletterIds) {
       $actions['submit']['#attributes']['disabled'] = TRUE;
     }
+    $actions['submit']['#submit'][] = '::submitExtra';
 
     if ($this->showManage) {
       $user = \Drupal::currentUser();
@@ -187,7 +190,7 @@ class SubscriptionsBlockForm extends SubscriptionsFormBase {
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
     $mail = $form_state->getValue(['mail', 0, 'value']);
-    if ($this->entity->isNew() && $subscriber = Subscriber::loadByMail($mail)) {
+    if ($this->entity->isNew() && $subscriber = Subscriber::loadByMail($mail, NULL, NULL, 'check_trust')) {
       $this->setEntity($subscriber);
     }
 
@@ -202,7 +205,35 @@ class SubscriptionsBlockForm extends SubscriptionsFormBase {
   }
 
   /**
-   * Submit callback that subscribes to selected newsletters.
+   * {@inheritdoc}
+   */
+  protected function prepareEntity() {
+    if (!Subscriber::skipConfirmation()) {
+      // Set new (anonymous) subscribers to unconfirmed.
+      $this->entity->setStatus(SubscriberInterface::UNCONFIRMED);
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+    $subscriber = $this->entity;
+
+    // Subscribe the selected newsletters and any defaults that are hidden.
+    $selected_ids = $this->extractNewsletterIds($form_state, TRUE);
+    $hidden_default_ids = array_diff($this->defaultNewsletterIds, $this->getNewsletterIds());
+    foreach (array_unique(array_merge($selected_ids, $hidden_default_ids)) as $newsletter_id) {
+      if (!$subscriber->isSubscribed($newsletter_id)) {
+        $subscriber->subscribe($newsletter_id, NULL, 'website');
+      }
+    }
+
+    ContentEntityForm::submitForm($form, $form_state);
+  }
+
+  /**
+   * Extra submit callback.
    *
    * @param array $form
    *   The form structure.
@@ -210,17 +241,8 @@ class SubscriptionsBlockForm extends SubscriptionsFormBase {
    *   The form state object.
    */
   public function submitExtra(array $form, FormStateInterface $form_state) {
-    /** @var \Drupal\simplenews\Subscription\SubscriptionManagerInterface $subscription_manager */
-    $subscription_manager = \Drupal::service('simplenews.subscription_manager');
-
-    // Subscribe the selected newsletters and any defaults that are hidden.
-    $selected_ids = $this->extractNewsletterIds($form_state, TRUE);
-    $hidden_default_ids = array_diff($this->defaultNewsletterIds, $this->getNewsletterIds());
-
-    foreach (array_unique(array_merge($selected_ids, $hidden_default_ids)) as $newsletter_id) {
-      $subscription_manager->subscribe($this->entity->getMail(), $newsletter_id, NULL, 'website');
-    }
-    $sent = $subscription_manager->sendConfirmations();
+    // Send confirmations if needed.
+    $sent = $this->entity->sendConfirmation();
     $this->messenger()->addMessage($this->getSubmitMessage($form_state, $sent));
   }
 

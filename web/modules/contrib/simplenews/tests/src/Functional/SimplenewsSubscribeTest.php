@@ -121,16 +121,6 @@ class SimplenewsSubscribeTest extends SimplenewsTestBase {
       }
     }
 
-    // Unsubscribe with no confirmed email.
-    $subscription_manager = \Drupal::service('simplenews.subscription_manager');
-    try {
-      $subscription_manager->unsubscribe('new@email.com', $newsletter_id, FALSE);
-      $this->fail('Exception not thrown.');
-    }
-    catch (\Exception $e) {
-      $this->assertEquals('The subscriber does not exist.', $e->getMessage());
-    }
-
     // Test expired confirmation links.
     $enable = array_rand($newsletters, 3);
 
@@ -140,10 +130,11 @@ class SimplenewsSubscribeTest extends SimplenewsTestBase {
     }
     $this->subscribe($enable, $mail);
 
-    $subscriber = Subscriber::loadByMail($mail);
+    $subscriber = $this->getLatestSubscriber();
+    $this->assertEquals($mail, $subscriber->getMail());
     $expired_timestamp = \Drupal::time()->getRequestTime() - 86401;
-    $hash = simplenews_generate_hash($subscriber->getMail(), 'combined' . serialize($subscriber->getChanges()), $expired_timestamp);
-    $url = 'newsletter/confirm/combined/' . $subscriber->id() . '/' . $expired_timestamp . '/' . $hash;
+    $hash = simplenews_generate_hash($subscriber->getMail(), 'confirm', $expired_timestamp);
+    $url = 'newsletter/confirm/' . $subscriber->id() . '/' . $expired_timestamp . '/' . $hash;
     $this->drupalGet($url);
     $this->assertSession()->pageTextContains('This link has expired.');
     $this->submitForm([], 'Request new confirmation mail');
@@ -157,20 +148,6 @@ class SimplenewsSubscribeTest extends SimplenewsTestBase {
     $this->drupalGet($confirm_url);
     $this->submitForm([], 'Confirm');
     $this->assertSession()->responseContains('Subscription changes confirmed for <em class="placeholder">' . $mail . '</em>.');
-  }
-
-  /**
-   * Extract a confirmation link from a mail body.
-   */
-  protected function extractConfirmationLink($body) {
-    $pattern = '@newsletter/confirm/.+/.+/.+/.{20,}@';
-    $found = preg_match($pattern, $body, $match);
-    if (!$found) {
-      $this->fail(t('No confirmation URL found in "@body".', ['@body' => $body]));
-      return FALSE;
-    }
-    $confirm_url = $match[0];
-    return $confirm_url;
   }
 
   /**
@@ -263,10 +240,10 @@ class SimplenewsSubscribeTest extends SimplenewsTestBase {
     $this->submitForm($edit, 'Subscribe');
     $this->assertSession()->pageTextContains('You will receive a confirmation e-mail shortly containing further instructions on how to complete your subscription.');
 
-    $subscriber = Subscriber::loadByMail($mail);
-    $this->assertNotNull($subscriber, 'New subscriber entity successfully loaded.');
-    $subscription = $subscriber->getSubscription($newsletter_id);
-    $this->assertEquals(SIMPLENEWS_SUBSCRIPTION_STATUS_UNCONFIRMED, $subscription->status, t('Subscription is unconfirmed'));
+    $subscriber = $this->getLatestSubscriber();
+    $this->assertNotFalse($subscriber, 'New subscriber entity successfully loaded.');
+    $this->assertEquals($mail, $subscriber->getMail());
+    $this->assertFalse($subscriber->isConfirmed());
     $confirm_url = $this->extractConfirmationLink($this->getMail(0));
 
     $this->drupalGet($confirm_url);
@@ -335,8 +312,7 @@ class SimplenewsSubscribeTest extends SimplenewsTestBase {
 
     $subscriber = Subscriber::loadByMail($mail);
     $this->assertNotFalse($subscriber, 'New subscriber entity successfully loaded.');
-    $subscription = $subscriber->getSubscription($newsletter_id);
-    $this->assertEquals(SIMPLENEWS_SUBSCRIPTION_STATUS_SUBSCRIBED, $subscription->status);
+    $this->assertTrue($subscriber->isSubscribed($newsletter_id));
 
     // Visit the newsletter/subscriptions page with the hash.
     $subscriber = Subscriber::loadByMail($mail);
@@ -357,8 +333,6 @@ class SimplenewsSubscribeTest extends SimplenewsTestBase {
     $subscriber = Subscriber::loadByMail($mail);
 
     $this->assertTrue($subscriber->isSubscribed($newsletter_id));
-    $subscription = $subscriber->getSubscription($newsletter_id);
-    $this->assertEquals(SIMPLENEWS_SUBSCRIPTION_STATUS_SUBSCRIBED, $subscription->status);
 
     // Attempt to fetch the page using a wrong hash but correct format.
     $hash = simplenews_generate_hash($subscriber->getMail() . 'a', 'manage');
@@ -369,10 +343,11 @@ class SimplenewsSubscribeTest extends SimplenewsTestBase {
     $mail = $this->randomEmail();
     $this->subscribe($newsletter_id, $mail);
 
-    $subscriber = Subscriber::loadByMail($mail);
+    $subscriber = $this->getLatestSubscriber();
+    $this->assertEquals($mail, $subscriber->getMail());
     $expired_timestamp = \Drupal::time()->getRequestTime() - 86401;
-    $hash = simplenews_generate_hash($subscriber->getMail(), 'add', $expired_timestamp);
-    $url = 'newsletter/confirm/add/' . $subscriber->id() . '/' . $newsletter_id . '/' . $expired_timestamp . '/' . $hash;
+    $hash = simplenews_generate_hash($subscriber->getMail(), 'confirm', $expired_timestamp);
+    $url = 'newsletter/confirm/' . $subscriber->id() . '/' . $expired_timestamp . '/' . $hash;
     $this->drupalGet($url);
     $this->assertSession()->pageTextContains('This link has expired.');
     $this->submitForm([], 'Request new confirmation mail');
@@ -391,8 +366,6 @@ class SimplenewsSubscribeTest extends SimplenewsTestBase {
     $subscriber = Subscriber::loadByMail($mail);
 
     $this->assertTrue($subscriber->isSubscribed($newsletter_id));
-    $subscription = $subscriber->getSubscription($newsletter_id);
-    $this->assertEquals(SIMPLENEWS_SUBSCRIPTION_STATUS_SUBSCRIBED, $subscription->status);
   }
 
   /**
@@ -459,10 +432,9 @@ class SimplenewsSubscribeTest extends SimplenewsTestBase {
     $this->submitForm($edit, 'Subscribe');
     $this->assertSession()->pageTextContains('You have been subscribed.');
 
-    $subscriber = Subscriber::loadByMail($mail);
-    $subscription = $subscriber->getSubscription($newsletter_id);
-    $this->assertEquals(SIMPLENEWS_SUBSCRIPTION_STATUS_SUBSCRIBED, $subscription->status);
-
+    $subscriber = $this->getLatestSubscriber();
+    $this->assertEquals($mail, $subscriber->getMail());
+    $this->assertTrue($subscriber->isSubscribed($newsletter_id));
   }
 
   /**
@@ -534,9 +506,9 @@ class SimplenewsSubscribeTest extends SimplenewsTestBase {
     $this->assertSession()->pageTextContains('You will receive a confirmation e-mail shortly containing further instructions on how to complete your subscription.');
 
     // Receive and access link on email.
-    $subscriber = Subscriber::loadByMail($mail);
-    $subscription = $subscriber->getSubscription($newsletter_id);
-    $this->assertEquals(SIMPLENEWS_SUBSCRIPTION_STATUS_UNCONFIRMED, $subscription->status, 'Subscription is unconfirmed');
+    $subscriber = $this->getLatestSubscriber();
+    $this->assertEquals($mail, $subscriber->getMail());
+    $this->assertFalse($subscriber->isConfirmed());
     $confirm_url = $this->extractConfirmationLink($this->getMail(0));
     $this->drupalGet($confirm_url);
 
@@ -642,8 +614,7 @@ class SimplenewsSubscribeTest extends SimplenewsTestBase {
     $this->assertSession()->responseContains('Your newsletter subscriptions have been updated.');
 
     $subscriber = Subscriber::loadByMail($subscriber_user->getEmail());
-    $subscription = $subscriber->getSubscription($newsletter_id);
-    $this->assertEquals(SIMPLENEWS_SUBSCRIPTION_STATUS_UNSUBSCRIBED, $subscription->status, t('Subscription is unsubscribed'));
+    $this->assertTrue($subscriber->isUnsubscribed($newsletter_id), t('Subscriber is unsubscribed'));
 
     // 5. Subscribe authenticated via account page
     // Subscribe + submit
@@ -744,8 +715,7 @@ class SimplenewsSubscribeTest extends SimplenewsTestBase {
     $this->assertSession()->pageTextContains('Subscriber ' . $mail . ' has been added.');
 
     $subscriber = Subscriber::loadByMail($mail);
-    $subscription = $subscriber->getSubscription($newsletter_id);
-    $this->assertEquals(SIMPLENEWS_SUBSCRIPTION_STATUS_SUBSCRIBED, $subscription->status);
+    $this->assertTrue($subscriber->isSubscribed($newsletter_id));
 
     // Check that an unsubscribe link works without any permissions.
     $this->drupalLogout();
@@ -809,8 +779,8 @@ class SimplenewsSubscribeTest extends SimplenewsTestBase {
    */
   public function testFormatting() {
     $this->config('simplenews.settings')
-      ->set('subscription.confirm_combined_subject', 'Please <join> us & enjoy')
-      ->set('subscription.confirm_combined_body', "Hello & welcome,\n\nclick to join us <[simplenews-subscriber:combined-url]>")
+      ->set('subscription.confirm_subject', 'Please <join> us & enjoy')
+      ->set('subscription.confirm_body', "Hello & welcome,\n\nclick to join us <[simplenews-subscriber:confirm-url]>")
       ->save();
 
     $newsletter_id = $this->getRandomNewsletter();
@@ -857,9 +827,11 @@ class SimplenewsSubscribeTest extends SimplenewsTestBase {
     $mail_a = $this->randomEmail();
     $this->subscribe('a', $mail_a);
     $sub_a = $this->getLatestSubscriber();
+    $this->assertEquals($mail_a, $sub_a->getMail());
     $mail_b = $this->randomEmail();
     $this->subscribe('b', $mail_b);
     $sub_b = $this->getLatestSubscriber();
+    $this->assertEquals($mail_b, $sub_b->getMail());
     $this->assertEquals(2, $this->countSubscribers());
 
     $admin_user = $this->drupalCreateUser(['administer simplenews subscriptions', 'administer users']);
@@ -895,18 +867,43 @@ class SimplenewsSubscribeTest extends SimplenewsTestBase {
 
     // - Create anon subscriber with email E.
     // - Register user with email E and subscribe new account.
-    // - Subscription should be unconfirmed.
+    // - Subscription for user should be unconfirmed.
+    // - Log-in.
+    // - Subscription for user should be confirmed and combined with the first.
+    $sub_mgr = \Drupal::service('simplenews.subscription_manager');
+    $this->drupalLogout();
+    $mail_e = $this->randomEmail();
+    $this->subscribe('d', $mail_e);
+    $sub_e = Subscriber::loadByMail($mail_e);
+    $this->assertTrue($sub_e->isConfirmed());
+    $this->assertEquals(['d'], $sub_e->getSubscribedNewsletterIds());
+    $this->assertEquals(3, $this->countSubscribers());
+    $this->assertTrue($sub_mgr->isSubscribed($mail_e, 'd'));
+
     $this->config('simplenews.settings')
       ->set('subscription.skip_verification', FALSE)
       ->save();
-    $this->drupalLogout();
-    $mail_e = $this->randomEmail();
-    $this->subscribe('e', $mail_e);
     $this->drupalGet('user/register');
     $this->submitForm(['mail' => $mail_e, 'name' => 'e'], 'Create new account');
     $this->assertSession()->pageTextContains('You have been subscribed to news_e');
-    $status = Subscriber::loadByMail($mail_e)->getSubscription('e')->status;
-    $this->assertEquals(SIMPLENEWS_SUBSCRIPTION_STATUS_UNCONFIRMED, $status);
+    $user_e = user_load_by_mail($mail_e);
+    $sub_user_e = Subscriber::loadByUid($user_e->id(), FALSE, FALSE);
+    $this->assertFalse($sub_user_e->isConfirmed());
+    $this->assertFalse($sub_mgr->isSubscribed($mail_e, 'e'));
+    $this->assertEquals(['e'], $sub_user_e->getSubscribedNewsletterIds());
+    $this->assertEquals(4, $this->countSubscribers());
+
+    $resetUrl = user_pass_reset_url($user_e);
+    $this->drupalGet($resetUrl);
+    $this->submitForm([], 'Log in');
+    \Drupal::entityTypeManager()->getStorage('simplenews_subscriber')->resetCache();
+    $sub_mgr->reset();
+    $sub_user_e = Subscriber::loadByUid($user_e->id());
+    $this->assertTrue($sub_user_e->isConfirmed());
+    $this->assertEquals(3, $this->countSubscribers());
+    $this->assertTrue($sub_mgr->isSubscribed($mail_e, 'd'));
+    $this->assertTrue($sub_mgr->isSubscribed($mail_e, 'e'));
+    $this->assertEquals(['d', 'e'], $sub_user_e->getSubscribedNewsletterIds());
   }
 
   /**
@@ -958,7 +955,7 @@ class SimplenewsSubscribeTest extends SimplenewsTestBase {
 
     // Also make it hidden. Check can subscribe without picking any.
     // Remove the manage link and check it isn't shown.
-    $block->getPlugin()->setConfigurationValue('newsletters',  ['b']);
+    $block->getPlugin()->setConfigurationValue('newsletters', ['b']);
     $block->getPlugin()->setConfigurationValue('show_manage', FALSE);
     $block->save();
     $this->drupalGet('');

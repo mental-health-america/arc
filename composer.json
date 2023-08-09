@@ -84,11 +84,11 @@
         "drupal/redirect_after_login": "^2.7",
         "drupal/rules": "^3.0@alpha",
         "drupal/salesforce": "^5.0",
-        "drupal/simplenews": "^3.0@beta",
+        "drupal/simplenews": "^4.0@alpha",
         "drupal/smtp": "^1.2",
-        "drupal/superfish": "^1.2",
+        "drupal/superfish": "^1.6",
         "drupal/swiftmailer": "^2.0",
-        "drupal/token": "^1.9",
+        "drupal/token": "^1.12",
         "drupal/typed_data": "^1.0@alpha",
         "drupal/upgrade_status": "^4.0",
         "drupal/video_embed_field": "^2.2",
@@ -137,10 +137,6 @@
         "patches": {
             "drupal/entity_clone.module": {
                 "Entity clone":"https://www.drupal.org/files/issues/2020-05-14/2784373_13.patch"
-            },
-            "drupal/salesforce": {
-                "issues": "https://www.drupal.org/files/issues/2023-03-28/salesforce-3350924-2.patch",
-                "Webform mapping php8": "https://www.drupal.org/files/issues/2023-03-09/3336753-only_implode_if_is_array_else_return_the_string.patch"
             }
         },
         "installer-paths": {
