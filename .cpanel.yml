@@ -1,9 +1,9 @@
-
 ---
 deployment:
   tasks:
     - export DEPLOYPATH=/home/stagearc/drupal
     - /bin/cp -R * $DEPLOYPATH
+
 
 ######################
 
