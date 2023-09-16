@@ -91,6 +91,7 @@ return array(
     'Asm89\\Stack\\CorsService' => $vendorDir . '/asm89/stack-cors/src/Asm89/Stack/CorsService.php',
     'AssignmentRuleHeader' => $vendorDir . '/messageagency/force.com-toolkit-for-php/soapclient/SforceHeaderOptions.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+    'CURLStringFile' => $vendorDir . '/symfony/polyfill-php81/Resources/stubs/CURLStringFile.php',
     'CallOptions' => $vendorDir . '/messageagency/force.com-toolkit-for-php/soapclient/SforceHeaderOptions.php',
     'Clue\\StreamFilter\\CallbackFilter' => $vendorDir . '/clue/stream-filter/src/CallbackFilter.php',
     'CommerceGuys\\Addressing\\AbstractEnum' => $vendorDir . '/commerceguys/addressing/src/AbstractEnum.php',

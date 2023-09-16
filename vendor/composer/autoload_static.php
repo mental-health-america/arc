@@ -855,6 +855,7 @@ class ComposerStaticInit1fe64fc490cf7b87b0d1d347e0f1aca2
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/CorsService.php',
         'AssignmentRuleHeader' => __DIR__ . '/..' . '/messageagency/force.com-toolkit-for-php/soapclient/SforceHeaderOptions.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+        'CURLStringFile' => __DIR__ . '/..' . '/symfony/polyfill-php81/Resources/stubs/CURLStringFile.php',
         'CallOptions' => __DIR__ . '/..' . '/messageagency/force.com-toolkit-for-php/soapclient/SforceHeaderOptions.php',
         'Clue\\StreamFilter\\CallbackFilter' => __DIR__ . '/..' . '/clue/stream-filter/src/CallbackFilter.php',
         'CommerceGuys\\Addressing\\AbstractEnum' => __DIR__ . '/..' . '/commerceguys/addressing/src/AbstractEnum.php',
