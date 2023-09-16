@@ -28,7 +28,7 @@
         "drupal/captcha": "^2.0",
         "drupal/conditional_fields": "^4.0@alpha",
         "drupal/console": "^1.0.2",
-        "drupal/content_access": "^2.0@RC",
+        "drupal/content_access": "^2.0",
         "drupal/core": "9.5.9",
         "drupal/core-composer-scaffold": "9.5.9",
         "drupal/core-project-message": "9.5.9",
@@ -51,7 +51,7 @@
         "drupal/fraction": "^2.0",
         "drupal/geocoder": "^3.0",
         "drupal/geocoder_autocomplete": "^2.0",
-        "drupal/geofield": "^1.54",
+        "drupal/geofield": "^1.55",
         "drupal/geofield_map": "^3.0",
         "drupal/geolocation": "^3.6",
         "drupal/google_analytics": "^2.3",
@@ -73,14 +73,14 @@
         "drupal/metatag": "^1.26",
         "drupal/mimemail": "^1.0@alpha",
         "drupal/module_filter": "^4.0",
-        "drupal/paragraphs": "^1.10",
+        "drupal/paragraphs": "^1.16",
         "drupal/pathauto": "^1.8",
         "drupal/quick_node_clone": "^1.14",
         "drupal/r4032login": "^2.0",
         "drupal/rabbit_hole": "^1.0@beta",
         "drupal/recaptcha": "^3.2",
         "drupal/recently_read": "^1.0",
-        "drupal/redirect": "^1.7",
+        "drupal/redirect": "^1.9",
         "drupal/redirect_after_login": "^2.7",
         "drupal/rules": "^3.0@alpha",
         "drupal/salesforce": "^5.0",
@@ -97,7 +97,7 @@
         "drupal/votingapi": "^3.0@beta",
         "drupal/webform": "^6.0",
         "drupal/webform_score": "^2.0.0-alpha1",
-        "drupal/webform_views": "^5.0@alpha",
+        "drupal/webform_views": "^5.2",
         "drush/drush": "^10.3",
         "php-http/httplug": "2",
         "vlucas/phpdotenv": "^2.4",
@@ -135,16 +135,7 @@
             }
         },
         "patches": {
-            "drupal/entity_clone.module": {
-                "Entity clone":"https://www.drupal.org/files/issues/2020-05-14/2784373_13.patch"
-            },
-            "drupal/salesforce": {
-                "issues": "https://www.drupal.org/files/issues/2023-03-28/salesforce-3350924-2.patch",
-                "Webform mapping php8": "https://www.drupal.org/files/issues/2023-03-09/3336753-only_implode_if_is_array_else_return_the_string.patch"
-            },
-            "drupal/menu_token": {
-                "smtp_phpmail_add_validation": "https://www.drupal.org/files/issues/2021-01-08/Unable_to_get_token_when_a_link_resolves_to_a_route-2921178-40.patch"
-            }
+
         },
         "installer-paths": {
             "web/core": [

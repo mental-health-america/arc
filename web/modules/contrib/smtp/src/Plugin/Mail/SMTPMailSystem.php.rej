@@ -1,9 +1,0 @@
-@@ -414,7 +414,7 @@
- 
-         case 'reply-to':
-           // Only add a "reply-to" if it's not the same as "return-path".
--          if ($value != $headers['return-path']) {
-+          if ($value != $headers['Return-Path'] && $this->emailValidator->isValid($value)) {
-             $reply_to_comp = $this->getComponents($value);
-             $mailer->AddReplyTo($reply_to_comp['email'], $reply_to_comp['name']);
-           }

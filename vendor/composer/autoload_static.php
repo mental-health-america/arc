@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit1fe64fc490cf7b87b0d1d347e0f1aca2
+class ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -855,6 +855,7 @@ class ComposerStaticInit1fe64fc490cf7b87b0d1d347e0f1aca2
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/CorsService.php',
         'AssignmentRuleHeader' => __DIR__ . '/..' . '/messageagency/force.com-toolkit-for-php/soapclient/SforceHeaderOptions.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+        'CURLStringFile' => __DIR__ . '/..' . '/symfony/polyfill-php81/Resources/stubs/CURLStringFile.php',
         'CallOptions' => __DIR__ . '/..' . '/messageagency/force.com-toolkit-for-php/soapclient/SforceHeaderOptions.php',
         'Clue\\StreamFilter\\CallbackFilter' => __DIR__ . '/..' . '/clue/stream-filter/src/CallbackFilter.php',
         'CommerceGuys\\Addressing\\AbstractEnum' => __DIR__ . '/..' . '/commerceguys/addressing/src/AbstractEnum.php',
@@ -7302,11 +7303,11 @@ class ComposerStaticInit1fe64fc490cf7b87b0d1d347e0f1aca2
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit1fe64fc490cf7b87b0d1d347e0f1aca2::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit1fe64fc490cf7b87b0d1d347e0f1aca2::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit1fe64fc490cf7b87b0d1d347e0f1aca2::$prefixesPsr0;
-            $loader->fallbackDirsPsr0 = ComposerStaticInit1fe64fc490cf7b87b0d1d347e0f1aca2::$fallbackDirsPsr0;
-            $loader->classMap = ComposerStaticInit1fe64fc490cf7b87b0d1d347e0f1aca2::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929::$prefixesPsr0;
+            $loader->fallbackDirsPsr0 = ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929::$fallbackDirsPsr0;
+            $loader->classMap = ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929::$classMap;
 
         }, null, ClassLoader::class);
     }
