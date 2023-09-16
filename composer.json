@@ -80,7 +80,7 @@
         "drupal/rabbit_hole": "^1.0@beta",
         "drupal/recaptcha": "^3.2",
         "drupal/recently_read": "^1.0",
-        "drupal/redirect": "^1.7",
+        "drupal/redirect": "^1.9",
         "drupal/redirect_after_login": "^2.7",
         "drupal/rules": "^3.0@alpha",
         "drupal/salesforce": "^5.0",
@@ -135,16 +135,6 @@
             }
         },
         "patches": {
-            "drupal/entity_clone.module": {
-                "Entity clone":"https://www.drupal.org/files/issues/2020-05-14/2784373_13.patch"
-            },
-            "drupal/salesforce": {
-                "issues": "https://www.drupal.org/files/issues/2023-03-28/salesforce-3350924-2.patch",
-                "Webform mapping php8": "https://www.drupal.org/files/issues/2023-03-09/3336753-only_implode_if_is_array_else_return_the_string.patch"
-            },
-            "drupal/menu_token": {
-                "smtp_phpmail_add_validation": "https://www.drupal.org/files/issues/2021-01-08/Unable_to_get_token_when_a_link_resolves_to_a_route-2921178-40.patch"
-            }
         },
         "installer-paths": {
             "web/core": [
