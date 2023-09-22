@@ -121,7 +121,7 @@ class DynamicEntityReferenceWidget extends EntityReferenceAutocompleteWidget {
 
     $settings = $this->getFieldSettings();
     $labels = $this->entityTypeRepository->getEntityTypeLabels();
-    $available = DynamicEntityReferenceItem::getTargetTypes($settings, TRUE);
+    $available = DynamicEntityReferenceItem::getTargetTypes($settings);
     $cardinality = $items->getFieldDefinition()->getFieldStorageDefinition()->getCardinality();
     $target_type = $items->get($delta)->target_type ?: reset($available);
 
@@ -163,7 +163,7 @@ class DynamicEntityReferenceWidget extends EntityReferenceAutocompleteWidget {
       $target_type_element = [
         '#type' => 'select',
         '#options' => array_intersect_key($labels, array_combine($available, $available)),
-        '#title' => $this->t('Type'),
+        '#title' => $this->t('Entity type'),
         '#default_value' => $target_type,
         '#weight' => -50,
         '#attributes' => [

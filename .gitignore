@@ -132,7 +132,7 @@ drush/local.aliases.drushrc.php
 
 # Ignore directories generated Node.js
 node_modules
-
+`Q
 # ignore local configuration files.
 php.ini
 
