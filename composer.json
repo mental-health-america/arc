@@ -32,7 +32,7 @@
         "drupal/core-composer-scaffold": "^9",
         "drupal/core-project-message": "^9",
         "drupal/core-recommended": "^9",
-        "drupal/csv_serialization": "^3.0",
+        "drupal/csv_serialization": "^3.0 || ^4.0",
         "drupal/dynamic_entity_reference": "^1.14",
         "drupal/easy_breadcrumb": "^2.0",
         "drupal/editor_advanced_link": "^2.2",
@@ -47,7 +47,7 @@
         "drupal/focal_point": "^2.0",
         "drupal/fontyourface": "^4.0",
         "drupal/fraction": "^2.0",
-        "drupal/geocoder": "^3.0",
+        "drupal/geocoder": "^3.20 || ^4.0",
         "drupal/geocoder_autocomplete": "^2.0",
         "drupal/geofield": "^1.55",
         "drupal/geofield_map": "^3.0",
@@ -133,6 +133,12 @@
         "patches": {
             "drupal/jquery_ui_slider": {
                 "jquery_ui_slider d10": "https://www.drupal.org/files/issues/2022-06-16/jquery_ui_slider.1.x-dev.rector.patch"
+            },
+            "drupal/menu_token": {
+                "menu_token d10": "https://www.drupal.org/files/issues/2023-10-20/menu-token-d10-compatibility-3288569-25.patch"
+            },
+            "drupal/geocoder_autocomplete": {
+                "geocoder_autocomplete d10": "https://www.drupal.org/files/issues/2022-06-15/geocoder_autocomplete.2.0.x-dev.rector.patch"
             }
         },
         "installer-paths": {

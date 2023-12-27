@@ -155,7 +155,7 @@ class TokenReplacer {
     $token_type = $this->getTokenType($token);
     $entity_type = $this->tokenEntityMapper->getEntityTypeForTokenType($token_type);
     $query = $this->entityTypeManager->getStorage($entity_type)->getQuery("AND");
-    $user_ids = $query->execute();
+    $user_ids = $query->accessCheck(TRUE)->execute();
 
     // Pick one random user.
     $random_id = array_rand($user_ids, 1);
