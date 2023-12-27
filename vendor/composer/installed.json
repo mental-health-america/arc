@@ -5295,6 +5295,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "jquery_ui_slider d10": "https://www.drupal.org/files/issues/2022-06-16/jquery_ui_slider.1.x-dev.rector.patch"
                 }
             },
             "installation-source": "dist",
