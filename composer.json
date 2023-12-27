@@ -114,7 +114,7 @@
         "discard-changes": true,
         "optimize-autoloader": true,
         "platform": {
-            "php": "7.3.33"
+            "php": "8.2"
         },
         "sort-packages": true,
         "allow-plugins": {
