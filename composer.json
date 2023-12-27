@@ -144,6 +144,9 @@
             },
             "drupal/geocoder_autocomplete": {
                 "geocoder_autocomplete d10": "https://www.drupal.org/files/issues/2022-06-15/geocoder_autocomplete.2.0.x-dev.rector.patch"
+            },
+            "drupal/adminimal_admin_toolbar": {
+                "adminimal_admin_toolbar d10": "https://www.drupal.org/files/issues/2022-06-15/adminimal_admin_toolbar.1.x-dev.rector.patch"
             }
         },
         "installer-paths": {
