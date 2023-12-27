@@ -1,0 +1,9 @@
+@@ -24,7 +24,7 @@
+   "minimum-stability": "dev",
+   "require": {
+     "php": ">=7.4",
+-    "drupal/core": "^9.3"
++    "drupal/core": "^9.3 || ^10"
+   },
+   "require-dev": {
+     "drupal/diff": "1.x-dev",
