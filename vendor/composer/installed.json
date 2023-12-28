@@ -4198,6 +4198,9 @@
                                                 "status": "covered",
                                                 "message": "Covered by Drupal's security advisory policy"
                                         }
+                                },
+                                "patches_applied": {
+                                        "geocoder_autocomplete d10": "https://www.drupal.org/files/issues/2022-06-15/geocoder_autocomplete.2.0.x-dev.rector.patch"
                                 }
                         },
                         "installation-source": "dist",
@@ -5741,6 +5744,9 @@
                                                 "status": "not-covered",
                                                 "message": "Alpha releases are not covered by Drupal security advisories."
                                         }
+                                },
+                                "patches_applied": {
+                                        "menu_token d10": "https://www.drupal.org/files/issues/2023-10-20/menu-token-d10-compatibility-3288569-25.patch"
                                 }
                         },
                         "installation-source": "dist",

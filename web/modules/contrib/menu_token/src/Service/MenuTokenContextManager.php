@@ -45,6 +45,7 @@ class MenuTokenContextManager {
     // Get all custom menu links which should be rediscovered.
     $entity_ids = $this->entityTypeManager->getStorage('menu_link_content')->getQuery()
       ->condition('rediscover', FALSE)
+      ->accessCheck(TRUE)
       ->execute();
     $plugin_definitions = [];
     $menu_link_content_entities = $this->entityTypeManager->getStorage('menu_link_content')->loadMultiple($entity_ids);
