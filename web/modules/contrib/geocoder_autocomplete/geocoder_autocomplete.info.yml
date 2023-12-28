@@ -1,6 +1,6 @@
 name: 'Geocoder Autocomplete'
 description: 'Provides a text field widget with autocomplete via the Google Geocoding API.'
-core_version_requirement: ^8 || ^9 || ^10
+core_version_requirement: ^8 || ^9
 type: module
 
 # Information added by Drupal.org packaging script on 2021-10-29

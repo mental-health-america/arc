@@ -23,23 +23,19 @@ function menu_token_uninstall() {
   $results = $query->execute();
   $menus = [];
   if ($results ) {
-    foreach ($results as $value) {
+    foreach ($results as $key => $value) {
       $menus[] = $value->menu_name;
     }
   }
   // Get list of menus from menu tree where the discover is 1
-  $results = [];
-  if ($menus) {
-    $query = $connection->select('menu_tree', 'mr')
-      ->fields('mr', ['mlid']);
-    $query->condition('mr.menu_name', $menus, 'IN');
-    $query->condition('mr.discovered', 1, '=');
-    $results = $query->execute();
-  }
-
+  $query = $connection->select('menu_tree', 'mr')
+    ->fields('mr', ['mlid']);
+  $query->condition('mr.menu_name', $menus, 'IN');
+  $query->condition('mr.discovered', 1, '=');
+  $results = $query->execute();
   $menu_links = [];
   if ($results) {
-    foreach ($results as $value) {
+    foreach ($results as $key => $value) {
       $menu_links[] = $value->mlid;
     }
   }
