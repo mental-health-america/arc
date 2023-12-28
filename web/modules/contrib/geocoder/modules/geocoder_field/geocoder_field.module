@@ -96,7 +96,7 @@ function geocoder_field_form_field_config_edit_form_alter(array &$form, FormStat
     '#value' => $field_plugin,
   ];
 
-  $form['#validate'][] = 'geocoder_field_field_config_edit_form_validate';
+  array_unshift($form['#validate'], 'geocoder_field_field_config_edit_form_validate');
 }
 
 /**
