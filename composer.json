@@ -27,9 +27,9 @@
         "drupal/captcha": "^2.0",
         "drupal/conditional_fields": "^4.0@alpha",
         "drupal/content_access": "^2.0",
-        "drupal/core": "^9",
-        "drupal/core-composer-scaffold": "^9",
-        "drupal/core-project-message": "^9",
+        "drupal/core": "^10",
+        "drupal/core-composer-scaffold": "^10",
+        "drupal/core-project-message": "^10",
         "drupal/csv_serialization": "^3.0 || ^4.0",
         "drupal/devel": "^5.0",
         "drupal/dynamic_entity_reference": "^3.0",
@@ -48,7 +48,6 @@
         "drupal/fontyourface": "^4.0",
         "drupal/fraction": "^2.0",
         "drupal/geocoder": "^3.20 || ^4.0",
-        "drupal/geocoder_autocomplete": "^2.0",
         "drupal/geofield": "^1.55",
         "drupal/geofield_map": "^3.0",
         "drupal/geolocation": "^3.12",
@@ -68,7 +67,6 @@
         "drupal/menu_breadcrumb": "^2.0@alpha",
         "drupal/menu_item_extras": "^3.0",
         "drupal/menu_link_attributes": "^1.0",
-        "drupal/menu_token": "^9.1@alpha",
         "drupal/metatag": "^1.26",
         "drupal/mimemail": "^1.0@alpha",
         "drupal/module_filter": "^4.0",
@@ -151,12 +149,6 @@
             },
             "drupal/webform_mass_email": {
                 "webform_mass_email": "https://www.drupal.org/files/issues/2022-06-16/webform_mass_email.1.x-dev.rector.patch"
-            },
-            "drupal/geocoder_autocomplete": {
-                "geocoder_autocomplete d10": "https://www.drupal.org/files/issues/2022-06-15/geocoder_autocomplete.2.0.x-dev.rector.patch"
-            },
-            "drupal/menu_token": {
-                "menu-token d10": "https://www.drupal.org/files/issues/2023-10-20/menu-token-d10-compatibility-3288569-25.patch"
             }
         },
         "installer-paths": {

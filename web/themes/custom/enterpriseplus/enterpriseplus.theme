@@ -11,7 +11,7 @@ use Drupal\file\Entity\File;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Url;
-
+use Drupal\Core\Render\RendererInterface;
 /**
  * Implements hook_preprocess_HOOK() for HTML document templates.
  *
@@ -729,14 +729,18 @@ function enterpriseplus_page_attachments_alter(&$page) {
   $video_bg_opacity = (int) theme_get_setting('video_bg_opacity')/100;
   $page['#attached']['drupalSettings']['enterpriseplus']['VideoBg']['VideoBgOpacity'] = $video_bg_opacity;
 
-  //video bg
-  $path_to_video_mp4 = file_create_url(drupal_get_path('theme', 'enterpriseplus') . '/videos/background-video.mp4');
-  $path_to_video_webm = file_create_url(drupal_get_path('theme', 'enterpriseplus') . '/videos/background-video.webm');
-  $path_to_video_jpg = file_create_url(drupal_get_path('theme', 'enterpriseplus') . '/videos/background-video.jpg');
+  // Video background paths.
+  $theme_path = \Drupal::theme()->getActiveTheme()->getPath();
+  $file_system = \Drupal::service('file_system');
+
+  $path_to_video_mp4 = $file_system->realpath($theme_path . '/videos/background-video.mp4');
+  $path_to_video_webm = $file_system->realpath($theme_path . '/videos/background-video.webm');
+  $path_to_video_jpg = $file_system->realpath($theme_path . '/videos/background-video.jpg');
 
   $page['#attached']['drupalSettings']['enterpriseplus']['VideoBackgroundInit']['PathToVideo_mp4'] = $path_to_video_mp4;
   $page['#attached']['drupalSettings']['enterpriseplus']['VideoBackgroundInit']['PathToVideo_webm'] = $path_to_video_webm;
   $page['#attached']['drupalSettings']['enterpriseplus']['VideoBackgroundInit']['pathToVideo_jpg'] = $path_to_video_jpg;
+
 
   // Isotope Filters
   $isotope_filters_text = theme_get_setting('isotope_filters_text');
@@ -801,18 +805,26 @@ function enterpriseplus_preprocess_node(&$variables) {
 
 }
 
+
+/**
+ * Implements hook_preprocess_HOOK() for node templates.
+ */
 function enterpriseplus_preprocess_node__article(&$variables) {
   $variables['mt_setting']['reading_time'] = theme_get_setting('reading_time');
 
-  // Count the words of article in order to calculate the reading time
+  // Count the words of the article in order to calculate the reading time.
   $node_content = $variables['content'];
-  $node_content = render($node_content);
-  $words = str_word_count(strip_tags($node_content));
+  $renderer = \Drupal::service('renderer');
+  $node_content_rendered = $renderer->render($node_content);
+
+  $words = str_word_count(strip_tags($node_content_rendered));
+
   if (isset($variables['content']['comment'])) {
     $node_comments = $variables['content']['comment'];
-    $node_comments = render($node_comments);
-    $words = $words - str_word_count(strip_tags($node_comments));
+    $node_comments_rendered = $renderer->render($node_comments);
+    $words -= str_word_count(strip_tags($node_comments_rendered));
   }
+
   $variables['minutes'] = floor($words / 275);
 }
 

@@ -2,8 +2,8 @@
 
 namespace Drupal\menu_token\EventSubscriber;
 
-use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
+use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Drupal\menu_token\Service\MenuTokenContextManager;
 
@@ -36,7 +36,7 @@ class MenuTokenSubscriber implements EventSubscriberInterface {
    *
    *   For handling a request. Constant KernelEvents::CONTROLLER.
    */
-  public function onController(ControllerEvent $event) {
+  public function onController(FilterControllerEvent $event) {
 
     $this->menuTokenContextManager->replaceContextualLinks();
 
