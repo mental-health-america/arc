@@ -1,0 +1,17 @@
+uuid: e5821d9f-ce85-485a-96b5-8dadbf645c32
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: rpwvgyEURXLz_JjgMCrkS1rUv-0k3L79BpO-ReN7fDI
+id: node
+label: Content
+tags:
+  title: '[node:title] | [site:name]'
+  description: '[node:summary]'
+  canonical_url: '[node:url]'
+  og_type: '[node:content-type]'
+  og_site_name: '[site:name]'
+  og_title: '[node:title]'
+  og_image: /themes/custom/enterpriseplus/mha-assets/build/images/shareimg.png
+  og_url: '[current-page:url:absolute]'

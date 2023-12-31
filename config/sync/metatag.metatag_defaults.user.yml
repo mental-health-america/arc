@@ -1,0 +1,19 @@
+uuid: ef37ccf0-75bc-4b4e-9210-b8046fa93250
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: e3453dXHFW5TM24d8Odhumgwd8hIZVPvQv98wnGM7Ro
+id: user
+label: User
+tags:
+  keywords: '[user:field_affiliate_name]'
+  title: '[user:field_affiliate_name] | [site:name]'
+  canonical_url: '[user:url]'
+  description: '[user:field_about_this_affiliate]'
+  og_type: 'Affiliate Profile'
+  og_url: '[user:url]'
+  og_description: '[user:field_about_this_affiliate]'
+  article_tag: '[user:field_affiliate_programs]'
+  og_site_name: '[site:name]'
+  og_title: '[user:field_affiliate_name]'

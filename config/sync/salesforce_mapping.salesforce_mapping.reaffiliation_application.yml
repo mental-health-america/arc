@@ -1,0 +1,910 @@
+langcode: en
+id: reaffiliation_application
+label: 'Reaffiliation Application'
+weight: 0
+type: salesforce_mapping
+key: Id
+always_upsert: true
+async: false
+push_standalone: false
+pull_standalone: false
+pull_trigger_date: LastModifiedDate
+pull_frequency: 0
+push_frequency: 0
+push_limit: 0
+push_retries: 3
+pull_where_clause: ''
+sync_triggers:
+  push_create: false
+  push_update: true
+  push_delete: false
+  pull_create: false
+  pull_update: false
+  pull_delete: false
+salesforce_object_type: Account
+drupal_entity_type: webform_submission
+drupal_bundle: affiliation_application
+field_mappings:
+  -
+    drupal_field_type: record_type
+    drupal_field_value: Affiliate
+    direction: drupal_sf
+    salesforce_field: RecordTypeId
+    id: 0
+    description: ''
+  -
+    drupal_field_type: RelatedProperties
+    drupal_field_value: 'uid:created'
+    direction: sf_drupal
+    salesforce_field: CreatedDate
+    id: 1
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: affiliate_name
+    direction: drupal_sf
+    salesforce_field: Name
+    id: 2
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: ein_number
+    direction: drupal_sf
+    salesforce_field: EIN_Number__c
+    id: 3
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: mailing_address__country
+    direction: drupal_sf
+    salesforce_field: ShippingCountry
+    id: 4
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: mailing_address__address
+    direction: drupal_sf
+    salesforce_field: ShippingStreet
+    id: 5
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: mailing_address__state_province
+    direction: drupal_sf
+    salesforce_field: ShippingState
+    id: 6
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: mailing_address__city
+    direction: drupal_sf
+    salesforce_field: ShippingCity
+    id: 7
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: mailing_address__postal_code
+    direction: drupal_sf
+    salesforce_field: ShippingPostalCode
+    id: 8
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: website_address
+    direction: drupal_sf
+    salesforce_field: Website
+    id: 9
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: exec_ceo_name
+    direction: drupal_sf
+    salesforce_field: Executive_CEO_Name__c
+    id: 10
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: email_address
+    direction: drupal_sf
+    salesforce_field: ED_Email__c
+    id: 11
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: board_chair_s_name
+    direction: drupal_sf
+    salesforce_field: Board_Chair_Name__c
+    id: 12
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: board_chairs_email_address
+    direction: drupal_sf
+    salesforce_field: Board_Chair_Email__c
+    id: 13
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: board_chairs_phone_number
+    direction: drupal_sf
+    salesforce_field: Board_Chair_Phone__c
+    id: 14
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: contact_for_reaffiliation
+    direction: drupal_sf
+    salesforce_field: Person_to_Contact_for_Reaffiliation__c
+    id: 15
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: email__contact_for_reaffiliation
+    direction: drupal_sf
+    salesforce_field: Reaffiliation_Contact_Email__c
+    id: 16
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: annual_report
+    direction: drupal_sf
+    salesforce_field: Annual_Report__c
+    id: 17
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: board_roster
+    direction: drupal_sf
+    salesforce_field: Board_Roster__c
+    id: 18
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: strategic_plan
+    direction: drupal_sf
+    salesforce_field: Strategic_Plan__c
+    id: 19
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: audited_financial_statements
+    direction: drupal_sf
+    salesforce_field: Audited_Financial_Statements__c
+    id: 20
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: management_letter
+    direction: drupal_sf
+    salesforce_field: Management_Letter__c
+    id: 21
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: irs_form_990_990_ez_or_990_n
+    direction: drupal_sf
+    salesforce_field: IRS_Form_990_990_EZ_or_990_N__c
+    id: 22
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: 501c3_letter_from_irs
+    direction: drupal_sf
+    salesforce_field: X501c3_Letter_from_IRS__c
+    id: 23
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: cultural_competency_statement
+    direction: drupal_sf
+    salesforce_field: Cultural_competency_statement__c
+    id: 24
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: roster_of_affiliates
+    direction: drupal_sf
+    salesforce_field: Roster_of_Affiliates__c
+    id: 25
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: sample_of_reevaluation_tool
+    direction: drupal_sf
+    salesforce_field: Sample_of_re_evaluation_tool__c
+    id: 26
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: organization_required_to_have_audit
+    direction: drupal_sf
+    salesforce_field: Organization_required_to_have_an_audit__c
+    id: 27
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: population_area_your_organization_serve
+    direction: drupal_sf
+    salesforce_field: Area_Served__c
+    id: 28
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: describe_population_area
+    direction: drupal_sf
+    salesforce_field: Population_area_description__c
+    id: 29
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: city_county_population
+    direction: drupal_sf
+    salesforce_field: Population__c
+    id: 30
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: multi_county_population
+    direction: drupal_sf
+    salesforce_field: Population_of_Multi_County_Area_Served__c
+    id: 31
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: major_metro_area_population
+    direction: drupal_sf
+    salesforce_field: Population_of_Major_Metro_Area_Served__c
+    id: 32
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: state_population
+    direction: drupal_sf
+    salesforce_field: Population_of_the_State_served__c
+    id: 33
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: region_population
+    direction: drupal_sf
+    salesforce_field: Population_of_the_Region_you_serve__c
+    id: 34
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: white_population_percentage
+    direction: drupal_sf
+    salesforce_field: Percent_of_population_that_is_white__c
+    id: 35
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: black_population_percentage
+    direction: drupal_sf
+    salesforce_field: Percent_of_population_that_is_black__c
+    id: 36
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: asian_population_percentage
+    direction: drupal_sf
+    salesforce_field: Percent_of_population_that_is_Asian__c
+    id: 37
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: american_indian_population_percentage
+    direction: drupal_sf
+    salesforce_field: Percent_of_population_American_Indian__c
+    id: 38
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: pacific_islander_population_percentage
+    direction: drupal_sf
+    salesforce_field: Percent_of_population_Pacific_Islander__c
+    id: 39
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: hispanic_latino_population_percentage
+    direction: drupal_sf
+    salesforce_field: Percent_of_population_that_is_Hispanic__c
+    id: 40
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: multiracial_other_population_percentage
+    direction: drupal_sf
+    salesforce_field: Percent_of_population_Multiracial_other__c
+    id: 41
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: frontier_area_population_percentage
+    direction: drupal_sf
+    salesforce_field: Percent_of_population_frontier_area__c
+    id: 42
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: rural_population_percentage
+    direction: drupal_sf
+    salesforce_field: Percent_of_population_that_is_rural__c
+    id: 43
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: urban_population_percentage
+    direction: drupal_sf
+    salesforce_field: Percent_of_population_that_is_urban__c
+    id: 44
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: suburban_population_percentage
+    direction: drupal_sf
+    salesforce_field: Percent_of_population_that_is_suburban__c
+    id: 45
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: number_full_time_employees
+    direction: drupal_sf
+    salesforce_field: Number_of_Full_Time_Employees__c
+    id: 46
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: number_part_time_employees
+    direction: drupal_sf
+    salesforce_field: Number_of_Part_Time_Employees__c
+    id: 47
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: number_volunteers
+    direction: drupal_sf
+    salesforce_field: Number_of_Volunteers__c
+    id: 48
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: review_process__annual_biannual
+    direction: drupal_sf
+    salesforce_field: Annual_or_bi_annual_review_process__c
+    id: 49
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: average_length_of_employment_of_staff
+    direction: drupal_sf
+    salesforce_field: Average_length_of_staff_employment__c
+    id: 50
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: current_employee_personnel_policies
+    direction: drupal_sf
+    salesforce_field: Current_employee_handbook__c
+    id: 51
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: no_current_employee_personnel_policies_reason
+    direction: drupal_sf
+    salesforce_field: If_no_current_employee_handbook_why_not__c
+    id: 52
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: succession_plan
+    direction: drupal_sf
+    salesforce_field: Does_your_MHA_have_a_succession_plan__c
+    id: 53
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: fee_for_service_percentage_funding
+    direction: drupal_sf
+    salesforce_field: Fee_for_service_as_percentage_of_funding__c
+    id: 54
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: individual_donors_percentage_funding
+    direction: drupal_sf
+    salesforce_field: Individual_donors_as_percent_of_funding__c
+    id: 55
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: special_events_percentage_funding
+    direction: drupal_sf
+    salesforce_field: Special_Events_as_percent_of_funding__c
+    id: 56
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: trusts_and_bequests_percentage_funding
+    direction: drupal_sf
+    salesforce_field: Trusts_and_bequests_as_percent_of_fundin__c
+    id: 57
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: corporate_funding_percentage_funding
+    direction: drupal_sf
+    salesforce_field: Corporate_funding_as_percent_of_funding__c
+    id: 58
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: united_way_finding_cfc_percentage_funding
+    direction: drupal_sf
+    salesforce_field: United_Way_CFC_as_percent_of_funding__c
+    id: 59
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: government_contracts_percentage_funding
+    direction: drupal_sf
+    salesforce_field: Government_contracts_percent_of_funding__c
+    id: 60
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: government_grants_percentage_funding
+    direction: drupal_sf
+    salesforce_field: Government_grants_as_percent_of_funding__c
+    id: 61
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: private_funding_percentage_funding
+    direction: drupal_sf
+    salesforce_field: Private_foundations_as_percent_of_fundin__c
+    id: 62
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: other_percentage_funding
+    direction: drupal_sf
+    salesforce_field: Percent_of_funding_from_other__c
+    id: 63
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: number_of_members
+    direction: drupal_sf
+    salesforce_field: Number_of_Members__c
+    id: 64
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: number_of_donors
+    direction: drupal_sf
+    salesforce_field: Number_of_Donors__c
+    id: 65
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: your_donors_considered_members
+    direction: drupal_sf
+    salesforce_field: Are_your_donors_considered_members__c
+    id: 66
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: end_of_current_fiscal_year
+    direction: drupal_sf
+    salesforce_field: Most_recent_fiscal_year__c
+    id: 67
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: current_fiscal_year_expense_budget
+    direction: drupal_sf
+    salesforce_field: Most_recent_fiscal_year_expense_budget__c
+    id: 68
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: increase_or_decrease_over_prior_year
+    direction: drupal_sf
+    salesforce_field: Increase_or_decrease_over_prior_year__c
+    id: 69
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: percentage_change_from_prior_year
+    direction: drupal_sf
+    salesforce_field: Percent_change_from_prior_year__c
+    id: 70
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: most_recent_revenue_reported_on_990
+    direction: drupal_sf
+    salesforce_field: Most_recent_revenue_reported_on_990__c
+    id: 71
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: most_dramatic_change_in_organization
+    direction: drupal_sf
+    salesforce_field: Most_recent_change_since_last_review__c
+    id: 72
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: is_your_organization_incorporated_
+    direction: drupal_sf
+    salesforce_field: Incorporated__c
+    id: 73
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: tax_exempt_nonprofit_organization
+    direction: drupal_sf
+    salesforce_field: Lobbying__c
+    id: 74
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: provide_annual_reporting_on_timely_basis
+    direction: drupal_sf
+    salesforce_field: Annual_reporting_requirements_met__c
+    id: 75
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: develop_strategies__financial_mgmt_operations
+    direction: drupal_sf
+    salesforce_field: Realistic_financial_management_strategy__c
+    id: 76
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: current_written_financial_contingency_plan
+    direction: drupal_sf
+    salesforce_field: Current_financial_contingency_plan__c
+    id: 77
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: current_written_document_retention_plan
+    direction: drupal_sf
+    salesforce_field: Current_document_retention_plan__c
+    id: 78
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: current_written_emergency_preparedness_plan
+    direction: drupal_sf
+    salesforce_field: Current_emergency_preparedness_plan__c
+    id: 79
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: maintain_required_documentation_reporting
+    direction: drupal_sf
+    salesforce_field: Required_documentation_for_reporting__c
+    id: 80
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: number_of_board_members
+    direction: drupal_sf
+    salesforce_field: Number_of_Board_Members__c
+    id: 81
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: males_board_member_group_percentage
+    direction: drupal_sf
+    salesforce_field: Percent_of_board_that_is_male__c
+    id: 82
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: females_board_member_group_percentage
+    direction: drupal_sf
+    salesforce_field: Percent_of_board_that_is_female__c
+    id: 83
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: consumers_mental_health_services__board_percentage
+    direction: drupal_sf
+    salesforce_field: Percent_of_board_that_are_consumers__c
+    id: 84
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: family_members_board_member_group_percentage
+    direction: drupal_sf
+    salesforce_field: Percent_of_board_that_are_family_members__c
+    id: 85
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: medical_health_providers_board_group_percent
+    direction: drupal_sf
+    salesforce_field: Percent_of_board_mental_health_providers__c
+    id: 86
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: nonmedical_health_providers_board_group_percent
+    direction: drupal_sf
+    salesforce_field: Non_medical_mental_health_providers__c
+    id: 87
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: community_leaders_board_group_percent
+    direction: drupal_sf
+    salesforce_field: Percent_business_community_leaders__c
+    id: 88
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: marketing_professionals_board_group_percent
+    direction: drupal_sf
+    salesforce_field: Percent_in_marketing_communications__c
+    id: 89
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: financial_professionals_board_group_percent
+    direction: drupal_sf
+    salesforce_field: Percent_in_finance_fundraising__c
+    id: 90
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: legal_professionals_board_group_percent
+    direction: drupal_sf
+    salesforce_field: Percent_of_board_legal_professionals__c
+    id: 91
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: lgbtq_members_board_group_percent
+    direction: drupal_sf
+    salesforce_field: Percent_of_board_that_are_LGBT_members__c
+    id: 92
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: how_often_does_board_meet
+    direction: drupal_sf
+    salesforce_field: How_often_does_the_board_meet__c
+    id: 93
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: national_activities_staff_participated_on
+    direction: drupal_sf
+    salesforce_field: What_programs_services_do_you_provide__c
+    id: 94
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: how_do_you_conduct_reaffiliation_process
+    direction: drupal_sf
+    salesforce_field: Frequency_of_reaffiliation_process__c
+    id: 95
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: are_you_current_on_national_dues
+    direction: drupal_sf
+    salesforce_field: Does_your_organization_pay_dues__c
+    id: 96
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: advocate_policies_consistent_with_mha
+    direction: drupal_sf
+    salesforce_field: Advocate_for_policy_consistent_with_MHA__c
+    id: 97
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: policy_issues_most_important__leads_taken
+    direction: drupal_sf
+    salesforce_field: What_policy_issues_are_most_important__c
+    id: 98
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: advocacy_partnerships_coalitions_belong_to
+    direction: drupal_sf
+    salesforce_field: Advocacy_partnerships__c
+    id: 99
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: elected_to_operate_section_501h
+    direction: drupal_sf
+    salesforce_field: Operate_under_Internal_Revenue_code_501h__c
+    id: 100
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: activities_you_engaged_in
+    direction: drupal_sf
+    salesforce_field: MHA_staff_and_volunteer_participation__c
+    id: 101
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: advocacy__best_achievement
+    direction: drupal_sf
+    salesforce_field: Best_advocacy_achievement__c
+    id: 102
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: programs_services_you_provide
+    direction: drupal_sf
+    salesforce_field: Programs_and_services_your_MHA_provides__c
+    id: 103
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: conducted_participated_community_needs_assessment
+    direction: drupal_sf
+    salesforce_field: Community_needs_assess__c
+    id: 104
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: describe_signature_program
+    direction: drupal_sf
+    salesforce_field: Describe_your_signature_program__c
+    id: 105
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: promising_practices_do_you_use
+    direction: drupal_sf
+    salesforce_field: Evidence_based_promising_practices__c
+    id: 106
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: implement_education_media_effors_otherpartsofmha
+    direction: drupal_sf
+    salesforce_field: Public_education_and_media_efforts__c
+    id: 107
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: which_have_you_done_since_last_review
+    direction: drupal_sf
+    salesforce_field: Since_your_last_review_have_you__c
+    id: 108
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: audiences_you_present_to
+    direction: drupal_sf
+    salesforce_field: Please_list_audiences_your_present_to__c
+    id: 109
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: outreach_vehicles_media
+    direction: drupal_sf
+    salesforce_field: Please_select_your_outreach_vehicles__c
+    id: 110
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: best_accomplishment_in_this_area
+    direction: drupal_sf
+    salesforce_field: Best_accomplishment_outreach_education__c
+    id: 111
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: 1_do_you_provide_language_interpreter_translator_services_for_pe
+    direction: drupal_sf
+    salesforce_field: Affiliate_Services_in_Other_Languages__c
+    id: 112
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: develop_implement_cultural_competency_statement
+    direction: drupal_sf
+    salesforce_field: Cultural_competency_plan__c
+    id: 113
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: programs_rep_respond_to_diversity_of_community
+    direction: drupal_sf
+    salesforce_field: Community_diversity__c
+    id: 114
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: groups_represented_by_board_staff
+    direction: drupal_sf
+    salesforce_field: Board_representation__c
+    id: 115
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: 3_less_groups_repd_by_board_staff_explain
+    direction: drupal_sf
+    salesforce_field: If_three_or_less_categories_were_checked__c
+    id: 116
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: since_last_review_has_your_organization__clc
+    direction: drupal_sf
+    salesforce_field: Since_your_last_review_have_you_done__c
+    id: 117
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: use_logo_from_template_for_national
+    direction: drupal_sf
+    salesforce_field: Organization_logo__c
+    id: 118
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: what_is_your_mission_statement
+    direction: drupal_sf
+    salesforce_field: What_is_your_mission_statement__c
+    id: 119
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: ensure_materials_are_consistent
+    direction: drupal_sf
+    salesforce_field: Ensure_materials_are_consistent__c
+    id: 120
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: nterested_in_rebranding_to_mha
+    direction: drupal_sf
+    salesforce_field: Are_you_interested_in_rebranding_to_MHA__c
+    id: 121
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: why_or_why_not_intrested_in_rebranding
+    direction: drupal_sf
+    salesforce_field: Why_or_why_not__c
+    id: 122
+    description: ''
+  -
+    drupal_field_type: WebformElements
+    drupal_field_value: organization_have_other_memberships
+    direction: drupal_sf
+    salesforce_field: Do_you_have_other_memberships__c
+    id: 123
+    description: ''
+  -
+    drupal_field_type: RelatedProperties
+    drupal_field_value: 'uid:field_salesforce_npsp_id'
+    direction: sf_drupal
+    salesforce_field: Id
+    id: 124
+    description: ''
+status: true
+dependencies:
+  config:
+    - webform.webform.affiliation_application
+  module:
+    - salesforce_push
+    - salesforce_webform
+uuid: 7749ad12-c5e1-43d4-bd81-e0360595c8b3

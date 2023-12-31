@@ -1,0 +1,23 @@
+uuid: 4c756638-a60c-4915-ac38-5ef2964a8149
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.mt_showcase
+  module:
+    - text
+id: node.mt_showcase.body
+field_name: body
+entity_type: node
+bundle: mt_showcase
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

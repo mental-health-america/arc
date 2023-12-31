@@ -1,0 +1,34 @@
+uuid: e311ac89-ba56-4f47-b4f5-f97a337bfad3
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - options
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: user.field_bpsp
+field_name: field_bpsp
+entity_type: user
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Affiliate Best/Promising Practice'
+      label: 'Affiliate Best/Promising Practice'
+    -
+      value: 'Evidenced Based Program'
+      label: 'Evidenced Based Program'
+    -
+      value: 'Affiliate Signature Program'
+      label: 'Affiliate Signature Program'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

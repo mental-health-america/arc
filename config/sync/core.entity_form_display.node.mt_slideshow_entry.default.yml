@@ -1,0 +1,129 @@
+uuid: a0c0b215-9d5d-4383-aa85-807ee3fe0128
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.mt_slideshow_entry.field_mt_bg_video_vimeo
+    - field.field.node.mt_slideshow_entry.field_mt_bg_video_volume
+    - field.field.node.mt_slideshow_entry.field_mt_bg_video_youtube
+    - field.field.node.mt_slideshow_entry.field_mt_slideshow
+    - field.field.node.mt_slideshow_entry.field_mt_slideshow_image
+    - field.field.node.mt_slideshow_entry.field_mt_slideshow_path
+    - field.field.node.mt_slideshow_entry.field_mt_slideshow_text
+    - image.style.thumbnail
+    - node.type.mt_slideshow_entry
+  module:
+    - image
+    - path
+    - text
+id: node.mt_slideshow_entry.default
+targetEntityType: node
+bundle: mt_slideshow_entry
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_mt_bg_video_vimeo:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_mt_bg_video_volume:
+    type: number
+    weight: 4
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_mt_bg_video_youtube:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_mt_slideshow:
+    type: boolean_checkbox
+    weight: 8
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_mt_slideshow_image:
+    type: image_image
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_mt_slideshow_path:
+    type: string_textfield
+    weight: 7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_mt_slideshow_text:
+    type: text_textarea
+    weight: 6
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 11
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 121
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 12
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 9
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

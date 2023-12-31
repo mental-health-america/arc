@@ -1,0 +1,24 @@
+uuid: 9152482f-f8cc-4e58-863b-5a605d2a46bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_old_affiliation_nid
+  module:
+    - user
+id: user.user.field_old_affiliation_nid
+field_name: field_old_affiliation_nid
+entity_type: user
+bundle: user
+label: 'Old Affiliation NID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

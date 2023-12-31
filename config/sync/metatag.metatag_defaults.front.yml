@@ -1,0 +1,16 @@
+uuid: b0838562-d207-477a-8a07-778c79c4f273
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 1noCXlegCr5HFehQRF1ViXy1jhU1jZ_sNN99a8Sj5jo
+id: front
+label: 'Front page'
+tags:
+  title: 'Home | [site:name]'
+  canonical_url: '[site:url]'
+  shortlink: '[site:url]'
+  og_site_name: '[site:name]'
+  og_title: Home
+  og_image: /themes/custom/enterpriseplus/mha-assets/build/images/shareimg.png
+  og_url: '[site:url]'

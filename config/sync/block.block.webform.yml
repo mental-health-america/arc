@@ -1,0 +1,31 @@
+uuid: 4640a3a6-49e8-4dad-beb3-db1e88c45e41
+langcode: en
+status: true
+dependencies:
+  config:
+    - webform.webform.clifford_beers_society_cbs_affil
+  module:
+    - system
+    - webform
+  theme:
+    - enterpriseplus
+id: webform
+theme: enterpriseplus
+region: content
+weight: 0
+provider: null
+plugin: webform_block
+settings:
+  id: webform_block
+  label: Webform
+  label_display: '0'
+  provider: webform
+  webform_id: clifford_beers_society_cbs_affil
+  default_data: ''
+  redirect: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /node/61

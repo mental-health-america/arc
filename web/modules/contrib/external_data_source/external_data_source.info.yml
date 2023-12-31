@@ -1,0 +1,12 @@
+name: 'External Data Source'
+type: module
+description: 'External Data Source field Fromatters and Widgets'
+package: Field types
+core_version_requirement: ^8.8 || ^9 || ^10
+dependencies:
+  - drupal:field
+
+# Information added by Drupal.org packaging script on 2023-04-25
+version: '3.1.0'
+project: 'external_data_source'
+datestamp: 1682403634

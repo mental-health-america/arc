@@ -1,0 +1,21 @@
+uuid: 08c20ded-ec48-414e-8b94-bb0b59835ddd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_application_type
+  module:
+    - options
+    - user
+id: user.user.field_application_type
+field_name: field_application_type
+entity_type: user
+bundle: user
+label: 'Application Type'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

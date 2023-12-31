@@ -1,0 +1,29 @@
+_core:
+  default_config_hash: cy-hJPYCnfCsuUZA7VDoAwssKhRJCa8N88iJTaWiims
+hash_expiration: 86400
+newsletter:
+  issue_tokens: false
+  format: html
+  priority: 3
+  receipt: false
+  from_address: vsterns@mhanational.org
+  from_name: 'Affiliates - Mental Health America'
+subscriber:
+  sync_fields: true
+subscription:
+  skip_verification: false
+  tidy_unconfirmed: 0
+  confirm_subject: 'Confirmation for [site:name]'
+  confirm_body: "We have received a request to subscribe [simplenews-subscriber:mail] at [site:url]. To confirm please use the link below.\r\n\r\n[simplenews-subscriber:confirm-url"
+  confirm_subscribe_page: ''
+  confirm_unsubscribe_page: ''
+  validate_subject: 'Manage your subscriptions at [site:name]'
+  validate_body: "We have received a request to manage your subscriptions for [simplenews-subscriber:mail] at [site:url]. To proceed please use the link below.\r\n\r\n[simplenews-subscriber:manage-url]"
+mail:
+  use_cron: false
+  textalt: true
+  throttle: 200
+  spool_progress_expiration: 3600
+  spool_expire: 1
+  debug: false
+  source_cache: null

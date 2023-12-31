@@ -1,0 +1,62 @@
+uuid: c21a131b-0c05-44e5-863e-925cad05f171
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.mt_fancy_linked_image.field_mt_fli_button_icon
+    - field.field.paragraph.mt_fancy_linked_image.field_mt_fli_image
+    - field.field.paragraph.mt_fancy_linked_image.field_mt_fli_link
+    - field.field.paragraph.mt_fancy_linked_image.field_mt_fli_shape
+    - field.field.paragraph.mt_fancy_linked_image.field_mt_fli_title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.mt_fancy_linked_image
+  module:
+    - image
+    - link
+id: paragraph.mt_fancy_linked_image.default
+targetEntityType: paragraph
+bundle: mt_fancy_linked_image
+mode: default
+content:
+  field_mt_fli_button_icon:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_mt_fli_image:
+    type: image_image
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_mt_fli_link:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_mt_fli_shape:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_mt_fli_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

@@ -1,0 +1,26 @@
+uuid: c7d1571c-7ce4-46b5-a3db-315842e27f22
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - enterpriseplus
+id: enterpriseplus_exposedformmt_productspage_2
+theme: enterpriseplus
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:mt_products-page_2'
+settings:
+  id: 'views_exposed_filter_block:mt_products-page_2'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: /products-3-col
