@@ -27,7 +27,8 @@ bootstrap:
     base: #The CSS category. base is loaded before theme category
       bootstrap/css/bootstrap.css: { weight: 0 } #weight sets the order within the category above
   js:
-    bootstrap/js/bootstrap.min.js: {}
+    #bootstrap/js/bootstrap.min.js: {}
+    //cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js: { type: external, minified: true }
   dependencies:
     - core/jquery
 

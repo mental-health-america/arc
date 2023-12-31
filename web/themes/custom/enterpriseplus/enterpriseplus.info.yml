@@ -5,7 +5,7 @@ description: 'A flexible, recolorable theme with many regions and a responsive, 
 version: '8.x-5.5.0'
 core_version_requirement: ^8 || ^9 || ^10
 libraries:
-  #- enterpriseplus/bootstrap
+  - enterpriseplus/bootstrap
   - enterpriseplus/fontawesome
   - enterpriseplus/global-styling
   - enterpriseplus/messages
