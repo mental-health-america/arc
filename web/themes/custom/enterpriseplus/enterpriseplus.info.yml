@@ -8,9 +8,9 @@ libraries:
   #- enterpriseplus/bootstrap
   - enterpriseplus/fontawesome
   - enterpriseplus/global-styling
-  #- enterpriseplus/messages
+  - enterpriseplus/messages
   #- enterpriseplus/tooltip
-  #- enterpriseplus/count-to-init
+  - enterpriseplus/count-to-init
   - enterpriseplus/local-stylesheets
   - enterpriseplus/mha
 regions:

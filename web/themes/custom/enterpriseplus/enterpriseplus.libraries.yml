@@ -9,6 +9,15 @@ mha:
     mha-assets/build/js/phone-masking/jquery.maskedinput.min.js: {}
     mha-assets/build/js/mha-scripts.min.js: {}
 
+bootstrap_cdn:
+  version: 4.6.0
+  css:
+    component:
+      //cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css: { type: external, minified: true }
+  js:
+    //cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js: { type: external, minified: true }
+  dependencies:
+    - core/jquery
 
 #Everything below is part of Enterprise+
 #--------------------------------------------
@@ -16,7 +25,7 @@ bootstrap:
   version: 3.3.7
   css:
     base: #The CSS category. base is loaded before theme category
-      bootstrap/css/bootstrap.min.css: { weight: 0 } #weight sets the order within the category above
+      bootstrap/css/bootstrap.css: { weight: 0 } #weight sets the order within the category above
   js:
     bootstrap/js/bootstrap.min.js: {}
   dependencies:
