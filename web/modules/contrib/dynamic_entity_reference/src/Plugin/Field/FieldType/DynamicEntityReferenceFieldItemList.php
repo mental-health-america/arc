@@ -11,10 +11,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Defines a item list class for dynamic entity reference fields.
  *
- * @property \Drupal\dynamic_entity_reference\Plugin\Field\FieldType\DynamicEntityReferenceItem[] $list
- * @method T|null offsetGet($offset)
- * @template T of \Drupal\dynamic_entity_reference\Plugin\Field\FieldType\DynamicEntityReferenceItem
- * @extends \Drupal\Core\Field\EntityReferenceFieldItemList<T>
+ * @property DynamicEntityReferenceItem[] list
  */
 class DynamicEntityReferenceFieldItemList extends EntityReferenceFieldItemList {
 

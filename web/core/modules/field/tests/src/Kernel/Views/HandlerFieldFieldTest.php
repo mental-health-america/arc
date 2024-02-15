@@ -68,10 +68,7 @@ class HandlerFieldFieldTest extends KernelTestBase {
     $this->installConfig(['filter']);
     $this->installEntitySchema('user');
     $this->installEntitySchema('node');
-    NodeType::create([
-      'type' => 'page',
-      'name' => 'Page',
-    ])->save();
+    NodeType::create(['type' => 'page'])->save();
     ViewTestData::createTestViews(static::class, ['field_test_views']);
 
     // Setup basic fields.
@@ -301,7 +298,7 @@ class HandlerFieldFieldTest extends KernelTestBase {
       }
 
       // Check that the custom separator is correctly escaped.
-      $this->assertSame(implode('<h2>test</h2>', $items), (string) $rendered_field);
+      $this->assertEquals(implode('<h2>test</h2>', $items), $rendered_field);
     }
   }
 

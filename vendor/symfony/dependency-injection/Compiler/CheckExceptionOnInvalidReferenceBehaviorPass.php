@@ -23,12 +23,10 @@ use Symfony\Component\DependencyInjection\Reference;
  */
 class CheckExceptionOnInvalidReferenceBehaviorPass extends AbstractRecursivePass
 {
-    protected bool $skipScalars = true;
-
-    private array $serviceLocatorContextIds = [];
+    private $serviceLocatorContextIds = [];
 
     /**
-     * @return void
+     * {@inheritdoc}
      */
     public function process(ContainerBuilder $container)
     {
@@ -39,13 +37,13 @@ class CheckExceptionOnInvalidReferenceBehaviorPass extends AbstractRecursivePass
         }
 
         try {
-            parent::process($container);
+            return parent::process($container);
         } finally {
             $this->serviceLocatorContextIds = [];
         }
     }
 
-    protected function processValue(mixed $value, bool $isRoot = false): mixed
+    protected function processValue($value, $isRoot = false)
     {
         if (!$value instanceof Reference) {
             return parent::processValue($value, $isRoot);
@@ -66,7 +64,7 @@ class CheckExceptionOnInvalidReferenceBehaviorPass extends AbstractRecursivePass
                     if ($k !== $id) {
                         $currentId = $k.'" in the container provided to "'.$currentId;
                     }
-                    throw new ServiceNotFoundException($id, $currentId, null, $this->getAlternatives($id));
+                    throw new ServiceNotFoundException($id, $currentId);
                 }
             }
         }
@@ -85,23 +83,6 @@ class CheckExceptionOnInvalidReferenceBehaviorPass extends AbstractRecursivePass
             }
         }
 
-        throw new ServiceNotFoundException($id, $currentId, null, $this->getAlternatives($id));
-    }
-
-    private function getAlternatives(string $id): array
-    {
-        $alternatives = [];
-        foreach ($this->container->getServiceIds() as $knownId) {
-            if ('' === $knownId || '.' === $knownId[0] || $knownId === $this->currentId) {
-                continue;
-            }
-
-            $lev = levenshtein($id, $knownId);
-            if ($lev <= \strlen($id) / 3 || str_contains($knownId, $id)) {
-                $alternatives[] = $knownId;
-            }
-        }
-
-        return $alternatives;
+        throw new ServiceNotFoundException($id, $currentId);
     }
 }

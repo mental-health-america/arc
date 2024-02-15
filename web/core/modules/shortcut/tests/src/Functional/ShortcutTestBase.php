@@ -50,7 +50,7 @@ abstract class ShortcutTestBase extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp(): void {
+  protected function setUp() {
     parent::setUp();
 
     if ($this->profile != 'standard') {
@@ -113,7 +113,7 @@ abstract class ShortcutTestBase extends BrowserTestBase {
    */
   public function generateShortcutSet($label = '', $id = NULL) {
     $set = ShortcutSet::create([
-      'id' => $id ?? $this->randomMachineName(),
+      'id' => $id ?? strtolower($this->randomMachineName()),
       'label' => empty($label) ? $this->randomString() : $label,
     ]);
     $set->save();

@@ -26,7 +26,7 @@ abstract class FileMediaFormatterTestBase extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp(): void {
+  protected function setUp() {
     parent::setUp();
     $this->drupalLogin($this->drupalCreateUser(['view test entity']));
   }
@@ -46,7 +46,7 @@ abstract class FileMediaFormatterTestBase extends BrowserTestBase {
    */
   protected function createMediaField($formatter, $file_extensions, array $formatter_settings = []) {
     $entity_type = $bundle = 'entity_test';
-    $field_name = $this->randomMachineName();
+    $field_name = mb_strtolower($this->randomMachineName());
 
     FieldStorageConfig::create([
       'entity_type' => $entity_type,

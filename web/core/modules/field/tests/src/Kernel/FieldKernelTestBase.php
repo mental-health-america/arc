@@ -47,21 +47,22 @@ abstract class FieldKernelTestBase extends KernelTestBase {
   /**
    * @var string
    */
-  protected string $entityId;
+  protected $entityId;
 
   /**
    * Set the default field storage backend for fields created during tests.
    */
-  protected function setUp(): void {
+  protected function setUp() {
     parent::setUp();
 
     $this->fieldTestData = new \ArrayObject([], \ArrayObject::ARRAY_AS_PROPS);
 
     $this->installEntitySchema('entity_test');
     $this->installEntitySchema('user');
+    $this->installSchema('system', ['sequences']);
 
     // Set default storage backend and configure the theme system.
-    $this->installConfig(['field', 'system', 'user']);
+    $this->installConfig(['field', 'system']);
 
     // Create user 1.
     $storage = \Drupal::entityTypeManager()->getStorage('user');
@@ -98,7 +99,7 @@ abstract class FieldKernelTestBase extends KernelTestBase {
     $field = 'field' . $suffix;
     $field_definition = 'field_definition' . $suffix;
 
-    $this->fieldTestData->$field_name = $this->randomMachineName() . '_field_name' . $suffix;
+    $this->fieldTestData->$field_name = mb_strtolower($this->randomMachineName() . '_field_name' . $suffix);
     $this->fieldTestData->$field_storage = FieldStorageConfig::create([
       'field_name' => $this->fieldTestData->$field_name,
       'entity_type' => $entity_type,

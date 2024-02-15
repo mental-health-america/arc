@@ -7,7 +7,7 @@ use Drupal\entity_test\Entity\EntityTest;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\Tests\BrowserTestBase;
 use Drupal\Tests\config\Traits\AssertConfigEntityImportTrait;
-use Drupal\Tests\field\Traits\EntityReferenceFieldCreationTrait;
+use Drupal\Tests\field\Traits\EntityReferenceTestTrait;
 
 /**
  * Tests various Entity reference UI components.
@@ -17,7 +17,7 @@ use Drupal\Tests\field\Traits\EntityReferenceFieldCreationTrait;
 class EntityReferenceIntegrationTest extends BrowserTestBase {
 
   use AssertConfigEntityImportTrait;
-  use EntityReferenceFieldCreationTrait;
+  use EntityReferenceTestTrait;
 
   /**
    * The entity type used in this test.
@@ -161,7 +161,6 @@ class EntityReferenceIntegrationTest extends BrowserTestBase {
 
       // Set first entity as the default_value.
       $field_edit = [
-        'set_default_value' => '1',
         'default_value_input[' . $this->fieldName . '][0][target_id]' => $referenced_entities[0]->label() . ' (' . $referenced_entities[0]->id() . ')',
       ];
       if ($key == 'content') {

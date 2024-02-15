@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Drupal\BuildTests\Framework\Tests;
 
 use Drupal\BuildTests\Framework\BuildTestBase;
@@ -73,6 +71,13 @@ class BuildTestTest extends BuildTestBase {
         'simpletest' => [
           'simpletest_hash' => [
             'some_results.xml' => '<xml/>',
+          ],
+        ],
+      ],
+      'vendor' => [
+        'composer' => [
+          'composer' => [
+            'installed.json' => '"items": {"things"}',
           ],
         ],
       ],
@@ -158,6 +163,7 @@ class BuildTestTest extends BuildTestBase {
 
     // Get the process object for the server.
     $ref_process = new \ReflectionProperty(parent::class, 'serverProcess');
+    $ref_process->setAccessible(TRUE);
     $first_process = $ref_process->getValue($this);
 
     // Standing up the server again should not change the server process.

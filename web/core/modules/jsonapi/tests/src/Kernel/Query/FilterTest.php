@@ -56,12 +56,12 @@ class FilterTest extends JsonapiKernelTestBase {
   /**
    * @var \Drupal\jsonapi\Context\FieldResolver
    */
-  protected FieldResolver $fieldResolver;
+  protected $fieldResolver;
 
   /**
    * {@inheritdoc}
    */
-  protected function setUp(): void {
+  public function setUp(): void {
     parent::setUp();
 
     $this->setUpSchemas();
@@ -154,11 +154,14 @@ class FilterTest extends JsonapiKernelTestBase {
       // Expose parts of \Drupal\Core\Entity\Query\Sql\Query::execute().
       $o = new \ReflectionObject($entity_query);
       $m1 = $o->getMethod('prepare');
+      $m1->setAccessible(TRUE);
       $m2 = $o->getMethod('compile');
+      $m2->setAccessible(TRUE);
 
       // The private property computed by the two previous private calls, whose
       // value we need to inspect.
       $p = $o->getProperty('sqlQuery');
+      $p->setAccessible(TRUE);
 
       $m1->invoke($entity_query);
       $m2->invoke($entity_query);
@@ -267,6 +270,7 @@ class FilterTest extends JsonapiKernelTestBase {
    * Sets up the schemas.
    */
   protected function setUpSchemas() {
+    $this->installSchema('system', ['sequences']);
     $this->installSchema('node', ['node_access']);
     $this->installSchema('user', ['users_data']);
 
@@ -282,7 +286,6 @@ class FilterTest extends JsonapiKernelTestBase {
   protected function savePaintingType() {
     NodeType::create([
       'type' => 'painting',
-      'name' => 'Painting',
     ])->save();
     $this->createTextField(
       'node', 'painting',

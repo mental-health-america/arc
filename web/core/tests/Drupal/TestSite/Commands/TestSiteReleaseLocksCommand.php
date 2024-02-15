@@ -29,9 +29,7 @@ class TestSiteReleaseLocksCommand extends Command {
   /**
    * {@inheritdoc}
    */
-  protected function execute(InputInterface $input, OutputInterface $output): int {
-    $root = dirname(__DIR__, 5);
-    chdir($root);
+  protected function execute(InputInterface $input, OutputInterface $output) {
     TestDatabase::releaseAllTestLocks();
     $output->writeln('<info>Successfully released all the test database locks</info>');
     return 0;

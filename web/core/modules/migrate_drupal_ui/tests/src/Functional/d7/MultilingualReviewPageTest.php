@@ -4,7 +4,7 @@ namespace Drupal\Tests\migrate_drupal_ui\Functional\d7;
 
 use Drupal\Tests\migrate_drupal_ui\Functional\MultilingualReviewPageTestBase;
 
-// cspell:ignore Filefield Flexslider Multiupload Imagefield rulesets
+// cspell:ignore Filefield Flexslider Multiupload Imagefield
 
 /**
  * Tests migrate upgrade review page for Drupal 7.
@@ -24,6 +24,8 @@ class MultilingualReviewPageTest extends MultilingualReviewPageTestBase {
     'language',
     'content_translation',
     'telephone',
+    'book',
+    'forum',
     'statistics',
     'syslog',
     'update',
@@ -54,6 +56,7 @@ class MultilingualReviewPageTest extends MultilingualReviewPageTestBase {
     return [
       'Block languages',
       'Blog',
+      'Book',
       'Bulk Export',
       'Chaos tools',
       'Chaos Tools (CTools) AJAX Example',
@@ -86,6 +89,7 @@ class MultilingualReviewPageTest extends MultilingualReviewPageTestBase {
       'Field UI',
       'File',
       'Filter',
+      'Forum',
       'Help',
       'Image',
       'Internationalization',
@@ -144,8 +148,8 @@ class MultilingualReviewPageTest extends MultilingualReviewPageTestBase {
       'Aggregator',
       // Block is set not_finished in migrate_state_not_finished_test.
       'Block',
-      'Book',
       'Breakpoints',
+      // @todo Remove Color in https://www.drupal.org/project/drupal/issues/3270899
       'Color',
       'Contact translation',
       'Entity Translation Menu',
@@ -154,7 +158,6 @@ class MultilingualReviewPageTest extends MultilingualReviewPageTestBase {
       // Flexslider_picture is a sub module of Picture module. Only the
       // styles from picture are migrated.
       'FlexSlider Picture',
-      'Forum',
       'Multilingual content',
       'Multilingual forum',
       'Multilingual select',

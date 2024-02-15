@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Drupal\Tests\node\FunctionalJavascript;
 
 use Drupal\filter\Entity\FilterFormat;
@@ -27,7 +25,7 @@ class NodePreviewLinkTest extends WebDriverTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp(): void {
+  public function setUp(): void {
     parent::setUp();
 
     $filtered_html_format = FilterFormat::create([

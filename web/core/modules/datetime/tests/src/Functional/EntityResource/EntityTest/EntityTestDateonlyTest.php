@@ -16,7 +16,7 @@ use GuzzleHttp\RequestOptions;
  *
  * @group datetime
  */
-class EntityTestDateOnlyTest extends EntityTestResourceTestBase {
+class EntityTestDateonlyTest extends EntityTestResourceTestBase {
 
   use AnonResourceTestTrait;
 
@@ -37,7 +37,7 @@ class EntityTestDateOnlyTest extends EntityTestResourceTestBase {
    *
    * @var string
    */
-  protected static $fieldName = 'field_date_only';
+  protected static $fieldName = 'field_dateonly';
 
   /**
    * {@inheritdoc}
@@ -47,7 +47,7 @@ class EntityTestDateOnlyTest extends EntityTestResourceTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp(): void {
+  public function setUp(): void {
     parent::setUp();
 
     // Add datetime field.

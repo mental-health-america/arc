@@ -5,7 +5,6 @@ namespace Drupal\FunctionalTests\Update;
 use Drupal\Component\Utility\Html;
 use Drupal\Component\Render\FormattableMarkup;
 use Drupal\Core\Database\Database;
-use Drupal\Core\Site\Settings;
 
 /**
  * Tests the update path base class.
@@ -23,7 +22,7 @@ class UpdatePathTestBaseTest extends UpdatePathTestBase {
    * {@inheritdoc}
    */
   protected function setDatabaseDumpFiles() {
-    $this->databaseDumpFiles[] = __DIR__ . '/../../../../modules/system/tests/fixtures/update/drupal-9.4.0.bare.standard.php.gz';
+    $this->databaseDumpFiles[] = __DIR__ . '/../../../../modules/system/tests/fixtures/update/drupal-9.0.0.bare.standard.php.gz';
     $this->databaseDumpFiles[] = __DIR__ . '/../../../../modules/system/tests/fixtures/update/drupal-8.update-test-schema-enabled.php';
     $this->databaseDumpFiles[] = __DIR__ . '/../../../../modules/system/tests/fixtures/update/drupal-8.update-test-semver-update-n-enabled.php';
   }
@@ -37,7 +36,7 @@ class UpdatePathTestBaseTest extends UpdatePathTestBase {
 
     /** @var \Drupal\Core\Update\UpdateHookRegistry $update_registry */
     $update_registry = \Drupal::service('update.update_hook_registry');
-    foreach (['user' => 9301, 'node' => 8700, 'system' => 8901, 'update_test_schema' => 8000] as $module => $schema) {
+    foreach (['user' => 8100, 'node' => 8700, 'system' => 8901, 'update_test_schema' => 8000] as $module => $schema) {
       $this->assertEquals($schema, $update_registry->getInstalledVersion($module), new FormattableMarkup('Module @module schema is @schema', ['@module' => $module, '@schema' => $schema]));
     }
 
@@ -104,7 +103,7 @@ class UpdatePathTestBaseTest extends UpdatePathTestBase {
     $select->fields('watchdog', ['message']);
 
     $container_cannot_be_saved_messages = array_filter(iterator_to_array($select->execute()), function ($row) {
-      return str_contains($row->message, 'Container cannot be saved to cache.');
+      return strpos($row->message, 'Container cannot be saved to cache.') !== FALSE;
     });
     $this->assertEquals([], $container_cannot_be_saved_messages);
 
@@ -217,9 +216,9 @@ class UpdatePathTestBaseTest extends UpdatePathTestBase {
    */
   public function testSchemaChecking() {
     // Create some configuration that should be skipped.
-    $this->config('config_schema_test.no_schema')->set('foo', 'bar')->save();
+    $this->config('config_schema_test.noschema')->set('foo', 'bar')->save();
     $this->runUpdates();
-    $this->assertSame('bar', $this->config('config_schema_test.no_schema')->get('foo'));
+    $this->assertSame('bar', $this->config('config_schema_test.noschema')->get('foo'));
 
   }
 
@@ -228,13 +227,6 @@ class UpdatePathTestBaseTest extends UpdatePathTestBase {
    */
   public function testFixturesSetup() {
     $this->assertCount(3, $this->databaseDumpFiles);
-  }
-
-  /**
-   * Tests that settings are prepared correctly.
-   */
-  public function testPrepareSettings(): void {
-    $this->assertSame(1, Settings::get('entity_update_batch_size'));
   }
 
 }

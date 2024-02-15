@@ -19,7 +19,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  *   }
  * )
  */
-class DbLogResource extends ResourceBase {
+class DBLogResource extends ResourceBase {
 
   /**
    * Responds to GET requests.

@@ -5,7 +5,7 @@ type: module
 package: Geocoding
 configure: geocoder.settings
 
-# Information added by Drupal.org packaging script on 2023-12-21
-version: '8.x-4.18'
+# Information added by Drupal.org packaging script on 2024-02-05
+version: '8.x-4.23'
 project: 'geocoder'
-datestamp: 1703166692
+datestamp: 1707161639

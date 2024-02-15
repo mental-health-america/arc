@@ -35,7 +35,7 @@ class ModeratedContentLocalTaskTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp(): void {
+  public function setUp(): void {
     parent::setUp();
 
     $this->drupalPlaceBlock('local_tasks_block');
@@ -64,7 +64,8 @@ class ModeratedContentLocalTaskTest extends BrowserTestBase {
     // Verify the moderated content local task does not exist without the node
     // module installed.
     $this->drupalGet('admin/content');
-    $this->assertSession()->statusCodeEquals(403);
+    $this->assertSession()->statusCodeEquals(200);
+    $this->assertSession()->linkNotExists('Moderated content');
   }
 
 }

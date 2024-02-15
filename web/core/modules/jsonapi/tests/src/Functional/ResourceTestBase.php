@@ -10,11 +10,9 @@ use Drupal\Core\Access\AccessResultReasonInterface;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Cache\CacheableResponseInterface;
-use Drupal\Core\Cache\CacheRedirect;
 use Drupal\Core\Config\Entity\ConfigEntityInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Entity\ContentEntityNullStorage;
-use Drupal\Core\Entity\ContentEntityTypeInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityPublishedInterface;
 use Drupal\Core\Entity\FieldableEntityInterface;
@@ -30,13 +28,13 @@ use Drupal\Core\Url;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\jsonapi\CacheableResourceResponse;
-use Drupal\jsonapi\JsonApiResource\JsonApiDocumentTopLevel;
-use Drupal\jsonapi\JsonApiResource\Link;
 use Drupal\jsonapi\JsonApiResource\LinkCollection;
 use Drupal\jsonapi\JsonApiResource\NullIncludedData;
+use Drupal\jsonapi\JsonApiResource\Link;
 use Drupal\jsonapi\JsonApiResource\ResourceObject;
 use Drupal\jsonapi\JsonApiResource\ResourceObjectData;
 use Drupal\jsonapi\Normalizer\HttpExceptionNormalizer;
+use Drupal\jsonapi\JsonApiResource\JsonApiDocumentTopLevel;
 use Drupal\jsonapi\ResourceResponse;
 use Drupal\path\Plugin\Field\FieldType\PathItem;
 use Drupal\Tests\BrowserTestBase;
@@ -218,7 +216,7 @@ abstract class ResourceTestBase extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp(): void {
+  public function setUp() {
     parent::setUp();
 
     $this->serializer = $this->container->get('jsonapi.serializer');
@@ -992,16 +990,18 @@ abstract class ResourceTestBase extends BrowserTestBase {
     // @see \Drupal\jsonapi\EventSubscriber\ResourceResponseSubscriber::flattenResponse()
     $cache_items = $this->container->get('database')
       ->select('cache_dynamic_page_cache', 'cdp')
-      ->fields('cdp', ['data'])
+      ->fields('cdp', ['cid', 'data'])
       ->condition('cid', '%[route]=jsonapi.%', 'LIKE')
       ->execute()
-      ->fetchAll();
-    $this->assertLessThanOrEqual(5, count($cache_items));
+      ->fetchAllAssoc('cid');
+    $this->assertGreaterThanOrEqual(2, count($cache_items));
+    $found_cache_redirect = FALSE;
     $found_cached_200_response = FALSE;
     $other_cached_responses_are_4xx = TRUE;
-    foreach ($cache_items as $cache_item) {
-      $cached_response = unserialize($cache_item->data);
-      if (!$cached_response instanceof CacheRedirect) {
+    foreach ($cache_items as $cid => $cache_item) {
+      $cached_data = unserialize($cache_item->data);
+      if (!isset($cached_data['#cache_redirect'])) {
+        $cached_response = $cached_data['#response'];
         if ($cached_response->getStatusCode() === 200) {
           $found_cached_200_response = TRUE;
         }
@@ -1011,7 +1011,11 @@ abstract class ResourceTestBase extends BrowserTestBase {
         $this->assertNotInstanceOf(ResourceResponse::class, $cached_response);
         $this->assertInstanceOf(CacheableResponseInterface::class, $cached_response);
       }
+      else {
+        $found_cache_redirect = TRUE;
+      }
     }
+    $this->assertTrue($found_cache_redirect);
     $this->assertSame($dynamic_cache !== 'UNCACHEABLE' || isset($dynamic_cache_label_only) && $dynamic_cache_label_only !== 'UNCACHEABLE', $found_cached_200_response);
     $this->assertTrue($other_cached_responses_are_4xx);
 
@@ -1039,7 +1043,7 @@ abstract class ResourceTestBase extends BrowserTestBase {
     ];
     $header_cleaner = function ($headers) use ($ignored_headers) {
       foreach ($headers as $header => $value) {
-        if (str_starts_with($header, 'X-Drupal-Assertion-') || in_array($header, $ignored_headers)) {
+        if (strpos($header, 'X-Drupal-Assertion-') === 0 || in_array($header, $ignored_headers)) {
           unset($headers[$header]);
         }
       }
@@ -2375,7 +2379,7 @@ abstract class ResourceTestBase extends BrowserTestBase {
     $doc_multi_value_tests['data']['attributes']['field_rest_test_multivalue'] = $this->entity->get('field_rest_test_multivalue')->getValue();
     $doc_remove_item = $doc_multi_value_tests;
     unset($doc_remove_item['data']['attributes']['field_rest_test_multivalue'][0]);
-    $request_options[RequestOptions::BODY] = Json::encode($doc_remove_item);
+    $request_options[RequestOptions::BODY] = Json::encode($doc_remove_item, 'api_json');
     $response = $this->request('PATCH', $url, $request_options);
     $this->assertResourceResponse(200, FALSE, $response);
     $updated_entity = $this->entityLoadUnchanged($this->entity->id());
@@ -2656,7 +2660,7 @@ abstract class ResourceTestBase extends BrowserTestBase {
       $expected_cacheability->setCacheTags($this->getExpectedCacheTags($field_set));
       $expected_cacheability->setCacheContexts($this->getExpectedCacheContexts($field_set));
       // This tests sparse field sets on included entities.
-      if (str_starts_with($type, 'nested')) {
+      if (strpos($type, 'nested') === 0) {
         $this->grantPermissionsToTestedRole(['access user profiles']);
         $query['fields[user--user]'] = implode(',', $field_set);
         $query['include'] = 'uid';
@@ -2879,8 +2883,7 @@ abstract class ResourceTestBase extends BrowserTestBase {
     // the default revision. This is always the latest revision when
     // content_moderation is not installed.
     $actual_response = $this->request('GET', $url, $request_options);
-    $expected_document = $this->alterExpectedDocumentForRevision($this->getExpectedDocument());
-
+    $expected_document = $this->getExpectedDocument();
     // The resource object should always links to the specific revision it
     // represents.
     $expected_document['data']['links']['self']['href'] = $latest_revision_id_url->setAbsolute()->toString();
@@ -2943,8 +2946,6 @@ abstract class ResourceTestBase extends BrowserTestBase {
     $workflow->getTypePlugin()->addEntityTypeAndBundle(static::$entityTypeId, $this->entity->bundle());
     $workflow->save();
 
-    $this->grantPermissionsToTestedRole(['use editorial transition publish']);
-
     // Ensure the test entity has content_moderation fields attached to it.
     /** @var \Drupal\Core\Entity\FieldableEntityInterface|\Drupal\Core\Entity\TranslatableRevisionableInterface $entity */
     $entity = $this->entityStorage->load($entity->id());
@@ -2975,8 +2976,6 @@ abstract class ResourceTestBase extends BrowserTestBase {
     // should be no links.
     unset($expected_document['data']['links']['latest-version']);
     unset($expected_document['data']['links']['working-copy']);
-    $expected_document = $this->alterExpectedDocumentForRevision($expected_document);
-    $expected_cache_tags = array_unique([...$expected_cache_tags, ...$workflow->getCacheTags()]);
     $this->assertResourceResponse(200, $expected_document, $actual_response, $expected_cache_tags, $expected_cache_contexts, FALSE, 'MISS');
     // Fetch the collection URL using the `latest-version` version argument.
     $actual_response = $this->request('GET', $rel_latest_version_collection_url, $request_options);
@@ -3101,7 +3100,6 @@ abstract class ResourceTestBase extends BrowserTestBase {
     $expected_document['data']['links']['latest-version']['href'] = $rel_latest_version_url->setAbsolute()->toString();
     $expected_cache_tags = $this->getExpectedCacheTags();
     $expected_cache_contexts = $this->getExpectedCacheContexts();
-    $expected_cache_tags = array_unique([...$expected_cache_tags, ...$workflow->getCacheTags()]);
     $this->assertResourceResponse(200, $expected_document, $actual_response, Cache::mergeTags($expected_cache_tags, $this->getExtraRevisionCacheTags()), $expected_cache_contexts, FALSE, 'MISS');
     // And the collection response should also have the latest revision.
     $actual_response = $this->request('GET', $rel_working_copy_collection_url, $request_options);
@@ -3145,14 +3143,9 @@ abstract class ResourceTestBase extends BrowserTestBase {
       [$revision_id, $relationship_url, $related_url] = $revision_case;
       // Load the revision that will be requested.
       $this->entityStorage->resetCache([$entity->id()]);
-      if ($revision_id === NULL) {
-        $revision = $this->entityStorage->load($entity->id());
-      }
-      else {
-        /** @var \Drupal\Core\Entity\RevisionableStorageInterface $storage */
-        $storage = $this->entityStorage;
-        $revision = $storage->loadRevision($revision_id);
-      }
+      $revision = is_null($revision_id)
+        ? $this->entityStorage->load($entity->id())
+        : $this->entityStorage->loadRevision($revision_id);
       // Request the relationship resource without access to the relationship
       // field.
       $actual_response = $this->request('GET', $relationship_url, $request_options);
@@ -3177,14 +3170,9 @@ abstract class ResourceTestBase extends BrowserTestBase {
       [$revision_id, $relationship_url, $related_url] = $revision_case;
       // Load the revision that will be requested.
       $this->entityStorage->resetCache([$entity->id()]);
-      if ($revision_id === NULL) {
-        $revision = $this->entityStorage->load($entity->id());
-      }
-      else {
-        /** @var \Drupal\Core\Entity\RevisionableStorageInterface $storage */
-        $storage = $this->entityStorage;
-        $revision = $storage->loadRevision($revision_id);
-      }
+      $revision = is_null($revision_id)
+        ? $this->entityStorage->load($entity->id())
+        : $this->entityStorage->loadRevision($revision_id);
       // Request the relationship resource after granting access to the
       // relationship field.
       $actual_response = $this->request('GET', $relationship_url, $request_options);
@@ -3503,43 +3491,6 @@ abstract class ResourceTestBase extends BrowserTestBase {
   protected function entityLoadUnchanged($id) {
     $this->entityStorage->resetCache();
     return $this->entityStorage->loadUnchanged($id);
-  }
-
-  /**
-   * Alters the expected JSON:API document for revisions.
-   *
-   * Default revision tests assume a non-privileged user is performing the GET
-   * request and as such the expected document may not include the revision log
-   * or other fields that require elevated permissions. This method is an
-   * extension point where child classes can modify the expected document to
-   * take into account these changes.
-   *
-   * @param array $expected_document
-   *   Expected document for the default revision.
-   *
-   * @return array[]
-   *   Modified document for a revision or user with access to edit a revision
-   *   AND/OR view revision information.
-   */
-  protected function alterExpectedDocumentForRevision(array $expected_document): array {
-    $entity_type = $this->entity->getEntityType();
-    if ($entity_type instanceof ContentEntityTypeInterface &&
-      ($field_name = $entity_type->getRevisionMetadataKey('revision_log_message'))) {
-      // The default entity access control handler assumes that permissions do not
-      // change during the lifetime of a request and caches access results.
-      // However, we're changing permissions during a test run and need fresh
-      // results, so reset the cache.
-      \Drupal::entityTypeManager()->getAccessControlHandler($this->entity->getEntityTypeId())->resetCache();
-      $revisionLogAccess = $this->entity->access('view revision', $this->account, TRUE)
-        ->orIf($this->entity->access('update', $this->account, TRUE));
-
-      if ($revisionLogAccess->isAllowed()) {
-        $expected_document['data']['attributes'][$field_name] = NULL;
-        return $expected_document;
-      }
-      unset($expected_document['data']['attributes'][$field_name]);
-    }
-    return $expected_document;
   }
 
 }

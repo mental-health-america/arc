@@ -29,22 +29,15 @@ class EntityFormTest extends BrowserTestBase {
   protected $defaultTheme = 'stark';
 
   /**
-   * The current user of the test.
-   *
-   * @var \Drupal\user\Entity\User|false
-   */
-  protected $webUser;
-
-  /**
    * {@inheritdoc}
    */
   protected function setUp(): void {
     parent::setUp();
-    $this->webUser = $this->drupalCreateUser([
+    $web_user = $this->drupalCreateUser([
       'administer entity_test content',
       'view test entity',
     ]);
-    $this->drupalLogin($this->webUser);
+    $this->drupalLogin($web_user);
 
     // Add a language.
     ConfigurableLanguage::createFromLangcode('ro')->save();
@@ -77,11 +70,7 @@ class EntityFormTest extends BrowserTestBase {
    */
   public function testEntityFormModeAlter() {
     // Create compact entity display.
-    EntityFormMode::create([
-      'id' => 'entity_test.compact',
-      'label' => 'Compact',
-      'targetEntityType' => 'entity_test',
-    ])->save();
+    EntityFormMode::create(['id' => 'entity_test.compact', 'targetEntityType' => 'entity_test'])->save();
     EntityFormDisplay::create([
       'targetEntityType' => 'entity_test',
       'bundle' => 'entity_test',
@@ -229,16 +218,7 @@ class EntityFormTest extends BrowserTestBase {
     $state->set('entity_test.form.validate.test', 'button-level');
     $this->drupalGet('entity_test/add');
     $this->submitForm([], 'Save');
-    $this->assertEquals('Drupal\\Core\\Entity\\EntityStorageException: Entity validation is required, but was skipped.', $state->get('entity_test.form.save.exception'), 'Button-level validation handlers behave correctly.');
-  }
-
-  /**
-   * Tests the route add-page with multiple parameters.
-   */
-  public function testAddPageWithMultipleParameters(): void {
-    $this->drupalGet('entity_test_add_page/' . $this->webUser->id() . '/add');
-    $this->assertSession()->statusCodeEquals(200);
-    $this->assertSession()->pageTextContains('Add entity test route add page');
+    $this->assertEquals('Drupal\\Core\\Entity\\EntityStorageException: Entity validation was skipped.', $state->get('entity_test.form.save.exception'), 'Button-level validation handlers behave correctly.');
   }
 
 }

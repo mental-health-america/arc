@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Drupal\Tests\content_translation\FunctionalJavascript;
 
 use Drupal\FunctionalJavascriptTests\WebDriverTestBase;
@@ -44,9 +42,14 @@ class ContentTranslationContextualLinksTest extends WebDriverTestBase {
     $this->drupalCreateContentType(['type' => 'page']);
 
     // Enable content translation.
-    $content_translation_manager = $this->container->get('content_translation.manager');
-    $content_translation_manager->setEnabled('node', 'page', TRUE);
-    $this->rebuildContainer();
+    $this->drupalLogin($this->rootUser);
+    $this->drupalGet('admin/config/regional/content-language');
+    $edit = [
+      'entity_types[node]' => TRUE,
+      'settings[node][page][translatable]' => TRUE,
+    ];
+    $this->submitForm($edit, 'Save configuration');
+    $this->drupalLogout();
 
     // Create a translator user.
     $permissions = [

@@ -29,13 +29,14 @@ class MigrateFieldInstanceLabelDescriptionTest extends MigrateDrupal6TestBase im
   /**
    * {@inheritdoc}
    */
-  protected function setUp(): void {
+  public function setUp(): void {
     parent::setUp();
     $this->migrateFields();
 
     $this->installEntitySchema('node');
     $this->installConfig(['node']);
     $this->installSchema('node', ['node_access']);
+    $this->installSchema('system', ['sequences']);
     $this->executeMigration('language');
     $this->executeMigration('d6_field_instance_label_description_translation');
   }

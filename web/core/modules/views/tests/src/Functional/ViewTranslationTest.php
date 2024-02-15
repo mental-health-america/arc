@@ -6,8 +6,6 @@ use Drupal\Component\Utility\Xss;
 use Drupal\language\Entity\ConfigurableLanguage;
 use Drupal\views\Views;
 
-// cspell:ignore titel
-
 /**
  * Tests views title translation.
  *
@@ -33,7 +31,7 @@ class ViewTranslationTest extends ViewTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp($import_test_views = TRUE, $modules = ['views_test_config']): void {
+  public function setUp($import_test_views = TRUE, $modules = ['views_test_config']): void {
     parent::setUp($import_test_views, $modules);
 
     $this->enableViewsTestModule();

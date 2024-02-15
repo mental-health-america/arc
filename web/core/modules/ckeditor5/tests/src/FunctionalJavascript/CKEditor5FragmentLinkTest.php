@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Drupal\Tests\ckeditor5\FunctionalJavascript;
 
 use Drupal\Core\Entity\Entity\EntityFormDisplay;
@@ -12,7 +10,6 @@ use Drupal\filter\Entity\FilterFormat;
 use Drupal\FunctionalJavascriptTests\WebDriverTestBase;
 use Drupal\node\Entity\NodeType;
 use Drupal\Tests\TestFileCreationTrait;
-use Drupal\user\Entity\User;
 use Drupal\user\RoleInterface;
 
 /**
@@ -40,7 +37,7 @@ class CKEditor5FragmentLinkTest extends WebDriverTestBase {
    *
    * @var \Drupal\user\Entity\User
    */
-  protected User $account;
+  protected $account;
 
   /**
    * {@inheritdoc}

@@ -97,7 +97,6 @@ class ForumTest extends BrowserTestBase {
     // Create users.
     $this->adminUser = $this->drupalCreateUser([
       'access administration pages',
-      'access help pages',
       'administer modules',
       'administer blocks',
       'administer forums',
@@ -108,7 +107,6 @@ class ForumTest extends BrowserTestBase {
     ]);
     $this->editAnyTopicsUser = $this->drupalCreateUser([
       'access administration pages',
-      'access help pages',
       'create forum content',
       'edit any forum content',
       'delete any forum content',
@@ -218,7 +216,7 @@ class ForumTest extends BrowserTestBase {
 
     // Topics cell contains number of topics (6), number of unread topics (also
     // 6), and the forum name.
-    $this->assertEquals('6 6 new posts in forum ' . $this->forum['name'], $cells[1]->getText(), 'Number of topics found.');
+    $this->assertEquals('6 6 new posts in forum ' . $this->forum['name'], $cells[1]->getText(), 'Number of topics, number of unread topics, and forum name found.');
 
     // Verify total number of posts in forum.
     $this->assertEquals('6', $cells[2]->getText(), 'Number of posts found.');
@@ -230,7 +228,7 @@ class ForumTest extends BrowserTestBase {
       'post comments',
     ]));
     $this->drupalGet('admin/structure/types/manage/forum');
-    $this->submitForm(['options[promote]' => 'promote'], 'Save');
+    $this->submitForm(['options[promote]' => 'promote'], 'Save content type');
     $this->createForumTopic($this->forum, FALSE);
     $this->createForumTopic($this->forum, FALSE);
     $this->drupalGet('node');

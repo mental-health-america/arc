@@ -16,7 +16,6 @@ use Symfony\Component\Validator\ConstraintViolation;
  * Tests the update path for the CKEditor 5 image toolbar item.
  *
  * @group Update
- * @group #slow
  */
 class CKEditor5UpdateImageToolbarItemTest extends UpdatePathTestBase {
 
@@ -32,7 +31,7 @@ class CKEditor5UpdateImageToolbarItemTest extends UpdatePathTestBase {
    */
   protected function setDatabaseDumpFiles() {
     $this->databaseDumpFiles = [
-      __DIR__ . '/../../../../../system/tests/fixtures/update/drupal-9.4.0.bare.standard.php.gz',
+      __DIR__ . '/../../../../../system/tests/fixtures/update/drupal-9.3.0.bare.standard.php.gz',
       __DIR__ . '/../../../fixtures/update/ckeditor5-3222756.php',
     ];
   }

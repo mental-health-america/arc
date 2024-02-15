@@ -11,7 +11,8 @@
 
 namespace Symfony\Component\ErrorHandler\ErrorEnhancer;
 
-use Composer\Autoload\ClassLoader;
+use Composer\Autoload\ClassLoader as ComposerClassLoader;
+use Symfony\Component\ClassLoader\ClassLoader as SymfonyClassLoader;
 use Symfony\Component\ErrorHandler\DebugClassLoader;
 use Symfony\Component\ErrorHandler\Error\ClassNotFoundError;
 use Symfony\Component\ErrorHandler\Error\FatalError;
@@ -21,6 +22,9 @@ use Symfony\Component\ErrorHandler\Error\FatalError;
  */
 class ClassNotFoundErrorEnhancer implements ErrorEnhancerInterface
 {
+    /**
+     * {@inheritdoc}
+     */
     public function enhance(\Throwable $error): ?\Throwable
     {
         // Some specific versions of PHP produce a fatal error when extending a not found class.
@@ -87,22 +91,23 @@ class ClassNotFoundErrorEnhancer implements ErrorEnhancerInterface
                 }
             }
 
-            if ($function[0] instanceof ClassLoader) {
+            if ($function[0] instanceof ComposerClassLoader || $function[0] instanceof SymfonyClassLoader) {
                 foreach ($function[0]->getPrefixes() as $prefix => $paths) {
                     foreach ($paths as $path) {
-                        $classes[] = $this->findClassInPath($path, $class, $prefix);
+                        $classes = array_merge($classes, $this->findClassInPath($path, $class, $prefix));
                     }
                 }
-
+            }
+            if ($function[0] instanceof ComposerClassLoader) {
                 foreach ($function[0]->getPrefixesPsr4() as $prefix => $paths) {
                     foreach ($paths as $path) {
-                        $classes[] = $this->findClassInPath($path, $class, $prefix);
+                        $classes = array_merge($classes, $this->findClassInPath($path, $class, $prefix));
                     }
                 }
             }
         }
 
-        return array_unique(array_merge([], ...$classes));
+        return array_unique($classes);
     }
 
     private function findClassInPath(string $path, string $class, string $prefix): array
@@ -140,7 +145,7 @@ class ClassNotFoundErrorEnhancer implements ErrorEnhancerInterface
         ];
 
         if ($prefix) {
-            $candidates = array_filter($candidates, fn ($candidate) => str_starts_with($candidate, $prefix));
+            $candidates = array_filter($candidates, function ($candidate) use ($prefix) { return 0 === strpos($candidate, $prefix); });
         }
 
         // We cannot use the autoloader here as most of them use require; but if the class
@@ -152,17 +157,9 @@ class ClassNotFoundErrorEnhancer implements ErrorEnhancerInterface
             }
         }
 
-        // Symfony may ship some polyfills, like "Normalizer". But if the Intl
-        // extension is already installed, the next require_once will fail with
-        // a compile error because the class is already defined. And this one
-        // does not throw a Throwable. So it's better to skip it here.
-        if (str_contains($file, 'Resources/stubs')) {
-            return null;
-        }
-
         try {
             require_once $file;
-        } catch (\Throwable) {
+        } catch (\Throwable $e) {
             return null;
         }
 

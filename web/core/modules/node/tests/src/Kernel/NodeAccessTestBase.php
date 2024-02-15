@@ -52,8 +52,9 @@ abstract class NodeAccessTestBase extends KernelTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp(): void {
+  protected function setUp() {
     parent::setUp();
+    $this->installSchema('system', 'sequences');
     $this->installSchema('node', 'node_access');
     $this->installEntitySchema('user');
     $this->installEntitySchema('node');

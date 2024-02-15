@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Drupal\Tests\settings_tray\FunctionalJavascript;
 
 use Drupal\settings_tray_test\Plugin\Block\SettingsTrayFormAnnotationIsClassBlock;
@@ -124,7 +122,7 @@ class SettingsTrayBlockFormTest extends SettingsTrayTestBase {
       $page->pressButton($button_text);
       // Make sure the changes are present.
       $new_page_text_locator = "$block_selector $label_selector:contains($new_page_text)";
-      $this->assertNotEmpty($web_assert->waitForElementVisible('css', $new_page_text_locator));
+      $this->assertElementVisibleAfterWait('css', $new_page_text_locator);
       // The page is loaded with the new change but make sure page is
       // completely loaded.
       $this->assertPageLoadComplete();
@@ -148,6 +146,7 @@ class SettingsTrayBlockFormTest extends SettingsTrayTestBase {
     $this->getSession()->executeScript('jQuery("body").trigger(jQuery.Event("keyup", { keyCode: 27 }));');
     $this->waitForOffCanvasToClose();
     $this->getSession()->wait(100);
+    $this->getSession()->executeScript("jQuery('[data-quickedit-entity-id]').trigger('mouseleave')");
     $this->getSession()->getPage()->find('css', static::TOOLBAR_EDIT_LINK_SELECTOR)->mouseOver();
     $this->assertEditModeDisabled();
     $this->assertNotEmpty($web_assert->waitForElement('css', '#drupal-live-announce:contains(Exited edit mode)'));
@@ -232,7 +231,6 @@ class SettingsTrayBlockFormTest extends SettingsTrayTestBase {
    * Tests enabling and disabling Edit Mode.
    */
   public function testEditModeEnableDisable() {
-    $this->markTestSkipped("Skipped due to frequent random test failures. See https://www.drupal.org/project/drupal/issues/3317520");
     foreach ($this->getTestThemes() as $theme) {
       $this->enableTheme($theme);
       $block = $this->placeBlock('system_powered_by_block');
@@ -280,7 +278,7 @@ class SettingsTrayBlockFormTest extends SettingsTrayTestBase {
       $web_assert->assertWaitOnAjaxRequest();
       // The settings_tray_test_validation test plugin form always has a
       // validation error.
-      $web_assert->elementContains('css', '#drupal-off-canvas', 'Sorry system error. Save again');
+      $web_assert->elementContains('css', '#drupal-off-canvas', 'Sorry system error. Please save again');
       $this->disableEditMode();
       $block->delete();
     }
