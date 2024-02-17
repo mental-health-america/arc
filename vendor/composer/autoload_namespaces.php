@@ -6,9 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Twig_' => array($vendorDir . '/twig/twig/lib'),
     'Stiphle' => array($vendorDir . '/davedevelopment/stiphle/src'),
-    'Stack' => array($vendorDir . '/stack/builder/src'),
     'OAuth\\Unit' => array($vendorDir . '/lusitanian/oauth/tests'),
     'OAuth' => array($vendorDir . '/lusitanian/oauth/src'),
     'HTMLPurifier' => array($vendorDir . '/ezyang/htmlpurifier/library'),

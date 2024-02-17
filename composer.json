@@ -27,7 +27,7 @@
         "drupal/captcha": "^2.0",
         "drupal/conditional_fields": "^4.0@alpha",
         "drupal/content_access": "^2.0",
-        "drupal/core": "^9.5.11",
+        "drupal/core": "^10",
         "drupal/core-composer-scaffold": "^10.2.0",
         "drupal/core-project-message": "^10.2.0",
         "drupal/csv_serialization": "^3.0 || ^4.0",
