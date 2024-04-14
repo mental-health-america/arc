@@ -727,10 +727,6 @@ class ComposerStaticInitbfc012348b0a3b1977ce994bbe9bc42a
         ),
     );
 
-    public static $fallbackDirsPsr0 = array (
-        0 => __DIR__ . '/..' . '/pear/pear-core-minimal/src',
-    );
-
     public static $classMap = array (
         'Alchemy\\Zippy\\Adapter\\AbstractAdapter' => __DIR__ . '/..' . '/alchemy/zippy/src/Adapter/AbstractAdapter.php',
         'Alchemy\\Zippy\\Adapter\\AbstractBinaryAdapter' => __DIR__ . '/..' . '/alchemy/zippy/src/Adapter/AbstractBinaryAdapter.php',
@@ -4494,6 +4490,7 @@ class ComposerStaticInitbfc012348b0a3b1977ce994bbe9bc42a
         'OAuth\\ServiceFactory' => __DIR__ . '/..' . '/lusitanian/oauth/src/OAuth/ServiceFactory.php',
         'OS_Guess' => __DIR__ . '/..' . '/pear/pear-core-minimal/src/OS/Guess.php',
         'PEAR' => __DIR__ . '/..' . '/pear/pear-core-minimal/src/PEAR.php',
+        'PEAR_Error' => __DIR__ . '/..' . '/pear/pear-core-minimal/src/PEAR.php',
         'PEAR_ErrorStack' => __DIR__ . '/..' . '/pear/pear-core-minimal/src/PEAR/ErrorStack.php',
         'PEAR_Exception' => __DIR__ . '/..' . '/pear/pear_exception/PEAR/Exception.php',
         'PHPMailer\\PHPMailer\\DSNConfigurator' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/DSNConfigurator.php',
@@ -6662,6 +6659,7 @@ class ComposerStaticInitbfc012348b0a3b1977ce994bbe9bc42a
         'Symfony\\Contracts\\Service\\ServiceSubscriberInterface' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceSubscriberInterface.php',
         'Symfony\\Contracts\\Service\\ServiceSubscriberTrait' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceSubscriberTrait.php',
         'Symfony\\Contracts\\Service\\Test\\ServiceLocatorTest' => __DIR__ . '/..' . '/symfony/service-contracts/Test/ServiceLocatorTest.php',
+        'Symfony\\Contracts\\Service\\Test\\ServiceLocatorTestCase' => __DIR__ . '/..' . '/symfony/service-contracts/Test/ServiceLocatorTestCase.php',
         'Symfony\\Contracts\\Translation\\LocaleAwareInterface' => __DIR__ . '/..' . '/symfony/translation-contracts/LocaleAwareInterface.php',
         'Symfony\\Contracts\\Translation\\Test\\TranslatorTest' => __DIR__ . '/..' . '/symfony/translation-contracts/Test/TranslatorTest.php',
         'Symfony\\Contracts\\Translation\\TranslatableInterface' => __DIR__ . '/..' . '/symfony/translation-contracts/TranslatableInterface.php',
@@ -7135,7 +7133,6 @@ class ComposerStaticInitbfc012348b0a3b1977ce994bbe9bc42a
             $loader->prefixLengthsPsr4 = ComposerStaticInitbfc012348b0a3b1977ce994bbe9bc42a::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitbfc012348b0a3b1977ce994bbe9bc42a::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInitbfc012348b0a3b1977ce994bbe9bc42a::$prefixesPsr0;
-            $loader->fallbackDirsPsr0 = ComposerStaticInitbfc012348b0a3b1977ce994bbe9bc42a::$fallbackDirsPsr0;
             $loader->classMap = ComposerStaticInitbfc012348b0a3b1977ce994bbe9bc42a::$classMap;
 
         }, null, ClassLoader::class);
