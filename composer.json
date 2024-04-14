@@ -79,7 +79,7 @@
         "drupal/redirect": "^1.9",
         "drupal/rules": "^3.0@alpha",
         "drupal/salesforce": "^5.0",
-        "drupal/simplenews": "^4.0@alpha",
+        "drupal/simplenews": "^4.0",
         "drupal/smtp": "^1.2",
         "drupal/superfish": "^1.6",
         "drupal/swiftmailer": "^2.0",

@@ -7049,18 +7049,18 @@
         },
         {
             "name": "drupal/simplenews",
-            "version": "4.0.0-rc1",
-            "version_normalized": "4.0.0.0-RC1",
+            "version": "4.0.0",
+            "version_normalized": "4.0.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/simplenews.git",
-                "reference": "4.0.0-rc1"
+                "reference": "4.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/simplenews-4.0.0-rc1.zip",
-                "reference": "4.0.0-rc1",
-                "shasum": "67be37834ab3e55844b7f221a988abf44f69cb86"
+                "url": "https://ftp.drupal.org/files/projects/simplenews-4.0.0.zip",
+                "reference": "4.0.0",
+                "shasum": "1f2a2e70f9c7052833b8d03e9fa978eb49978728"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10"
@@ -7071,11 +7071,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "4.0.0-rc1",
-                    "datestamp": "1704652910",
+                    "version": "4.0.0",
+                    "datestamp": "1709644063",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },

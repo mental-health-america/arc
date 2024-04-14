@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e85b6a9b1e1cb86ed6654908c1425e34",
+    "content-hash": "105b8886bc48e579515adee2c2225f94",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -6758,17 +6758,17 @@
         },
         {
             "name": "drupal/simplenews",
-            "version": "4.0.0-rc1",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/simplenews.git",
-                "reference": "4.0.0-rc1"
+                "reference": "4.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/simplenews-4.0.0-rc1.zip",
-                "reference": "4.0.0-rc1",
-                "shasum": "67be37834ab3e55844b7f221a988abf44f69cb86"
+                "url": "https://ftp.drupal.org/files/projects/simplenews-4.0.0.zip",
+                "reference": "4.0.0",
+                "shasum": "1f2a2e70f9c7052833b8d03e9fa978eb49978728"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10"
@@ -6779,11 +6779,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "4.0.0-rc1",
-                    "datestamp": "1704652910",
+                    "version": "4.0.0",
+                    "datestamp": "1709644063",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -14714,7 +14714,6 @@
         "drupal/mimemail": 15,
         "drupal/rabbit_hole": 10,
         "drupal/rules": 15,
-        "drupal/simplenews": 15,
         "drupal/typed_data": 15,
         "drupal/votingapi": 10
     },
