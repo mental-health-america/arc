@@ -4671,18 +4671,18 @@
         },
         {
             "name": "drupal/geolocation",
-            "version": "3.12.0",
-            "version_normalized": "3.12.0.0",
+            "version": "3.13.0",
+            "version_normalized": "3.13.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/geolocation.git",
-                "reference": "8.x-3.12"
+                "reference": "8.x-3.13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/geolocation-8.x-3.12.zip",
-                "reference": "8.x-3.12",
-                "shasum": "eb31fe9080e2e0dcf442fc9b0a859f326219db5a"
+                "url": "https://ftp.drupal.org/files/projects/geolocation-8.x-3.13.zip",
+                "reference": "8.x-3.13",
+                "shasum": "49029950bc0927f14b1d0ce01f93e03cdd131ee6"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10",
@@ -4708,8 +4708,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.12",
-                    "datestamp": "1673282362",
+                    "version": "8.x-3.13",
+                    "datestamp": "1714403539",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7411,33 +7411,36 @@
         },
         {
             "name": "drupal/upgrade_status",
-            "version": "4.1.0",
-            "version_normalized": "4.1.0.0",
+            "version": "4.3.1",
+            "version_normalized": "4.3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/upgrade_status.git",
-                "reference": "4.1.0"
+                "reference": "4.3.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/upgrade_status-4.1.0.zip",
-                "reference": "4.1.0",
-                "shasum": "b306740b7e952f3d6bb71a2e0a165d48977e732a"
+                "url": "https://ftp.drupal.org/files/projects/upgrade_status-4.3.1.zip",
+                "reference": "4.3.1",
+                "shasum": "18390306878f8abe2c2c68d471217655e5b7b31c"
             },
             "require": {
                 "dekor/php-array-table": "^2.0",
                 "drupal/core": "^9 || ^10",
                 "mglaman/phpstan-drupal": "^1.0.0",
-                "nikic/php-parser": "^4.0.0",
+                "nikic/php-parser": "^4.0.0|^5.0.0",
                 "phpstan/phpstan-deprecation-rules": "^1.0.0",
                 "symfony/process": "^3.4|^4.0|^5.0|^6.0",
                 "webflo/drupal-finder": "^1.2"
             },
+            "require-dev": {
+                "drush/drush": "^11|^12"
+            },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "4.1.0",
-                    "datestamp": "1708602507",
+                    "version": "4.3.1",
+                    "datestamp": "1714463117",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -10676,17 +10679,17 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.66",
-            "version_normalized": "1.10.66.0",
+            "version": "1.10.67",
+            "version_normalized": "1.10.67.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "94779c987e4ebd620025d9e5fdd23323903950bd"
+                "reference": "16ddbe776f10da6a95ebd25de7c1dbed397dc493"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/94779c987e4ebd620025d9e5fdd23323903950bd",
-                "reference": "94779c987e4ebd620025d9e5fdd23323903950bd",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/16ddbe776f10da6a95ebd25de7c1dbed397dc493",
+                "reference": "16ddbe776f10da6a95ebd25de7c1dbed397dc493",
                 "shasum": ""
             },
             "require": {
@@ -10695,7 +10698,7 @@
             "conflict": {
                 "phpstan/phpstan-shim": "*"
             },
-            "time": "2024-03-28T16:17:31+00:00",
+            "time": "2024-04-16T07:22:02+00:00",
             "bin": [
                 "phpstan",
                 "phpstan.phar"
@@ -10731,10 +10734,6 @@
                 {
                     "url": "https://github.com/phpstan",
                     "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpstan/phpstan",
-                    "type": "tidelift"
                 }
             ],
             "install-path": "../phpstan/phpstan"
@@ -11542,17 +11541,17 @@
         },
         {
             "name": "symfony/cache",
-            "version": "v5.4.38",
-            "version_normalized": "5.4.38.0",
+            "version": "v5.4.39",
+            "version_normalized": "5.4.39.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache.git",
-                "reference": "223c3afac82e003a76931b71d77db408636a0de8"
+                "reference": "982237e35079fdcc31ab724f06b6131992c4fd24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache/zipball/223c3afac82e003a76931b71d77db408636a0de8",
-                "reference": "223c3afac82e003a76931b71d77db408636a0de8",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/982237e35079fdcc31ab724f06b6131992c4fd24",
+                "reference": "982237e35079fdcc31ab724f06b6131992c4fd24",
                 "shasum": ""
             },
             "require": {
@@ -11590,7 +11589,7 @@
                 "symfony/messenger": "^4.4|^5.0|^6.0",
                 "symfony/var-dumper": "^4.4|^5.0|^6.0"
             },
-            "time": "2024-03-19T09:55:32+00:00",
+            "time": "2024-04-18T08:26:06+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -11622,7 +11621,7 @@
                 "psr6"
             ],
             "support": {
-                "source": "https://github.com/symfony/cache/tree/v5.4.38"
+                "source": "https://github.com/symfony/cache/tree/v5.4.39"
             },
             "funding": [
                 {
@@ -14524,17 +14523,17 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v5.4.38",
-            "version_normalized": "5.4.38.0",
+            "version": "v5.4.39",
+            "version_normalized": "5.4.39.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "ae1d949ccc57d3f6662e4256b47ac9fbfa9651ae"
+                "reference": "1987f86ad7f339fe3d3e8e6cf3b7ce4d4b8e547e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/ae1d949ccc57d3f6662e4256b47ac9fbfa9651ae",
-                "reference": "ae1d949ccc57d3f6662e4256b47ac9fbfa9651ae",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/1987f86ad7f339fe3d3e8e6cf3b7ce4d4b8e547e",
+                "reference": "1987f86ad7f339fe3d3e8e6cf3b7ce4d4b8e547e",
                 "shasum": ""
             },
             "require": {
@@ -14558,7 +14557,7 @@
                 "ext-intl": "To show region name in time zone dump",
                 "symfony/console": "To use the ServerDumpCommand and/or the bin/var-dump-server script"
             },
-            "time": "2024-03-19T10:19:25+00:00",
+            "time": "2024-04-18T08:26:06+00:00",
             "bin": [
                 "Resources/bin/var-dump-server"
             ],
@@ -14596,7 +14595,7 @@
                 "dump"
             ],
             "support": {
-                "source": "https://github.com/symfony/var-dumper/tree/v5.4.38"
+                "source": "https://github.com/symfony/var-dumper/tree/v5.4.39"
             },
             "funding": [
                 {
@@ -14616,17 +14615,17 @@
         },
         {
             "name": "symfony/var-exporter",
-            "version": "v5.4.35",
-            "version_normalized": "5.4.35.0",
+            "version": "v5.4.39",
+            "version_normalized": "5.4.39.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-exporter.git",
-                "reference": "abb0a151b62d6b07e816487e20040464af96cae7"
+                "reference": "e85a27cfdbb48e5e9a2d4a5f04efa359857771fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/abb0a151b62d6b07e816487e20040464af96cae7",
-                "reference": "abb0a151b62d6b07e816487e20040464af96cae7",
+                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/e85a27cfdbb48e5e9a2d4a5f04efa359857771fd",
+                "reference": "e85a27cfdbb48e5e9a2d4a5f04efa359857771fd",
                 "shasum": ""
             },
             "require": {
@@ -14636,7 +14635,7 @@
             "require-dev": {
                 "symfony/var-dumper": "^4.4.9|^5.0.9|^6.0"
             },
-            "time": "2024-01-23T13:51:25+00:00",
+            "time": "2024-04-18T08:26:06+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -14672,7 +14671,7 @@
                 "serialize"
             ],
             "support": {
-                "source": "https://github.com/symfony/var-exporter/tree/v5.4.35"
+                "source": "https://github.com/symfony/var-exporter/tree/v5.4.39"
             },
             "funding": [
                 {

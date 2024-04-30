@@ -46,7 +46,7 @@
         "drupal/focal_point": "^2.0",
         "drupal/fontyourface": "^4.0",
         "drupal/fraction": "^2.0",
-        "drupal/geocoder": "^3.0",
+        "drupal/geocoder": "^3.47",
         "drupal/geocoder_autocomplete": "^2.0",
         "drupal/geofield": "^1.55",
         "drupal/geofield_map": "^3.0",
