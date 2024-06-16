@@ -53,7 +53,7 @@
         "drupal/geofield_map": "^3.0",
         "drupal/geolocation": "^3.12",
         "drupal/google_fonts_api": "^3.2",
-        "drupal/imce": "^3.0",
+        "drupal/imce": "^3.1",
         "drupal/jquery_ui": "^1.4",
         "drupal/jquery_ui_accordion": "^2",
         "drupal/jquery_ui_slider": "^2",
