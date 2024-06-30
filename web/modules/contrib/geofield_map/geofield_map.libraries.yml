@@ -48,6 +48,11 @@ geolocation:
   js:
     js/geolocation.js: {}
 
+geojson:
+  version: 1.x
+  js:
+    js/geojson.js: {}
+
 geofield_google_map:
   version: 1.x
   css:
@@ -60,6 +65,7 @@ geofield_google_map:
       - core/once
       - core/drupal
       - core/drupalSettings
+      - geofield_map/geojson
 
 geocoder:
   version: 1.x
@@ -74,11 +80,6 @@ geocoder:
     - core/drupal
     - core/drupalSettings
     - core/drupal.autocomplete
-
-geojson:
-  version: 1.x
-  js:
-    js/geojson.js: {}
 
 # External Marker Clusterer
 marker_cluster:
@@ -108,11 +109,11 @@ overlappingmarkerspiderfier:
 
 # External IntersectionObserver polyfill
 intersection_observer:
-  remote: https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver
+  remote: https://polyfill-fastly.io/v3/polyfill.min.js?features=IntersectionObserver
   version: 1.x
   license:
     name: MIT license
     url: https://choosealicense.com/licenses/mit/
     gpl-compatible: true
   js:
-    https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver: { type: external }
+    https://polyfill-fastly.io/v3/polyfill.min.js?features=IntersectionObserver: { type: external }

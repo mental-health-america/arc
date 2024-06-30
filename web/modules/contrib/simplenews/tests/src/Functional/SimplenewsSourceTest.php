@@ -146,7 +146,7 @@ class SimplenewsSourceTest extends SimplenewsTestBase {
     \Drupal::service('simplenews.spool_storage')->addIssue($node);
     // Unsubscribe one of the recipients to make sure that they don't receive
     // the mail.
-    \Drupal::service('simplenews.subscription_manager')->unsubscribe(array_shift($this->subscribers), $this->getRandomNewsletter(), FALSE, 'test');
+    \Drupal::service('simplenews.subscription_manager')->unsubscribe(array_shift($this->subscribers), $this->getRandomNewsletter());
 
     $before = microtime(TRUE);
     \Drupal::service('simplenews.mailer')->sendSpool();
@@ -242,7 +242,7 @@ class SimplenewsSourceTest extends SimplenewsTestBase {
       $this->assertEquals(1, preg_match_all('/Mail token/', $mail['body'], $matches));
 
       // Check the plaintext version, both params][plaintext (Mime Mail) and
-      // plain (Swiftmailer).
+      // plain (Drupal Symfony Mailer).
       $this->assertStringContainsString($mail['to'], $mail['params']['plaintext']);
       $this->assertStringNotContainsString('<strong>', $mail['params']['plaintext']);
       $this->assertEquals($mail['params']['plaintext'], $mail['plain']);

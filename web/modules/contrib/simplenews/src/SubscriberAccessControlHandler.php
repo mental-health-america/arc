@@ -3,8 +3,8 @@
 namespace Drupal\simplenews;
 
 use Drupal\Core\Access\AccessResult;
-use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityAccessControlHandler;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Session\AccountInterface;
@@ -85,6 +85,7 @@ class SubscriberAccessControlHandler extends EntityAccessControlHandler {
       // Start a new switch to allow reuse of cases.
       switch ($field) {
         case 'created':
+        case 'langcode':
         case 'status':
           // Only admin can edit.
           return AccessResult::allowedIfHasPermission($account, 'administer simplenews subscriptions');

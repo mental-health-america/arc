@@ -1,0 +1,21 @@
+name: arcmhanational
+recipe: drupal9
+config:
+  php: '8.2'
+  webroot: web
+
+# Services
+services:
+  database:
+    portforward: 51177
+    creds:
+      user: drupal9
+      password: drupal9
+      database: drupal9
+  arcmhanational-phpmyadmin:
+    type: phpmyadmin
+
+# Proxy
+proxy:
+  arcmhanational-phpmyadmin:
+    - arcmhanational-phpmyadmin.lndo.site

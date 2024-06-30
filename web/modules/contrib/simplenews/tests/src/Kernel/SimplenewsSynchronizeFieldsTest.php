@@ -4,9 +4,9 @@ namespace Drupal\Tests\simplenews\Kernel;
 
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\KernelTests\KernelTestBase;
 use Drupal\language\Entity\ConfigurableLanguage;
 use Drupal\simplenews\Entity\Subscriber;
-use Drupal\KernelTests\KernelTestBase;
 use Drupal\user\Entity\User;
 
 /**
@@ -29,6 +29,7 @@ class SimplenewsSynchronizeFieldsTest extends KernelTestBase {
     parent::setUp();
     $this->installEntitySchema('user');
     $this->installEntitySchema('simplenews_subscriber');
+    $this->installEntitySchema('simplenews_subscriber_history');
     $this->installSchema('system', ['sequences', 'sessions']);
     $this->config('system.mail')->set('interface.default', 'test_mail_collector')->save();
     $this->config('simplenews.settings')

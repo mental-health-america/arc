@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929
+class ComposerStaticInitbfc012348b0a3b1977ce994bbe9bc42a
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -39,10 +39,10 @@ class ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929
         'bef1cc96c7d36a38fa2d1ce60deb9d54' => __DIR__ . '/..' . '/longwave/laminas-diactoros/src/functions/parse_cookie_header.legacy.php',
         '2f69d3914119f042cca9e44442d5ce95' => __DIR__ . '/../..' . '/web/core/includes/bootstrap.inc',
         '6db5533840cb1ae1bc049452845aa88e' => __DIR__ . '/../..' . '/web/core/includes/guzzle_php81_shim.php',
-        '7e9bd612cc444b3eed788ebbe46263a0' => __DIR__ . '/..' . '/laminas/laminas-zendframework-bridge/src/autoload.php',
         '9b38cf48e83f5d8f60375221cd213eee' => __DIR__ . '/..' . '/phpstan/phpstan/bootstrap.php',
         '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
         '9c67151ae59aff4788964ce8eb2a0f43' => __DIR__ . '/..' . '/clue/stream-filter/src/functions_include.php',
+        '9e4824c5afbdc1482b6025ce3d4dfde8' => __DIR__ . '/..' . '/league/csv/src/functions_include.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '952683d815ff0a7bf322b93c0be7e4e4' => __DIR__ . '/..' . '/chi-teck/drupal-code-generator/src/bootstrap.php',
         '5a12a5271c58108e0aa33355e6ac54ea' => __DIR__ . '/..' . '/drupal/console-core/src/functions.php',
@@ -55,6 +55,10 @@ class ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929
         'm' => 
         array (
             'mglaman\\PHPStanDrupal\\' => 22,
+        ),
+        'd' => 
+        array (
+            'dekor\\' => 6,
         ),
         'c' => 
         array (
@@ -134,23 +138,16 @@ class ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929
         ),
         'M' => 
         array (
-            'MathieuViossat\\Util\\' => 20,
             'Masterminds\\' => 12,
         ),
         'L' => 
         array (
+            'League\\Csv\\' => 11,
             'League\\Container\\' => 17,
-            'Laminas\\ZendFrameworkBridge\\' => 28,
-            'Laminas\\Text\\' => 13,
             'Laminas\\Stdlib\\' => 15,
-            'Laminas\\ServiceManager\\' => 23,
             'Laminas\\Feed\\' => 13,
             'Laminas\\Escaper\\' => 16,
             'Laminas\\Diactoros\\' => 18,
-        ),
-        'I' => 
-        array (
-            'Interop\\Container\\' => 18,
         ),
         'H' => 
         array (
@@ -223,6 +220,10 @@ class ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929
         'mglaman\\PHPStanDrupal\\' => 
         array (
             0 => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src',
+        ),
+        'dekor\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dekor/php-array-table/src',
         ),
         'cweagans\\Composer\\' => 
         array (
@@ -457,33 +458,21 @@ class ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
-        'MathieuViossat\\Util\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/mathieuviossat/arraytotexttable/src',
-        ),
         'Masterminds\\' => 
         array (
             0 => __DIR__ . '/..' . '/masterminds/html5/src',
+        ),
+        'League\\Csv\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/csv/src',
         ),
         'League\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/container/src',
         ),
-        'Laminas\\ZendFrameworkBridge\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/laminas/laminas-zendframework-bridge/src',
-        ),
-        'Laminas\\Text\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/laminas/laminas-text/src',
-        ),
         'Laminas\\Stdlib\\' => 
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-stdlib/src',
-        ),
-        'Laminas\\ServiceManager\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src',
         ),
         'Laminas\\Feed\\' => 
         array (
@@ -496,10 +485,6 @@ class ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929
         'Laminas\\Diactoros\\' => 
         array (
             0 => __DIR__ . '/..' . '/longwave/laminas-diactoros/src',
-        ),
-        'Interop\\Container\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
         ),
         'Http\\Promise\\' => 
         array (
@@ -740,10 +725,6 @@ class ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929
                 0 => __DIR__ . '/..' . '/pear/archive_tar',
             ),
         ),
-    );
-
-    public static $fallbackDirsPsr0 = array (
-        0 => __DIR__ . '/..' . '/pear/pear-core-minimal/src',
     );
 
     public static $classMap = array (
@@ -4064,9 +4045,6 @@ class ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929
         'Http\\Promise\\FulfilledPromise' => __DIR__ . '/..' . '/php-http/promise/src/FulfilledPromise.php',
         'Http\\Promise\\Promise' => __DIR__ . '/..' . '/php-http/promise/src/Promise.php',
         'Http\\Promise\\RejectedPromise' => __DIR__ . '/..' . '/php-http/promise/src/RejectedPromise.php',
-        'Interop\\Container\\ContainerInterface' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/ContainerInterface.php',
-        'Interop\\Container\\Exception\\ContainerException' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/Exception/ContainerException.php',
-        'Interop\\Container\\Exception\\NotFoundException' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/Exception/NotFoundException.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
         'Laminas\\Diactoros\\AbstractSerializer' => __DIR__ . '/..' . '/longwave/laminas-diactoros/src/AbstractSerializer.php',
         'Laminas\\Diactoros\\CallbackStream' => __DIR__ . '/..' . '/longwave/laminas-diactoros/src/CallbackStream.php',
@@ -4246,37 +4224,6 @@ class ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929
         'Laminas\\Feed\\Writer\\StandaloneExtensionManager' => __DIR__ . '/..' . '/laminas/laminas-feed/src/Writer/StandaloneExtensionManager.php',
         'Laminas\\Feed\\Writer\\Version' => __DIR__ . '/..' . '/laminas/laminas-feed/src/Writer/Version.php',
         'Laminas\\Feed\\Writer\\Writer' => __DIR__ . '/..' . '/laminas/laminas-feed/src/Writer/Writer.php',
-        'Laminas\\ServiceManager\\AbstractFactoryInterface' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/AbstractFactoryInterface.php',
-        'Laminas\\ServiceManager\\AbstractFactory\\ConfigAbstractFactory' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/AbstractFactory/ConfigAbstractFactory.php',
-        'Laminas\\ServiceManager\\AbstractFactory\\ReflectionBasedAbstractFactory' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/AbstractFactory/ReflectionBasedAbstractFactory.php',
-        'Laminas\\ServiceManager\\AbstractPluginManager' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/AbstractPluginManager.php',
-        'Laminas\\ServiceManager\\Config' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/Config.php',
-        'Laminas\\ServiceManager\\ConfigInterface' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/ConfigInterface.php',
-        'Laminas\\ServiceManager\\DelegatorFactoryInterface' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/DelegatorFactoryInterface.php',
-        'Laminas\\ServiceManager\\Exception\\ContainerModificationsNotAllowedException' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/Exception/ContainerModificationsNotAllowedException.php',
-        'Laminas\\ServiceManager\\Exception\\CyclicAliasException' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/Exception/CyclicAliasException.php',
-        'Laminas\\ServiceManager\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/Exception/ExceptionInterface.php',
-        'Laminas\\ServiceManager\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/Exception/InvalidArgumentException.php',
-        'Laminas\\ServiceManager\\Exception\\InvalidServiceException' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/Exception/InvalidServiceException.php',
-        'Laminas\\ServiceManager\\Exception\\ServiceNotCreatedException' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/Exception/ServiceNotCreatedException.php',
-        'Laminas\\ServiceManager\\Exception\\ServiceNotFoundException' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/Exception/ServiceNotFoundException.php',
-        'Laminas\\ServiceManager\\FactoryInterface' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/FactoryInterface.php',
-        'Laminas\\ServiceManager\\Factory\\AbstractFactoryInterface' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/Factory/AbstractFactoryInterface.php',
-        'Laminas\\ServiceManager\\Factory\\DelegatorFactoryInterface' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/Factory/DelegatorFactoryInterface.php',
-        'Laminas\\ServiceManager\\Factory\\FactoryInterface' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/Factory/FactoryInterface.php',
-        'Laminas\\ServiceManager\\Factory\\InvokableFactory' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/Factory/InvokableFactory.php',
-        'Laminas\\ServiceManager\\InitializerInterface' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/InitializerInterface.php',
-        'Laminas\\ServiceManager\\Initializer\\InitializerInterface' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/Initializer/InitializerInterface.php',
-        'Laminas\\ServiceManager\\PluginManagerInterface' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/PluginManagerInterface.php',
-        'Laminas\\ServiceManager\\Proxy\\LazyServiceFactory' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/Proxy/LazyServiceFactory.php',
-        'Laminas\\ServiceManager\\PsrContainerDecorator' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/PsrContainerDecorator.php',
-        'Laminas\\ServiceManager\\ServiceLocatorInterface' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/ServiceLocatorInterface.php',
-        'Laminas\\ServiceManager\\ServiceManager' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/ServiceManager.php',
-        'Laminas\\ServiceManager\\Test\\CommonPluginManagerTrait' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/Test/CommonPluginManagerTrait.php',
-        'Laminas\\ServiceManager\\Tool\\ConfigDumper' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/Tool/ConfigDumper.php',
-        'Laminas\\ServiceManager\\Tool\\ConfigDumperCommand' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/Tool/ConfigDumperCommand.php',
-        'Laminas\\ServiceManager\\Tool\\FactoryCreator' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/Tool/FactoryCreator.php',
-        'Laminas\\ServiceManager\\Tool\\FactoryCreatorCommand' => __DIR__ . '/..' . '/laminas/laminas-servicemanager/src/Tool/FactoryCreatorCommand.php',
         'Laminas\\Stdlib\\AbstractOptions' => __DIR__ . '/..' . '/laminas/laminas-stdlib/src/AbstractOptions.php',
         'Laminas\\Stdlib\\ArrayObject' => __DIR__ . '/..' . '/laminas/laminas-stdlib/src/ArrayObject.php',
         'Laminas\\Stdlib\\ArraySerializableInterface' => __DIR__ . '/..' . '/laminas/laminas-stdlib/src/ArraySerializableInterface.php',
@@ -4324,37 +4271,6 @@ class ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929
         'Laminas\\Stdlib\\StringWrapper\\MbString' => __DIR__ . '/..' . '/laminas/laminas-stdlib/src/StringWrapper/MbString.php',
         'Laminas\\Stdlib\\StringWrapper\\Native' => __DIR__ . '/..' . '/laminas/laminas-stdlib/src/StringWrapper/Native.php',
         'Laminas\\Stdlib\\StringWrapper\\StringWrapperInterface' => __DIR__ . '/..' . '/laminas/laminas-stdlib/src/StringWrapper/StringWrapperInterface.php',
-        'Laminas\\Text\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/laminas/laminas-text/src/Exception/ExceptionInterface.php',
-        'Laminas\\Text\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/laminas/laminas-text/src/Exception/InvalidArgumentException.php',
-        'Laminas\\Text\\Exception\\OutOfBoundsException' => __DIR__ . '/..' . '/laminas/laminas-text/src/Exception/OutOfBoundsException.php',
-        'Laminas\\Text\\Exception\\OverflowException' => __DIR__ . '/..' . '/laminas/laminas-text/src/Exception/OverflowException.php',
-        'Laminas\\Text\\Exception\\RuntimeException' => __DIR__ . '/..' . '/laminas/laminas-text/src/Exception/RuntimeException.php',
-        'Laminas\\Text\\Exception\\UnexpectedValueException' => __DIR__ . '/..' . '/laminas/laminas-text/src/Exception/UnexpectedValueException.php',
-        'Laminas\\Text\\Figlet\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/laminas/laminas-text/src/Figlet/Exception/ExceptionInterface.php',
-        'Laminas\\Text\\Figlet\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/laminas/laminas-text/src/Figlet/Exception/InvalidArgumentException.php',
-        'Laminas\\Text\\Figlet\\Exception\\RuntimeException' => __DIR__ . '/..' . '/laminas/laminas-text/src/Figlet/Exception/RuntimeException.php',
-        'Laminas\\Text\\Figlet\\Exception\\UnexpectedValueException' => __DIR__ . '/..' . '/laminas/laminas-text/src/Figlet/Exception/UnexpectedValueException.php',
-        'Laminas\\Text\\Figlet\\Figlet' => __DIR__ . '/..' . '/laminas/laminas-text/src/Figlet/Figlet.php',
-        'Laminas\\Text\\MultiByte' => __DIR__ . '/..' . '/laminas/laminas-text/src/MultiByte.php',
-        'Laminas\\Text\\Table\\Column' => __DIR__ . '/..' . '/laminas/laminas-text/src/Table/Column.php',
-        'Laminas\\Text\\Table\\DecoratorManager' => __DIR__ . '/..' . '/laminas/laminas-text/src/Table/DecoratorManager.php',
-        'Laminas\\Text\\Table\\Decorator\\Ascii' => __DIR__ . '/..' . '/laminas/laminas-text/src/Table/Decorator/Ascii.php',
-        'Laminas\\Text\\Table\\Decorator\\Blank' => __DIR__ . '/..' . '/laminas/laminas-text/src/Table/Decorator/Blank.php',
-        'Laminas\\Text\\Table\\Decorator\\DecoratorInterface' => __DIR__ . '/..' . '/laminas/laminas-text/src/Table/Decorator/DecoratorInterface.php',
-        'Laminas\\Text\\Table\\Decorator\\Unicode' => __DIR__ . '/..' . '/laminas/laminas-text/src/Table/Decorator/Unicode.php',
-        'Laminas\\Text\\Table\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/laminas/laminas-text/src/Table/Exception/ExceptionInterface.php',
-        'Laminas\\Text\\Table\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/laminas/laminas-text/src/Table/Exception/InvalidArgumentException.php',
-        'Laminas\\Text\\Table\\Exception\\InvalidDecoratorException' => __DIR__ . '/..' . '/laminas/laminas-text/src/Table/Exception/InvalidDecoratorException.php',
-        'Laminas\\Text\\Table\\Exception\\OutOfBoundsException' => __DIR__ . '/..' . '/laminas/laminas-text/src/Table/Exception/OutOfBoundsException.php',
-        'Laminas\\Text\\Table\\Exception\\OverflowException' => __DIR__ . '/..' . '/laminas/laminas-text/src/Table/Exception/OverflowException.php',
-        'Laminas\\Text\\Table\\Exception\\UnexpectedValueException' => __DIR__ . '/..' . '/laminas/laminas-text/src/Table/Exception/UnexpectedValueException.php',
-        'Laminas\\Text\\Table\\Row' => __DIR__ . '/..' . '/laminas/laminas-text/src/Table/Row.php',
-        'Laminas\\Text\\Table\\Table' => __DIR__ . '/..' . '/laminas/laminas-text/src/Table/Table.php',
-        'Laminas\\ZendFrameworkBridge\\Autoloader' => __DIR__ . '/..' . '/laminas/laminas-zendframework-bridge/src/Autoloader.php',
-        'Laminas\\ZendFrameworkBridge\\ConfigPostProcessor' => __DIR__ . '/..' . '/laminas/laminas-zendframework-bridge/src/ConfigPostProcessor.php',
-        'Laminas\\ZendFrameworkBridge\\Module' => __DIR__ . '/..' . '/laminas/laminas-zendframework-bridge/src/Module.php',
-        'Laminas\\ZendFrameworkBridge\\Replacements' => __DIR__ . '/..' . '/laminas/laminas-zendframework-bridge/src/Replacements.php',
-        'Laminas\\ZendFrameworkBridge\\RewriteRules' => __DIR__ . '/..' . '/laminas/laminas-zendframework-bridge/src/RewriteRules.php',
         'League\\Container\\Argument\\ArgumentResolverInterface' => __DIR__ . '/..' . '/league/container/src/Argument/ArgumentResolverInterface.php',
         'League\\Container\\Argument\\ArgumentResolverTrait' => __DIR__ . '/..' . '/league/container/src/Argument/ArgumentResolverTrait.php',
         'League\\Container\\Argument\\ClassName' => __DIR__ . '/..' . '/league/container/src/Argument/ClassName.php',
@@ -4381,6 +4297,31 @@ class ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929
         'League\\Container\\ServiceProvider\\ServiceProviderAggregate' => __DIR__ . '/..' . '/league/container/src/ServiceProvider/ServiceProviderAggregate.php',
         'League\\Container\\ServiceProvider\\ServiceProviderAggregateInterface' => __DIR__ . '/..' . '/league/container/src/ServiceProvider/ServiceProviderAggregateInterface.php',
         'League\\Container\\ServiceProvider\\ServiceProviderInterface' => __DIR__ . '/..' . '/league/container/src/ServiceProvider/ServiceProviderInterface.php',
+        'League\\Csv\\AbstractCsv' => __DIR__ . '/..' . '/league/csv/src/AbstractCsv.php',
+        'League\\Csv\\ByteSequence' => __DIR__ . '/..' . '/league/csv/src/ByteSequence.php',
+        'League\\Csv\\CannotInsertRecord' => __DIR__ . '/..' . '/league/csv/src/CannotInsertRecord.php',
+        'League\\Csv\\CharsetConverter' => __DIR__ . '/..' . '/league/csv/src/CharsetConverter.php',
+        'League\\Csv\\ColumnConsistency' => __DIR__ . '/..' . '/league/csv/src/ColumnConsistency.php',
+        'League\\Csv\\EncloseField' => __DIR__ . '/..' . '/league/csv/src/EncloseField.php',
+        'League\\Csv\\EscapeFormula' => __DIR__ . '/..' . '/league/csv/src/EscapeFormula.php',
+        'League\\Csv\\Exception' => __DIR__ . '/..' . '/league/csv/src/Exception.php',
+        'League\\Csv\\HTMLConverter' => __DIR__ . '/..' . '/league/csv/src/HTMLConverter.php',
+        'League\\Csv\\Info' => __DIR__ . '/..' . '/league/csv/src/Info.php',
+        'League\\Csv\\InvalidArgument' => __DIR__ . '/..' . '/league/csv/src/InvalidArgument.php',
+        'League\\Csv\\MapIterator' => __DIR__ . '/..' . '/league/csv/src/MapIterator.php',
+        'League\\Csv\\Polyfill\\EmptyEscapeParser' => __DIR__ . '/..' . '/league/csv/src/Polyfill/EmptyEscapeParser.php',
+        'League\\Csv\\RFC4180Field' => __DIR__ . '/..' . '/league/csv/src/RFC4180Field.php',
+        'League\\Csv\\Reader' => __DIR__ . '/..' . '/league/csv/src/Reader.php',
+        'League\\Csv\\ResultSet' => __DIR__ . '/..' . '/league/csv/src/ResultSet.php',
+        'League\\Csv\\Statement' => __DIR__ . '/..' . '/league/csv/src/Statement.php',
+        'League\\Csv\\Stream' => __DIR__ . '/..' . '/league/csv/src/Stream.php',
+        'League\\Csv\\SyntaxError' => __DIR__ . '/..' . '/league/csv/src/SyntaxError.php',
+        'League\\Csv\\TabularDataReader' => __DIR__ . '/..' . '/league/csv/src/TabularDataReader.php',
+        'League\\Csv\\UnableToProcessCsv' => __DIR__ . '/..' . '/league/csv/src/UnableToProcessCsv.php',
+        'League\\Csv\\UnavailableFeature' => __DIR__ . '/..' . '/league/csv/src/UnavailableFeature.php',
+        'League\\Csv\\UnavailableStream' => __DIR__ . '/..' . '/league/csv/src/UnavailableStream.php',
+        'League\\Csv\\Writer' => __DIR__ . '/..' . '/league/csv/src/Writer.php',
+        'League\\Csv\\XMLConverter' => __DIR__ . '/..' . '/league/csv/src/XMLConverter.php',
         'LocaleOptions' => __DIR__ . '/..' . '/messageagency/force.com-toolkit-for-php/soapclient/SforceHeaderOptions.php',
         'LoginScopeHeader' => __DIR__ . '/..' . '/messageagency/force.com-toolkit-for-php/soapclient/SforceHeaderOptions.php',
         'MassEmailMessage' => __DIR__ . '/..' . '/messageagency/force.com-toolkit-for-php/soapclient/SforceEmail.php',
@@ -4404,7 +4345,6 @@ class ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929
         'Masterminds\\HTML5\\Serializer\\OutputRules' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Serializer/OutputRules.php',
         'Masterminds\\HTML5\\Serializer\\RulesInterface' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Serializer/RulesInterface.php',
         'Masterminds\\HTML5\\Serializer\\Traverser' => __DIR__ . '/..' . '/masterminds/html5/src/HTML5/Serializer/Traverser.php',
-        'MathieuViossat\\Util\\ArrayToTextTable' => __DIR__ . '/..' . '/mathieuviossat/arraytotexttable/src/ArrayToTextTable.php',
         'MruHeader' => __DIR__ . '/..' . '/messageagency/force.com-toolkit-for-php/soapclient/SforceHeaderOptions.php',
         'Nette\\ArgumentOutOfRangeException' => __DIR__ . '/..' . '/nette/utils/src/exceptions.php',
         'Nette\\DeprecatedException' => __DIR__ . '/..' . '/nette/utils/src/exceptions.php',
@@ -4550,6 +4490,7 @@ class ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929
         'OAuth\\ServiceFactory' => __DIR__ . '/..' . '/lusitanian/oauth/src/OAuth/ServiceFactory.php',
         'OS_Guess' => __DIR__ . '/..' . '/pear/pear-core-minimal/src/OS/Guess.php',
         'PEAR' => __DIR__ . '/..' . '/pear/pear-core-minimal/src/PEAR.php',
+        'PEAR_Error' => __DIR__ . '/..' . '/pear/pear-core-minimal/src/PEAR.php',
         'PEAR_ErrorStack' => __DIR__ . '/..' . '/pear/pear-core-minimal/src/PEAR/ErrorStack.php',
         'PEAR_Exception' => __DIR__ . '/..' . '/pear/pear_exception/PEAR/Exception.php',
         'PHPMailer\\PHPMailer\\DSNConfigurator' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/DSNConfigurator.php',
@@ -6718,6 +6659,7 @@ class ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929
         'Symfony\\Contracts\\Service\\ServiceSubscriberInterface' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceSubscriberInterface.php',
         'Symfony\\Contracts\\Service\\ServiceSubscriberTrait' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceSubscriberTrait.php',
         'Symfony\\Contracts\\Service\\Test\\ServiceLocatorTest' => __DIR__ . '/..' . '/symfony/service-contracts/Test/ServiceLocatorTest.php',
+        'Symfony\\Contracts\\Service\\Test\\ServiceLocatorTestCase' => __DIR__ . '/..' . '/symfony/service-contracts/Test/ServiceLocatorTestCase.php',
         'Symfony\\Contracts\\Translation\\LocaleAwareInterface' => __DIR__ . '/..' . '/symfony/translation-contracts/LocaleAwareInterface.php',
         'Symfony\\Contracts\\Translation\\Test\\TranslatorTest' => __DIR__ . '/..' . '/symfony/translation-contracts/Test/TranslatorTest.php',
         'Symfony\\Contracts\\Translation\\TranslatableInterface' => __DIR__ . '/..' . '/symfony/translation-contracts/TranslatableInterface.php',
@@ -7130,6 +7072,12 @@ class ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929
         'cweagans\\Composer\\PatchEvent' => __DIR__ . '/..' . '/cweagans/composer-patches/src/PatchEvent.php',
         'cweagans\\Composer\\PatchEvents' => __DIR__ . '/..' . '/cweagans/composer-patches/src/PatchEvents.php',
         'cweagans\\Composer\\Patches' => __DIR__ . '/..' . '/cweagans/composer-patches/src/Patches.php',
+        'dekor\\ArrayToTextTable' => __DIR__ . '/..' . '/dekor/php-array-table/src/ArrayToTextTable.php',
+        'dekor\\ArrayToTextTableException' => __DIR__ . '/..' . '/dekor/php-array-table/src/ArrayToTextTableException.php',
+        'dekor\\formatters\\AlignFormatter' => __DIR__ . '/..' . '/dekor/php-array-table/src/formatters/AlignFormatter.php',
+        'dekor\\formatters\\BaseColumnFormatter' => __DIR__ . '/..' . '/dekor/php-array-table/src/formatters/BaseColumnFormatter.php',
+        'dekor\\formatters\\ColorFormatter' => __DIR__ . '/..' . '/dekor/php-array-table/src/formatters/ColorFormatter.php',
+        'dekor\\formatters\\SprintfFormatter' => __DIR__ . '/..' . '/dekor/php-array-table/src/formatters/SprintfFormatter.php',
         'geoPHP' => __DIR__ . '/..' . '/itamair/geophp/geoPHP.inc',
         'mglaman\\PHPStanDrupal\\Drupal\\DrupalAutoloader' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Drupal/DrupalAutoloader.php',
         'mglaman\\PHPStanDrupal\\Drupal\\DrupalServiceDefinition' => __DIR__ . '/..' . '/mglaman/phpstan-drupal/src/Drupal/DrupalServiceDefinition.php',
@@ -7182,11 +7130,10 @@ class ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929::$prefixesPsr0;
-            $loader->fallbackDirsPsr0 = ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929::$fallbackDirsPsr0;
-            $loader->classMap = ComposerStaticInita9a1c6cc10b17c4a1f6108214a9d2929::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitbfc012348b0a3b1977ce994bbe9bc42a::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitbfc012348b0a3b1977ce994bbe9bc42a::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitbfc012348b0a3b1977ce994bbe9bc42a::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitbfc012348b0a3b1977ce994bbe9bc42a::$classMap;
 
         }, null, ClassLoader::class);
     }

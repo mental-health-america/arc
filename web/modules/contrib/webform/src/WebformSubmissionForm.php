@@ -195,6 +195,13 @@ class WebformSubmissionForm extends ContentEntityForm {
   protected $bubbleableMetadata;
 
   /**
+   * Operation value, like 'default', add, edit, test, etc.
+   *
+   * @var string
+   */
+  protected $operation;
+
+  /**
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
@@ -2070,7 +2077,7 @@ class WebformSubmissionForm extends ContentEntityForm {
     $file_limit = $this->getWebform()->getSetting('form_file_limit')
       ?: $this->configFactory->get('webform.settings')->get('settings.default_form_file_limit')
       ?: '';
-    $file_limit = Bytes::toInt($file_limit);
+    $file_limit = Bytes::toNumber($file_limit);
     if (!$file_limit) {
       return;
     }
@@ -2645,13 +2652,10 @@ class WebformSubmissionForm extends ContentEntityForm {
       $prepopulate_data = $this->getRequest()->query->all();
     }
     else {
-      $prepopulate_data = [];
-      $elements = $this->getWebform()->getElementsPrepopulate();
-      foreach ($elements as $element_key) {
-        if ($this->getRequest()->query->has($element_key)) {
-          $prepopulate_data[$element_key] = $this->getRequest()->query->get($element_key);
-        }
-      }
+      $prepopulate_data = array_intersect_key(
+        $this->getRequest()->query->all(),
+        $this->getWebform()->getElementsPrepopulate()
+      );
     }
 
     // Validate prepopulate data.
