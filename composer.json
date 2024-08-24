@@ -41,7 +41,7 @@
         "drupal/entity_reference_revisions": "^1.12",
         "drupal/extlink": "^1.1",
         "drupal/field_group": "^3.6",
-        "drupal/field_permissions": "^1.0@RC",
+        "drupal/field_permissions": "^1.4",
         "drupal/file_delete": "^2.0",
         "drupal/flag": "^4.0@beta",
         "drupal/focal_point": "^2.0",
