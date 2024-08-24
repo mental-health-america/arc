@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fa2d44f8a0e80006f23597702bc8785c",
+    "content-hash": "6335fdda1ee5c045ae8f4b82012c581f",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -7105,26 +7105,29 @@
         },
         {
             "name": "drupal/typed_data",
-            "version": "1.0.0-beta2",
+            "version": "1.0.0-beta3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/typed_data.git",
-                "reference": "8.x-1.0-beta2"
+                "reference": "8.x-1.0-beta3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/typed_data-8.x-1.0-beta2.zip",
-                "reference": "8.x-1.0-beta2",
-                "shasum": "e0aa651b129d8dcd765ca49cba8682ebe09e6e73"
+                "url": "https://ftp.drupal.org/files/projects/typed_data-8.x-1.0-beta3.zip",
+                "reference": "8.x-1.0-beta3",
+                "shasum": "6ab9cc4d136f71a8b187e2ba806c4f4f83b62d95"
             },
             "require": {
                 "drupal/core": "^9.1 || ^10"
             },
+            "conflict": {
+                "drupal/core": ">=10.3"
+            },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-beta2",
-                    "datestamp": "1679429196",
+                    "version": "8.x-1.0-beta3",
+                    "datestamp": "1721608495",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -7205,28 +7208,8 @@
             ],
             "authors": [
                 {
-                    "name": "colan",
-                    "homepage": "https://www.drupal.org/user/58704"
-                },
-                {
                     "name": "Gábor Hojtsy",
                     "homepage": "https://www.drupal.org/user/4166"
-                },
-                {
-                    "name": "herczogzoltan",
-                    "homepage": "https://www.drupal.org/user/3528391"
-                },
-                {
-                    "name": "sun",
-                    "homepage": "https://www.drupal.org/user/54136"
-                },
-                {
-                    "name": "webchick",
-                    "homepage": "https://www.drupal.org/user/24967"
-                },
-                {
-                    "name": "xjm",
-                    "homepage": "https://www.drupal.org/user/65776"
                 }
             ],
             "description": "Review Drupal major upgrade readiness of the environment and components of the site.",
@@ -14710,7 +14693,7 @@
         "drupal/mimemail": 15,
         "drupal/rabbit_hole": 10,
         "drupal/rules": 15,
-        "drupal/typed_data": 15,
+        "drupal/typed_data": 10,
         "drupal/votingapi": 10
     },
     "prefer-stable": true,

@@ -85,7 +85,7 @@
         "drupal/superfish": "^1.6",
         "drupal/swiftmailer": "^2.0",
         "drupal/token": "^1.14",
-        "drupal/typed_data": "^1.0@alpha",
+        "drupal/typed_data": "^1.0@beta",
         "drupal/upgrade_status": "^4.3",
         "drupal/video_embed_field": "^2.2",
         "drupal/views_accordion": "^2.0",
