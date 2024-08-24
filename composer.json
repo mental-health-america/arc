@@ -71,7 +71,7 @@
         "drupal/mimemail": "^1.0@alpha",
         "drupal/module_filter": "^4.0",
         "drupal/paragraphs": "^1.16",
-        "drupal/pathauto": "^1.8",
+        "drupal/pathauto": "^1.13",
         "drupal/quick_node_clone": "^1.14",
         "drupal/r4032login": "^2.0",
         "drupal/rabbit_hole": "^1.0@beta",
