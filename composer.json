@@ -82,7 +82,7 @@
         "drupal/salesforce": "^5.0",
         "drupal/simplenews": "^4.0",
         "drupal/smtp": "^1.2",
-        "drupal/superfish": "^1.6",
+        "drupal/superfish": "^1.8",
         "drupal/swiftmailer": "^2.0",
         "drupal/token": "^1.15",
         "drupal/typed_data": "^1.0@beta",
