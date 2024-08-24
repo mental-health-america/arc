@@ -6,9 +6,15 @@ use Drupal\Core\Extension\ModuleHandlerInterface;
 use PhpParser\Node;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\RuleErrorBuilder;
-use PHPStan\ShouldNotHappenException;
 use PHPStan\Type\ObjectType;
+use Throwable;
+use function count;
+use function is_file;
+use function sprintf;
 
+/**
+ * @extends LoadIncludeBase<Node\Expr\MethodCall>
+ */
 class LoadIncludes extends LoadIncludeBase
 {
 
@@ -19,7 +25,6 @@ class LoadIncludes extends LoadIncludeBase
 
     public function processNode(Node $node, Scope $scope): array
     {
-        assert($node instanceof Node\Expr\MethodCall);
         if (!$node->name instanceof Node\Identifier) {
             return [];
         }
@@ -28,26 +33,23 @@ class LoadIncludes extends LoadIncludeBase
             return [];
         }
         $args = $node->getArgs();
-        if (\count($args) < 2) {
+        if (count($args) < 2) {
             return [];
         }
-        $variable = $node->var;
-        if (!$variable instanceof Node\Expr\Variable) {
-            return [];
-        }
-        $var_name = $variable->name;
-        if (!is_string($var_name)) {
-            throw new ShouldNotHappenException(sprintf('Expected string for variable in %s, please open an issue on GitHub https://github.com/mglaman/phpstan-drupal/issues', static::class));
-        }
+        $type = $scope->getType($node->var);
         $moduleHandlerInterfaceType = new ObjectType(ModuleHandlerInterface::class);
-        $variableType = $scope->getVariableType($var_name);
-        if (!$variableType->isSuperTypeOf($moduleHandlerInterfaceType)->yes()) {
+        if (!$type->isSuperTypeOf($moduleHandlerInterfaceType)->yes()) {
             return [];
         }
 
         try {
             // Try to invoke it similarly as the module handler itself.
             [$moduleName, $filename] = $this->parseLoadIncludeArgs($args[0], $args[1], $args[2] ?? null, $scope);
+            if (!$moduleName && !$filename) {
+                // Couldn't determine module- nor file-name, most probably
+                // because it's a variable. Nothing to load, bail now.
+                return [];
+            }
             $module = $this->extensionMap->getModule($moduleName);
             if ($module === null) {
                 return [
@@ -57,7 +59,7 @@ class LoadIncludes extends LoadIncludeBase
                         ModuleHandlerInterface::class,
                         $moduleName
                     ))
-                        ->line($node->getLine())
+                        ->line($node->getStartLine())
                         ->build()
                 ];
             }
@@ -70,19 +72,19 @@ class LoadIncludes extends LoadIncludeBase
             return [
                 RuleErrorBuilder::message(sprintf(
                     'File %s could not be loaded from %s::loadInclude',
-                    $module->getPath() . DIRECTORY_SEPARATOR . $filename,
+                    $module->getPath() . '/' . $filename,
                     ModuleHandlerInterface::class
                 ))
-                    ->line($node->getLine())
+                    ->line($node->getStartLine())
                     ->build()
             ];
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             return [
                 RuleErrorBuilder::message(sprintf(
                     'A file could not be loaded from %s::loadInclude',
                     ModuleHandlerInterface::class
                 ))
-                    ->line($node->getLine())
+                    ->line($node->getStartLine())
                     ->build()
             ];
         }

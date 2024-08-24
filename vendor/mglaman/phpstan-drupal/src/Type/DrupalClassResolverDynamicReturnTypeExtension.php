@@ -3,13 +3,14 @@
 namespace mglaman\PHPStanDrupal\Type;
 
 use Drupal\Core\DependencyInjection\ClassResolverInterface;
-use PhpParser\Node\Expr\MethodCall;
 use mglaman\PHPStanDrupal\Drupal\ServiceMap;
+use PhpParser\Node\Expr\MethodCall;
 use PHPStan\Analyser\Scope;
 use PHPStan\Reflection\MethodReflection;
 use PHPStan\Reflection\ParametersAcceptorSelector;
 use PHPStan\Type\DynamicMethodReturnTypeExtension;
 use PHPStan\Type\Type;
+use function count;
 
 class DrupalClassResolverDynamicReturnTypeExtension implements DynamicMethodReturnTypeExtension
 {
@@ -38,7 +39,7 @@ class DrupalClassResolverDynamicReturnTypeExtension implements DynamicMethodRetu
         MethodCall $methodCall,
         Scope $scope
     ): Type {
-        if (0 === \count($methodCall->getArgs())) {
+        if (0 === count($methodCall->getArgs())) {
             return ParametersAcceptorSelector::selectSingle($methodReflection->getVariants())->getReturnType();
         }
 

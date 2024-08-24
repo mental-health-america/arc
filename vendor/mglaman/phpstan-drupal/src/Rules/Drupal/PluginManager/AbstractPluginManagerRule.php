@@ -2,15 +2,17 @@
 
 namespace mglaman\PHPStanDrupal\Rules\Drupal\PluginManager;
 
+use PHPStan\Reflection\ClassReflection;
 use PHPStan\Rules\Rule;
 
 /**
- * @phpstan-template TNodeType of \PhpParser\Node
+ * @template TNodeType of \PhpParser\Node
+ * @implements Rule<TNodeType>
  */
 abstract class AbstractPluginManagerRule implements Rule
 {
 
-    protected function isPluginManager(\ReflectionClass $classReflection): bool
+    protected function isPluginManager(ClassReflection $classReflection): bool
     {
         return
             !$classReflection->isInterface() &&

@@ -6,8 +6,8 @@ use PhpParser\Node;
 use PHPStan\Analyser\Scope;
 use PHPStan\Reflection\ReflectionProvider;
 use PHPStan\Rules\Rule;
-use PHPStan\ShouldNotHappenException;
 use PHPStan\Type\ObjectType;
+use function sprintf;
 
 /**
  * @implements \PHPStan\Rules\Rule<\PhpParser\Node\Stmt\Class_>
