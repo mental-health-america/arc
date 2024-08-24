@@ -38,7 +38,7 @@
         "drupal/editor_advanced_link": "^2.2",
         "drupal/entity_browser": "^2.9",
         "drupal/entity_clone": "^2.1@beta",
-        "drupal/entity_reference_revisions": "^1.7",
+        "drupal/entity_reference_revisions": "^1.12",
         "drupal/extlink": "^1.1",
         "drupal/field_group": "^3.0",
         "drupal/field_permissions": "^1.0@RC",
