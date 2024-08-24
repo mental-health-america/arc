@@ -5293,28 +5293,28 @@
         },
         {
             "name": "drupal/jquery_ui_tabs",
-            "version": "2.0.0",
-            "version_normalized": "2.0.0.0",
+            "version": "2.1.0",
+            "version_normalized": "2.1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/jquery_ui_tabs.git",
-                "reference": "2.0.0"
+                "reference": "2.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/jquery_ui_tabs-2.0.0.zip",
-                "reference": "2.0.0",
-                "shasum": "ec1bf4effc78ca92a6f0a912ee0c4b037f850b98"
+                "url": "https://ftp.drupal.org/files/projects/jquery_ui_tabs-2.1.0.zip",
+                "reference": "2.1.0",
+                "shasum": "b39f54ee2f07757c6a511964828f30cc23486134"
             },
             "require": {
-                "drupal/core": "^9.2 || ^10",
-                "drupal/jquery_ui": "^1.6"
+                "drupal/core": "^9.2 || ^10 || ^11",
+                "drupal/jquery_ui": "^1.7"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.0",
-                    "datestamp": "1670948528",
+                    "version": "2.1.0",
+                    "datestamp": "1719935962",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5340,7 +5340,7 @@
                     "homepage": "https://www.drupal.org/user/1448368"
                 }
             ],
-            "description": "Provides jQuery UI Tabs library.",
+            "description": "Provides the jQuery UI Tabs library for any themes and modules",
             "homepage": "https://www.drupal.org/project/jquery_ui_tabs",
             "support": {
                 "source": "https://git.drupalcode.org/project/jquery_ui_tabs"
