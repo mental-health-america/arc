@@ -49,7 +49,7 @@
         "drupal/fraction": "^2.0",
         "drupal/geocoder": "^3.47",
         "drupal/geocoder_autocomplete": "^2.0",
-        "drupal/geofield": "^1.59",
+        "drupal/geofield": "^1.60",
         "drupal/geofield_map": "^3.0",
         "drupal/geolocation": "^3.12",
         "drupal/google_fonts_api": "^3.2",
