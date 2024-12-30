@@ -7,7 +7,7 @@ config:
 # Services
 services:
   database:
-    portforward: 51177
+    portforward: 54477
     creds:
       user: drupal9
       password: drupal9
