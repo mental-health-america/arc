@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit93cc34e74dcb04bb365611c27bfb1b7c
+class ComposerStaticInit1aafea783240bbbd324d4c203cdc6e19
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -425,8 +425,8 @@ class ComposerStaticInit93cc34e74dcb04bb365611c27bfb1b7c
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -486,8 +486,8 @@ class ComposerStaticInit93cc34e74dcb04bb365611c27bfb1b7c
         ),
         'Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/php-http/message/src',
-            1 => __DIR__ . '/..' . '/php-http/message-factory/src',
+            0 => __DIR__ . '/..' . '/php-http/message-factory/src',
+            1 => __DIR__ . '/..' . '/php-http/message/src',
         ),
         'Http\\Client\\' => 
         array (
@@ -4283,6 +4283,7 @@ class ComposerStaticInit93cc34e74dcb04bb365611c27bfb1b7c
         'League\\Csv\\AbstractCsv' => __DIR__ . '/..' . '/league/csv/src/AbstractCsv.php',
         'League\\Csv\\Bom' => __DIR__ . '/..' . '/league/csv/src/Bom.php',
         'League\\Csv\\ByteSequence' => __DIR__ . '/..' . '/league/csv/src/ByteSequence.php',
+        'League\\Csv\\CallbackStreamFilter' => __DIR__ . '/..' . '/league/csv/src/CallbackStreamFilter.php',
         'League\\Csv\\CannotInsertRecord' => __DIR__ . '/..' . '/league/csv/src/CannotInsertRecord.php',
         'League\\Csv\\CharsetConverter' => __DIR__ . '/..' . '/league/csv/src/CharsetConverter.php',
         'League\\Csv\\ColumnConsistency' => __DIR__ . '/..' . '/league/csv/src/ColumnConsistency.php',
@@ -4336,6 +4337,7 @@ class ComposerStaticInit93cc34e74dcb04bb365611c27bfb1b7c
         'League\\Csv\\Serializer\\TypeCastingFailed' => __DIR__ . '/..' . '/league/csv/src/Serializer/TypeCastingFailed.php',
         'League\\Csv\\Statement' => __DIR__ . '/..' . '/league/csv/src/Statement.php',
         'League\\Csv\\Stream' => __DIR__ . '/..' . '/league/csv/src/Stream.php',
+        'League\\Csv\\StreamFilter' => __DIR__ . '/..' . '/league/csv/src/StreamFilter.php',
         'League\\Csv\\SwapDelimiter' => __DIR__ . '/..' . '/league/csv/src/SwapDelimiter.php',
         'League\\Csv\\SyntaxError' => __DIR__ . '/..' . '/league/csv/src/SyntaxError.php',
         'League\\Csv\\TabularDataReader' => __DIR__ . '/..' . '/league/csv/src/TabularDataReader.php',
@@ -7148,10 +7150,10 @@ class ComposerStaticInit93cc34e74dcb04bb365611c27bfb1b7c
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit93cc34e74dcb04bb365611c27bfb1b7c::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit93cc34e74dcb04bb365611c27bfb1b7c::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit93cc34e74dcb04bb365611c27bfb1b7c::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit93cc34e74dcb04bb365611c27bfb1b7c::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit1aafea783240bbbd324d4c203cdc6e19::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit1aafea783240bbbd324d4c203cdc6e19::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit1aafea783240bbbd324d4c203cdc6e19::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit1aafea783240bbbd324d4c203cdc6e19::$classMap;
 
         }, null, ClassLoader::class);
     }
