@@ -58,6 +58,11 @@ abstract class WebformScoreBase extends PluginBase implements WebformScoreInterf
       '#step' => 1,
       '#min' => 0,
       '#default_value' => $this->configuration['max_score'] ?? 1,
+      // Without the following, the number field's valueCallback gets invoked,
+      // resulting in NULL being saved in the form state and validation errors
+      // being set before input is even considered. I'm sure I must be missing
+      // something but haven't succeeded in finding what it is.
+      '#value' => $this->configuration['max_score'] ?? 1,
     ];
 
     return $form;
@@ -66,14 +71,17 @@ abstract class WebformScoreBase extends PluginBase implements WebformScoreInterf
   /**
    * {@inheritdoc}
    */
-  public function validateConfigurationForm(array &$form, FormStateInterface $form_state) {
-  }
+  public function validateConfigurationForm(array &$form, FormStateInterface $form_state) {}
 
   /**
    * {@inheritdoc}
    */
   public function submitConfigurationForm(array &$form, FormStateInterface $form_state) {
-    $this->configuration['max_score'] = $form_state->getValue('max_score');
+    $user_input = $form_state->getUserInput();
+    if (isset($user_input['properties'])) {
+      $form_state->setValues($user_input['properties']['webform_score_plugin_configuration']);
+    }
+    $this->configuration = $form_state->getValues();
   }
 
   /**

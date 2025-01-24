@@ -2,7 +2,6 @@
 
 namespace Drupal\webform_score\Plugin\WebformScore;
 
-use Drupal\Component\Plugin\ConfigurablePluginInterface;
 use Drupal\Component\Plugin\Exception\PluginException;
 use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\NestedArray;
@@ -121,7 +120,8 @@ abstract class WebformScoreAggregateBase extends WebformScoreBase implements Web
         '#title_display' => 'invisible',
         '#options' => $plugin_options,
         '#empty_option' => $this->t('- None -'),
-        '#default_value' => isset($this->configuration['score_plugins'][$i]['plugin']) ? $this->configuration['score_plugins'][$i]['plugin'] : NULL,
+        '#default_value' => $this->configuration['score_plugins'][$i]['plugin']
+          ?: NULL,
         '#required' => $i == 0,
         '#ajax' => [
           'callback' => [get_class($this), 'ajaxForm'],
@@ -129,8 +129,8 @@ abstract class WebformScoreAggregateBase extends WebformScoreBase implements Web
         ],
       ];
 
-      $plugin = $form_state->getValue(['score_plugins', $i, 'plugin'], isset($this->configuration['score_plugins'][$i]['plugin']) ? $this->configuration['score_plugins'][$i]['plugin'] : NULL);
-      $plugin_configuration = isset($this->configuration['score_plugins'][$i]['configuration']) ? $this->configuration['score_plugins'][$i]['configuration'] : [];
+      $plugin = $this->configuration['score_plugins'][$i]['plugin'] ?: NULL;
+      $plugin_configuration = $this->configuration['score_plugins'][$i]['configuration'] ?: [];
       $form['score_plugins'][$i]['configuration'] = [];
 
       try {
@@ -204,11 +204,16 @@ abstract class WebformScoreAggregateBase extends WebformScoreBase implements Web
    * {@inheritdoc}
    */
   public function validateConfigurationForm(array &$form, FormStateInterface $form_state) {
+    $user_input = $form_state->getUserInput();
+    if (isset($user_input['properties'])) {
+      $form_state->setValues($user_input['properties']['webform_score_plugin_configuration']);
+    }
+
     unset($form_state->getValue('score_plugins')['threshold_fieldset']);
     foreach ($form_state->getValue('score_plugins') as $i => $score_plugin) {
       if ($score_plugin['plugin']) {
         try {
-          $plugin = $this->webformScoreManager->createInstance($score_plugin['plugin'], isset($score_plugin['configuration']) ? $score_plugin['configuration'] : []);
+          $plugin = $this->webformScoreManager->createInstance($score_plugin['plugin'], $score_plugin['configuration'] ?: []);
           if ($plugin instanceof PluginFormInterface) {
             $sub_form_state = SubformState::createForSubform($form['score_plugins'][$i]['configuration'], $form, $form_state);
 
@@ -227,12 +232,17 @@ abstract class WebformScoreAggregateBase extends WebformScoreBase implements Web
    * {@inheritdoc}
    */
   public function submitConfigurationForm(array &$form, FormStateInterface $form_state) {
+    $user_input = $form_state->getUserInput();
+    if (isset($user_input['properties'])) {
+      $form_state->setValues($user_input['properties']['webform_score_plugin_configuration']);
+    }
+
     $this->configuration['score_plugins'] = [];
 
     foreach ($form_state->getValue('score_plugins') as $i => $score_plugin) {
       if ($score_plugin['plugin']) {
         try {
-          $plugin = $this->webformScoreManager->createInstance($score_plugin['plugin'], isset($score_plugin['configuration']) ? $score_plugin['configuration'] : []);
+          $plugin = $this->webformScoreManager->createInstance($score_plugin['plugin'], $score_plugin['configuration'] ?: []);
           if ($plugin instanceof PluginFormInterface) {
             $sub_form_state = SubformState::createForSubform($form['score_plugins'][$i]['configuration'], $form, $form_state);
 
@@ -241,7 +251,7 @@ abstract class WebformScoreAggregateBase extends WebformScoreBase implements Web
 
           $this->configuration['score_plugins'][] = [
             'plugin' => $score_plugin['plugin'],
-            'configuration' => $plugin instanceof ConfigurablePluginInterface ? $plugin->getConfiguration() : [],
+            'configuration' => $score_plugin['configuration'] ?? [],
           ];
         }
         catch (PluginException $e) {
@@ -285,7 +295,7 @@ abstract class WebformScoreAggregateBase extends WebformScoreBase implements Web
     $plugins = [];
 
     foreach ($this->configuration['score_plugins'] as $score_plugin) {
-      $plugins[] = $this->webformScoreManager->createInstance($score_plugin['plugin'], isset($score_plugin['configuration']) ? $score_plugin['configuration'] : []);
+      $plugins[] = $this->webformScoreManager->createInstance($score_plugin['plugin'], $score_plugin['configuration'] ?: []);
     }
 
     return $plugins;

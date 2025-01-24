@@ -35,7 +35,6 @@ class Equals extends WebformScoreBase implements WebformScoreInterface {
     $this->setConfiguration($configuration);
   }
 
-
   /**
    * {@inheritdoc}
    */
@@ -89,8 +88,6 @@ class Equals extends WebformScoreBase implements WebformScoreInterface {
    */
   public function submitConfigurationForm(array &$form, FormStateInterface $form_state) {
     parent::submitConfigurationForm($form, $form_state);
-
-    $this->configuration['expected'] = $form_state->getValue('expected');
     $this->configuration['case_sensitive'] = (bool) $form_state->getValue('case_sensitive');
   }
 

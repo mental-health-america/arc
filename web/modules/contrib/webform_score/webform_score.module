@@ -5,22 +5,31 @@
  * This module provides scoring functionality to webform elements.
  */
 
+use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\Access\AccessResult;
+use Drupal\webform\WebformSubmissionInterface;
+
 /**
  * Implements hook_ENTITY_TYPE_presave().
  */
-function webform_score_webform_submission_presave(\Drupal\webform\WebformSubmissionInterface $webform_submission) {
+function webform_score_webform_submission_presave(WebformSubmissionInterface $webform_submission) {
   \Drupal::service('webform_score.hooks')->webformSubmissionPreSave($webform_submission);
 }
 
 /**
  * Implements hook_entity_base_field_info().
  */
-function webform_score_entity_base_field_info(\Drupal\Core\Entity\EntityTypeInterface $entity_type) {
+function webform_score_entity_base_field_info(EntityTypeInterface $entity_type) {
   $fields = [];
 
   switch ($entity_type->id()) {
     case 'webform_submission':
-      $fields['webform_score'] = \Drupal\Core\Field\BaseFieldDefinition::create('fraction')
+      $fields['webform_score'] = BaseFieldDefinition::create('fraction')
         ->setLabel(t('Score'))
         ->setDisplayOptions('view', [
           'type' => 'fraction_percentage',
@@ -40,21 +49,30 @@ function webform_score_entity_base_field_info(\Drupal\Core\Entity\EntityTypeInte
 /**
  * Implements hook_entity_field_access().
  */
-function webform_score_entity_field_access($operation, \Drupal\Core\Field\FieldDefinitionInterface $field_definition, \Drupal\Core\Session\AccountInterface $account, \Drupal\Core\Field\FieldItemListInterface $items = NULL) {
+function webform_score_entity_field_access($operation, FieldDefinitionInterface $field_definition, AccountInterface $account, FieldItemListInterface $items = NULL) {
+
+  if (!$items || !$items[0] || is_null($items[0]->denominator)) {
+    return AccessResult::neutral();
+  }
+
+  if (!$items[0]->denominator) {
+    // No scoring is configured.
+    return AccessResult::forbidden()->cachePerPermissions();
+  }
   switch ($field_definition->getName()) {
     case 'webform_score':
       switch ($operation) {
         case 'view':
           if ($account->hasPermission('view any submission score')) {
-            return \Drupal\Core\Access\AccessResult::neutral()->cachePerPermissions();
+            return AccessResult::neutral()->cachePerPermissions();
           }
           if ($account->hasPermission('view own submission score') && $items && $items->getEntity()->isOwner($account)) {
-            return \Drupal\Core\Access\AccessResult::neutral()
+            return AccessResult::neutral()
               ->cachePerUser()
               ->addCacheableDependency($items->getEntity());
           }
 
-          $access = \Drupal\Core\Access\AccessResult::forbidden()->cachePerPermissions();
+          $access = AccessResult::forbidden()->cachePerPermissions();
 
           if (!$account->hasPermission('view any submission score')) {
             $access->cachePerUser();
@@ -64,19 +82,83 @@ function webform_score_entity_field_access($operation, \Drupal\Core\Field\FieldD
           }
           return $access;
 
-          break;
-
         case 'edit':
-          return \Drupal\Core\Access\AccessResult::forbidden('The field value is calculated automatically upon saving.');
-          break;
+          return AccessResult::forbidden('The field value is calculated automatically upon saving.');
 
         default:
-          return \Drupal\Core\Access\AccessResult::neutral();
-          break;
+          return AccessResult::neutral();
       }
-      break;
   }
 
-  return \Drupal\Core\Access\AccessResult::neutral();
+  return AccessResult::neutral();
 }
 
+/**
+ * Implements hook_token_info().
+ */
+function webform_score_token_info() {
+  $info = [];
+  $info['tokens']['webform_submission']['webform_score'] = [
+    'name' => t('Score'),
+    'description' => t('The webform score in percent.'),
+  ];
+  $info['tokens']['webform_submission']['webform_score_numerator'] = [
+    'name' => t('Score'),
+    'description' => t('The webform score numerator.'),
+  ];
+  $info['tokens']['webform_submission']['webform_score_denominator'] = [
+    'name' => t('Score'),
+    'description' => t('The webform score denominator.'),
+  ];
+  return $info;
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function webform_score_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
+  $replacements = [];
+  if ($type == 'webform_submission' && !empty($data['webform_submission'])) {
+
+    /** @var \Drupal\webform\WebformSubmissionInterface $webform_submission */
+    $webform_submission = $data['webform_submission'];
+
+    $tokenUsed = FALSE;
+
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        case 'webform_score':
+          if ($webform_submission->webform_score->denominator) {
+            $score = $webform_submission->webform_score->numerator / $webform_submission->webform_score->denominator * 100;
+            $replacements[$original] = round($score, 0) . '%';
+          }
+          $tokenUsed = TRUE;
+          break;
+
+        case 'webform_score_numerator':
+          $replacements[$original] = $webform_submission->webform_score->numerator;
+          $tokenUsed = TRUE;
+          break;
+
+        case 'webform_score_denominator':
+          $replacements[$original] = $webform_submission->webform_score->denominator;
+          $tokenUsed = TRUE;
+          break;
+
+      }
+    }
+
+    if ($tokenUsed) {
+      // Adding webform submission, webform, source entity to bubbleable meta.
+      // This reduces code duplication and easier to track.
+      $bubbleable_metadata->addCacheableDependency($webform_submission);
+
+      $source_entity = $webform_submission->getSourceEntity(TRUE);
+      if ($source_entity) {
+        $bubbleable_metadata->addCacheableDependency($source_entity);
+      }
+    }
+  }
+
+  return $replacements;
+}

@@ -2,19 +2,9 @@
 
 namespace Drupal\webform_score\Plugin\WebformElement;
 
-use Drupal\Core\Config\ConfigFactoryInterface;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Render\ElementInfoManagerInterface;
-use Drupal\Core\Session\AccountInterface;
-use Drupal\Core\TypedData\TypedDataManagerInterface;
 use Drupal\webform\Plugin\WebformElement\Select;
-use Drupal\webform\Plugin\WebformElementManagerInterface;
-use Drupal\webform\WebformLibrariesManagerInterface;
 use Drupal\webform\WebformSubmissionInterface;
-use Drupal\webform\WebformTokenManagerInterface;
-use Drupal\webform_score\Plugin\WebformScoreManagerInterface;
 use Drupal\webform_score\QuizInterface;
-use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**

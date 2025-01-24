@@ -80,7 +80,7 @@ class SetEquals extends WebformScoreAggregateBase {
   protected function getValues(TypedDataInterface $answers) {
     $answerValues = [];
 
-    foreach ($answers as $key => $answer) {
+    foreach ($answers as $answer) {
       $answerValues[] = $answer->getValue();
     }
 
@@ -104,7 +104,9 @@ class SetEquals extends WebformScoreAggregateBase {
    */
   public function defaultConfiguration() {
     // This deliberately doesn't call the parent.
-    return [];
+    return [
+      'correct_answers' => '',
+    ];
   }
 
   /**
@@ -124,9 +126,8 @@ class SetEquals extends WebformScoreAggregateBase {
     $form['correct_answers'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Expected answers'),
-      '#description' => 'Please enter the values of the checkboxes that should be checked, separated by commas. If the chosen set matches this set, the answer to this question is considered correct and the full score is awarded.',
+      '#description' => $this->t('Please enter the values of the checkboxes that should be checked, separated by commas. If the chosen set matches this set, the answer to this question is considered correct and the full score is awarded.'),
       '#default_value' => $this->configuration['correct_answers'] ?? '',
-
     ];
 
     return $form;
@@ -138,7 +139,7 @@ class SetEquals extends WebformScoreAggregateBase {
   public function validateConfigurationForm(array &$form, FormStateInterface $form_state) {
 
     // This deliberately doesn't call the parent.
-    // @todo Decide whethere there's a validation we can apply.
+    // @todo Decide whether there's a validation we can apply.
   }
 
   /**
@@ -146,7 +147,11 @@ class SetEquals extends WebformScoreAggregateBase {
    */
   public function submitConfigurationForm(array &$form, FormStateInterface $form_state) {
 
-    // This deliberately doesn't call the parent.
+    $user_input = $form_state->getUserInput();
+    if (isset($user_input['properties'])) {
+      $form_state->setValues($user_input['properties']['webform_score_plugin_configuration']);
+    }
+
     $this->configuration['correct_answers'] = $form_state->getValue('correct_answers');
   }
 

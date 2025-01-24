@@ -29,6 +29,6 @@
   },
   "require": {
     "drupal/webform": "^6.0",
-    "drupal/fraction": "^2"
+    "drupal/fraction": "^2 || ^3"
   }
 }

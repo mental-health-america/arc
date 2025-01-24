@@ -2,8 +2,8 @@
 
 namespace Drupal\webform_score\Plugin\WebformScore;
 
-use Drupal\Core\TypedData\TypedDataInterface;
 use Drupal\Core\TypedData\TraversableTypedDataInterface;
+use Drupal\Core\TypedData\TypedDataInterface;
 
 /**
  * Score is based on the maximum value from a set of scores.

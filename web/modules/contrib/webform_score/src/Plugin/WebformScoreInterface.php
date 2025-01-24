@@ -3,7 +3,6 @@
 namespace Drupal\webform_score\Plugin;
 
 use Drupal\Component\Plugin\ConfigurableInterface;
-use Drupal\Component\Plugin\ConfigurablePluginInterface;
 use Drupal\Component\Plugin\PluginInspectionInterface;
 use Drupal\Core\TypedData\TypedDataInterface;
 

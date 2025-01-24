@@ -93,34 +93,17 @@ trait QuizTrait {
       ],
     ];
 
-    $score_plugin = $form_state->getValue('webform_score_plugin');
-    $current_score_plugin = $properties['webform_score_plugin'];
-
-    // Fixing issue for scoring methodology form not getting created.
-    $score_methodology_option = $score_plugin;
-    if (empty($score_plugin) && !empty($current_score_plugin)) {
-      $score_methodology_option = $current_score_plugin;
-    }
+    $score_methodology_option = $properties['webform_score_plugin'] ?: $form_state->getValue('webform_score_plugin');
+    $current_plugin_config = $properties['webform_score_plugin_configuration'] ?: $form_state->getValue('webform_score_plugin_configuration') ?: [];
 
     try {
-      // Get current plugins and its configurations.
-      $current_plugin_config = [];
-      if ((empty($score_plugin) || ($score_plugin == $current_score_plugin)) &&
-        !empty($properties['webform_score_plugin_configuration'])) {
-
-        $current_plugin_config = $properties['webform_score_plugin_configuration'];
-      }
-
       if (!empty($score_methodology_option)) {
-        $plugin = $this->createWebformScorePlugin($this->configuration, $score_methodology_option);
+        $plugin = $this->createWebformScorePlugin($score_methodology_option, $current_plugin_config);
         if ($plugin instanceof PluginFormInterface) {
           $form['webform_score']['webform_score_plugin_configuration'] = [
             '#tree' => TRUE,
             '#parents' => ['properties', 'webform_score_plugin_configuration'],
           ];
-
-          // Set current plugins and its configurations in form_state to capture it later.
-          $form_state->set('current_plugin_config', $current_plugin_config);
 
           $sub_form_state = SubformState::createForSubform($form['webform_score']['webform_score_plugin_configuration'], $form, $form_state);
           $form['webform_score']['webform_score_plugin_configuration'] += $plugin->buildConfigurationForm([], $sub_form_state);
@@ -147,10 +130,18 @@ trait QuizTrait {
    * A method from WebformElementInterface::validateConfigurationForm().
    */
   public function validateConfigurationForm(array &$form, FormStateInterface $form_state) {
+    $user_input = $form_state->getUserInput();
+    if (isset($user_input['properties'])) {
+      $properties = $user_input['properties'];
+    }
+    else {
+      $properties = $form_state->get('element_properties');
+    }
+
     parent::validateConfigurationForm($form, $form_state);
 
     // Fixing issue for scoring methodology form not getting created.
-    if (empty($form_state->getValue('webform_score_plugin'))) {
+    if (empty($properties['webform_score_plugin'])) {
       if (array_key_exists('maximum', $this->webformScoreManager->pluginOptionsCompatibleWith($this->getAnswerDataTypeId()))) {
         $score_methodology_option = 'maximum';
       }
@@ -159,11 +150,11 @@ trait QuizTrait {
       }
     }
     else {
-      $score_methodology_option = $form_state->getValue('webform_score_plugin');
+      $score_methodology_option = $properties['webform_score_plugin'];
     }
 
     try {
-      $plugin = $this->createWebformScorePlugin($this->configuration, $score_methodology_option);
+      $plugin = $this->createWebformScorePlugin($score_methodology_option, $properties['webform_score_plugin_configuration'] ?? []);
 
       if ($plugin instanceof PluginFormInterface) {
         $sub_form_state = SubformState::createForSubform($form['properties']['webform_score']['webform_score_plugin_configuration'], $form, $form_state->getCompleteFormState());
@@ -182,7 +173,8 @@ trait QuizTrait {
     parent::submitConfigurationForm($form, $form_state);
 
     try {
-      $plugin = $this->createWebformScorePlugin($this->configuration, $form_state->getValue('webform_score_plugin'));
+      $score_methodology_option = $form_state->getValue('webform_score_plugin');
+      $plugin = $this->createWebformScorePlugin($score_methodology_option, $form_state->get('webform_score_plugin_configuration') ?? []);
 
       if ($plugin instanceof PluginFormInterface) {
         $sub_form_state = SubformState::createForSubform($form['properties']['webform_score']['webform_score_plugin_configuration'], $form, $form_state->getCompleteFormState());
@@ -218,7 +210,8 @@ trait QuizTrait {
     $max_score = 0;
 
     try {
-      $max_score = $this->createWebformScorePlugin($element)->getMaxScore();
+      $max_score = $this->createWebformScorePlugin($element['#webform_score_plugin'], $element['#webform_score_plugin_configuration'])
+        ->getMaxScore();
     }
     catch (PluginException $e) {
       $this->logException($e);
@@ -234,7 +227,8 @@ trait QuizTrait {
     $score = 0;
 
     try {
-      $score = $this->createWebformScorePlugin($element)->score($this->getAnswer($element, $webform_submission));
+      $score = $this->createWebformScorePlugin($element['#webform_score_plugin'], $element['#webform_score_plugin_configuration'])
+        ->score($this->getAnswer($element, $webform_submission));
     }
     catch (PluginException $e) {
       $this->logException($e);
@@ -275,25 +269,20 @@ trait QuizTrait {
   /**
    * Create an instance of the underlying webform score plugin.
    *
-   * @param array $element
-   *   Webform element whose score plugin to create.
    * @param string|null $plugin_id
    *   In case you want to force creating of a particular webform score plugin
    *   instead of the one written in $element, supply the plugin ID here.
+   * @param array $configuration
+   *   The configuration to use for the plugin.
    *
    * @return \Drupal\webform_score\Plugin\WebformScoreInterface
-   *   Instance of the webform score plugin, initialized with the configuration
-   *   stored in the provided $element.
+   *   Instance of the webform score plugin, initialized with the configuration.
    *
    * @throws \Drupal\Component\Plugin\Exception\PluginException
    *   Thrown when plugin cannot be created.
    */
-  protected function createWebformScorePlugin(array $element, $plugin_id = NULL) {
-    if (!$plugin_id) {
-      $plugin_id = $this->getElementProperty($element, 'webform_score_plugin');
-    }
-
-    return $this->webformScoreManager->createInstance($plugin_id, $this->getElementProperty($element, 'webform_score_plugin_configuration'));
+  protected function createWebformScorePlugin(string $plugin_id, array $configuration = []) {
+    return $this->webformScoreManager->createInstance($plugin_id, $configuration);
   }
 
   /**
